@@ -5,7 +5,7 @@
 **Status of this file:** draft
 
 ## Summary
-Vanilla survival systems stay as they are unless this file says otherwise (pillar "stay a Minecraft game"). Changes so far: players go down instead of dying and can be revived by teammates; items go into a private grave on death; beds become rare heal and respawn points, found in safe spots or given by the story.
+Vanilla survival systems stay as they are unless this file says otherwise (pillar "stay a Minecraft game"). Changes so far: players go down instead of dying and can be revived by teammates; items go into a private grave on death; beds become rare heal and respawn points, found in safe spots or given by the story; days last 16 minutes and nights 8.
 
 ## Requirements
 
@@ -97,7 +97,21 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Acceptance criteria:**
 - [ ] Safe spots appear along the way, each with a bed already placed that works as a respawn and heal point.
 - [ ] Some safe spots on Earth are guarded by friendly redneck defenders.
-- [ ] Enemies can't overrun a defended safe spot, except where the story makes it fall.
+- [ ] No safe spot, defended or not, can be overrun by enemies or hordes, except where the story makes it fall (ENEMY-007).
 
 **Open questions:** Q-062
 **Notes:** Your words: "They only would be overrun when the story tells so." Placement of safe spots belongs in the world spec (WORLD).
+
+### SURV-007 — Longer days, shorter nights
+**Status:** draft
+**Priority:** must
+
+**Description:** A full day lasts 24 minutes: 16 minutes of day and 8 minutes of night (vanilla: about 10 minutes of day and 7 of night).
+
+**Acceptance criteria:**
+- [ ] Daytime lasts 16 real minutes.
+- [ ] Nighttime lasts 8 real minutes.
+- [ ] Sleeping still skips the night (SURV-005).
+
+**Open questions:**
+**Notes:** Decided 2026-11-01. Vanilla has no setting for day length, so this needs a mod or our own code. Zombie behavior by time of day is in ENEMY-001 to ENEMY-003.

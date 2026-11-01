@@ -24,13 +24,13 @@ This is a large modpack which brings a new experience after years of playing mod
 ## Target players
 Modded survival veterans. Did u play every mod already ? here is another big one lets try.
 
-Designed and balanced first for a two-player team. Enemy and boss strength scales with the number of players, so solo and bigger groups still work (Q-001, Q-046).
+Optimised for three-player teams, while supporting any reasonable team size (solo up to four or more). Enemy and boss strength scales with the number of players (Q-001, Q-046). Changed 2026-11-01 from "two players first".
 
 ## Scope (in)
 - Story questline with allies, enemies and special fights (real-time combat, not turn-based); see `20-story.md`
 - Factions (military, raiders, an unknown group) with changing attitudes, and optional quests with choices
 - Cutscenes made in-game, in Minecraft's look
-- Specialisation skills, balanced around two-player teams
+- Specialisation skills, balanced around three-player teams
 - Combat built on vanilla, plus a dodge roll and trinkets with fighting abilities (see `38-combat.md`)
 - **Version 1: Earth and the Moon** (the Moon is an alien mini base with clues, no magic; STORY-017)
 - World: generated vanilla-style terrain, split into size-limited districts with unique structures; travel between safe spots (see `25-world.md`)
@@ -42,7 +42,7 @@ Designed and balanced first for a two-player team. Enemy and boss strength scale
 - Multiple planets, each with a theme and difficulty; planets stack — new ones add on top, open-ended
 - Earth: zombie apocalypse with hordes and specialised mutated zombies (Left 4 Dead flavour)
 - Guns (not easy to craft), melee/ranged weapons, armor — limited count, each meaningful
-- Enemies with abilities, perks and counters, plus an in-game enemy tracker
+- Enemies with abilities, perks and counters, plus an in-game enemy tracker (see `30-enemies.md`)
 - Base fortification; enemies can attack bases in a balanced way
 - Tech/automation that is not overpowered
 - Backpacks (details: Q-026)

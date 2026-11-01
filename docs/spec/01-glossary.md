@@ -13,6 +13,11 @@
 | District | A size-limited dimension within a planet, with its own biomes, enemies, tone and unique structures; opened by the story. | TBD |
 | Tusk group | Faction led by Elon Tusk: rednecks and rich people fighting side by side; allies of the team. | — |
 | Mini chicken | Small chicken alien that uses guns picked up on Earth. | TBD |
+| Special zombie | A zombie with one clear ability and a counter (e.g. the Rallier). | TBD |
+| Rallier | Special zombie that makes nearby zombies faster. | TBD |
+| Hardening material *(name TBD)* | Alien material that hardens blocks so enemies can't break them; not early game, only from the aliens. | TBD |
+| Horde night | A night when a big horde attacks the team's base; equally strong each time within a district. | — |
+| Enemy tracker | In-game lookup of encountered enemies, with abilities and counters. | TBD |
 | Nether (overhauled) | A scary underworld dimension, medium-hard, opened near the rocket; source of the last rocket fuel ingredient. | minecraft:the_nether |
 | Unminable block | One of several special block types used in protected structures; can't be mined and looks unlike any vanilla block. | TBD |
 | Faction | An organised group (e.g. the military, raiders) whose attitude toward each team can change. | — |

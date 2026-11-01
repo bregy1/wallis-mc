@@ -114,7 +114,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] The enemies that spawn at a place depend mainly on its location (planet, and areas within it: Q-029).
 - [ ] Some enemy types spawn only after a defined tier has been reached (whose tier counts: Q-010).
 - [ ] A team that idles for many in-game days without progressing doesn't face rising difficulty.
-- [ ] The game is balanced first for two players; enemy and boss strength scales with each additional player (which players count: Q-046).
+- [ ] The game is optimised for three players and supports any reasonable team size, from solo to four or more; enemy and boss strength scales per player (which players count: Q-046).
 - [ ] What scales is defined per enemy or boss type (e.g. health for one boss, damage for another), whatever suits that type.
 
 **Open questions:** Q-010, Q-029, Q-030, Q-046
@@ -169,18 +169,18 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Open questions:** Q-022, Q-023
 **Notes:** Decided 2026-11-01 (answer to Q-015). Ties together story, base defense and special zombies. Siege makeup belongs in the enemy spec.
 
-### PROG-011 — Specialisations, balanced for two-player teams
+### PROG-011 — Specialisations, balanced for three-player teams
 **Status:** draft
 **Priority:** should
 
-**Description:** Later in progression, each player picks a specialisation. Some later content requires a specialisation. The system is balanced around two-player teams: a team of three gets no real extra benefit from its third player's specialisation.
+**Description:** Later in progression, each player picks a specialisation. Some later content requires a specialisation. The system is balanced around three-player teams (see Q-088 for what bigger teams get).
 
 **Acceptance criteria:**
 - [ ] Specialisations unlock at a defined point in progression (when, how many, changing them: Q-042).
 - [ ] Some later content requires a specific specialisation.
-- [ ] A two-player team can cover every specialisation that content requires.
-- [ ] A team of three gets no extra specialisation benefit compared with a team of two.
-- [ ] Solo players are handled as defined in Q-043.
+- [ ] A three-player team can cover every specialisation that content requires.
+- [ ] What a fourth or later player adds follows Q-088.
+- [ ] Solo players and smaller teams are handled as defined in Q-043.
 
-**Open questions:** Q-042, Q-043
-**Notes:** Your words: "make sure that it is balanced around 2 player teams. 3 player teams dont really benefit from it later."
+**Open questions:** Q-042, Q-043, Q-088
+**Notes:** Originally: "balanced around 2 player teams. 3 player teams dont really benefit from it later." Changed 2026-11-01 with your new team-size target: "Optimise for 3 players but want to support any reasonable number."

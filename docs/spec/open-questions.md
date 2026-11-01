@@ -2,7 +2,7 @@
 
 | ID | Question | Affects | Status |
 |---|---|---|---|
-| Q-001 | Who is the target player, and what team size is the game balanced for? | Overview, balancing, PROG-011 | answered: modded survival veterans; balanced first for two players, enemy/boss strength scales with player count |
+| Q-001 | Who is the target player, and what team size is the game balanced for? | Overview, balancing, PROG-011 | answered: modded survival veterans; optimised for three players, any reasonable team size supported, enemy/boss strength scales with player count (changed 2026-11-01 from two players) |
 | Q-002 | Are mini-games in scope? If yes, what kind, and how do they tie into progression? | Overview | open |
 | Q-003 | What does "locked" mean for an item? | PROG-002 | answered: obtain yes, use no, craft no, shown grayed with info |
 | Q-004 | What exactly is in the starter set at the beginning? | PROG-002 | open |
@@ -26,7 +26,7 @@
 | Q-022 | Launch defense: how long is the siege, and what happens if it fails (rocket damaged, retry, cooldown)? | PROG-010 | open |
 | Q-023 | Launch: do all team members travel together, and do they need to be present? | PROG-010 | open |
 | Q-024 | Are point unlocks tied to tiers (each tier adds new items to buy), or is everything buyable from the start at rising prices? | PROG-005 | open |
-| Q-025 | Which vanilla systems stay unchanged? | Overview, PROG-009, SURV | partly answered: hunger and sleeping through the night stay vanilla; death and beds change (SURV-001–005). Still open: health regen, vanilla XP and enchanting, villagers…; also whether player XP (PROG-009) is separate from vanilla XP (Q-021) |
+| Q-025 | Which vanilla systems stay unchanged? | Overview, PROG-009, SURV | partly answered: hunger, sleeping through the night and potion brewing stay vanilla (new effects can be added); death, beds and day length change (SURV-001–007). Still open: health regen, vanilla XP and enchanting, villagers…; also whether player XP (PROG-009) is separate from vanilla XP (Q-021) |
 | Q-026 | Backpacks: confirm they're point unlocks (listed as a quality-of-life example in PROG-005). Sizes or upgrades? Use an existing backpack mod or our own? Can locked items be stored in them? | Overview, PROG-002, PROG-005 | open |
 | Q-027 | Salvaging limit: a daily cap, diminishing returns per item type, or something else? | PROG-005 | open |
 | Q-028 | When a player leaves a team, do they get a copy of the team's points too, or start at 0? (Copying points would let players duplicate them.) | PROG-006 | open |
@@ -79,3 +79,16 @@
 | Q-075 | Nether: how do players get in (a vanilla portal the story unlocks, or something else)? Size limit like districts? Keep vanilla Nether biomes and mobs, replace them, or mix? | WORLD-008 | open |
 | Q-076 | Removing the End also removes elytra, shulker boxes, end crystals and chorus fruit. Drop them, or make them obtainable another way? | WORLD-007 | open |
 | Q-077 | Cast: which parody characters, army characters and weirdos from 20-story.md do we keep? | STORY | open |
+| Q-078 | Zombie speeds by day and night (proposal: vanilla speed by day, about 30% faster at night)? How much faster does a Rallier make zombies around it, and how far does that reach? | ENEMY-001 | open |
+| Q-079 | Horde nights: how often? In which districts? | ENEMY-006 | partly answered: every 7th night; counter per player, per team when online together. Still open: in which districts |
+| Q-080 | Noise: which actions count as loud, and how far does the noise carry? | ENEMY-006 | open |
+| Q-081 | Enemy status effects: which effects at which tier, and how likely are combinations (proposal: early tiers 10% chance of one weak effect; combos only from tier 3, and rare)? | ENEMY-004 | open |
+| Q-082 | Which special zombies do we keep, and in which tiers? | ENEMY-009 | partly answered: I picked and designed ten for version 1 on your request (Rallier, Crawler, Hound, Bloater, Pouncer, Moonshiner, Strangler, Spitter, Brute, Weeper); Screamer and Bull in reserve. Still open: your veto and the numbers |
+| Q-083 | Enemy tracker: do entries fill in on first sighting, after kills, or with a scanner item? Is it a book, a screen, something else? | ENEMY-010 | open |
+| Q-084 | Which bosses do we keep? | ENEMY-011 | partly answered: you left the design to me; seven bosses designed in 30-enemies.md (Hog Daddy, Raider King, General Hargrove, Sister Velvet, The Mountain, The Ashen Hunter, Colonel Cluck). Still open: your veto |
+| Q-085 | Raiders: do they attack the base too (and when), or only meet you out in the world? | ENEMY-008, BASE | open |
+| Q-086 | How deadly are early nights? | ENEMY-003 | answered: impossible without gear, hard with gear; a quest key item (trinket) makes night enemies ~10% weaker |
+| Q-087 | Horde night counters: when teammates with different counters come online together, which counter counts (lowest, highest, a shared team counter)? Do days only count while a player is online? | ENEMY-006 | open |
+| Q-088 | Specialisations after the team-size change: three specialisations, one per player in a team of three? What does a fourth player add (a duplicate, or nothing extra)? | PROG-011 | open |
+| Q-089 | Boss fights: how do we make them good in Minecraft? | ENEMY-011 | answered: sealed arenas, ground telegraphs, one signature twist per boss (some as minigame phases); some hitting is fine |
+| Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |
