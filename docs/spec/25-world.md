@@ -43,6 +43,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Description:** A district becomes available when the story opens it. Players actively choose to go there from a map.
 
 **Acceptance criteria:**
+- [ ] Earth has four districts, one per tier (PROG-008).
 - [ ] Each district has a story condition that opens it for a team.
 - [ ] At a safe spot, players can open a map of districts and travel to any district their team has opened.
 - [ ] Districts that aren't open yet are visible on the map but can't be selected.
@@ -57,9 +58,11 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Description:** Players can travel from one safe spot (SURV-006) to another.
 
 **Acceptance criteria:**
-- [ ] From a safe spot, a player can travel to another safe spot (which ones, any cost or cooldown: Q-067).
+- [ ] From a safe spot, a player can travel to any other safe spot their team has visited.
+- [ ] Travel is free.
+- [ ] Travel isn't possible while in combat (hit or attacking in the last 10 seconds).
 
-**Open questions:** Q-067
+**Open questions:**
 **Notes:** Your words: "safe spot to other safe spot travel is possible."
 
 ### WORLD-005 — Every structure is unique
@@ -144,3 +147,31 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 
 **Open questions:** Q-074
 **Notes:** Your question "we have to balance that in as well?": yes. What a district can mine paces progression just as much as what's locked.
+
+### WORLD-011 — Personal loot chests
+**Status:** draft
+**Priority:** must
+
+**Description:** Loot chests in structures are personal: every player gets their own contents from each chest, so nobody misses out because a teammate opened it first.
+
+**Acceptance criteria:**
+- [ ] Each player who opens a loot chest sees their own contents, rolled for them.
+- [ ] What one player takes doesn't change what another player finds in the same chest.
+- [ ] Whether loot chests ever refill follows Q-106.
+
+**Open questions:** Q-106
+**Notes:** Your words: "please personalise loot chests".
+
+### WORLD-012 — Home bases
+**Status:** draft
+**Priority:** must
+
+**Description:** The team builds its first home in district 1 (the "create first home" quest). After that, teams may build bases in any district they've opened. Each player's home is wherever their bed is (SURV-005).
+
+**Acceptance criteria:**
+- [ ] The first home quest takes place in district 1.
+- [ ] Teams can build in any opened district.
+- [ ] A player's horde night (ENEMY-006) attacks the base around that player's bed. When team members are online together, it attacks the team's shared base: the bed most of them use.
+
+**Open questions:**
+**Notes:** Decided 2026-11-01 (answers to Q-066, Q-107). Since every structure exists only once (WORLD-005), personal loot keeps exploring worthwhile for every team member. Candidate mod: Lootr (license still to check).

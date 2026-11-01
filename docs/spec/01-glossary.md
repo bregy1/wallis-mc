@@ -15,6 +15,7 @@
 | Mini chicken | Small chicken alien that uses guns picked up on Earth. | TBD |
 | Special zombie | A zombie with one clear ability and a counter (e.g. the Rallier). | TBD |
 | Rallier | Special zombie that makes nearby zombies faster. | TBD |
+| Garage | A building at safe spots that stores vehicles and hands them out through a terminal; usable everywhere once powered. | TBD |
 | Hardening material *(name TBD)* | Alien material that hardens blocks so enemies can't break them; not early game, only from the aliens. | TBD |
 | Horde night | A night when a big horde attacks the team's base; equally strong each time within a district. | — |
 | Enemy tracker | In-game lookup of encountered enemies, with abilities and counters. | TBD |
@@ -22,7 +23,8 @@
 | Unminable block | One of several special block types used in protected structures; can't be mined and looks unlike any vanilla block. | TBD |
 | Faction | An organised group (e.g. the military, raiders) whose attitude toward each team can change. | — |
 | Unknown group *(name TBD)* | A mysterious group on Earth, later revealed to be connected to the aliens behind the infection. | — |
-| Specialisation | A skill path a player picks later in progression; some content requires one. | — |
+| Skill tree | Per-player tree of capped stat upgrades (health, regeneration, movement…), split into sub-trees by category; points come from player levels. | — |
+| Specialist sub-tree | One of four special sub-trees in the skill tree; each player unlocks two through quests. | — |
 | Downed | The state a player enters instead of dying: crawling, a 10-shot pistol, ignored by enemies, revivable by teammates for 90 seconds or give up to respawn. | — |
 | Safe spot *(name TBD)* | A place along the way with a bed already placed (respawn and heal point); some are guarded by friendly redneck defenders. | — |
 | Grave | A container left where a player died, holding their items; only that player can open it. | TBD |

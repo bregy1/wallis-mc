@@ -30,7 +30,7 @@ Optimised for three-player teams, while supporting any reasonable team size (sol
 - Story questline with allies, enemies and special fights (real-time combat, not turn-based); see `20-story.md`
 - Factions (military, raiders, an unknown group) with changing attitudes, and optional quests with choices
 - Cutscenes made in-game, in Minecraft's look
-- Specialisation skills, balanced around three-player teams
+- A compact character skill tree (capped stats) with four specialist sub-trees, two per player, solo-friendly
 - Combat built on vanilla, plus a dodge roll and trinkets with fighting abilities (see `38-combat.md`)
 - **Version 1: Earth and the Moon** (the Moon is an alien mini base with clues, no magic; STORY-017)
 - World: generated vanilla-style terrain, split into size-limited districts with unique structures; travel between safe spots (see `25-world.md`)
@@ -44,7 +44,9 @@ Optimised for three-player teams, while supporting any reasonable team size (sol
 - Guns (not easy to craft), melee/ranged weapons, armor — limited count, each meaningful
 - Enemies with abilities, perks and counters, plus an in-game enemy tracker (see `30-enemies.md`)
 - Base fortification; enemies can attack bases in a balanced way
-- Tech/automation that is not overpowered
+- Tech/automation that is not overpowered, all electric (see `55-tech.md`)
+- Transport: safe spot teleport, horses, electric aircraft later (see `68-transport.md`)
+- Slow-scaling storage and vanilla-style cooking
 - Backpacks (details: Q-026)
 - Vanilla survival systems such as hunger stay unchanged, except as listed in `60-survival.md`
 - Downed state with team revives, private graves, and beds as rare heal and respawn points

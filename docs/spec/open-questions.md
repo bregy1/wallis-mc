@@ -5,7 +5,7 @@
 | Q-001 | Who is the target player, and what team size is the game balanced for? | Overview, balancing, PROG-011 | answered: modded survival veterans; optimised for three players, any reasonable team size supported, enemy/boss strength scales with player count (changed 2026-11-01 from two players) |
 | Q-002 | Are mini-games in scope? If yes, what kind, and how do they tie into progression? | Overview | open |
 | Q-003 | What does "locked" mean for an item? | PROG-002 | answered: obtain yes, use no, craft no, shown grayed with info |
-| Q-004 | What exactly is in the starter set at the beginning? | PROG-002 | open |
+| Q-004 | What exactly is in the starter set at the beginning? | PROG-002 | answered: wood and stone tier (tools, weapons, bows, crafting table, furnace, torches, chests, campfire, basic food) |
 | Q-005 | How many tiers does Earth have, and what does each tier cover? | PROG-008 | answered: 4 tiers (PROG-008) |
 | Q-006 | What are utility points called, and how are they earned? | PROG-005 | partly answered: sources are leveling, quests, enemy discoveries, exploration, salvaging; name still open |
 | Q-007 | Which kinds of items are point unlocks rather than story unlocks? | PROG-005 | answered: quality of life, mobility, scouting and info, base defense extras |
@@ -43,17 +43,17 @@
 | Q-039 | What is the unknown group really? | STORY-007 | answered: cult of human collaborators led by disguised aliens |
 | Q-040 | When and how do the aliens follow to later planets? Does every later planet get infected? | STORY-008 | open |
 | Q-041 | Cutscenes: can they be skipped? In multiplayer, who sees them, and what happens in the world meanwhile? | STORY-010 | partly answered: team members take part together, some need the whole team present. Still open: skipping, and what happens in the world (enemies, other players) during a cutscene |
-| Q-042 | Specialisations: when do they unlock, how many are there, and can players change them? | PROG-011 | open |
-| Q-043 | Solo players: how do they get content that needs a specialisation (pick more than one, an NPC helper, or go without)? | PROG-011 | open |
+| Q-042 | Specialist sub-trees: what are the four themes and names, which quests unlock them, and can a player ever swap one? | PROG-011 | partly answered: four trees, two per player via specific quests. Still open: themes, quests, swapping |
+| Q-043 | Solo players and specialisation content? | PROG-011 | answered: a solo player can finish the main story with any two trees; specialisation-only content is optional |
 | Q-044 | Do allies move into the player's base (like Terraria's NPCs), or live in their own places? | STORY-003, BASE | open |
 | Q-045 | In a team, who picks conversation replies? | STORY-002, STORY-005 | answered: one present team member, picked at random each time |
 | Q-046 | Player-count scaling: which players count, and what scales? | PROG-007, balancing spec | partly answered: scales per player; what scales is chosen per enemy/boss type. Still open: which players count (everyone nearby, only those in the fight, only the team?) and how big each step is |
-| Q-047 | dying.md said a downed player waits "like 30 seconds"; your latest answer says 90. Is 90 seconds the only timer, or do the 30 seconds still mean something (e.g. a minimum wait before a revive is possible)? | SURV-001 | open |
+| Q-047 | 30 or 90 seconds for the downed window? | SURV-001 | answered: 90 seconds is the only timer |
 | Q-048 | How do enemies treat a downed player? | SURV-001 | answered: they ignore them |
-| Q-049 | Downed and revive numbers. | SURV-001, SURV-002 | partly answered: downed players get a simple 10-shot pistol. Still open (proposals): crawl at vanilla crawling speed; revive takes 3.5 seconds; revived players get back up with half health |
+| Q-049 | Downed and revive numbers. | SURV-001, SURV-002 | answered: 10-shot pistol, vanilla crawl speed, 3.5-second revive, back up at half health |
 | Q-050 | Can a downed player give up and respawn early? Solo players? | SURV-001 | answered: yes, with a button press; solo follows the same rules |
-| Q-051 | Which deaths skip the downed state (falling into the void, lava, /kill)? | SURV-001 | open |
-| Q-052 | Beds: how do players get them, how do they heal, where can't they be placed? | SURV-005 | partly answered: not craftable at the start; found in safe spots; every player gets one from the story for the first home. Still open: how healing works (full heal on sleep, or on right-click); where beds can't be placed; whether and when crafting unlocks |
+| Q-051 | Which deaths skip the downed state? | SURV-001 | answered: void, lava, /kill |
+| Q-052 | Beds: how do players get them, how do they heal, where can they be placed? | SURV-005 | answered: sleeping fully heals; one bed per player per planet (from a quest on each planet) plus safe spot beds; never craftable |
 | Q-053 | Graves: after 20 minutes, are the items lost or dropped on the ground? Where does the grave go if the player died in lava or the void? Does vanilla XP go in too? | SURV-004 | open |
 | Q-054 | How do teammates notice someone is downed and how much time is left (marker, sound, HUD)? | SURV-001 | open |
 | Q-055 | Dodge roll details. | CMBT-002 | partly answered: forward roll only, default key T, chat moves to Enter. Still open: how far, what cooldown, any cost (hunger)? Immune to damage during the roll? |
@@ -66,8 +66,8 @@
 | Q-062 | Safe spots: how many, and where (every district, along story routes)? Can any team use the bed there, or only one team at a time? Do the redneck defenders give quests or trade? | SURV-006, WORLD | open |
 | Q-063 | What does version 1 include? | Overview, roadmap, all areas | answered: Earth and the Moon (alien mini base) |
 | Q-064 | Which weapons from the idea pool in 40-gear.md do we keep, and which weapon mods do we use? | GEAR | open |
-| Q-065 | District size, number of districts, and how they map to tiers. | WORLD-002, WORLD-003 | partly answered: 2,000 x 2,000 for now. Still open: how many districts Earth has in version 1, and how they map to the four tiers |
-| Q-066 | Where is the team's home base, and which vanilla dimensions are used? | WORLD-002, BASE | partly answered: no End; the Nether stays as an overhaul (WORLD-008). Still open: where the home base is (which district), and whether vanilla's Overworld is used at all |
+| Q-065 | District size, number of districts, and how they map to tiers. | WORLD-002, WORLD-003 | answered: 2,000 x 2,000; four Earth districts, one per tier |
+| Q-066 | Where is the team's home base, and which vanilla dimensions are used? | WORLD-012, BASE | answered: first home in district 1, bases allowed in any opened district, horde nights hit the home bed's base; no End, Nether overhauled. Whether the vanilla Overworld serves as district 1 is a technical choice Claude proposes at setup |
 | Q-067 | Safe spot travel: only to spots you've visited? Any cost or cooldown? Blocked during fights? | WORLD-004 | open |
 | Q-068 | Are vanilla structures turned off? Do caves and ores stay as in vanilla? | WORLD-001, WORLD-005 | answered: vanilla structures removed; ores adjusted per district (WORLD-010, Q-074) |
 | Q-069 | Unminable blocks: names and looks (proposals: Reinforced Concrete, Rebar Mesh, Alien Alloy)? Immune to explosions? Can players ever get them for their own base? | WORLD-006 | open |
@@ -83,13 +83,13 @@
 | Q-079 | Horde nights: how often? In which districts? | ENEMY-006 | partly answered: every 7th night; counter per player, per team when online together. Still open: in which districts |
 | Q-080 | Noise: which actions count as loud, and how far does the noise carry? | ENEMY-006 | open |
 | Q-081 | Enemy status effects: which effects at which tier, and how likely are combinations (proposal: early tiers 10% chance of one weak effect; combos only from tier 3, and rare)? | ENEMY-004 | open |
-| Q-082 | Which special zombies do we keep, and in which tiers? | ENEMY-009 | partly answered: I picked and designed ten for version 1 on your request (Rallier, Crawler, Hound, Bloater, Pouncer, Moonshiner, Strangler, Spitter, Brute, Weeper); Screamer and Bull in reserve. Still open: your veto and the numbers |
+| Q-082 | Which special zombies do we keep, and in which tiers? | ENEMY-009 | partly answered: I picked and designed ten for version 1 on your request (Rallier, Crawler, Hound, Bloater, Pouncer, Moonshiner, Strangler, Spitter, Brute, Weeper); Screamer and Bull in reserve. Tier 1 (Rallier, Crawler, Hound) confirmed for Chapter 1. Still open: your veto on tiers 2–3, and the numbers |
 | Q-083 | Enemy tracker: do entries fill in on first sighting, after kills, or with a scanner item? Is it a book, a screen, something else? | ENEMY-010 | open |
-| Q-084 | Which bosses do we keep? | ENEMY-011 | partly answered: you left the design to me; seven bosses designed in 30-enemies.md (Hog Daddy, Raider King, General Hargrove, Sister Velvet, The Mountain, The Ashen Hunter, Colonel Cluck). Still open: your veto |
+| Q-084 | Which bosses do we keep? | ENEMY-011 | partly answered: you left the design to me; seven bosses designed in 30-enemies.md (Hog Daddy, Raider King, General Hargrove, Sister Velvet, The Mountain, The Ashen Hunter, Colonel Cluck). Hog Daddy confirmed for Chapter 1. Still open: your veto on the others |
 | Q-085 | Raiders: do they attack the base too (and when), or only meet you out in the world? | ENEMY-008, BASE | open |
 | Q-086 | How deadly are early nights? | ENEMY-003 | answered: impossible without gear, hard with gear; a quest key item (trinket) makes night enemies ~10% weaker |
 | Q-087 | Horde night counters: when teammates with different counters come online together, which counter counts (lowest, highest, a shared team counter)? Do days only count while a player is online? | ENEMY-006 | open |
-| Q-088 | Specialisations after the team-size change: three specialisations, one per player in a team of three? What does a fourth player add (a duplicate, or nothing extra)? | PROG-011 | open |
+| Q-088 | Specialisations after the team-size change? | PROG-011 | answered: four specialist trees, two per player; teams cover more between them |
 | Q-089 | Boss fights: how do we make them good in Minecraft? | ENEMY-011 | answered: sealed arenas, ground telegraphs, one signature twist per boss (some as minigame phases); some hitting is fine |
 | Q-091 | History Stages vs. PROG-002's exact rules (picked-up locked items go only to the main inventory; main hand bounces back; grayed recipes with unlock info): what does it do out of the box? Anything missing has to be asked of its author or built around it, since it can't be forked. | PROG-002, PACK-004 | open |
 | Q-092 | Which license does our own mod `wallis_ultimate` get? (Matters if we ever copy GPL/LGPL code into it; forks stay separate jars.) | PACK-002 | open |
@@ -97,4 +97,18 @@
 | Q-094 | Entity Culling: its license forbids use "for commercial advantage or money". Fine for our pack? (Check the terms before adding it.) | PACK-003 | open |
 | Q-095 | Power, tech mod, rocket and Moon without Create? | TECH, PROG-010, STORY-017, PACK-004 | answered: Energized Power for tech and power (trimmed); our own rocket build and Moon dimension |
 | Q-096 | Which Energized Power tiers do we keep (proposal: 3 generators, 2–3 batteries, 2 cables), and which machines? | TECH, PACK-004 | open |
+| Q-097 | Any early mount besides vanilla horses (e.g. a redneck quad bike)? | TRANS-002 | open |
+| Q-098 | From which tier do electric aircraft and electric guns arrive? | TRANS-003, GEAR-005 | partly answered: aircraft later on Earth, in version 1. Still open: the exact tier, and when electric guns arrive |
+| Q-099 | Vehicles and districts: can a vehicle come along to another district? | TRANS-003, TRANS-004 | answered: no; garages at safe spots store vehicles and hand them out (TRANS-004) |
+| Q-100 | Which story machines from the idea pool in 55-tech.md do we keep? | TECH-002 | open |
+| Q-101 | Tom's Simple Storage: which parts unlock at which tier (proposal: chest connectors in tier 2, the terminal in tier 3)? | TECH-004 | open |
+| Q-102 | Immersive Aircraft: which 1–2 aircraft do we keep (proposal: biplane and airship)? Electric via a small GPL fork, or fuel mapped to a charged battery item? | TRANS-003, PACK-004 | open |
+| Q-105 | Diet effects: which benefit and which penalty per food group, and at which levels (proposal: proteins high = more attack damage, low = Weakness; vegetables high = faster healing, low = slower healing; fruits high = +2 max health, low = -2; grains high = more saturation, low = hunger drains faster; sugars high = short speed boost after eating, low = nothing)? Group levels drop slowly (proposal: a full group lasts about 2 in-game days without eating from it), so effects last a reasonable time. | SURV-009 | open |
+| Q-104 | Garages: in every safe spot or only some? Before the "power the garage" quest, can a garage only hand back vehicles stored in that same garage? | TRANS-004 | partly answered: stored vehicles are shared by the team. Still open: which safe spots, and behavior before the power quest |
+| Q-106 | Personal loot chests: loot once per player forever, or do they refill after some time? | WORLD-011 | open |
+| Q-107 | Which bed do horde nights attack? | WORLD-012, ENEMY-006 | answered: each player's own bed; when online together, the bed most team members use |
+| Q-108 | Healing items: which ones and how strong (proposal: Bandage in tier 1, 3 hearts over 5 seconds; First Aid Kit in tier 2; Medkit in tier 3; Stim shot later)? | SURV-010 | open |
+| Q-109 | Skill tree: where do skill points come from, and how strong can it get? | PROG-012, PROG-009 | answered: one skill point per level; capped at roughly +6 hearts, +15% speed, +50% regen |
+| Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
+| Q-103 | Farmer's Delight's Nourishment buff (reportedly pauses hunger drain): keep, weaken, or remove? | SURV-008 | open |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

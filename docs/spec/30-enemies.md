@@ -90,7 +90,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Acceptance criteria:**
 - [ ] Loud actions (gunfire, chainsaws, explosions…) pull nearby zombies toward the noise (details: Q-080).
 - [ ] Scripted story hordes happen at key moments (e.g. the launch defense, PROG-010).
-- [ ] Every 7th in-game night is a horde night, sending a big attack at the team's base.
+- [ ] Every 7th in-game night is a horde night, sending a big attack at a player's base (which base: WORLD-012).
 - [ ] The horde night counter runs per player. When team members are online together, the counter is per team (how counters combine: Q-087).
 - [ ] In a given district, a horde night is equally strong each time (PROG-007).
 

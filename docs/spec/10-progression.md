@@ -30,7 +30,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Description:** At the start, only a small starter set of items can be crafted and used (e.g. basic swords and bows). Everything else is locked until the team unlocks it. A locked item can be obtained and carried, but not used or crafted.
 
 **Acceptance criteria:**
-- [ ] A new team can craft and use only the starter set defined for the first tier.
+- [ ] A new team can craft and use only the starter set: wood and stone tools and weapons, bows and arrows, crafting table, furnace, torches, chests, campfire and basic food. Iron and everything beyond unlocks through the story.
 - [ ] Locked items can be picked up. They go only into the 27 main inventory slots, never the hotbar. If those slots are full, the item stays on the ground.
 - [ ] If a locked item ends up in the main hand (e.g. moved to the hotbar and selected), it moves back into the main inventory, or drops at the player's feet if that is full.
 - [ ] Offhand and armor slots don't accept locked items, and locked blocks can't be placed (right-click does nothing).
@@ -41,8 +41,8 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] Machines (furnaces and other mods' machines included) are gated by being locked items themselves. Once placed, a machine processes its recipes without checking locks.
 - [ ] No machine available in a tier has a recipe whose output belongs to a later tier (machine recipes are curated per tier).
 
-**Open questions:** Q-004
-**Notes:** Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier.
+**Open questions:**
+**Notes:** Starter set decided 2026-11-01 (answer to Q-004). Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier.
 
 ### PROG-003 — Story quests unlock content
 **Status:** draft
@@ -140,20 +140,21 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Open questions:** Q-011, Q-020
 **Notes:** Decided 2026-11-01 (answer to Q-005).
 
-### PROG-009 — Player leveling grants utility points
+### PROG-009 — Player leveling grants utility points and skill points
 **Status:** draft
 **Priority:** should
 
-**Description:** Each player has a level, raised by earning XP from combat and quests. Every level-up adds utility points to the player's team pool. Levels give no stat bonuses, so power stays in gear and tier.
+**Description:** Each player has a level, raised by earning XP from combat and quests. Every level-up adds utility points to the team pool and gives the player one skill point for their skill tree (PROG-012). Levels themselves give no stats; stat growth comes only through the capped skill tree.
 
 **Acceptance criteria:**
 - [ ] Players earn XP from combat and quests (sources and amounts: Q-021).
 - [ ] Each level-up adds a defined number of utility points to the team's pool.
-- [ ] A player's level gives no bonus to health, damage, armor or any other stat.
-- [ ] Level and XP are tracked per player; the points they produce belong to the team.
+- [ ] Each level-up gives the player one skill point (PROG-012).
+- [ ] Level and XP are tracked per player; utility points belong to the team, skill points to the player.
+- [ ] On death, a player loses 50% of their progress toward the next level. Levels already reached are never lost, so skill points are never taken away.
 
 **Open questions:** Q-021
-**Notes:** Decided 2026-11-01 (answer to Q-008).
+**Notes:** Decided 2026-11-01 (answer to Q-008). Changed 2026-11-01 (answer to Q-109): previously "levels give no stat bonuses"; now levels give a skill point for the capped skill tree.
 
 ### PROG-010 — Earth finale: launch defense
 **Status:** draft
@@ -169,18 +170,36 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Open questions:** Q-022, Q-023
 **Notes:** Decided 2026-11-01 (answer to Q-015). Ties together story, base defense and special zombies. Siege makeup belongs in the enemy spec.
 
-### PROG-011 — Specialisations, balanced for three-player teams
+### PROG-011 — Specialist sub-trees, two per player
 **Status:** draft
 **Priority:** should
 
-**Description:** Later in progression, each player picks a specialisation. Some later content requires a specialisation. The system is balanced around three-player teams (see Q-088 for what bigger teams get).
+**Description:** The skill tree (PROG-012) contains four specialist sub-trees. During the game, specific quests let each player unlock two of them in total. A solo player must still be able to make it through the whole game; teams simply cover more specialisations between them.
 
 **Acceptance criteria:**
-- [ ] Specialisations unlock at a defined point in progression (when, how many, changing them: Q-042).
-- [ ] Some later content requires a specific specialisation.
-- [ ] A three-player team can cover every specialisation that content requires.
-- [ ] What a fourth or later player adds follows Q-088.
-- [ ] Solo players and smaller teams are handled as defined in Q-043.
+- [ ] There are four specialist sub-trees (themes and names: Q-042).
+- [ ] Each player can unlock at most two of them, each through a specific quest.
+- [ ] A solo player can complete all main story content with any two specialist trees.
+- [ ] Content tied to a specific specialisation (e.g. optional shortcuts or extra rewards) is never required for the main story.
 
-**Open questions:** Q-042, Q-043, Q-088
-**Notes:** Originally: "balanced around 2 player teams. 3 player teams dont really benefit from it later." Changed 2026-11-01 with your new team-size target: "Optimise for 3 players but want to support any reasonable number."
+**Open questions:** Q-042
+**Notes:** Originally: "balanced around 2 player teams. 3 player teams dont really benefit from it later." Changed 2026-11-01 with the three-player target, then reshaped (answer to Q-110): "Balance wise it is important that single player can still make it! So i would go with specialist trees which get unlocked during the game. So out of maybe 4 we can unlock 2 in total with specific quests." The rule that main content never needs a specific tree follows from "single player can still make it".
+
+### PROG-012 — Character skill tree
+**Status:** draft
+**Priority:** should
+
+**Description:** Each player grows their character through a compact skill tree that raises health, regeneration, movement speed and other character stats. The tree is split into sub-trees, one per category.
+
+**Acceptance criteria:**
+- [ ] Each player has their own skill tree.
+- [ ] The tree has several sub-trees, each covering one category (e.g. health, regeneration, movement).
+- [ ] Skills raise character stats such as max health, regeneration and movement speed.
+- [ ] Each player level-up gives that player one skill point (PROG-009).
+- [ ] Total bonuses are capped at roughly +6 hearts of max health, +15% movement speed and +50% regeneration; other stats and exact caps are set with balancing.
+- [ ] Four specialist sub-trees are part of the tree (PROG-011).
+- [ ] Players can reset their skill tree at any time and freely redistribute all points.
+- [ ] A specialist sub-tree, once unlocked, stays unlocked; resetting only frees the points spent in it.
+
+**Open questions:**
+**Notes:** Your words: "We also want a scaling aspect, so we want a skill tree for making health, regen, move speed and other character stats! I think a compact tree with like different sub trees works fine. Each sub tree being of a category." Decided 2026-11-01 (answers to Q-109, Q-110): skill points from levels, noticeable but capped. PROG-009 changed to match. Your words on resets: "the skilltree to be revertible at any point. Special trees have to be unlocked and are unlocked then, but points can be freely distributed again!"

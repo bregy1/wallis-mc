@@ -71,6 +71,12 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Day length | Hourglass | LGPL-3.0 | Unmodified (sleep behavior: Q-093) | SURV-007 | None found |
 | Minimap and world map | Xaero's Minimap + World Map | ARR, pack use allowed with credit | Unmodified | WORLD-003 | JourneyMap (ARR, pack terms unclear) |
 | Performance | Embeddium, ModernFix, FerriteCore | LGPL-3.0, LGPL-3.0, MIT | Unmodified | PACK-003 | Entity Culling (terms unclear, Q-094) |
+| Storage | Tom's Simple Storage | MIT | Unmodified; its recipes locked by tier (PROG-002) | TECH-004 | Applied Energistics 2 (complex, non-commercial textures); Refined Storage (Forge 1.20.1 build stale since 2023) |
+| Flying vehicles | Immersive Aircraft | GPL-3.0-only | Trimmed to 1–2 aircraft, armed Warship disabled; electric engines via a small GPL fork as a separate jar, or fuel mapped to a charged battery item (Q-102) | TRANS-003 | Our own aircraft |
+| Food | Farmer's Delight | MIT (asset terms unverified) | Unmodified; check its Nourishment buff (Q-103) | SURV-008 | Vanilla food only |
+| Diet | A Balanced Diet | LGPL-3.0-or-later | Unmodified; effects set in its data files (Q-105) | SURV-009 | Spice of Life Onion (variety only, LGPL) |
+| Personal loot chests | Lootr (candidate) | License UNVERIFIED, check before adding | Unmodified | WORLD-011 | Our own per-player loot |
+| Food values on screen | AppleSkin | The Unlicense (public domain) | Unmodified | SURV-009 | None needed |
 | Tech machines and power (generators, batteries, cables) | Energized Power | MIT; some textures credited to flashbulbs (terms unverified); pack use explicitly allowed | Unmodified or MIT fork; power trimmed to a few tiers (which: Q-096) | TECH | Mekanism, Industrial Foregoing (both lean overpowered); own power system |
 
 **Acceptance criteria:**
@@ -100,6 +106,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Bed and safe spot rules | SURV-005, SURV-006 | Our own rules |
 | Story glue (team cutscene triggers, quest hooks) | STORY | Connects FTB Quests, Easy NPC and ImmersiveCinematics |
 | Our invented weapons and the downed pistol | GEAR, SURV-001 | Our own content |
+| Garages: store vehicles and hand them out at safe spots | TRANS-004 | Our own building; it has to save and restore Immersive Aircraft vehicles |
 | The rocket (built as a structure) and the Moon dimension with low gravity | PROG-010, STORY-017, PLANET | Northstar needs Create; Ad Astra's rocket is likely a crafted item and its assets can't be changed. Decided 2026-11-01 |
 
 **Acceptance criteria:**
@@ -123,6 +130,9 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Create: Northstar Redux | Needs Create |
 | Ad Astra | Not chosen: we build our own rocket and Moon |
 | Mekanism, Industrial Foregoing | Lean overpowered |
+| Applied Energistics 2, Refined Storage | Storage picked: Tom's Simple Storage (simpler, can't snowball) |
+| Sophisticated Storage, Ultimate Car Mod | All Rights Reserved; the car mod isn't electric |
+| Diet (original), Spice of Life variants | Diet is stale since 2023 (A Balanced Diet continues it); Spice of Life rewards variety only; Carrot Edition is ARR |
 
 **Acceptance criteria:**
 - [ ] None of these are in the pack.

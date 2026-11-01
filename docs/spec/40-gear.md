@@ -60,6 +60,19 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 **Open questions:**
 **Notes:** From plans.md: "Guns exist, not too easy to craft."
 
+### GEAR-005 — Later guns run on electricity
+**Status:** draft
+**Priority:** should
+
+**Description:** Later in the game, guns move to electricity: energy weapons charged from the pack's power system.
+
+**Acceptance criteria:**
+- [ ] Electric guns exist from a later tier on (which: Q-098), charged with Forge Energy.
+- [ ] Each electric gun follows GEAR-003 (unique trait or clear upgrade).
+
+**Open questions:** Q-098
+**Notes:** Your words: "Later guns as well." The idea pool's Tesla Coil Gun and Plasma Cutter fit here.
+
 ## Weapon idea pool (proposals)
 
 *All of these are my proposals, mixing ideas from other games. Nothing here is decided. Pick, change or drop, and the keepers become requirements. Tiers follow PROG-008.*
