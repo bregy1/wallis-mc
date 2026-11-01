@@ -91,4 +91,10 @@
 | Q-087 | Horde night counters: when teammates with different counters come online together, which counter counts (lowest, highest, a shared team counter)? Do days only count while a player is online? | ENEMY-006 | open |
 | Q-088 | Specialisations after the team-size change: three specialisations, one per player in a team of three? What does a fourth player add (a duplicate, or nothing extra)? | PROG-011 | open |
 | Q-089 | Boss fights: how do we make them good in Minecraft? | ENEMY-011 | answered: sealed arenas, ground telegraphs, one signature twist per boss (some as minigame phases); some hitting is fine |
+| Q-091 | History Stages vs. PROG-002's exact rules (picked-up locked items go only to the main inventory; main hand bounces back; grayed recipes with unlock info): what does it do out of the box? Anything missing has to be asked of its author or built around it, since it can't be forked. | PROG-002, PACK-004 | open |
+| Q-092 | Which license does our own mod `wallis_ultimate` get? (Matters if we ever copy GPL/LGPL code into it; forks stay separate jars.) | PACK-002 | open |
+| Q-093 | Hourglass speeds time up while sleeping instead of skipping the night. Accept that, or must sleeping skip the night like vanilla (SURV-005)? | SURV-005, SURV-007, PACK-004 | open |
+| Q-094 | Entity Culling: its license forbids use "for commercial advantage or money". Fine for our pack? (Check the terms before adding it.) | PACK-003 | open |
+| Q-095 | Power, tech mod, rocket and Moon without Create? | TECH, PROG-010, STORY-017, PACK-004 | answered: Energized Power for tech and power (trimmed); our own rocket build and Moon dimension |
+| Q-096 | Which Energized Power tiers do we keep (proposal: 3 generators, 2–3 batteries, 2 cables), and which machines? | TECH, PACK-004 | open |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

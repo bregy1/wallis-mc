@@ -6,12 +6,13 @@
 |---|---|
 | Minecraft version | 1.20.1 |
 | Mod loader + version | Forge (exact Forge version TODO) |
-| Mappings | TODO (Mojmap / Parchment) |
+| Mappings | Parchment |
 | Java version | 17 |
 | Mod ID | `wallis_ultimate` (display name "Wallis Ultimate") |
 | Distribution | Modpack + this custom mod; selected existing mods may be forked (license permitting) |
-| Base package | TODO (e.g. `com.example.mymod`) |
-| Dependencies / APIs | TODO (e.g. Fabric API, GeckoLib, JEI…) |
+| Base package | `wallis_ultimate` |
+| Dependencies / APIs | See `docs/spec/15-modpack.md` (draft) |
+| Repository | https://github.com/bregy1/wallis-mc (project name "wallis-ultimate") |
 
 If any field above still says TODO, ask me before writing code that depends on it.
 

@@ -117,7 +117,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 - [ ] At least one material needed for the rocket fuel comes only from the Nether.
 
 **Open questions:** Q-075
-**Notes:** Your words: "The nether can be a nice underworld overhaul... It definitely sticks to providing some important last materials for the rocket! Something for the fuel!!" Candidate: an existing Nether overhaul mod, to evaluate.
+**Notes:** Your words: "The nether can be a nice underworld overhaul... It definitely sticks to providing some important last materials for the rocket! Something for the fuel!!" Decided 2026-11-01: we build our own Nether in `wallis_ultimate` (PACK-005), because Incendium can only be used unmodified and clashes with WORLD-005 and GEAR-003.
 
 ### WORLD-009 — No negative depth
 **Status:** draft
