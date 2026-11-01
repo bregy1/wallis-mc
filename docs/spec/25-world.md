@@ -10,7 +10,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 ## Requirements
 
 ### WORLD-001 — Vanilla-style terrain you can explore and mine
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Inside a district, terrain is generated in vanilla style. Players explore, mine and build as in normal Minecraft.
@@ -23,7 +23,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your words: "I still want to keep exploring and vanilla theme... The ground can still be mined."
 
 ### WORLD-002 — Districts are size-limited dimensions
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Each district is its own dimension with a size limit. It has its own biomes, enemies (PROG-007) and tone (STORY-009).
@@ -37,7 +37,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Decided 2026-11-01. Chosen for control, clean size limits and performance (districts nobody is in don't need to run). Downside: travel feels a bit more "level-based" than one open world.
 
 ### WORLD-003 — Districts open through the story
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** A district becomes available when the story opens it. Players actively choose to go there from a map.
@@ -52,7 +52,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your words: "I still want the player to actively change to a district on the map."
 
 ### WORLD-004 — Travel between safe spots
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Players can travel from one safe spot (SURV-006) to another.
@@ -66,7 +66,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your words: "safe spot to other safe spot travel is possible."
 
 ### WORLD-005 — Every structure is unique
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Every structure in a district is placed on purpose, exactly once. Nothing repeats, not even small things like wrecked cars or ruined houses.
@@ -80,32 +80,34 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work.
 
 ### WORLD-006 — Protected structures use unminable blocks
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Key structures are built from several special block types that players can't mine. These blocks look clearly different from all vanilla blocks, so players can see at a glance which structures are protected. Other structures and the ground stay minable.
 
 **Acceptance criteria:**
-- [ ] There are several unminable block types (names, looks and rules: Q-069).
-- [ ] They can't be broken in survival mode.
+- [ ] There are three unminable block types: Reinforced Concrete (human and military buildings), Riveted Steel (bunkers, launch sites) and Alien Alloy (cult and alien sites).
+- [ ] They can't be broken in survival mode and are immune to explosions.
+- [ ] Players can never obtain them; for their own builds they get the alien hardening later (ENEMY-005).
 - [ ] Each one is visually distinct from every vanilla block.
 - [ ] Key structures use them; ordinary structures and terrain don't.
 
-**Open questions:** Q-069
+**Open questions:**
 **Notes:** Your words: "add several unminable materials for the player which connect to proper structures so it is visible."
 
 ### WORLD-007 — No End
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** The End dimension is removed from the game.
 
 **Acceptance criteria:**
 - [ ] The End can't be reached in survival.
-- [ ] Items that only come from the End are handled as defined in Q-076.
+- [ ] Shulker boxes stay in the game, but are very rare: each player gets one shulker box per planet, as a quest reward.
+- [ ] Elytra, end crystals and chorus fruit are removed.
 
-**Open questions:** Q-076
-**Notes:** Your words: "Get rid of the end!"
+**Open questions:**
+**Notes:** Your words: "Get rid of the end!" Decided 2026-11-01 (answer to Q-076). Elytra as a very-late-game reward is parked as an idea (roadmap). Shulker boxes decided 2026-11-01 (answer to Q-111): "has to be quest reward... early we might get one shulker per player per planet. So rare af." A violet alien planet with shulker drops is parked for later.
 
 ### WORLD-008 — The Nether: a scary underworld
 **Status:** draft
@@ -123,7 +125,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your words: "The nether can be a nice underworld overhaul... It definitely sticks to providing some important last materials for the rocket! Something for the fuel!!" Decided 2026-11-01: we build our own Nether in `wallis_ultimate` (PACK-005), because Incendium can only be used unmodified and clashes with WORLD-005 and GEAR-003.
 
 ### WORLD-009 — No negative depth
-**Status:** draft
+**Status:** approved
 **Priority:** should
 
 **Description:** The underground stops at Y 0, so there are no negative layers. Upward, the normal build height stays.
@@ -136,20 +138,22 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Decided 2026-11-01 (answer to Q-073). Vanilla 1.20.1 runs from Y -64 to 320. Districts need their own terrain settings for this, and ores that vanilla places below Y 0 (e.g. diamonds) have to move up (WORLD-010).
 
 ### WORLD-010 — Ores are set per district and balanced with progression
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
-**Description:** Ore generation is adjusted from vanilla. Each district defines which ores it has, how many, and at what depth, balanced together with the tier the district belongs to.
+**Description:** Ore generation is adjusted from vanilla. Each district only has the ores its tier needs; later-tier ores appear only in later districts. New ores keep coming with later districts and planets, from mods or our own.
 
 **Acceptance criteria:**
 - [ ] Each district has its own ore settings (ore types, amounts, depths).
-- [ ] Ore settings are part of the balancing spec, alongside locked items (PROG-002) and tiers.
+- [ ] A district's ores match its tier; ores for later tiers don't appear in earlier districts.
+- [ ] Starting point (proposal, tuned with balancing): district 1 has coal, copper and iron; district 2 adds gold, redstone and lapis; district 3 adds rare diamonds; district 4 adds what the rocket needs.
+- [ ] Later districts and planets can add new ores, from mods or our own, without changing earlier districts.
 
-**Open questions:** Q-074
-**Notes:** Your question "we have to balance that in as well?": yes. What a district can mine paces progression just as much as what's locked.
+**Open questions:**
+**Notes:** Your question "we have to balance that in as well?": yes. What a district can mine paces progression just as much as what's locked. Decided 2026-11-01 (answer to Q-074): "make it we can go on and have more ores after district." Tools for every ore: GEAR-006.
 
 ### WORLD-011 — Personal loot chests
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Loot chests in structures are personal: every player gets their own contents from each chest, so nobody misses out because a teammate opened it first.
@@ -157,13 +161,13 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Acceptance criteria:**
 - [ ] Each player who opens a loot chest sees their own contents, rolled for them.
 - [ ] What one player takes doesn't change what another player finds in the same chest.
-- [ ] Whether loot chests ever refill follows Q-106.
+- [ ] Loot chests never refill: each player loots each chest once.
 
-**Open questions:** Q-106
+**Open questions:**
 **Notes:** Your words: "please personalise loot chests".
 
 ### WORLD-012 — Home bases
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** The team builds its first home in district 1 (the "create first home" quest). After that, teams may build bases in any district they've opened. Each player's home is wherever their bed is (SURV-005).

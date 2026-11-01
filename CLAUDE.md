@@ -11,6 +11,7 @@
 | Mod ID | `wallis_ultimate` (display name "Wallis Ultimate") |
 | Distribution | Modpack + this custom mod; selected existing mods may be forked (license permitting) |
 | Base package | `wallis_ultimate` |
+| License (our mod) | MIT — never copy GPL/LGPL code into it |
 | Dependencies / APIs | See `docs/spec/15-modpack.md` (draft) |
 | Repository | https://github.com/bregy1/wallis-mc (project name "wallis-ultimate") |
 

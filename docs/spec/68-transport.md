@@ -10,7 +10,7 @@ Getting around grows with progression: teleporting between safe spots from the s
 ## Requirements
 
 ### TRANS-001 — Safe spot teleport
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Players can teleport between safe spots. Defined in WORLD-004; listed here so all transport is in one place.
@@ -22,17 +22,18 @@ Getting around grows with progression: teleporting between safe spots from the s
 **Notes:**
 
 ### TRANS-002 — Horses early on
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Early in the game, players get around on horses.
 
 **Acceptance criteria:**
 - [ ] Horses (and donkeys and mules) can be found, tamed and ridden as in vanilla.
-- [ ] Whether there are other early mounts follows Q-097.
+- [ ] Horses are the only early mount.
+- [ ] Some trinkets improve the player's horse (e.g. speed or jump).
 
-**Open questions:** Q-097
-**Notes:** Your words: "something like horses".
+**Open questions:**
+**Notes:** Your words: "something like horses" and (answer to Q-097) "horse is early mount, it can be tuned with trinkets too!"
 
 ### TRANS-003 — Electric flying vehicles later
 **Status:** draft
@@ -41,12 +42,12 @@ Getting around grows with progression: teleporting between safe spots from the s
 **Description:** Later in the game, players get flying vehicles such as airplanes. They run on electricity.
 
 **Acceptance criteria:**
-- [ ] At least one flying vehicle exists, unlocked later on Earth, within version 1 (exact tier: Q-098).
+- [ ] At least one flying vehicle exists, unlocked in district 2 or 3, in whichever district first has terrain that calls for it (PROG-013).
 - [ ] Flying vehicles are powered by electricity (Forge Energy), charged from the pack's power system.
 - [ ] Vehicles can't travel between districts; they move between safe spots only through garages (TRANS-004).
 
 **Open questions:** Q-098, Q-102
-**Notes:** Your words: "later flight thingies, like some airplanes or whatever. It should also be based on electricity." Decided 2026-11-01: Immersive Aircraft, trimmed to 1–2 aircraft with the armed Warship disabled, engines made electric (PACK-004). Aircraft come later on Earth, in version 1: "We want it to be accessible at some point."
+**Notes:** Your words: "later flight thingies, like some airplanes or whatever. It should also be based on electricity." Decided 2026-11-01: Immersive Aircraft, trimmed to 1–2 aircraft with the armed Warship disabled, engines made electric (PACK-004). Aircraft come later on Earth, in version 1: "We want it to be accessible at some point." Then narrowed (answer to Q-097): "district 2 or 3 we should get flying thingies, as the district requires it."
 
 ### TRANS-004 — Garages at safe spots
 **Status:** draft

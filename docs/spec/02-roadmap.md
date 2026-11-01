@@ -14,7 +14,7 @@ All spec areas we expect to need, so we can see what's left before going deep on
 | `35-balancing.md` | Balancing | BAL | Damage, defense and enemy strength model; the balancing approach from plans.md | Q-030 | not started |
 | `38-combat.md` | Combat | CMBT | Vanilla combat as the base, dodge roll, trinket slots | Q-055, Q-056 | draft |
 | `40-gear.md` | Weapons, guns, armor, tools and trinkets | GEAR | Vanilla tools, curated weapon mods, every item earns its slot, guns in tier 3; weapon idea pool; individual trinkets | Q-064 | draft |
-| `45-utility.md` | Utility items | UTIL | Point unlocks: quality of life (backpacks), mobility, scouting and info, base defense extras | Q-024, Q-026 | not started |
+| `45-utility.md` | Utility items | UTIL | Point unlocks: quality of life (backpacks, one at a time), mobility, scouting and info, base defense extras | Q-024, Q-026 | draft |
 | `50-base.md` | Base and raids | BASE | Fortification, base attacks, how raids scale | Q-030 | not started |
 | `55-tech.md` | Tech and automation | TECH | Energized Power machines and trimmed power, story machines, small purposeful automation, slow-scaling storage (Tom's Simple Storage) | Q-096, Q-100, Q-101 | draft |
 | `60-survival.md` | Survival systems | SURV | Which vanilla systems stay unchanged (hunger confirmed); downed state and revive, graves, beds as rare heal and respawn points, safe spots, 16/8-minute day, food (Farmer's Delight), diet (A Balanced Diet) | Q-025, Q-047–054, Q-062, Q-103, Q-105 | draft |
@@ -26,33 +26,44 @@ All spec areas we expect to need, so we can see what's left before going deep on
 
 ## Milestone 1: Chapter 1 playable
 
-The first thing we build: the Scavenger tier in the first district, from the redneck opening to beating Hog Daddy. Only the requirements below need to be approved before coding starts.
+The first thing we build: the Scavenger tier in the first district, from the redneck opening to beating Hog Daddy.
+
+**Status: approved 2026-11-01.** All requirements below are `approved` (partly approved where marked).
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)
 - **Story:** STORY-002, STORY-003, STORY-010, STORY-014, STORY-016, Chapter 1 of the storyline
-- **Survival:** SURV-001–009
+- **Survival:** SURV-001–010
 - **Combat:** CMBT-001–003
-- **Gear:** GEAR-001, GEAR-003, tier 1 weapons (Q-064)
-- **World:** WORLD-001–007, WORLD-009–011
-- **Enemies:** ENEMY-001–007, ENEMY-009 (tier 1 specials), ENEMY-011 (Hog Daddy)
+- **Gear:** GEAR-001, GEAR-003, GEAR-006 (tools for district 1's ores), GEAR-007 (tier 1 weapons)
+- **World:** WORLD-001–007, WORLD-009–012
+- **Enemies:** ENEMY-001–007, ENEMY-009 (tier 1 specials), ENEMY-011 (Hog Daddy), ENEMY-012 (scarier zombies)
 - **Transport:** TRANS-001, TRANS-002
 - **Modpack:** PACK-001–006, with only the mods Chapter 1 needs (FTB Quests and Teams, History Stages, JEI, Easy NPC, ImmersiveCinematics, Curios, Hourglass, Xaero's maps, Farmer's Delight, A Balanced Diet, AppleSkin, Lootr, performance mods)
 
 **Later milestones:** utility points and leveling (PROG-005, PROG-009), the skill tree and specialist sub-trees (PROG-011, PROG-012), factions and raiders, the enemy tracker, guns, tech and storage, the Nether, rocket, Moon, aircraft and garages.
 
 **Open questions blocking Milestone 1, in batches**
-1. Foundations: Q-004 starter set, Q-065 districts per tier, Q-066 home base, Q-082/Q-084 tier 1 enemies and Hog Daddy
-2. Downed and beds: Q-047, Q-049, Q-051, Q-052
-3. Graves, safe spots, travel: Q-053, Q-054, Q-062, Q-067
-4. World: Q-069, Q-074, Q-076, Q-106
-5. Enemies: Q-078, Q-080, Q-081, Q-087
-6. Combat, gear, food: Q-055, Q-056, Q-064 (tier 1), Q-093, Q-103, Q-105
-7. Story and project: Q-011, Q-035, Q-041, Q-071/Q-077 (Chapter 1 cast and plots), Q-092 (our mod's license)
+1. ~~Foundations: Q-004 starter set, Q-065 districts per tier, Q-066 home base, Q-082/Q-084 tier 1 enemies and Hog Daddy~~ done
+2. ~~Downed and beds: Q-047, Q-049, Q-051, Q-052~~ done
+3. ~~Graves, safe spots, travel: Q-053, Q-054, Q-062, Q-067~~ done
+4. ~~World: Q-069, Q-074, Q-076, Q-106~~ done
+5. ~~Enemies: Q-078, Q-080, Q-081, Q-087~~ done (follow-up: Q-113)
+6. ~~Combat, gear, food: Q-055, Q-056, Q-064 (tier 1), Q-093, Q-103, Q-105, Q-108, Q-112~~ done
+7. ~~Story and project: Q-011, Q-035, Q-041, Q-071/Q-077 (Chapter 1 cast and plots), Q-092 (our mod's license)~~ done
 
-Technical checks Claude does before coding (no decision needed from you): Q-091 (History Stages behavior), Lootr's license, Q-094 (Entity Culling terms).
+Technical checks Claude does before coding (no decision needed from you): Q-091 (History Stages behavior), Lootr's license, Q-094 (Entity Culling terms), an animation library for custom zombie animations (ENEMY-012) and its license.
 
-After the batches: you approve the Milestone 1 requirements, and we start building.
+Still open but not blocking Chapter 1: Q-010, Q-029, Q-030 (balancing), Q-059 (disclaimer wording), Q-114 (return to Earth, after version 1). Next: the technical checks above, then the mod skeleton.
+
+## Parked ideas
+
+Ideas you want to keep in mind but not build yet.
+
+- **Elytra as a very-late-game reward.** Removed with the End for now (WORLD-007).
+- **Earth cleanup storyline.** Return to Earth after the Moon with a special weapon and clear it section by section (STORY-018).
+- **A violet alien planet where shulkers drop shulker shells.** Later in the game (WORLD-007).
+- **An item that allows magic outside the magic planet.** Very late game, after version 1 (STORY-012).
 
 ## Suggested next (your call)
 1. **Story and characters**: it gives every other area its reasons (why you go somewhere, who you meet, which fights matter).

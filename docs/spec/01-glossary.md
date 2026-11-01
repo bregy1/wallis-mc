@@ -20,7 +20,7 @@
 | Horde night | A night when a big horde attacks the team's base; equally strong each time within a district. | — |
 | Enemy tracker | In-game lookup of encountered enemies, with abilities and counters. | TBD |
 | Nether (overhauled) | A scary underworld dimension, medium-hard, opened near the rocket; source of the last rocket fuel ingredient. | minecraft:the_nether |
-| Unminable block | One of several special block types used in protected structures; can't be mined and looks unlike any vanilla block. | TBD |
+| Unminable block | One of three block types used in protected structures (Reinforced Concrete, Riveted Steel, Alien Alloy); can't be mined, immune to explosions, never obtainable by players. | TBD |
 | Faction | An organised group (e.g. the military, raiders) whose attitude toward each team can change. | — |
 | Unknown group *(name TBD)* | A mysterious group on Earth, later revealed to be connected to the aliens behind the infection. | — |
 | Skill tree | Per-player tree of capped stat upgrades (health, regeneration, movement…), split into sub-trees by category; points come from player levels. | — |

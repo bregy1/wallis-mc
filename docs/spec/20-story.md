@@ -25,7 +25,7 @@ On Earth, the aliens hide behind a cult of human collaborators (the "unknown gro
 
 The story builds up slowly. Big truths are hinted at through clues long before they're revealed.
 
-When the outbreak hits, everyone believes it started on Earth. **(proposal for Q-031)** It's blamed on a military lab, which is why the military is secretive and hostile at first.
+When the outbreak hits, everyone believes it started on Earth. It's blamed on a military lab, which is why the military is secretive and hostile at first (decided, Q-031).
 
 Meanwhile, a group of rednecks somewhere in the backwoods noticed nothing. **(proposal)** They were on a week-long moonshine bender.
 
@@ -35,14 +35,14 @@ The super-rich mostly survived, because they had bunkers. So famous faces (parod
 
 *Everything in this section is my proposal, built from your decisions and the plots picked below. Each Earth chapter matches a tier (PROG-008) and ends in that tier's milestone. Cast names are from the Cast proposals.*
 
-**Chapter 1: Scavenger. "Wait, what apocalypse?"**
-The rednecks wake up after their bender to a world overrun by zombies. Comedy opening cutscene. They meet the redneck woman (STORY-003), the first ally. Scavenging, basic melee weapons and bows. Every player is given a bed, and the quest "create first home" has the team set up its first base (your idea, SURV-005). Along the way they find safe spots held by friendly redneck defenders (SURV-006). An old radio crackles: a podcast host broadcasting from his bunker (Joe Rogaine) talks about survivors out there. *Radio voices begins.* A tinfoil-hat weirdo (Conspiracy Carl) rants that it's aliens; nobody believes him. *First clue.* *Milestone:* a big mutated zombie attacks the cabin; beating it opens tier 2.
+**Chapter 1: Scavenger. "Wait, what apocalypse?"** *(approved for Milestone 1)*
+The rednecks wake up after their bender to a world overrun by zombies. Comedy opening cutscene. They meet Lurleen (STORY-003), the first ally, who moves into their first home. Scavenging, basic melee weapons and bows. Every player is given a bed, and the quest "create first home" has the team set up its first base (your idea, SURV-005). Along the way they find safe spots held by friendly redneck defenders (SURV-006). An old radio crackles: a podcast host broadcasting from his bunker (Joe Rogaine) talks about survivors out there. *Radio voices begins.* A tinfoil-hat weirdo (Conspiracy Carl) rants that it's aliens; nobody believes him. *First clue.* *Milestone:* a big mutated zombie attacks the cabin; beating it opens tier 2.
 
 **Chapter 2: Settler. "This ain't our land no more"**
 The team builds a fortified base. The first specialised zombies appear, and raiders show up (STORY-007). The raider king offers a deal: join him or fight him (optional choice, STORY-005). *Raider king.* First contact with the military: they warn the team off and refuse to help. Strange robed figures are seen near infection zones, and the redneck woman spots her missing brother among them. *Missing brother begins.* The robed figures are fencing off lakes and reservoirs, which makes no sense yet. *Water grab, first clue.* *Milestone:* survive a large raider assault on the base; the military notices the team can handle itself.
 
 **Chapter 3: Gunsmith. "Follow the money"**
-Guns, hordes and stronger specials. The military starts handing out jobs, and its attitude improves (STORY-004). The team investigates the "military lab" story and finds documents showing the military knew about "visitors" before the outbreak. *The military's secret.* Then a safe spot falls: a traitor among the redneck defenders opens the gates to the cult, and the traitor turns out to work for a general who secretly serves the cult. *A safe spot falls.* The first mini chicken aliens with guns show up; one of them refuses to fight, deserts, and starts explaining alien weaknesses. *The deserter chicken.* The cult openly takes over reservoirs, and quests to win them back begin. *Milestone (proposal for Q-032):* storm the cult's stronghold. The redneck woman faces her brother: save him or fight him (choice). A cutscene reveals the leaders' true alien form and the truth: the virus is alien and Earth is being cleared for its water. The aliens tricked Elon Tusk into helping make it; shaken, he and the Tusk group join the fight. The traitor general is exposed.
+Guns, hordes and stronger specials. The military starts handing out jobs, and its attitude improves (STORY-004). The team investigates the "military lab" story and finds documents showing the military knew about "visitors" before the outbreak. *The military's secret.* Then a safe spot falls: a traitor among the redneck defenders opens the gates to the cult, and the traitor turns out to work for a general who secretly serves the cult. *A safe spot falls.* The first mini chicken aliens with guns show up; one of them refuses to fight, deserts, and starts explaining alien weaknesses. *The deserter chicken.* The cult openly takes over reservoirs, and quests to win them back begin. *Milestone (decided, Q-032):* storm the cult's stronghold. The redneck woman faces her brother: save him or fight him (choice). A cutscene reveals the leaders' true alien form and the truth: the virus is alien and Earth is being cleared for its water. The aliens tricked Elon Tusk into helping make it; shaken, he and the Tusk group join the fight. The traitor general is exposed.
 
 **Chapter 4: Launch. "Get off this rock"**
 Now allied with the purged military and the Tusk group, the team builds a rocket. **(proposal)** At a Tusk launch site, while rival billionaire Jeff Bozos races to launch his own rocket first. The fuel needs one last ingredient found only in the Nether, so the team opens the overhauled, scary underworld (WORLD-008). Joe Rogaine's broadcasts reveal he's been coordinating survivors all along. *Milestone:* the launch defense (PROG-010), a huge siege until liftoff, with the aliens throwing everything at the escaping humans. The deserter chicken comes along.
@@ -80,7 +80,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 | Elon Tusk | Elon Musk | Decided: tricked into helping make the virus, then leads the Tusk group (STORY-013) |
 | Jeff Bozos | Jeff Bezos | Rival billionaire in a fortified mega-warehouse. Sells supplies at absurd prices with "two-day drone delivery", even now. Races Tusk to launch a rocket first |
 | Mark Zuckerbot | Mark Zuckerberg | Hides in his island bunker, talks like a robot, tracks everyone. Sells scanner tech that feeds the enemy tracker |
-| Joe Rogaine | Joe Rogan | Podcast host broadcasting from his bunker; the voice behind "Radio voices" |
+| Joe Rogaine | Joe Rogan | Podcast host broadcasting from his bunker; the voice behind "Radio voices". Confirmed for Chapter 1 |
 | Gordon Damsay | Gordon Ramsay | Furious celebrity chef running the kitchen at a redneck safe spot. Food quests, nonstop insults |
 | Arnold Schwarzenschnitzel | Arnold Schwarzenegger | Ex-action-star general leading a military unit. One-liners only |
 
@@ -95,7 +95,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 
 | Character | Role |
 |---|---|
-| Conspiracy Carl | Tinfoil hat, right about the aliens all along, nobody listens. Clue-dropper for the slow build-up |
+| Conspiracy Carl | Tinfoil hat, right about the aliens all along, nobody listens. Clue-dropper for the slow build-up. Confirmed for Chapter 1 |
 | Prepper Pete | Bunker full of canned beans; trades |
 | Mall Santa | Never stopped being Santa. Hands out random gifts |
 | Zombie Larry | Believes he's a zombie and walks among them |
@@ -110,15 +110,15 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Description:** Earth is overrun by an infection that turns people into zombies. At first everything points to an Earth-born cause. Later in the story the player learns that an alien species brought it. The aliens' home planet can be found later in the game.
 
 **Acceptance criteria:**
-- [ ] Early story content presents the outbreak as Earth-born (what it's blamed on: Q-031).
-- [ ] The alien origin is revealed at a defined story point (when: Q-032).
+- [ ] Early story content presents the outbreak as Earth-born, blamed on a military lab.
+- [ ] The alien origin is revealed when the team storms the cult's stronghold at the end of Chapter 3.
 - [ ] The aliens' home planet is planned as a later planet in the progression (the magic planet, STORY-012).
 
-**Open questions:** Q-031, Q-032
-**Notes:** Your words: "first we think it is just from earth, but later we find out someone has inflicted the earth."
+**Open questions:**
+**Notes:** Your words: "first we think it is just from earth, but later we find out someone has inflicted the earth." Cover story and reveal timing decided 2026-11-01 (answers to Q-031, Q-032).
 
 ### STORY-002 — Opening: the rednecks who missed the apocalypse
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** The story starts with a group of rough rednecks who didn't notice the apocalypse happened at all. They talk a lot, swear a lot, and have funny lines. The opening plays their discovery of the new world for laughs. The players are members of this group and join in the conversations by picking replies.
@@ -134,17 +134,18 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answers to Q-033, Q-034, Q-045). Before release, check the hosting platforms' content rules on swearing.
 
-### STORY-003 — First ally: the redneck woman
-**Status:** draft
+### STORY-003 — First ally: Lurleen
+**Status:** approved
 **Priority:** must
 
-**Description:** The first ally is an attractive, confident redneck woman. Unlike the normal-looking player characters, she has her own distinct look, made in Minecraft's art style.
+**Description:** The first ally is Lurleen, an attractive, confident redneck woman. Unlike the normal-looking player characters, she has her own distinct look, made in Minecraft's art style. She moves into the team's first home and gives the Chapter 1 quests.
 
 **Acceptance criteria:**
-- [ ] She is the first named ally the player meets.
+- [ ] Lurleen is the first named ally the player meets.
 - [ ] She has a unique model or skin that's recognizable at a glance and fits Minecraft's style.
+- [ ] She moves into the team's first home, gives Chapter 1 quests, banters, and reacts to what the team does.
 
-**Open questions:** Q-035, Q-044
+**Open questions:**
 **Notes:**
 
 ### STORY-004 — Factions whose attitude changes
@@ -228,7 +229,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Notes:** Districts tie into the world spec (WORLD) and Q-029.
 
 ### STORY-010 — Cutscenes that still look like Minecraft
-**Status:** draft
+**Status:** approved
 **Priority:** should
 
 **Description:** Key story moments are shown as cutscenes, made in-game with Minecraft's graphics. Small extra effects in animations are fine, but anyone logging in should feel "this is still Minecraft".
@@ -238,9 +239,10 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 - [ ] Extra effects stay within vanilla's look (see the overview pillar).
 - [ ] All team members who are present take part in a cutscene together. When a reply is needed, one of them is picked at random to choose (STORY-002).
 - [ ] Some cutscenes only start when every team member is present (marked per cutscene).
-- [ ] Skipping, and what happens in the world during a cutscene, follow Q-041.
+- [ ] A cutscene is skipped when everyone watching votes to skip.
+- [ ] During a cutscene, the players in it can't be hurt and nearby enemies hold still.
 
-**Open questions:** Q-041
+**Open questions:**
 **Notes:** Your words: "we both interact in those clips. Even the whole team might be needed to activate certain cutscenes." Cutscenes are expensive to build, so they should be saved for key moments. Tooling (an existing cutscene/camera mod or our own) to be picked in the modpack spec.
 
 ### STORY-011 — The aliens
@@ -305,7 +307,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Notes:** Your words: "rednecks and rich people fighting side by side."
 
 ### STORY-016 — The story builds up slowly
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Big truths are revealed gradually. Each one is hinted at through clues well before the reveal.
@@ -332,8 +334,24 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Open questions:** Q-070
 **Notes:** Decided 2026-11-01 (answers to Q-063 and the Moon-magic question).
 
-### STORY-014 — Fiction disclaimer
+### STORY-018 — Returning to Earth (after version 1)
 **Status:** draft
+**Priority:** could
+
+**Description:** Earth stays visitable after the Moon, but the way back is hard. The first return has to be made as a team, with a warning to bring good weapons. Finishing the Moon gives a special weapon that makes clearing Earth possible: it helps fight the horde still waiting at the landing site, so the first section can be cleared and a safe spot appears. From there, a parallel Earth storyline lets players clean up Earth.
+
+**Acceptance criteria:**
+- [ ] The first return to Earth after the Moon requires the whole team.
+- [ ] Before that trip, players see the notification "only go back to the earth with good weapons" (through the lang file).
+- [ ] Finishing the Moon gives the special weapon needed to start clearing Earth.
+- [ ] Clearing the landing area makes a safe spot appear.
+- [ ] A parallel Earth cleanup storyline follows (content: later).
+
+**Open questions:** Q-114
+**Notes:** Your words: "the first time we come back to earth, we have to go as team... we have to finish the moon first to get a special magic weapon to actually start clearing earth... But that is for later!" Planned for after version 1. **Conflict:** STORY-012 says magic only works on the aliens' home planet, and STORY-017 says no magic works on the Moon. A magic weapon that works on Earth needs an explanation (Q-114).
+
+### STORY-014 — Fiction disclaimer
+**Status:** approved (exact wording still open: Q-059)
 **Priority:** must
 
 **Description:** The pack states that all characters are fictional and that any resemblance to real persons is coincidental or parody.

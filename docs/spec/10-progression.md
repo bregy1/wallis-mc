@@ -10,7 +10,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 ## Requirements
 
 ### PROG-001 — Ordered tiers grouped by planet
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Progression is a single ordered list of tiers. Every tier belongs to exactly one planet, and a planet has one or more tiers. Adding a planet appends its tiers after the existing ones without changing earlier tiers.
@@ -19,12 +19,13 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] Each team has exactly one current tier at any time, starting at the first Earth tier.
 - [ ] Tiers are defined in data (not hard-coded), so a new planet's tiers can be added without changing existing tier definitions.
 - [ ] Adding new tiers to an existing world does not reset or change any team's progress.
+- [ ] Earlier planets stay visitable after moving on. Returning to Earth after the Moon is a special case (STORY-018).
 
-**Open questions:** Q-005, Q-011, Q-014
+**Open questions:**
 **Notes:** Matches the "planets stack" decision (open-ended planet count).
 
 ### PROG-002 — Content is locked by default
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** At the start, only a small starter set of items can be crafted and used (e.g. basic swords and bows). Everything else is locked until the team unlocks it. A locked item can be obtained and carried, but not used or crafted.
@@ -45,7 +46,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Notes:** Starter set decided 2026-11-01 (answer to Q-004). Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier.
 
 ### PROG-003 — Story quests unlock content
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Completing story quests is the main way to unlock content: recipes, items, gear and areas.
@@ -55,11 +56,11 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] Every non-starter item that isn't a utility-point unlock (PROG-005) is unlocked by at least one story quest.
 - [ ] Unlocks persist across logouts, server restarts and team members going offline.
 
-**Open questions:** Q-013
-**Notes:** Quest content and story structure will get their own spec area.
+**Open questions:**
+**Notes:** Quest content and story structure live in the story spec. Quests run on FTB Quests (PACK-004).
 
 ### PROG-004 — Story milestones open the next tier
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** A team advances to the next tier only by completing that tier's story milestone (for example a boss fight).
@@ -89,7 +90,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Notes:** Your call: "mainly story driven, with some points needed for special utility items." Decided 2026-11-01 (answers to Q-006, Q-007): all four extra sources and all four categories. Mobility and base defense extras are the categories most likely to need tier limits (Q-024).
 
 ### PROG-006 — Progression is owned by the team
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Tier, story progress, unlocks and utility points belong to a team. A solo player is a team of one.
@@ -105,7 +106,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Notes:** Inspiration: FTB Teams-style parties. Decided 2026-11-01 (answer to Q-009): "keep a copy". Known, accepted weak spot: a player can join an advanced team and leave with its unlocks.
 
 ### PROG-007 — Difficulty comes from location and progress, not time
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Which enemies spawn is mainly decided by location, not by team strength. Some enemy types only start spawning once a certain tier has been reached. Difficulty never rises just because time passes.
@@ -114,19 +115,20 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] The enemies that spawn at a place depend mainly on its location (planet, and areas within it: Q-029).
 - [ ] Some enemy types spawn only after a defined tier has been reached (whose tier counts: Q-010).
 - [ ] A team that idles for many in-game days without progressing doesn't face rising difficulty.
-- [ ] The game is optimised for three players and supports any reasonable team size, from solo to four or more; enemy and boss strength scales per player (which players count: Q-046).
+- [ ] The game is optimised for three players and supports any reasonable team size, from solo to four or more; enemy and boss strength scales per player.
+- [ ] Scaling counts every real player taking part in the fight (for bosses: everyone inside the arena; for other enemies: players near the fight, radius set with balancing). NPCs never count.
 - [ ] What scales is defined per enemy or boss type (e.g. health for one boss, damage for another), whatever suits that type.
 
-**Open questions:** Q-010, Q-029, Q-030, Q-046
+**Open questions:** Q-010, Q-029, Q-030 (balancing details; don't block Milestone 1)
 **Notes:** Changed 2026-11-01 (answer to Q-010). Previously "difficulty follows the team's tier"; now spawns are location-first, with tier-gated extras. Progress still makes things harder, because progressing takes players to more dangerous places and adds new enemy types. Exact numbers belong in the enemy and balancing spec.
 
 ### PROG-008 — Earth has four tiers
-**Status:** draft
+**Status:** approved (Milestone 1: the tier structure and tier 1)
 **Priority:** must
 
-**Description:** Earth is split into four tiers. The names and contents below are a first outline; details come in the Earth spec.
+**Description:** Earth is split into four tiers, one district each (WORLD-003). Each tier takes about 4–6 hours of story progress, leaving plenty of time for building and playing normal Minecraft. More content comes later as new planets, rather than stretching tiers.
 
-| # | Name (placeholder) | Focus | Enemies |
+| # | Name | Focus | Enemies |
 |---|---|---|---|
 | 1 | Scavenger | Melee weapons, bows, basic shelter | Plain zombies |
 | 2 | Settler | Fortified base, farming | First specialised zombies |
@@ -136,9 +138,10 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Acceptance criteria:**
 - [ ] Earth defines exactly four tiers, in the order above.
 - [ ] Each tier has one milestone that opens the next (PROG-004).
+- [ ] A team focused on the story gets through a tier in about 4–6 hours (checked in playtesting).
 
-**Open questions:** Q-011, Q-020
-**Notes:** Decided 2026-11-01 (answer to Q-005).
+**Open questions:**
+**Notes:** Decided 2026-11-01 (answers to Q-005, Q-011, Q-020). Your words on pacing: "4-6 hours is enough. The player should still be able to spend plenty of time building, or playing normal minecraft too! We keep it simple and may add new planets later on. Lets not risk content to get boring!"
 
 ### PROG-009 — Player leveling grants utility points and skill points
 **Status:** draft
@@ -184,6 +187,19 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 
 **Open questions:** Q-042
 **Notes:** Originally: "balanced around 2 player teams. 3 player teams dont really benefit from it later." Changed 2026-11-01 with the three-player target, then reshaped (answer to Q-110): "Balance wise it is important that single player can still make it! So i would go with specialist trees which get unlocked during the game. So out of maybe 4 we can unlock 2 in total with specific quests." The rule that main content never needs a specific tree follows from "single player can still make it".
+
+### PROG-013 — Unlocks match what the district demands
+**Status:** draft
+**Priority:** must
+
+**Description:** Items and tools arrive when the world logically calls for them. A district's terrain and threats explain what the team unlocks there, for example a flying machine in a district full of lava holes.
+
+**Acceptance criteria:**
+- [ ] Every major unlock (vehicles, key tools, story machines) names the district challenge that motivates it.
+- [ ] A district never demands a tool or vehicle that hasn't been unlocked by the time the team gets there.
+
+**Open questions:**
+**Notes:** Your words: "In general, we want the items to be logically matched, say you get a fly machine once there is lot of lava holes or whatever in a district."
 
 ### PROG-012 — Character skill tree
 **Status:** draft

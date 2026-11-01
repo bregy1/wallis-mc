@@ -10,7 +10,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 ## Requirements
 
 ### PACK-001 — One mod per system
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Every system in the pack (quests, power, guns…) comes from exactly one mod or from our own mod. No overlapping mods.
@@ -23,7 +23,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 **Notes:** Pillar "curated, not piled".
 
 ### PACK-002 — License rules
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Every mod's license is checked before it goes into the pack. Mods without a forking-friendly license are only ever used unmodified. Forks stay under their original license, as separate jars.
@@ -31,14 +31,14 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 **Acceptance criteria:**
 - [ ] Every mod in the pack has its license (code and assets) recorded in the table below.
 - [ ] Mods marked "unmodified only" are never forked or changed.
-- [ ] Forks of GPL/LGPL mods keep their license and ship as separate jars, so our own mod's license stays our choice (Q-092).
+- [ ] Our own mod `wallis_ultimate` is licensed MIT. No GPL or LGPL code is ever copied into it; forks of GPL/LGPL mods keep their license and ship as separate jars.
 - [ ] `CREDITS.md` lists every mod used, forked or borrowed from, with author, URL and license.
 
-**Open questions:** Q-092
-**Notes:** Rules from the `minecraft-design` skill.
+**Open questions:**
+**Notes:** Rules from the `minecraft-design` skill. MIT chosen 2026-11-01 (answer to Q-092). With MIT, others may reuse our code, assets and story with credit.
 
 ### PACK-003 — No lag
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** The pack ships with a performance base and avoids mods known to cause lag over time.
@@ -51,7 +51,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 **Notes:** Pillar "we don't want lag". Create was rejected partly for this reason (2026-11-01).
 
 ### PACK-004 — Core mod list
-**Status:** draft
+**Status:** approved (Milestone 1: the mods Chapter 1 needs; other picks stay draft)
 **Priority:** must
 
 **Description:** The mods below cover the systems the spec needs. "Unmodified only" means we may include the official jar but never change or fork it.
@@ -68,7 +68,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Guns | TaCZ | GPL-3.0 | Unmodified, with our own small gun pack | GEAR-004 | Scorched Guns 2 (GPL-3.0) |
 | Melee weapons | Spartan Weaponry (candidate) | Apache-2.0 code; asset terms unverified | Decide together with the weapon picks (Q-064) | GEAR-002 | Simply Swords (custom license) |
 | Backpacks | Traveler's Backpack | LGPL-3.0 | Unmodified; integrates with Curios | UTIL | Sophisticated Backpacks (ARR) |
-| Day length | Hourglass | LGPL-3.0 | Unmodified (sleep behavior: Q-093) | SURV-007 | None found |
+| Day length | Hourglass | LGPL-3.0 | Unmodified; its sleep speed-up is accepted (SURV-005) | SURV-007 | None found |
 | Minimap and world map | Xaero's Minimap + World Map | ARR, pack use allowed with credit | Unmodified | WORLD-003 | JourneyMap (ARR, pack terms unclear) |
 | Performance | Embeddium, ModernFix, FerriteCore | LGPL-3.0, LGPL-3.0, MIT | Unmodified | PACK-003 | Entity Culling (terms unclear, Q-094) |
 | Storage | Tom's Simple Storage | MIT | Unmodified; its recipes locked by tier (PROG-002) | TECH-004 | Applied Energistics 2 (complex, non-commercial textures); Refined Storage (Forge 1.20.1 build stale since 2023) |
@@ -87,7 +87,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 **Notes:** Picks are recommendations from the 2026-11-01 research; confirm or swap. Tech and power decided 2026-11-01: Energized Power for both, power trimmed. Its Forge Energy compatibility is unverified; Forge 1.20.1 itself provides the `IEnergyStorage` capability.
 
 ### PACK-005 — Built in our own mod
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** These systems have no fitting mod (wrong behavior, wrong license, or nothing for Forge 1.20.1), so `wallis_ultimate` builds them.
@@ -116,7 +116,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 **Notes:**
 
 ### PACK-006 — Inspiration only
-**Status:** draft
+**Status:** approved
 **Priority:** could
 
 **Description:** Mods we learn from but don't include.

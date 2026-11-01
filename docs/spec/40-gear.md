@@ -10,7 +10,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 ## Requirements
 
 ### GEAR-001 — Vanilla tools and weapons stay
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** All vanilla tools and weapons remain in the game and work as in vanilla.
@@ -35,7 +35,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 **Notes:** Candidates to check for Forge 1.20.1 availability and license: TaCZ (guns), Simply Swords and Spartan Weaponry (melee). Gun mods usually bring dozens of guns; we'd keep only a few.
 
 ### GEAR-003 — Every item earns its slot
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Every weapon and armor piece either has a unique trait or is a clear upgrade over what came before. No items with near-identical stats.
@@ -72,6 +72,40 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 
 **Open questions:** Q-098
 **Notes:** Your words: "Later guns as well." The idea pool's Tesla Coil Gun and Plasma Cutter fit here.
+
+### GEAR-006 — Tools for every ore
+**Status:** approved
+**Priority:** must
+
+**Description:** Every ore material gets its own set of tools. Tools get faster with each new material, but later materials are also harder to mine, so you need the previous tier's tools to get them.
+
+**Acceptance criteria:**
+- [ ] Every ore material, vanilla and modded, has a full tool set (pickaxe, axe, shovel, hoe), including ones vanilla lacks, like copper.
+- [ ] Tool tiers are ordered by material, with speed and durability scaled to match (e.g. copper between stone and iron; gold rebalanced to fit its place). Exact order and values come with balancing.
+- [ ] Each tool tier digs faster than the one before.
+- [ ] Each new ore needs at least the previous tier's pickaxe to mine.
+- [ ] New ores added later (WORLD-010) come with their own tools.
+
+**Open questions:**
+**Notes:** Answer to Q-112: "Just all, scale accordingly." Your words: "We should literally add tools for every ore too! So tools get faster and faster after time. But materials also harder!"
+
+### GEAR-007 — Tier 1 weapons
+**Status:** approved
+**Priority:** must
+
+**Description:** Chapter 1 gets seven weapons from the idea pool below, each with its own trait. They unlock through the Chapter 1 story (PROG-003).
+
+**Acceptance criteria:**
+- [ ] Nail Bat: hits cause bleeding (damage over a few seconds).
+- [ ] Shovel: heavy swing knocks enemies back and briefly stuns them; still digs.
+- [ ] Pitchfork: long reach; hits two enemies standing in a line.
+- [ ] Frying Pan: held in the offhand, blocks one hit like a weak shield, with a loud "bong".
+- [ ] Moonshine Molotov: thrown, leaves a burning patch that blocks a path for a few seconds.
+- [ ] Pipe Bomb: thrown, beeps and lures zombies to it before exploding (counts as loud noise, ENEMY-006).
+- [ ] Slingshot: silent, cheap gravel ammo; a shot can make noise somewhere to distract enemies.
+
+**Open questions:**
+**Notes:** Decided 2026-11-01 (answer to Q-064 for tier 1). Numbers come with balancing.
 
 ## Weapon idea pool (proposals)
 

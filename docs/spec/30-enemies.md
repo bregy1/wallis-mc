@@ -10,20 +10,23 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 ## Requirements
 
 ### ENEMY-001 — Slow by day, faster at night
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
-**Description:** Regular zombies are slow during the day and faster at night. A special zombie (the Rallier) makes zombies around it faster.
+**Description:** During the day, regular zombies are always slower than a walking player. At night they're slightly faster than a walking player but still slower than a sprinting one. Special zombies like the Rallier buff them, which is what makes groups really dangerous.
 
 **Acceptance criteria:**
-- [ ] Regular zombies move faster at night than during the day (speeds: Q-078).
-- [ ] While a Rallier is alive, zombies near it move faster (ENEMY-009).
+- [ ] By day, regular zombies are slower than a walking player.
+- [ ] At night, regular zombies are slightly faster than a walking player and slower than a sprinting one.
+- [ ] While a Rallier is alive, zombies within 8 blocks move 25% faster.
+- [ ] At night, buffed zombies can outrun an early-game player's sprint. Players catch up through speed trinkets (CMBT-003) and the skill tree (PROG-012). Once a player has progressed well in a district, buffed zombies there can no longer outrun them.
+- [ ] Zombie speed is balanced per district and planet against how fast players can be at that point, and re-checked whenever districts, planets or speed sources are added.
 
-**Open questions:** Q-078
-**Notes:** Your idea: "a version which buffs zombies around it to be a bit faster. So one dude literally." Day and night lengths are in SURV-007.
+**Open questions:**
+**Notes:** Your idea: "a version which buffs zombies around it to be a bit faster. So one dude literally." Speeds decided 2026-11-01 (answer to Q-078): "slower than player running but slightly faster than player normal walking in night. Otherwise always slower as player. Important to have the special zombies to buff them!" Changed 2026-11-01 (Q-113): first "never faster than sprint", then "In the night zombies might oversprint u with buffs! So there is trinkets required or levels to get more speed. When advanced in a district zombies should not be able to get faster anymore, but early on in night they do!" Day and night lengths are in SURV-007.
 
 ### ENEMY-002 — Only some zombies burn in sunlight
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Zombies don't burn in daylight by default. About 15% of regular zombies carry a "burns in sunlight" effect, which naturally thins them out during the day.
@@ -36,7 +39,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Decided 2026-11-01.
 
 ### ENEMY-003 — Early nights are deadly
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** At the start of the game, nights aren't survivable out in the open without gear, and they stay hard even with gear. Players are expected to shelter at home or in a safe spot, or sleep through the night. A key item earned from a quest, likely a trinket, makes night enemies about 10% weaker.
@@ -51,22 +54,23 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words: "In the beginning night should not really be survivable!" and (answer to Q-086) "without gear not possible. Should stay hard." Fits the early bed from the story (SURV-005) and safe spots (SURV-006).
 
 ### ENEMY-004 — Enemies carry status effects
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Enemies can spawn with status effects from the potion effect system. Easy enemies get weaker effects; harder enemies get stronger effects, sometimes several at once. Wild combinations appear later in the game but stay fairly rare. Bosses can have effects too. New effects can be added (e.g. "burns in sunlight").
 
 **Acceptance criteria:**
-- [ ] Each enemy type defines which effects it can spawn with, how strong, and how likely (values: Q-081).
+- [ ] Each enemy type defines which effects it can spawn with, how strong, and how likely.
+- [ ] Starting rates (tuned with balancing): tier 1, 10% of enemies get one weak effect (e.g. Speed I or Strength I); tier 2, 20%, sometimes level II; tier 3, 30%, with two-effect combos at 5%; tier 4, 40%, combos at 10%.
 - [ ] Effect strength and number of effects rise with enemy difficulty.
 - [ ] Enemies with several effects at once are rare.
-- [ ] Bosses can have effects.
+- [ ] Bosses have fixed effects, defined per boss.
 
-**Open questions:** Q-081
+**Open questions:**
 **Notes:** Your words: "We stick to the potion brewing mechanic to get effects. Can always add more." Players keep getting effects through vanilla brewing (Q-025).
 
 ### ENEMY-005 — Only specials break blocks
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Block breaking is super rare. Regular zombies can't break blocks, and only very few specials can, and only weak blocks. Nothing can break safe spot blocks or unminable blocks. Later, players can harden blocks with an alien material so enemies can't break them. Humans never invented this material, so it only comes from the aliens, and it isn't an early-game item.
@@ -82,23 +86,24 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words: "make sure to not add too much block breaking!! it has to be super rare." Base fortification details belong in the base spec (BASE).
 
 ### ENEMY-006 — Hordes
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Hordes come from three sources: noise attracts nearby zombies, the story sends hordes at key moments, and horde nights send big attacks at bases. There are no randomly wandering hordes.
 
 **Acceptance criteria:**
-- [ ] Loud actions (gunfire, chainsaws, explosions…) pull nearby zombies toward the noise (details: Q-080).
+- [ ] Only loud actions pull zombies toward the noise: gunshots (about 32 blocks), explosions (about 48), chainsaws (about 24), breaking glass and doors (about 12). Walking, sprinting and mining are quiet.
 - [ ] Scripted story hordes happen at key moments (e.g. the launch defense, PROG-010).
 - [ ] Every 7th in-game night is a horde night, sending a big attack at a player's base (which base: WORLD-012).
-- [ ] The horde night counter runs per player. When team members are online together, the counter is per team (how counters combine: Q-087).
+- [ ] The horde night counter runs per player and only counts in-game days while that player is online.
+- [ ] When team members play together, the counter closest to its horde night decides. When that horde night hits, the counters of everyone present reset.
 - [ ] In a given district, a horde night is equally strong each time (PROG-007).
 
-**Open questions:** Q-080, Q-087
+**Open questions:**
 **Notes:** Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md).
 
 ### ENEMY-007 — Safe spots are safe
-**Status:** draft
+**Status:** approved
 **Priority:** must
 
 **Description:** Safe spots never have trouble with enemies or hordes. They're literally safe, except when the story makes one fall.
@@ -123,14 +128,14 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Details per enemy go in the tables below once picked.
 
 ### ENEMY-009 — Special zombies with abilities and counters
-**Status:** draft
+**Status:** approved (Milestone 1: the rules and the tier 1 specials Rallier, Crawler, Hound; tiers 2–3 stay draft)
 **Priority:** must
 
 **Description:** Special zombies each have one clear ability and a counter. They're what makes fighting hard, and they arrive gradually by tier (first specials in the Settler tier, PROG-008).
 
 **Acceptance criteria:**
 - [ ] Every special zombie has a written ability and at least one counter.
-- [ ] Specials appear according to their first tier.
+- [ ] Specials appear according to their first tier, and only occasionally (spawn rates set with balancing).
 - [ ] The Rallier is in the game (your idea).
 - [ ] The version 1 set is the ten specials designed below (my picks on your request; veto any, Q-082).
 - [ ] Specials that pin a player can always be escaped alone by attacking repeatedly; a teammate frees the player instantly. This keeps them fair for solo players and any team size.
@@ -154,7 +159,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** From features.md: "Need a system like a tracker or smth where enemies can be looked up and counter mechanics can be seen." Story hooks if picked: the deserter chicken and Mark Zuckerbot's scanner add details.
 
 ### ENEMY-011 — Bosses have mechanics
-**Status:** draft
+**Status:** approved (Milestone 1: the rules and Hog Daddy; other bosses stay draft)
 **Priority:** must
 
 **Description:** Bosses are fights with mechanics, not just enemies with more health. Minecraft isn't a boss-fight game, so every boss is built on three layers: a sealed arena, attacks telegraphed on the ground, and one signature twist. For some bosses the twist is a minigame-style phase. Normal hitting still matters, but the mechanics decide the fight.
@@ -170,6 +175,20 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 
 **Open questions:** Q-084
 **Notes:** From the Final Fantasy vs. modpack comparison: "fights have mechanics, not just more health." Approach approved in principle 2026-11-01 (answer to Q-089): "Boss fights as u suggest the 3 points." Inspiration for Minecraft boss fights: L_Ender's Cataclysm (Forge 1.20.1).
+
+### ENEMY-012 — Scarier zombies
+**Status:** approved
+**Priority:** must
+
+**Description:** Zombies are scarier than vanilla ones: new looks and a few new animations, while still fitting Minecraft's style (pillar "it still looks like Minecraft").
+
+**Acceptance criteria:**
+- [ ] Regular zombies have their own look, clearly different from vanilla zombies (visual design to be approved).
+- [ ] They have a few new animations that make them feel more threatening (e.g. lurching walk, lunging attack).
+- [ ] Looks and animations stay in vanilla's art style.
+
+**Open questions:**
+**Notes:** Your words: "Zombies in general have to be scarier than normal zombie. So maybe few new animations and different looks." Custom animations likely need an animation library; picking one (and checking its license) is a technical check for the modpack spec.
 
 ## Special zombie designs (proposals)
 

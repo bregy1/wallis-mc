@@ -12,6 +12,7 @@ This is a large modpack which brings a new experience after years of playing mod
 - We dont want anything completely overpowered.
 - We stay a Minecraft game: normal systems like hunger are kept as they are in vanilla (which systems exactly: Q-025).
 - Building stays part of the game through the whole story.
+- Unlocks match what the world demands: you get the tool or vehicle a district logically calls for (PROG-013).
 - It still looks like Minecraft: vanilla-style graphics, with small extra effects in animations and cutscenes. Anyone logging in should feel "this is still Minecraft". (You said "lets see", so this one is tentative.)
 
 *Proposed additions (draft, from your notes — approve, edit or drop):*
