@@ -2,7 +2,7 @@
 
 | ID | Question | Affects | Status |
 |---|---|---|---|
-| Q-001 | Target player is modded survival veterans (answered in overview). Still open: mainly solo, small friend groups, or larger servers? | Overview, balancing | partly answered |
+| Q-001 | Who is the target player, and what team size is the game balanced for? | Overview, balancing, PROG-011 | answered: modded survival veterans; balanced first for two players, enemy/boss strength scales with player count |
 | Q-002 | Are mini-games in scope? If yes, what kind, and how do they tie into progression? | Overview | open |
 | Q-003 | What does "locked" mean for an item? | PROG-002 | answered: obtain yes, use no, craft no, shown grayed with info |
 | Q-004 | What exactly is in the starter set at the beginning? | PROG-002 | open |
@@ -32,3 +32,19 @@
 | Q-028 | When a player leaves a team, do they get a copy of the team's points too, or start at 0? (Copying points would let players duplicate them.) | PROG-006 | open |
 | Q-029 | How is a location's danger defined on Earth: biomes, distance from spawn, structures like cities, custom zones? | PROG-007 | open |
 | Q-030 | Do enemy stats (health, damage) scale with tier at all, or are they fixed per enemy type? How are base raids scaled? | PROG-007, enemy spec | open |
+| Q-031 | Before the reveal, what is the outbreak blamed on: a lab leak, a military experiment, a natural virus? | STORY-001 | open |
+| Q-032 | At what point is the alien origin revealed: during Earth (which tier), at the launch, or on a later planet? | STORY-001 | open |
+| Q-033 | Swearing: always on, or with a clean-language option? | STORY-002 | answered: on by default, client option swaps swear words for symbols |
+| Q-034 | Is the player a member of the redneck group? Does the player character speak? | STORY-002 | answered: one of the rednecks, picks replies in conversations |
+| Q-035 | The redneck woman: her name, and her role (quest giver, fights alongside you, lives in your base)? | STORY-003 | open |
+| Q-036 | Faction attitude: which levels, how it changes (story only, or also player actions), and what it affects (trading, attacks, quests)? | STORY-004 | open |
+| Q-037 | Can choices in optional quests lock out content or change the main story? Are they permanent? | STORY-005 | open |
+| Q-038 | What kinds of random quests exist (bounties, rescues, supply runs…)? Do they give utility points? | STORY-006 | open |
+| Q-039 | What is the unknown group really? | STORY-007 | answered: cult of human collaborators led by disguised aliens |
+| Q-040 | When and how do the aliens follow to later planets? Does every later planet get infected? | STORY-008 | open |
+| Q-041 | Cutscenes: can they be skipped? In multiplayer, who sees them, and what happens in the world meanwhile? | STORY-010 | partly answered: team members take part together, some need the whole team present. Still open: skipping, and what happens in the world (enemies, other players) during a cutscene |
+| Q-042 | Specialisations: when do they unlock, how many are there, and can players change them? | PROG-011 | open |
+| Q-043 | Solo players: how do they get content that needs a specialisation (pick more than one, an NPC helper, or go without)? | PROG-011 | open |
+| Q-044 | Do allies move into the player's base (like Terraria's NPCs), or live in their own places? | STORY-003, BASE | open |
+| Q-045 | In a team, who picks conversation replies: each player for themselves, whoever answers first, or a vote? What if players pick different story choices? | STORY-002, STORY-005 | open |
+| Q-046 | Player-count scaling: which players count (radius, team only?), and what scales (health, damage, number of enemies, boss mechanics)? | PROG-007, balancing spec | open |

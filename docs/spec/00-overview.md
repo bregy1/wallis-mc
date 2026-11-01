@@ -11,20 +11,25 @@ This is a large modpack which brings a new experience after years of playing mod
 - We dont want lag
 - We dont want anything completely overpowered.
 - We stay a Minecraft game: normal systems like hunger are kept as they are in vanilla (which systems exactly: Q-025).
+- It still looks like Minecraft: vanilla-style graphics, with small extra effects in animations and cutscenes. Anyone logging in should feel "this is still Minecraft". (You said "lets see", so this one is tentative.)
 
 *Proposed additions (draft, from your notes — approve, edit or drop):*
 - **The story sets the pace.** Story progress is the main way new content unlocks.
 - **A steady, endless climb.** Never too hard too fast, never too easy too fast; there is always a next goal.
 - **Every item earns its slot.** Fewer items, each with a unique trait or a clear upgrade — no stat-clone gear.
 - **Know your enemy.** Enemies have abilities and counters, and the player can look them up in-game.
+- **Curated, not piled.** One mod per system, each there for a reason, all tuned to work together. No overlapping systems (several ore, energy or storage systems side by side).
 
 ## Target players
 Modded survival veterans. Did u play every mod already ? here is another big one lets try.
 
-(Solo vs. group vs. server: see Q-001.)
+Designed and balanced first for a two-player team. Enemy and boss strength scales with the number of players, so solo and bigger groups still work (Q-001, Q-046).
 
 ## Scope (in)
-- Story questline with allies, enemies and special fights (real-time combat, not turn-based)
+- Story questline with allies, enemies and special fights (real-time combat, not turn-based); see `20-story.md`
+- Factions (military, raiders, an unknown group) with changing attitudes, and optional quests with choices
+- Cutscenes made in-game, in Minecraft's look
+- Specialisation skills, balanced around two-player teams
 - Story-driven progression with locked content, plus points for special utility items (see `10-progression.md`)
 - Multiple planets, each with a theme and difficulty; planets stack — new ones add on top, open-ended
 - Earth: zombie apocalypse with hordes and specialised mutated zombies (Left 4 Dead flavour)
