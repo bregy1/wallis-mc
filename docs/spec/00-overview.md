@@ -11,6 +11,7 @@ This is a large modpack which brings a new experience after years of playing mod
 - We dont want lag
 - We dont want anything completely overpowered.
 - We stay a Minecraft game: normal systems like hunger are kept as they are in vanilla (which systems exactly: Q-025).
+- Building stays part of the game through the whole story.
 - It still looks like Minecraft: vanilla-style graphics, with small extra effects in animations and cutscenes. Anyone logging in should feel "this is still Minecraft". (You said "lets see", so this one is tentative.)
 
 *Proposed additions (draft, from your notes — approve, edit or drop):*
@@ -30,6 +31,13 @@ Designed and balanced first for a two-player team. Enemy and boss strength scale
 - Factions (military, raiders, an unknown group) with changing attitudes, and optional quests with choices
 - Cutscenes made in-game, in Minecraft's look
 - Specialisation skills, balanced around two-player teams
+- Combat built on vanilla, plus a dodge roll and trinkets with fighting abilities (see `38-combat.md`)
+- **Version 1: Earth and the Moon** (the Moon is an alien mini base with clues, no magic; STORY-017)
+- World: generated vanilla-style terrain, split into size-limited districts with unique structures; travel between safe spots (see `25-world.md`)
+- The Nether as an overhauled, scary underworld that opens near the rocket and supplies the last fuel ingredient
+- A cast of famous-people parodies, gung-ho army characters and weirdos (see the `story` skill)
+- A later planet where magic works: the aliens' ruined home world (STORY-012, after version 1)
+- Fiction disclaimer (STORY-014)
 - Story-driven progression with locked content, plus points for special utility items (see `10-progression.md`)
 - Multiple planets, each with a theme and difficulty; planets stack — new ones add on top, open-ended
 - Earth: zombie apocalypse with hordes and specialised mutated zombies (Left 4 Dead flavour)
@@ -38,12 +46,17 @@ Designed and balanced first for a two-player team. Enemy and boss strength scale
 - Base fortification; enemies can attack bases in a balanced way
 - Tech/automation that is not overpowered
 - Backpacks (details: Q-026)
-- Vanilla survival systems such as hunger stay unchanged
+- Vanilla survival systems such as hunger stay unchanged, except as listed in `60-survival.md`
+- Downed state with team revives, private graves, and beds as rare heal and respawn points
 - A balancing approach for damage, defense and enemy strength (to be specced)
 - Packaging: modpack + custom mod `wallis_ultimate`, with selected existing mods forked where licenses allow
 
 ## Out of scope
 - Turn-based combat
+- Magic outside the magic planet (it works only there, through a special book). The full magic chapter comes after version 1.
+- After version 1: later planets, the aliens' real home planet, the magic chapter
+- The End dimension
+- Vanilla structures (villages, mineshafts, dungeons, temples…)
 - Mini-games: undecided, see Q-002
 
 ## Target platform

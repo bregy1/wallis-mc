@@ -10,7 +10,20 @@
 | Locked item | An item the player's team hasn't unlocked: can be carried, but not used or crafted; shown grayed out. | — |
 | Player level | Per-player level from combat and quest XP. Level-ups add utility points to the team; no stat bonuses. | — |
 | Launch defense | Earth's finale: a horde siege on the base from launch start until rocket liftoff. | — |
-| District | An area within a planet with its own identity, tone and danger. | — |
+| District | A size-limited dimension within a planet, with its own biomes, enemies, tone and unique structures; opened by the story. | TBD |
+| Tusk group | Faction led by Elon Tusk: rednecks and rich people fighting side by side; allies of the team. | — |
+| Mini chicken | Small chicken alien that uses guns picked up on Earth. | TBD |
+| Nether (overhauled) | A scary underworld dimension, medium-hard, opened near the rocket; source of the last rocket fuel ingredient. | minecraft:the_nether |
+| Unminable block | One of several special block types used in protected structures; can't be mined and looks unlike any vanilla block. | TBD |
 | Faction | An organised group (e.g. the military, raiders) whose attitude toward each team can change. | — |
 | Unknown group *(name TBD)* | A mysterious group on Earth, later revealed to be connected to the aliens behind the infection. | — |
 | Specialisation | A skill path a player picks later in progression; some content requires one. | — |
+| Downed | The state a player enters instead of dying: crawling, a 10-shot pistol, ignored by enemies, revivable by teammates for 90 seconds or give up to respawn. | — |
+| Safe spot *(name TBD)* | A place along the way with a bed already placed (respawn and heal point); some are guarded by friendly redneck defenders. | — |
+| Grave | A container left where a player died, holding their items; only that player can open it. | TBD |
+| The aliens *(name TBD)* | Ancient, goofy-looking, redneck-themed, part-chicken species (~4,000-year lifespans) that ruined its own planet and spreads a virus to clear new ones. | — |
+| Magic planet | The aliens' ruined home world; the only place where magic works. | TBD |
+| Magic book *(name TBD)* | The special book used to cast magic on the magic planet. | TBD |
+| Elon Tusk | Parody tech billionaire who helped the aliens create the virus. | — |
+| Dodge roll | A quick roll players use to avoid attacks. | — |
+| Trinket | An item worn in an extra equipment slot that grants a fighting ability or power. | — |

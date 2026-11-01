@@ -114,7 +114,8 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] The enemies that spawn at a place depend mainly on its location (planet, and areas within it: Q-029).
 - [ ] Some enemy types spawn only after a defined tier has been reached (whose tier counts: Q-010).
 - [ ] A team that idles for many in-game days without progressing doesn't face rising difficulty.
-- [ ] The game is balanced first for two players; enemy and boss strength scales with the number of players nearby (scaling rule: Q-046).
+- [ ] The game is balanced first for two players; enemy and boss strength scales with each additional player (which players count: Q-046).
+- [ ] What scales is defined per enemy or boss type (e.g. health for one boss, damage for another), whatever suits that type.
 
 **Open questions:** Q-010, Q-029, Q-030, Q-046
 **Notes:** Changed 2026-11-01 (answer to Q-010). Previously "difficulty follows the team's tier"; now spawns are location-first, with tier-gated extras. Progress still makes things harder, because progressing takes players to more dangerous places and adds new enemy types. Exact numbers belong in the enemy and balancing spec.

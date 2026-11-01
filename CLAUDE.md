@@ -22,6 +22,7 @@ If any field above still says TODO, ask me before writing code that depends on i
 3. **Never invent Minecraft or loader APIs.** Check the decompiled sources, the loader docs, or existing code in this repo before using any class or method you're not certain exists in *this* Minecraft version. Follow the `minecraft-modding` skill.
 4. **Design decisions are mine.** For anything affecting gameplay, balance, visuals or player experience, present options with trade-offs and let me choose. Follow the `minecraft-design` skill.
 5. **Small, verified steps.** Build after every meaningful change. Don't stack untested changes.
+6. **Story content follows the `story` skill.** Plot, characters, dialogue, quests, cutscenes and lore.
 
 ## Workflow for every task
 
