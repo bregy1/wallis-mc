@@ -22,7 +22,7 @@
 | Q-018 | Offhand, armor slots and placing locked blocks? | PROG-002 | answered: refused |
 | Q-019 | Can machines and autocrafters process or produce locked items? | PROG-002 | answered: machines are gated by being locked; recipes curated per tier |
 | Q-020 | Final names for Earth's four tiers. | PROG-008 | open |
-| Q-021 | Player XP: which sources and amounts, the level curve, separate from vanilla XP or not, and what happens on death? | PROG-009 | open |
+| Q-021 | Player XP: which sources and amounts, the level curve, and separate from vanilla XP or not? | PROG-009 | partly answered: on death you lose 50% of progress to the next level, levels are kept. Still open: sources, amounts, curve, relation to vanilla XP |
 | Q-022 | Launch defense: how long is the siege, and what happens if it fails (rocket damaged, retry, cooldown)? | PROG-010 | open |
 | Q-023 | Launch: do all team members travel together, and do they need to be present? | PROG-010 | open |
 | Q-024 | Are point unlocks tied to tiers (each tier adds new items to buy), or is everything buyable from the start at rising prices? | PROG-005 | open |
@@ -43,7 +43,7 @@
 | Q-039 | What is the unknown group really? | STORY-007 | answered: cult of human collaborators led by disguised aliens |
 | Q-040 | When and how do the aliens follow to later planets? Does every later planet get infected? | STORY-008 | open |
 | Q-041 | Cutscenes: can they be skipped? In multiplayer, who sees them, and what happens in the world meanwhile? | STORY-010 | partly answered: team members take part together, some need the whole team present. Still open: skipping, and what happens in the world (enemies, other players) during a cutscene |
-| Q-042 | Specialist sub-trees: what are the four themes and names, which quests unlock them, and can a player ever swap one? | PROG-011 | partly answered: four trees, two per player via specific quests. Still open: themes, quests, swapping |
+| Q-042 | Specialist sub-trees: what are the four themes and names, which quests unlock them, and can a player ever swap one? | PROG-011 | partly answered: four trees, two per player via specific quests; unlocked trees stay unlocked, points can be redistributed any time. Still open: themes, names, which quests |
 | Q-043 | Solo players and specialisation content? | PROG-011 | answered: a solo player can finish the main story with any two trees; specialisation-only content is optional |
 | Q-044 | Do allies move into the player's base (like Terraria's NPCs), or live in their own places? | STORY-003, BASE | open |
 | Q-045 | In a team, who picks conversation replies? | STORY-002, STORY-005 | answered: one present team member, picked at random each time |
@@ -54,8 +54,8 @@
 | Q-050 | Can a downed player give up and respawn early? Solo players? | SURV-001 | answered: yes, with a button press; solo follows the same rules |
 | Q-051 | Which deaths skip the downed state? | SURV-001 | answered: void, lava, /kill |
 | Q-052 | Beds: how do players get them, how do they heal, where can they be placed? | SURV-005 | answered: sleeping fully heals; one bed per player per planet (from a quest on each planet) plus safe spot beds; never craftable |
-| Q-053 | Graves: after 20 minutes, are the items lost or dropped on the ground? Where does the grave go if the player died in lava or the void? Does vanilla XP go in too? | SURV-004 | open |
-| Q-054 | How do teammates notice someone is downed and how much time is left (marker, sound, HUD)? | SURV-001 | open |
+| Q-053 | Graves: duration, what happens after, lava/void, XP? | SURV-004 | answered: 60 minutes, then lost; lava/void graves go to the last safe spot; death costs 50% of level progress (PROG-009) |
+| Q-054 | How do teammates notice someone is downed? | SURV-001 | answered: marker through walls, call-for-help sound, timer on screen |
 | Q-055 | Dodge roll details. | CMBT-002 | partly answered: forward roll only, default key T, chat moves to Enter. Still open: how far, what cooldown, any cost (hunger)? Immune to damage during the roll? |
 | Q-056 | Trinkets: slots, effects, how obtained. | CMBT-003 | partly answered: existing trinket mod with ~20 body slots; trinkets are found in the world. Still open: which mod (license), and passive bonuses vs active abilities with cooldowns |
 | Q-057 | The magic planet: does magic work only there, or does only magic work there? | STORY-012, PLANET | answered: magic works only there, through a special book; tech and guns still work; the magic chapter comes after version 1 |
@@ -63,12 +63,12 @@
 | Q-059 | Disclaimer wording and placement. | STORY-014 | partly answered: on the loading screen at game start. Still open: exact wording. Since Elon Tusk is a deliberate parody, "purely coincidental" isn't accurate for him, so the draft says "coincidental or intended as parody". Before any public release, check the hosting platforms' rules on parodies of real people |
 | Q-060 | The aliens: name, why they ruined their planet, look. | STORY-011 | partly answered: wore out their planet like humans, fertility problem, need fresh water; goofy, redneck-themed, part chicken. Mini chickens use guns from Earth; mostly magic at home; no aliens in the first districts. Still open: their name |
 | Q-061 | Which weapons, tools and gadgets exist? | GEAR | answered: vanilla tools, curated weapon mods, plus invented weapons (idea pool in 40-gear.md) |
-| Q-062 | Safe spots: how many, and where (every district, along story routes)? Can any team use the bed there, or only one team at a time? Do the redneck defenders give quests or trade? | SURV-006, WORLD | open |
+| Q-062 | Safe spots: how many, who can use them, what do defenders do? | SURV-006, WORLD | answered: 3–4 per district along main routes; open to all players; defenders give quests and trade |
 | Q-063 | What does version 1 include? | Overview, roadmap, all areas | answered: Earth and the Moon (alien mini base) |
 | Q-064 | Which weapons from the idea pool in 40-gear.md do we keep, and which weapon mods do we use? | GEAR | open |
 | Q-065 | District size, number of districts, and how they map to tiers. | WORLD-002, WORLD-003 | answered: 2,000 x 2,000; four Earth districts, one per tier |
 | Q-066 | Where is the team's home base, and which vanilla dimensions are used? | WORLD-012, BASE | answered: first home in district 1, bases allowed in any opened district, horde nights hit the home bed's base; no End, Nether overhauled. Whether the vanilla Overworld serves as district 1 is a technical choice Claude proposes at setup |
-| Q-067 | Safe spot travel: only to spots you've visited? Any cost or cooldown? Blocked during fights? | WORLD-004 | open |
+| Q-067 | Safe spot travel rules? | WORLD-004 | answered: only spots the team has visited, free, not while in combat (last 10 seconds) |
 | Q-068 | Are vanilla structures turned off? Do caves and ores stay as in vanilla? | WORLD-001, WORLD-005 | answered: vanilla structures removed; ores adjusted per district (WORLD-010, Q-074) |
 | Q-069 | Unminable blocks: names and looks (proposals: Reinforced Concrete, Rebar Mesh, Alien Alloy)? Immune to explosions? Can players ever get them for their own base? | WORLD-006 | open |
 | Q-070 | Moon: which clues and which first magic items exactly? | STORY-017, PLANET | open |
