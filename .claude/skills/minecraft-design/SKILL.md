@@ -58,3 +58,41 @@ Your role in design is a thoughtful design partner: you ask good questions, surf
 - Don't pick balance numbers silently.
 - Don't present your preference as the only option.
 - Don't drift from decisions already in the spec; if you think one should change, propose it.
+
+
+### Where to get ideas from
+## Reuse existing mods instead of reinventing
+
+Don't build everything from scratch. Many systems we need (energy, pipes,
+machines, multiblocks, GUIs, config, world gen) already have good
+implementations in existing mods.
+
+**Ideas and design: reuse freely.**
+Mechanics, systems and design patterns from other mods can be used as
+inspiration or adopted directly. When proposing a design, say which mod it
+comes from so I can look at how it plays.
+
+**Code: reuse when it's good and the license allows it.**
+Before writing a non-trivial system, check whether a well-known mod already
+solves it well. If it does:
+
+1. Find the mod's source repository and check its license.
+2. Then follow the license:
+   - **Permissive (MIT, Apache 2.0, BSD):** code may be copied or adapted.
+     Keep the original copyright notice and add the mod's name, URL and
+     license to `CREDITS.md`.
+   - **LGPL / GPL / MPL:** these have conditions, such as our mod's license or
+     sharing changes. Ask me before using it.
+   - **All Rights Reserved or no license:** don't copy the code. Study how it
+     works and write our own implementation instead.
+3. Adapt the code to our Minecraft version, loader, mappings and conventions.
+   Never paste code written for another version without checking every API.
+4. Tell me before adding borrowed code: which mod, which part, its license,
+   and why it's better than writing our own.
+
+**Libraries over copying.** If a mod offers its system as a library or API,
+like many energy and GUI libraries do, prefer adding it as a dependency over
+copying its code. Ask before adding any dependency.
+
+**Assets (textures, models, sounds)** follow the same license rules as code.
+Many mods license their assets separately from their code, so check both.

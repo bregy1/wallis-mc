@@ -1,14 +1,15 @@
-# [MOD NAME] — Project Instructions
+# Wallis Ultimate — Project Instructions
 
 ## Project facts (fill these in — never guess them)
 
 | Field | Value |
 |---|---|
-| Minecraft version | TODO |
-| Mod loader + version | TODO (Fabric / NeoForge / Forge) |
-| Mappings | TODO (Mojmap / Parchment / Yarn) |
-| Java version | TODO |
-| Mod ID | TODO |
+| Minecraft version | 1.20.1 |
+| Mod loader + version | Forge (exact Forge version TODO) |
+| Mappings | TODO (Mojmap / Parchment) |
+| Java version | 17 |
+| Mod ID | `wallis_ultimate` (display name "Wallis Ultimate") |
+| Distribution | Modpack + this custom mod; selected existing mods may be forked (license permitting) |
 | Base package | TODO (e.g. `com.example.mymod`) |
 | Dependencies / APIs | TODO (e.g. Fabric API, GeckoLib, JEI…) |
 
