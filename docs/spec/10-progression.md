@@ -242,3 +242,22 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 
 **Open questions:**
 **Notes:** Your words: "We also want a scaling aspect, so we want a skill tree for making health, regen, move speed and other character stats! I think a compact tree with like different sub trees works fine. Each sub tree being of a category." Decided 2026-11-01 (answers to Q-109, Q-110): skill points from levels, noticeable but capped. PROG-009 changed to match. Your words on resets: "the skilltree to be revertible at any point. Special trees have to be unlocked and are unlocked then, but points can be freely distributed again!"
+
+### PROG-014 — Fame on every planet
+**Status:** draft (your idea, 2026-11-02; for later, not in Milestone 1)
+**Priority:** should
+
+**Description:** Every planet has its own fame bar. Your standing rises as you do good there and falls if you turn on its people. With high fame and everything on a planet finished, you get special leader abilities for that planet.
+
+**Acceptance criteria:**
+- [ ] Each planet has its own fame bar, and players can see it.
+- [ ] Completing quests and killing bosses raises fame.
+- [ ] Killing NPCs lowers fame.
+- [ ] With negative fame, safe spots become unsafe too.
+- [ ] Killing hordes and zombies on Earth gives some fame back, so nobody can get locked out for good.
+- [ ] With high fame and everything on a planet finished, an item grants that planet's special leader abilities, for example having NPCs dropped off where you want them, or an evacuation.
+- [ ] Leader abilities have a somewhat long cooldown. It only counts down while playing, and logging out doesn't reset it.
+
+**Open questions:** Q-160
+**Notes:** Your words: "as the quest progresses, we get higher fame on earth. So on each planet we have a fame bar. Completing quests and killing bosses gets higher fame, killing npcs reduces fame, so with negative fame safe spots start to be unsafe too! So careful. Also killing hordes and zombies on earth gives fame back a bit. So no hard lock. With high fame, and all finished on a planet, there is special leader abilities per planet. So acquired through an item, there can be drop offs of npcs placed. There can be evacuation. Of course this with somewhat long cooldown. Cooldown does only go down while playing. Logging out does not reset etc." Builds on the safe spot defenders and their aircraft (SURV-011).
+

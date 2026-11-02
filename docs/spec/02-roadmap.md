@@ -77,6 +77,7 @@ Ideas you want to keep in mind but not build yet.
 - **Earth cleanup storyline.** Return to Earth after the Moon with a special weapon and clear it section by section (STORY-018).
 - **A violet alien planet where shulkers drop shulker shells.** Later in the game (WORLD-007).
 - **An item that allows magic outside the magic planet.** Very late game, after version 1 (STORY-012).
+- **Fame and leader abilities.** A fame bar on every planet, and leader abilities like NPC drop-offs and evacuation once a planet is finished (PROG-014).
 - **Optimisation pass.** Once there's a working version: a faster loading screen and no lag in-game (PACK-003). Bring it up when no other tasks are left.
 - **Own loading screen and main menu.** A later task. Darker, grayer colors, and slow fight music in a redneck style that's still apocalyptic. A nice title image: a group of rednecks sitting around a fire, with materials and half-destroyed futuristic machines around them, one with a guitar, one with a gun, a few dead around who got shot, undead and alive. Your words: "Undead and alive etc."
 
