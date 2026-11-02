@@ -198,7 +198,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 
 ## Special zombie designs (proposals)
 
-*Twelve specials for version 1: the Rallier, the Necromancer and the Charger are yours, the rest are my picks and designs. Every one is a different threat that needs a different answer. Numbers are proposals, measured against a vanilla zombie (20 health, 3 damage on Normal). "Scales by" is what grows per extra player (PROG-007). All looks are in vanilla style.*
+*Eleven specials for version 1: the Rallier, the Necromancer and the Charger are yours, the rest are my picks and designs. Every one is a different threat that needs a different answer. Numbers are proposals, measured against a vanilla zombie (20 health, 3 damage on Normal). "Scales by" is what grows per extra player (PROG-007). All looks are in vanilla style.*
 
 ### Ultra rare
 
@@ -232,12 +232,6 @@ Your words: "another special zombie idea, ultra rare, but necromancer. Has an ab
 
 ### Tier 2: Settler, further specials
 
-**Bloater**
-- **Look:** a swollen, greenish hillbilly in overalls.
-- **Behavior:** slow; walks straight at players and bursts when killed or when it reaches you. Players within 3 blocks get "Bile" for 15 seconds: every zombie within 24 blocks targets them.
-- **Counter:** kill it from more than 4 blocks away. Water washes Bile off.
-- **Numbers:** 16 health. **Breaks blocks:** no. **Spawns:** with groups. **Scales by:** Bile duration.
-
 **Pouncer**
 - **Look:** a hooded, crouching zombie.
 - **Behavior:** hides, then leaps up to 8 blocks at a player who isn't facing it and pins them. A pinned player can't move or attack normally and takes damage over time.
@@ -263,7 +257,6 @@ Your words: "another special zombie idea, ultra rare, but necromancer. Has an ab
 - **Behavior:** keeps its distance and spits an arcing acid glob that leaves a 3-block acid pool for 6 seconds. The acid hurts players. When it dies it explodes: players caught in the blast get marked, every zombie nearby focuses on them, and those zombies get a little stronger while it lasts (your idea, 2026-11-02).
 - **Counter:** keep moving; don't fight in corners; close the distance fast, but finish it from a few blocks away or the blast catches you. Water washes the mark off.
 - **Numbers:** 18 health, 2 damage per second in acid. Blast radius 4 blocks. The mark lasts 15 seconds and reaches zombies within 24 blocks, who deal 15% more damage and move 10% faster while it lasts. **Breaks blocks:** no (changed so block breaking stays super rare). **Spawns:** with groups and during horde nights. **Scales by:** pool duration.
-- **Note:** your exploding Spitter overlaps my Bloater (Tier 2), who also marks players when he bursts. I kept both for now, since one walks up to you and comes early, and the other shoots from far and strengthens the zombies.
 
 **Charger** *(your idea, 2026-11-02; the look and numbers are my proposals)*
 - **Look:** a huge former linebacker in torn shoulder pads, one shoulder swollen to twice its size.
