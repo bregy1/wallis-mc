@@ -74,6 +74,16 @@ if (project.hasProperty('hotReload')) {
     }
 }
 
+// Pack config (History Stages stages and settings, ...) lives in pack/config and is copied into the dev run before
+// every client or server start, so pack/config is the source of truth: edits made in run/config get overwritten.
+def syncPackConfig = tasks.register('syncPackConfig', Copy) {
+    from 'pack/config'
+    into 'run/config'
+}
+tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
+    dependsOn syncPackConfig
+}
+
 // Pack mods our code works with, loaded in the dev runs (PACK-004). None of them ship inside our jar.
 repositories {
     maven {

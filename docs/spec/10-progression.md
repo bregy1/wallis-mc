@@ -42,8 +42,29 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] Machines (furnaces and other mods' machines included) are gated by being locked items themselves. Once placed, a machine processes its recipes without checking locks.
 - [ ] No machine available in a tier has a recipe whose output belongs to a later tier (machine recipes are curated per tier).
 
+**Unlocked from the start (allow-list, draft for your review):** everything in the pack is locked except this list (answer to Q-124).
+
+| Group | Items |
+|---|---|
+| Starter set (Q-004) | Wooden and stone swords, pickaxes, axes, shovels and hoes; bow, arrow; crafting table, furnace, torch, chest, campfire |
+| Basic food | Bread, apple, carrot, potato, baked potato, beetroot, melon slice, sweet berries, raw and cooked beef, pork, chicken, mutton, rabbit, cod and salmon, mushroom stew, beetroot soup, pumpkin pie, cookie, dried kelp, rotten flesh |
+| Natural blocks | Dirt, coarse dirt, gravel, sand, red sand, clay and clay balls, stone, cobblestone, mossy cobblestone, andesite, diorite, granite, sandstone, red sandstone, snowballs, snow block |
+| Wood (all wood types) | Logs, planks, slabs, stairs, fences, fence gates, doors, trapdoors, signs, saplings, leaves, sticks, ladders |
+| Stone building | Cobblestone, stone and stone brick slabs, stairs and walls; stone bricks; smooth stone and its slab; bricks and brick slabs, stairs and walls; sandstone slabs, stairs and walls |
+| Glass and wool | Glass, glass panes, all wool and carpets |
+| Materials | Coal, charcoal, string, feather, flint, leather, paper, sugar cane, sugar, bone, bone meal, wheat, egg, seeds (wheat, beetroot, pumpkin, melon), pumpkin, melon |
+| Story-given | Beds (all colors; they can't be crafted, SURV-005), Bandage (SURV-010), FTB Quests' quest book |
+
+**Unlock steps (answer to Q-125):** each step is a stage, unlocked for the whole team by a quest reward.
+
+| Stage | Unlocks | When |
+|---|---|---|
+| Iron | Iron and copper ore, raw metal, ingots, nuggets and blocks; iron tools, sword and armor | A Chapter 1 quest (which one: the storyline) |
+| Settler | Everything else for now; split into Settler, Gunsmith and Launch when tiers 2–4 are specified | Tier 2 |
+| Gunsmith, Launch | Empty placeholders | Tiers 3 and 4 |
+
 **Open questions:**
-**Notes:** Starter set decided 2026-11-01 (answer to Q-004). Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier.
+**Notes:** Starter set decided 2026-11-01 (answer to Q-004). Allow-list instead of a literal starter set (2026-11-02, answer to Q-124), so basic building works from day one; anything not on the list, including new mods' items, stays locked until we allow it. Not on the list yet, to decide when reviewing: leather armor, boats, fishing rod, buttons and pressure plates. Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier.
 
 ### PROG-003 — Story quests unlock content
 **Status:** approved
@@ -98,7 +119,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Acceptance criteria:**
 - [ ] All team members see the same tier, unlocks and point balance.
 - [ ] An unlock earned by one member applies to all members, including offline ones.
-- [ ] A player who joins a team takes on the team's tier, story progress, unlocks and points.
+- [ ] A player who joins a team takes on the team's tier, story progress, unlocks and points. Unlocks the joiner had that the team doesn't are removed, so all members always match (answer to Q-126).
 - [ ] A player who leaves a team starts a new solo team with a copy of the team's tier, story progress and unlocks at that moment (points: Q-028).
 - [ ] A player's own level (PROG-009) stays with them when joining or leaving.
 
