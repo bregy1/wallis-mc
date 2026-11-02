@@ -20,7 +20,7 @@ All spec areas we expect to need, so we can see what's left before going deep on
 | `60-survival.md` | Survival systems | SURV | Which vanilla systems stay unchanged (hunger confirmed); downed state and revive, graves, beds as rare heal and respawn points, safe spots, 16/8-minute day, food (Farmer's Delight), diet (A Balanced Diet) | Q-025, Q-047–054, Q-062, Q-103, Q-105 | draft |
 | `65-planets.md` | Planets and travel | PLANET | Rocket built as a structure and our own Moon dimension with low gravity (PACK-005), the Moon as an alien mini base at the end of version 1, later planets including the magic planet, travel rules, going back to earlier planets | Q-014, Q-023, Q-070 | not started |
 | `68-transport.md` | Transport | TRANS | Safe spot teleport, horses early, electric flying vehicles later on Earth (Immersive Aircraft, trimmed), garages at safe spots | Q-097, Q-098, Q-102, Q-104 | draft |
-| `70-presentation.md` | Presentation | PRES | Music, sound, art style, UI and feedback | — | not started |
+| `70-presentation.md` | Presentation | PRES | Music, sound, art style, UI and feedback | — | draft |
 | `75-endgame.md` | Endgame and post-game | END | Optional superbosses, side content, mini-games, goals after the main story | Q-002 | not started |
 | `80-magic.md` | Magic | MAGIC | The special book, spells, magic bombs; the magic chapter after the magic planet | Q-063 | after version 1 |
 
@@ -77,9 +77,10 @@ Ideas you want to keep in mind but not build yet.
 - **Earth cleanup storyline.** Return to Earth after the Moon with a special weapon and clear it section by section (STORY-018).
 - **A violet alien planet where shulkers drop shulker shells.** Later in the game (WORLD-007).
 - **An item that allows magic outside the magic planet.** Very late game, after version 1 (STORY-012).
+- **Themed background music.** Some music for every theme, nothing too crazy (PRES-001).
 - **Fame and leader abilities.** A fame bar on every planet, and leader abilities like NPC drop-offs and evacuation once a planet is finished (PROG-014).
 - **Optimisation pass.** Once there's a working version: a faster loading screen and no lag in-game (PACK-003). Bring it up when no other tasks are left.
-- **Own loading screen and main menu.** A later task. Darker, grayer colors, and slow fight music in a redneck style that's still apocalyptic. A nice title image: a group of rednecks sitting around a fire, with materials and half-destroyed futuristic machines around them, one with a guitar, one with a gun, a few dead around who got shot, undead and alive. Your words: "Undead and alive etc."
+- **Own loading screen and main menu.** A later task. Darker, grayer colors, and slow fight music in a redneck style that's still apocalyptic. A nice title image: a group of rednecks sitting around a fire (PRES-002).
 
 ## Suggested next (your call)
 1. **Story and characters**: it gives every other area its reasons (why you go somewhere, who you meet, which fights matter).
