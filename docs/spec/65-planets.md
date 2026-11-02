@@ -37,7 +37,23 @@ How planets work and how players travel between them. So far this file only hold
 - [ ] A rocket trip only starts with the amount of fuel that trip needs; electricity can't replace it.
 - [ ] Every trip uses fuel, including the way back to an earlier planet.
 - [ ] Every planet has its own local way to get fuel, so nobody gets stranded.
-- [ ] A planet's way to get fuel works with what players can have there. On the Moon, for example, nothing that burns can power it (TECH-007). (Proposal.)
+- [ ] A planet's way to get fuel works with what players can have there. (Proposal.)
 
-**Open questions:** Q-168
-**Notes:** Your words: "For rockets i still want to stick to fuel." and "Rockets, a trip literally neds a certain amount of fuel to be started. We have to make sure fuel can be acquired on every planet though." Decided 2026-11-03 (answers to Q-165 and Q-168). Amounts come with the rocket; proposal: longer trips need more. Rockets still fire on the Moon even though burners don't run there, because they carry what they need to burn. On Earth the fuel comes from the Fuel Refinery (pool in 55-tech.md) and needs a Nether ingredient (WORLD-008); other planets use what's local. STORY-018's rules for the first return to Earth still apply.
+**Open questions:**
+**Notes:** Your words: "For rockets i still want to stick to fuel." and "Rockets, a trip literally neds a certain amount of fuel to be started. We have to make sure fuel can be acquired on every planet though." Decided 2026-11-03 (answers to Q-165 and Q-168). Amounts come with the rocket; proposal: longer trips need more. Rockets still fire on the Moon even though burners don't run there, because they carry what they need to burn. On Earth the fuel comes from the Fuel Refinery (pool in 55-tech.md) and needs a Nether ingredient (WORLD-008). On the Moon it comes from the alien fuel depot (PLANET-003). STORY-018's rules for the first return to Earth still apply.
+
+### PLANET-003 — The alien fuel depot on the Moon
+**Status:** draft (your idea, 2026-11-03)
+**Priority:** must
+
+**Description:** The Moon's fuel comes from an alien fuel depot in the base. It refills by itself and needs no machine or power, so a team can never get stranded there. But getting fuel is always dangerous: the depot never becomes a safe pickup, not even after the base is cleared or Colonel Cluck is dead.
+
+**Acceptance criteria:**
+- [ ] The depot is in the alien mini base (STORY-017) and is the Moon's source of rocket fuel.
+- [ ] It refills by itself and can't be destroyed or emptied for good.
+- [ ] Every visit is dangerous, including after the base is cleared and Colonel Cluck is beaten.
+- [ ] Taking fuel sets off an alarm, and mini chicken aliens with guns (ENEMY-008) attack, every time. (Proposal.)
+- [ ] It holds enough for one trip home and refills in about one in-game day (24 minutes, SURV-007). (Proposal.)
+
+**Open questions:**
+**Notes:** Your words: "yeah alien fuel depot, but it is always dangerous." Decided 2026-11-03 (answer to Q-168). Listed here on purpose as a renewable source (TECH-003). Other planets get their own local way to get fuel (PLANET-002).
