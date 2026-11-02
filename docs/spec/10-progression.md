@@ -247,17 +247,18 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Status:** draft (your idea, 2026-11-02; for later, not in Milestone 1)
 **Priority:** should
 
-**Description:** Every planet has its own fame bar. Your standing rises as you do good there and falls if you turn on its people. With high fame and everything on a planet finished, you get special leader abilities for that planet.
+**Description:** Every player has their own fame bar on every planet. Your standing rises as you do good there and falls if you turn on its people, and it can swing up and down fast. With high fame and everything on a planet finished, you get special leader abilities for that planet.
 
 **Acceptance criteria:**
-- [ ] Each planet has its own fame bar, and players can see it.
+- [ ] Each player has their own fame bar on each planet, and can see it. Fame belongs to the player, not the team.
 - [ ] Completing quests and killing bosses raises fame.
 - [ ] Killing NPCs lowers fame.
-- [ ] With negative fame, safe spots become unsafe too.
+- [ ] With negative fame, defenders attack you on sight, so safe spots become unsafe too.
+- [ ] Getting killed by NPCs raises your fame a bit again.
 - [ ] Killing hordes and zombies on Earth gives some fame back, so nobody can get locked out for good.
 - [ ] With high fame and everything on a planet finished, an item grants that planet's special leader abilities, for example having NPCs dropped off where you want them, or an evacuation.
 - [ ] Leader abilities have a somewhat long cooldown. It only counts down while playing, and logging out doesn't reset it.
 
-**Open questions:** Q-160
-**Notes:** Your words: "as the quest progresses, we get higher fame on earth. So on each planet we have a fame bar. Completing quests and killing bosses gets higher fame, killing npcs reduces fame, so with negative fame safe spots start to be unsafe too! So careful. Also killing hordes and zombies on earth gives fame back a bit. So no hard lock. With high fame, and all finished on a planet, there is special leader abilities per planet. So acquired through an item, there can be drop offs of npcs placed. There can be evacuation. Of course this with somewhat long cooldown. Cooldown does only go down while playing. Logging out does not reset etc." Builds on the safe spot defenders and their aircraft (SURV-011).
+**Open questions:**
+**Notes:** Answers to Q-160: "fame belongs to player only, with negative fame defenders literally attack you. When killed by npcs, fame gets a bit higher again, so this is something going up and down fast, could also be a wanted level maybe." My proposal for the wanted level, to veto: no second system, one bar that reads as fame above zero and as a wanted level below it, like stars on the HUD. Your words on the idea as a whole: "as the quest progresses, we get higher fame on earth. So on each planet we have a fame bar. Completing quests and killing bosses gets higher fame, killing npcs reduces fame, so with negative fame safe spots start to be unsafe too! So careful. Also killing hordes and zombies on earth gives fame back a bit. So no hard lock. With high fame, and all finished on a planet, there is special leader abilities per planet. So acquired through an item, there can be drop offs of npcs placed. There can be evacuation. Of course this with somewhat long cooldown. Cooldown does only go down while playing. Logging out does not reset etc." Builds on the safe spot defenders and their aircraft (SURV-011).
 
