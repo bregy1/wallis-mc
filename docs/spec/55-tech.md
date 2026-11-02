@@ -5,12 +5,12 @@
 **Status of this file:** draft
 
 ## Summary
-Tech runs on electricity. Energized Power provides the general machines and the power system (generators, batteries, cables, trimmed to a few tiers). Our own mod adds story machines: the machines a chapter needs, arriving when the story needs them. Automation stays small and purposeful (ammo, fuel, food), never endless item factories.
+Tech runs on electricity, and power is its biggest part: different generators, each with its own trade-off. All of it is in our own mod, with no tech mod in the pack. Machines are few and get dropped in along the way, when a chapter needs them, and each may just do one thing. Rockets are the exception and stay on fuel (PLANET-002). Automation stays small and purposeful (ammo, fuel, food), never endless item factories.
 
 ## Requirements
 
 ### TECH-001 — Energized Power is the machine and power base
-**Status:** draft
+**Status:** deprecated (2026-11-03, answer to Q-159: our own machines and power instead, see TECH-005 and TECH-007)
 **Priority:** must
 
 **Description:** General processing machines (powered furnace, crusher, sawmill, presses, alloy smelter, auto crafter, fluid machines, growth chamber…) and power (generators, batteries, cables) come from Energized Power.
@@ -19,7 +19,7 @@ Tech runs on electricity. Energized Power provides the general machines and the 
 - [ ] Energized Power is in the pack (PACK-004).
 - [ ] Its power blocks are trimmed to a few tiers, and unused machines are disabled (which: Q-096).
 
-**Open questions:** Q-096
+**Open questions:**
 **Notes:**
 
 ### TECH-002 — Story machines arrive when the story needs them
@@ -60,26 +60,28 @@ Tech runs on electricity. Energized Power provides the general machines and the 
 - [ ] The storage network doesn't autocraft.
 
 **Open questions:** Q-101
-**Notes:** Your words: "a storage mod, not something broken, it has to be scaled slowly." Autocrafting, if any, comes only from Energized Power's auto crafters, which are locked by tier as well.
+**Notes:** Your words: "a storage mod, not something broken, it has to be scaled slowly." With Energized Power dropped (Q-159) the pack has no autocrafting; if a machine for it is ever dropped in, it's locked by tier as well.
 
-### TECH-005 — A few machines that combine
-**Status:** draft (your idea, 2026-11-02; for later: Earth's late game, then on through the other planets)
+### TECH-005 — A few machines, dropped in along the way
+**Status:** draft (your idea, 2026-11-02; changed 2026-11-03 by your answers to Q-159)
 **Priority:** must
 
-**Description:** Machines are where automation lives, and the fun comes from piping them together. So there are only 3–4 basic components, each doing one classic job, that combine into pipelines. Not many machines: too many and it just gets boring. No Create. Most likely we invent our own, maybe pieced together from existing tech mods.
+**Description:** Machines are where automation lives, and the fun comes from piping them together. But there are only a few, and they're our own. We don't plan a whole system up front: a machine gets dropped in when something along the way needs it, and it's completely fine if it just does one thing and works. If a good system grows out of that, great. Too many machines and it just gets boring. No Create.
 
 **Acceptance criteria:**
-- [ ] There are only 3–4 basic machines, and every chain in the game is built from them.
+- [ ] There are only a few machines, and each one names the need it was added for.
+- [ ] A machine can do just one thing; nothing has to fit a bigger system.
 - [ ] Any machine's output can be piped into another machine's input.
-- [ ] Ammo and fuel for batteries can be fully automated this way.
-- [ ] It starts in Earth's late game and more can be added on later planets, without changing what's there.
+- [ ] Ammo and fuel can be fully automated this way.
+- [ ] Machines arrive along the way, and adding one never changes the ones already there.
+- [ ] All machines live in `wallis_ultimate`, with no tech mod in the pack.
 
-**Open questions:** Q-159
-**Notes:** Your words: "It has definitely be automated but not by create, i think that is always just overpowered. Maybe we have very basic machines? [...] So i think we go with machines the most, but fun arrives when machines can be piped together anyways. Problem to be careful is having too many machines, then it just gets boring. We need 3-4 base composable components doing pipelines. The classic ones i guess, crushers, and fuel mixers etc. Not too much and no create as said. We will have to invent our own. this will be part of earth late game and go on in other planets, so we can still add it later." My first sketch, to discuss later: a **Crusher** (ore and scrap into dust and parts), a **Mixer** (dust and liquids into fuel and propellant), a **Press** (dust and parts into casings, plates and ammo), and a **Generator** (burns fuel, charges batteries), joined by one kind of pipe. So scrap goes through crusher and press to ammo, and crops or coal go through crusher, mixer and generator to full batteries. This changes TECH-001, which picked Energized Power (Q-159).
+**Open questions:**
+**Notes:** Your words: "It has definitely be automated but not by create, i think that is always just overpowered. Maybe we have very basic machines? [...] So i think we go with machines the most, but fun arrives when machines can be piped together anyways. Problem to be careful is having too many machines, then it just gets boring. We need 3-4 base composable components doing pipelines. The classic ones i guess, crushers, and fuel mixers etc. Not too much and no create as said. We will have to invent our own. this will be part of earth late game and go on in other planets, so we can still add it later." My first sketch, now a list of ideas rather than a plan: a **Crusher** (ore and scrap into dust and parts), a **Mixer** (dust and liquids into fuel and propellant), a **Press** (dust and parts into casings, plates and ammo), and a **Generator** (burns fuel, charges batteries), joined by one kind of pipe. So scrap goes through crusher and press to ammo, and crops or coal go through crusher, mixer and generator to full batteries. Your words, 2026-11-03: "lets not go too crazy on machines. We drop them in along the way and might end up with a good system. It is also compleytely okay if we only have few machines and they just do one thing and work." Proposal: the first machines to drop in are the pool's Ammo Press and Fuel Refinery (below), since each already does one thing.
 
-#### Q-159 options (proposal, nothing decided)
+#### Q-159 research (you chose path 3, 2026-11-03)
 
-*My research for Q-159, checked 2026-11-03. TECH-001 still stands and Q-159 stays open until you choose. Nothing was run in-game or profiled: lag evidence comes from issue trackers and from reading the code. File dates match on Modrinth and CurseForge, except Pipez (Modrinth only). Re-check licenses when the pack is assembled.*
+*My research for Q-159, checked 2026-11-03, kept as the reasons behind the choice. Nothing was run in-game or profiled: lag evidence comes from issue trackers and from reading the code. File dates match on Modrinth and CurseForge, except Pipez (Modrinth only). Re-check licenses before reusing any of these.*
 
 **The mods.** The pack joins CurseForge's Rewards Program, so a license must allow a pack that earns money (PACK-007).
 
@@ -101,21 +103,21 @@ Also checked: no Forge 1.20.1 files for [Modern Industrialization](https://modri
 |---|---|---|---|---|---|
 | 1. Trim one mod (Energized Power) | Remove recipes and hide about 110 blocks; add ammo and fuel recipes in data files (its machines take those, output from every face and use Forge Energy, which PACK-004 had as unverified). The Mixer still needs our code. A clean trim needs a fork: most of its 647 classes removed, as its own CurseForge project (PACK-002) | About a day of data work plus the Mixer; a fork is much more | Only on the surface: the rest stays registered | Depends on 1.20.1 code without October's fixes, unless a fork backports them | No |
 | 2. Combine mods (for example Energized Power + Fast Pipes) | Path 1, plus a second jar to trim and two looks to match. Energized Power's own pipes and cables then overlap (PACK-001) | Path 1 plus fitting them together | Worse: more to hide | Two mods to profile | No |
-| 3. Build our own | One machine base with item, fluid and energy handlers through [Forge capabilities](https://docs.minecraftforge.net/en/1.20.x/datastorage/capabilities/) (`ForgeCapabilities`, `IItemHandler`, `IFluidHandler`, `IEnergyStorage`), one recipe type in data files, then Crusher, Mixer, Press and Generator on top, and one pipe | About 2,000–4,000 lines plus art and recipes, so about a third of the mod today (9,703 lines in 3 days): very roughly 1–2 days plus balancing. Pipes are the biggest risk | Yes: nothing extra exists | In our hands, and we have to measure it | **Recommended** |
+| 3. Build our own | One machine base with item, fluid and energy handlers through [Forge capabilities](https://docs.minecraftforge.net/en/1.20.x/datastorage/capabilities/) (`ForgeCapabilities`, `IItemHandler`, `IFluidHandler`, `IEnergyStorage`), one recipe type in data files, then Crusher, Mixer, Press and Generator on top, and one pipe | About 2,000–4,000 lines plus art and recipes, so about a third of the mod today (9,703 lines in 3 days): very roughly 1–2 days plus balancing, now spread out because machines arrive one at a time. Pipes are the biggest risk | Yes: nothing extra exists | In our hands, and we have to measure it | **Chosen** |
 
-**Recommendation (proposal): path 3, our own machines, reusing what's free to reuse.** It's the only path that really ends at 3–4 machines. The mods we may legally use bring far more to hide and still no Mixer, and the one that matches the sketch can't go in a pack that earns money. "Pieced together from existing tech mods" survives as code instead of jars: Energized Power's machine classes and Refined Pipes (both MIT) and Ender IO (CC0) can be reused, with credit in `CREDITS.md`. No art from them (Energized Power's flashbulbs textures are unverified), and no code from Immersive Engineering, Thermal, Pipez or any GPL/LGPL mod (PACK-002).
+**Outcome (your answer, 2026-11-03): path 3, our own machines, reusing what's free to reuse.** It's the only path that really keeps the machines few. The mods we may legally use bring far more to hide and still no Mixer, and the one that matches the sketch can't go in a pack that earns money. "Pieced together from existing tech mods" survives as code instead of jars: Energized Power's machine classes and Refined Pipes (both MIT) and Ender IO (CC0) can be reused, with credit in `CREDITS.md`. No art from them (Energized Power's flashbulbs textures are unverified), and no code from Immersive Engineering, Thermal, Pipez or any GPL/LGPL mod (PACK-002).
 
-- **Lag:** only machines tick, and they sleep when there's nothing to do. The pipe is a plain block with no block entity. A machine with output walks the connected pipes (cached until a pipe changes) and pushes into whatever accepts it, so recipes act as the filter. The cost: no items visibly moving through pipes. Machines only speak Forge's standard handlers, so Fast Pipes could replace our pipe later without changing a machine.
-- **Later planets:** they add recipes, not machines, unless a chain truly needs one. We write every recipe, so TECH-003's no-duplication check is a list we can read.
-- **Early electricity (the second half of Q-159):** it would change. With Energized Power gone, the Generator, one wire and the batteries are ours too, still on Forge Energy, so TRANS-003 and GEAR-005 keep working. The catch: the Floodlight, Electric Fence and Alarm (Chapter 2 in the pool below) need power long before Earth's late game, so the Generator would arrive early and the other three late. Your call.
-- **If you accept, these change (nothing has yet):** TECH-001, Q-096 (closes), the pool below (Ammo Press and Fuel Refinery could become Press and Mixer recipes), the notes in TECH-004 and SURV-008 (auto crafters and growth chamber, so food automation needs a new answer), PACK-004, PACK-005, the transport summary and the roadmap row. Energized Power isn't in the dev build or `CREDITS.md`, so nothing has to be removed.
+- **Lag (proposal):** only machines tick, and they sleep when there's nothing to do. The pipe is a plain block with no block entity. A machine with output walks the connected pipes (cached until a pipe changes) and pushes into whatever accepts it, so recipes act as the filter. The cost: no items visibly moving through pipes. Machines only speak Forge's standard handlers, so Fast Pipes could replace our pipe later without changing a machine.
+- **Later planets (proposal):** new recipes first, and a new machine only when a need calls for it. We write every recipe, so TECH-003's no-duplication check is a list we can read.
+- **Early electricity (the second half of Q-159):** it changes, and the first generator arrives early (TECH-007).
+- **What changed with this:** TECH-001 and Q-096 are closed. The pool below, the notes in TECH-004 and SURV-008, PACK-004, PACK-005, PACK-006, the transport summary and the roadmap row are updated. Food automation lost the growth chamber (Q-167). Energized Power wasn't in the dev build or `CREDITS.md`, so nothing had to be removed.
 - **Effort is an estimate.** What I compared against, on Energized Power's 1.20.1 branch: Crusher 26 KB, Coal Engine 29 KB, fluid pipe 36 KB, shared machine classes 103 KB, the whole mod 3 MB. Whole pipe mods: Pipez 313 KB, Refined Pipes 332 KB, Fast Pipes 625 KB, all with tiers, filters and upgrades we wouldn't build.
 
 ### TECH-006 — Turrets and base defense
 **Status:** draft (your idea, 2026-11-02; for later)
 **Priority:** must
 
-**Description:** Players can defend their bases with turrets and similar defenses, kept in balance. They run on ammo and on batteries, which come out of the machines (TECH-005).
+**Description:** Players can defend their bases with turrets and similar defenses, kept in balance. They run on ammo and on batteries, which come out of the machines (TECH-005, TECH-007).
 
 **Acceptance criteria:**
 - [ ] Turrets and other base defenses exist, and help without winning a horde night on their own (pillar: nothing completely overpowered).
@@ -124,9 +126,35 @@ Also checked: no Forge 1.20.1 files for [Modern Industrialization](https://modri
 **Open questions:**
 **Notes:** Your words: "We will also need items like turrets and base defense. in balanced manner." Goes with Chargers and Brutes, who can break through weak walls (ENEMY-005).
 
+### TECH-007 — Power is the biggest part: generators with trade-offs
+**Status:** draft (your idea, 2026-11-03)
+**Priority:** must
+
+**Description:** Power is the biggest part of tech. Several generators exist, each with its own trade-off, so which one you build depends on what you need. The first one arrives early on Earth, long before most other machines. Power is our own, on Forge Energy, stored in batteries and carried by one kind of wire.
+
+**Acceptance criteria:**
+- [ ] The first generator arrives no later than the first machine that needs power (Chapter 2 in the pool below).
+- [ ] Several generators exist, each with a clear trade-off in strength, fuel, noise or where it works (pool below).
+- [ ] Loud generators pull zombies like other noise does (ENEMY-006).
+- [ ] Generators that burn something don't run on the Moon, which has no air (PLANET-001).
+- [ ] All power is Forge Energy, so aircraft (TRANS-003) and electric guns (GEAR-005) charge from it.
+- [ ] Batteries store power and one kind of wire carries it.
+
+**Open questions:**
+**Notes:** Your words: "yeah generator kinda early then!" and "I think power is the biggest, we have different generators for different things." Trade-offs chosen over one generator per use or per planet (Q-164). Loud generators are inspired by Project Zomboid, where a running generator draws zombies.
+
+**Generator pool (proposal; names and numbers are yours to veto):**
+
+| Generator | Chapter | Runs on | Trade-off |
+|---|---|---|---|
+| Hand Crank | 2 Settler, first | A player turning it | Weak, but quiet and free; someone has to stand there |
+| Burner | 2 Settler | Coal, wood or crops | Steady, but loud (pulls zombies from about 16 blocks) and needs feeding. Doesn't run on the Moon |
+| Solar Panel | 3 Gunsmith | Daylight | Quiet and free, but weak and stops at night. Salvaged from the old civilisation's ruins. The only one that runs by itself on the Moon |
+| Fuel Generator | 4 Launch | Refined fuel through pipes | Strongest, but very loud (about 32 blocks, like a gunshot), and the reason to automate fuel. Doesn't run on the Moon |
+
 ## Story machine idea pool (proposals)
 
-*My proposals for TECH-002. Each one solves something the story or survival actually needs. Generic processing stays with Energized Power.*
+*My proposals for TECH-002. Each one solves something the story or survival actually needs. This is also where machines get dropped in from (TECH-005); generic processing only arrives if something needs it.*
 
 | Machine | Chapter | Solves | Power |
 |---|---|---|---|

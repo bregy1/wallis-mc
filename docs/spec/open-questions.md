@@ -95,8 +95,8 @@
 | Q-092 | Which license does our own mod get? | PACK-002 | answered: MIT |
 | Q-093 | Hourglass sleep speed-up vs instant skip? | SURV-005, SURV-007, PACK-004 | answered: the fast speed-up is fine |
 | Q-094 | Entity Culling's license? | PACK-003 | answered: fine for a free pack with no monetization |
-| Q-095 | Power, tech mod, rocket and Moon without Create? | TECH, PROG-010, STORY-017, PACK-004 | answered: Energized Power for tech and power (trimmed); our own rocket build and Moon dimension |
-| Q-096 | Which Energized Power tiers do we keep (proposal: 3 generators, 2–3 batteries, 2 cables), and which machines? | TECH, PACK-004 | open |
+| Q-095 | Power, tech mod, rocket and Moon without Create? | TECH, PROG-010, STORY-017, PACK-004 | answered: Energized Power for tech and power (trimmed), later changed to our own (Q-159); our own rocket build and Moon dimension |
+| Q-096 | Which Energized Power tiers do we keep (proposal: 3 generators, 2–3 batteries, 2 cables), and which machines? | TECH, PACK-004 | closed: Energized Power is dropped (Q-159); generators are in TECH-007 |
 | Q-097 | Any early mount besides vanilla horses? | TRANS-002 | answered: horses only, tunable with trinkets |
 | Q-098 | From which tier do electric aircraft and electric guns arrive? | TRANS-003, GEAR-005 | partly answered: aircraft in district 2 or 3, wherever terrain first calls for it (PROG-013). Still open: when electric guns arrive |
 | Q-099 | Vehicles and districts: can a vehicle come along to another district? | TRANS-003, TRANS-004 | answered: no; garages at safe spots store vehicles and hand them out (TRANS-004) |
@@ -157,9 +157,16 @@
 | Q-156 | How do enemies stay out of a safe spot that has no walls, like Camp Tarp? | ENEMY-007, SURV-011 | answered: every safe spot gets a wall or barricade, and anything that gets in starts a real fight. Ordinary defenders can die; reinforcements fly in by aircraft with visible drop-offs; main NPCs can't die |
 | Q-157 | Horde night with nobody at the base? | ENEMY-006, WORLD-012 | answered: the horde spawns around the player; warnings 2 minutes and 1 minute before, then a message or a transmission from Lurleen when it starts |
 | Q-158 | Can players sleep through a horde night? | ENEMY-006 | answered: no; a later item may allow skipping one by praying; it costs a super rare item gathered on the Moon, used when returning to clear Earth |
-| Q-159 | Machines: stay with a trimmed Energized Power (TECH-001), piece something together from existing tech mods, or build our own 3–4 machines? Also: does Earth's early electricity change with it? | TECH-001, TECH-005, TECH-006 | open; for later, your lean: our own |
+| Q-159 | Machines: stay with a trimmed Energized Power (TECH-001), piece something together from existing tech mods, or build our own 3–4 machines? Also: does Earth's early electricity change with it? | TECH-001, TECH-005, TECH-006, TECH-007 | answered: our own machines, Energized Power dropped. Only a few, dropped in along the way, and each may just do one thing. Early electricity changes: the first generator arrives early |
 | Q-160 | Fame: does it belong to the whole team, or to each player? If one player kills NPCs, does the team pay? And what exactly happens at negative fame: defenders attack on sight, or only stop protecting you? | PROG-014 | answered: fame belongs to each player; with negative fame defenders attack on sight; being killed by NPCs raises fame a bit, so it swings fast. It stays a fame system, with no separate wanted level |
 | Q-161 | Where does the music come from: royalty-free tracks with a fitting license, music made for us, or something else? | PRES-001, PRES-002 | answered: open, free, already made music, ideally; licenses must allow a monetized pack |
+| Q-162 | Moon air: how does the breathing trinket work? | PLANET-001 | answered: just wear it; it never runs out and needs no charging |
+| Q-163 | What happens to the breathing trinket when a player dies? | PLANET-001, SURV-004 | answered: it stays on the player and never goes in the grave |
+| Q-164 | What does "different generators for different things" mean? | TECH-007 | answered: each generator has its own trade-off in strength, fuel, noise or where it works; pool in 55-tech.md |
+| Q-165 | Rockets stay on fuel: when does a trip burn fuel? | PLANET-002 | answered: every trip needs a set amount of fuel to start, and fuel can be acquired on every planet |
+| Q-166 | Besides generators, does anything else stop burning on the Moon (furnaces, torches, campfires, Molotovs, the flamethrower)? | PLANET-001, TECH-007 | open |
+| Q-167 | What automates food, now that Energized Power's growth chamber is gone? | TECH-003, SURV-008 | open; for later |
+| Q-168 | Fuel must be available on every planet, but WORLD-008 says a fuel material comes only from the Nether. How do they fit? Proposal: every planet has its own local way to get fuel, and the Nether rule only covers Earth's fuel. And how do players get fuel on the Moon: made there, or found in the alien base? | PLANET-002, WORLD-008 | open |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

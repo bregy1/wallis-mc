@@ -82,14 +82,13 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Structure decoration: furniture for interiors | Another Furniture (3.0.4 for Forge 1.20.1) | Code MIT, assets All Rights Reserved | Unmodified; its items stay locked, used in structures | SURV-006, WORLD-005 | Picked by Claude (Q-148); Macaw's Furniture (ARR), Handcrafted (code MIT, assets ARR) |
 | Structure decoration: boarded-up windows and doors | Just Barricades (1.0.0 for Forge 1.20.1) | MIT | Unmodified; "zombies destroy barricades" switched off in its config (regular zombies never damage blocks, ENEMY-005); its items stay locked | SURV-006, ENEMY-005 | Picked by Claude (Q-148) |
 | Food values on screen | AppleSkin | The Unlicense (public domain) | Unmodified | SURV-009 | None needed |
-| Tech machines and power (generators, batteries, cables) | Energized Power | MIT; some textures credited to flashbulbs (terms unverified); pack use explicitly allowed | Unmodified or MIT fork; power trimmed to a few tiers (which: Q-096) | TECH | Mekanism, Industrial Foregoing (both lean overpowered); own power system |
 
 **Acceptance criteria:**
 - [ ] Every system in the table has one confirmed pick before the pack is assembled.
 - [ ] Each pick's Forge 1.20.1 version is recorded when the pack is assembled.
 
-**Open questions:** Q-064, Q-091, Q-093, Q-096
-**Notes:** Picks are recommendations from the 2026-11-01 research; confirm or swap. Tech and power decided 2026-11-01: Energized Power for both, power trimmed. Its Forge Energy compatibility is unverified; Forge 1.20.1 itself provides the `IEnergyStorage` capability.
+**Open questions:** Q-064, Q-091, Q-093
+**Notes:** Picks are recommendations from the 2026-11-01 research; confirm or swap. Tech and power were first decided 2026-11-01 as Energized Power for both; changed 2026-11-03 to our own (answer to Q-159, see PACK-005, TECH-005 and TECH-007).
 Dev setup (2026-11-02): all mods above that Chapter 1 needs load in the dev runs (GeckoLib comes with ENEMY-012), at their latest Forge 1.20.1 releases. Those our code works with: FTB Quests 2001.4.22, FTB Teams 2001.3.2, History Stages 6.1.1-1.20.1, Lootr 0.7.35.94, Curios API 5.14.1+1.20.1, JEI 15.74.0.229 (from 15.74.0.230 on, History Stages' JEI fluid patch fails to load and the game crashes as soon as a world loads, checked 2026-11-02). FTB Quests and Teams also need FTB Library (2001.2.13) and Architectury (9.2.14), so the pack needs those two as well; their licenses are not yet checked. Versions live in `gradle.properties`.
 
 ### PACK-005 — Built in our own mod
@@ -114,6 +113,7 @@ Dev setup (2026-11-02): all mods above that Chapter 1 needs load in the dev runs
 | Story glue (team cutscene triggers, quest hooks) | STORY | Connects FTB Quests, Easy NPC and ImmersiveCinematics |
 | Our invented weapons and the downed pistol | GEAR, SURV-001 | Our own content |
 | Garages: store vehicles and hand them out at safe spots | TRANS-004 | Our own building; it has to save and restore Immersive Aircraft vehicles |
+| Generators, batteries, wire, pipes and machines | TECH-005, TECH-007 | The tech mods we may legally use bring far more than a few machines, and the closest match can't go in a pack that earns money (research in TECH-005, answer to Q-159) |
 | The rocket (built as a structure) and the Moon dimension with low gravity | PROG-010, STORY-017, PLANET | Northstar needs Create; Ad Astra's rocket is likely a crafted item and its assets can't be changed. Decided 2026-11-01 |
 
 **Acceptance criteria:**
@@ -153,6 +153,7 @@ Dev setup (2026-11-02): all mods above that Chapter 1 needs load in the dev runs
 | Create: Northstar Redux | Needs Create |
 | Ad Astra | Not chosen: we build our own rocket and Moon |
 | Mekanism, Industrial Foregoing | Lean overpowered |
+| Energized Power | Dropped 2026-11-03 (answer to Q-159): far too much to trim. MIT, so its code can still be reused with credit |
 | Applied Energistics 2, Refined Storage | Storage picked: Tom's Simple Storage (simpler, can't snowball) |
 | Sophisticated Storage, Ultimate Car Mod | All Rights Reserved; the car mod isn't electric |
 | Diet (original), Spice of Life variants | Diet is stale since 2023 (A Balanced Diet continues it); Spice of Life rewards variety only; Carrot Edition is ARR |

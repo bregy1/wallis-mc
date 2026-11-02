@@ -5,7 +5,7 @@
 **Status of this file:** draft
 
 ## Summary
-Getting around grows with progression: teleporting between safe spots from the start, horses early on, and electric flying vehicles later on Earth. Vehicles run on electricity, in line with the pack's electric tech (Energized Power). They can't travel between districts; garages at safe spots store them and hand them out again.
+Getting around grows with progression: teleporting between safe spots from the start, horses early on, and electric flying vehicles later on Earth. Vehicles run on electricity, in line with the pack's electric tech (TECH-007). They can't travel between districts; garages at safe spots store them and hand them out again.
 
 ## Requirements
 
