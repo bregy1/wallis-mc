@@ -197,7 +197,17 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 
 ## Special zombie designs (proposals)
 
-*Ten specials for version 1: the Rallier is yours, the rest are my picks and designs. Every one is a different threat that needs a different answer. Numbers are proposals, measured against a vanilla zombie (20 health, 3 damage on Normal). "Scales by" is what grows per extra player (PROG-007). All looks are in vanilla style.*
+*Eleven specials for version 1: the Rallier and the Necromancer are yours, the rest are my picks and designs. Every one is a different threat that needs a different answer. Numbers are proposals, measured against a vanilla zombie (20 health, 3 damage on Normal). "Scales by" is what grows per extra player (PROG-007). All looks are in vanilla style.*
+
+### Ultra rare
+
+**Necromancer** *(your idea, 2026-11-02; the numbers and when it starts spawning are my proposals)*
+- **Look:** half a face, a nice jacket that has seen better days, and a long, half-broken stick it uses for its abilities.
+- **Behavior:** slower than other zombies, and naturally stays back, because it has a ranged attack with medium damage. On a cooldown, it uses the stick to bring dead zombies back to life in a fairly big radius around it. It regenerates health by itself. Every hit it takes shortens the revive's cooldown a little, so chipping away at it makes things worse.
+- **Counter:** burst it down. Save your strongest damage for it and kill it in one go, or it gets super rough. Don't poke at it.
+- **Numbers:** 30 health, regenerates 1 health per second, not too tanky. Ranged attack 5 damage, range 16 blocks. 70% of a zombie's speed. Revive radius 16 blocks, cooldown 30 seconds, each hit takes 1 second off it, brings back up to 6 zombies that died nearby in the last 30 seconds. **Breaks blocks:** no. **Spawns:** ultra rare, mixed into big groups, from tier 3 (Gunsmith), since bursting it takes guns. **Scales by:** how many it revives.
+
+Your words: "another special zombie idea, ultra rare, but necromancer. Has an ability, on cooldown, which would revive zombies around him. The radius has still to be somewhat big, he has health regen himself, not too tanky. But has to be bursted or is super rough. Can have half a face, a nice jacket, and some sort of half broken long stick which his ability uses. He is a bit slower usually, and naturally stays a bit back since he has a ranged ability with medium damage. Hitting him refunds a little bit of cooldown to his revive ability, which is tough."
 
 ### First specials (from tier 2, Settler; answer to Q-139)
 

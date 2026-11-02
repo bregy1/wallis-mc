@@ -30,3 +30,6 @@ forge*changelog.txt
 
 # Test snapshots (tools/testsnapshot.sh)
 .testrun
+
+# Agent worktrees
+.claude/worktrees

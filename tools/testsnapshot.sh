@@ -4,7 +4,8 @@
 # Runs the GameTests and the client smoke test on the files as they are right now, and prints the results. The last
 # line names the snapshot; this commits exactly what was tested:
 #   bash tools/testsnapshot.sh commit <tree> "message"
-# `bash tools/testsnapshot.sh look` only runs the client and takes pictures of the structures.
+# `bash tools/testsnapshot.sh look [groups]` only runs the client with those groups of smoke steps (default: sites, the
+# pictures of the structures). `bash tools/testsnapshot.sh gametests` only runs the GameTests.
 # `bash tools/testsnapshot.sh snap` only remembers the files as they are, to test later with SNAPSHOT_TREE=<tree>.
 # This machine can only run one game at a time, so runs from different worktrees wait for each other.
 # Exit code = number of failures (100 if something didn't finish).
@@ -65,11 +66,14 @@ done
 
 cd "$COPY"
 if [ "${1:-}" = "look" ]; then
-    bash tools/smoketest.sh -PsmokeSites | grep -a -E "FAIL|DONE|gave up|Crash report|did not|stopped|Mods failed|Mod ID|Blueprint|/ERROR"
+    bash tools/smoketest.sh "-PsmokeOnly=${2:-sites}" | grep -a -E "FAIL|DONE|gave up|Crash report|did not|stopped|Mods failed|Mod ID|Blueprint|/ERROR"
     exit "${PIPESTATUS[0]}"
 fi
 bash tools/gametest.sh | grep -a -E "FAILED|tests reported|did not"
 GAMETESTS=${PIPESTATUS[0]}
+if [ "${1:-}" = "gametests" ]; then
+    exit "$GAMETESTS"
+fi
 bash tools/smoketest.sh | grep -a -E "FAIL|DONE|gave up|monsters loaded|Crash report|did not|stopped|Mods failed|Mod ID|Blueprint"
 SMOKE=${PIPESTATUS[0]}
 echo "snapshot $TREE: $GAMETESTS GameTest failures, smoke test exit $SMOKE"

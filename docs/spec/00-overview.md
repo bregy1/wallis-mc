@@ -7,7 +7,11 @@ This is a large modpack which brings a new experience after years of playing mod
 
 *Proposed addition (from plans.md / features.md):* Earth has fallen to an undead apocalypse. The player starts with almost nothing, survives the hordes, fortifies a base, and follows a story — allies, enemies, special fights — that leads to building a rocket and leaving Earth in search of a new home. Each planet is a new chapter with its own theme, enemies, resources and difficulty. It should feel like an action RPG journey (Final Fantasy-style story and progression) told through real-time Minecraft combat, with a climb that keeps going instead of running out of goals.
 
+## World view
+The apocalypse hit a very advanced civilisation, at least as advanced as ours today, in places beyond it. What's left of it shows: smashed electric cars and drones, dead screens and solar arrays, broken robots, and destroyed futuristic art. The rednecks in their cabin are the odd ones out in that world, not a picture of it. Your words (2026-11-02): "we assume that the apocalypse happened in a very advanced civilisation, at least the same as now, say there is futuristic arts which was destroyed for example."
+
 ## Pillars
+- Every planet follows a theme, looks good, has its own vibe, and is taken care of in detail. Your words: "Every planet should follow a theme and be good looking, getting a vibe and be taken care of in detail."
 - We dont want lag
 - We dont want anything completely overpowered.
 - We stay a Minecraft game: normal systems like hunger are kept as they are in vanilla (which systems exactly: Q-025).

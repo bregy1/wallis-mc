@@ -116,7 +116,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Description:** Safe spots aren't protected by magic. They have real walls or barricades and armed NPCs, and anything that gets in starts a fight. When a horde reaches one, a big battle breaks out: many defenders die, reinforcements fly in by aircraft and land in visible drop-offs, and the place is patched up afterwards.
 
 **Acceptance criteria:**
-- [ ] Every safe spot is closed in by some kind of wall or barricade, with a way in.
+- [ ] Every safe spot is closed in by some kind of wall or barricade, with a way in, and has a clear theme of its own (your words: "please design them better themed").
 - [ ] Ordinary defenders are armed with weapons that are okay-ish, and fight any enemy that comes near or gets in.
 - [ ] Ordinary defenders can die. Main NPCs (the named ones who give quests) can't.
 - [ ] When a horde reaches a safe spot, a big fight breaks out around it, without the players having to do anything.

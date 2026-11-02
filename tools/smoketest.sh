@@ -2,7 +2,7 @@
 # Client smoke test: starts the dev client, which creates a fresh survival world, walks around, runs the steps in
 # src/main/java/wallis_ultimate/client/smoketest, takes screenshots (run/screenshots/smoketest-*.png) and quits.
 # Prints the [SMOKETEST] lines and any errors. Exit code = number of failed checks, 100 if the run didn't finish.
-# With -PsmokeSites as the argument it only looks at the structures.
+# With an argument like -PsmokeOnly=sites,props it only runs those groups of steps (see ClientSmokeTest.allSteps).
 set -u
 JDK="${JDK17:-C:/Program Files/Java/jdk-17}"
 LOG="build/smoketest-client.log"

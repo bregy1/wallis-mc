@@ -78,6 +78,7 @@ Ideas you want to keep in mind but not build yet.
 - **A violet alien planet where shulkers drop shulker shells.** Later in the game (WORLD-007).
 - **An item that allows magic outside the magic planet.** Very late game, after version 1 (STORY-012).
 - **Optimisation pass.** Once there's a working version: a faster loading screen and no lag in-game (PACK-003). Bring it up when no other tasks are left.
+- **Own loading screen and main menu.** A later task. Darker, grayer colors, and slow fight music in a redneck style that's still apocalyptic. A nice title image: a group of rednecks sitting around a fire, with materials and half-destroyed futuristic machines around them, one with a guitar, one with a gun, a few dead around who got shot, undead and alive. Your words: "Undead and alive etc."
 
 ## Suggested next (your call)
 1. **Story and characters**: it gives every other area its reasons (why you go somewhere, who you meet, which fights matter).

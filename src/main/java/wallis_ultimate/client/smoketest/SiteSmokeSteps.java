@@ -163,6 +163,8 @@ final class SiteSmokeSteps {
     /** ENEMY-012: all five looks in a row, close up, on a platform in the sky. They can't move, so this shows the pose. */
     private static void zombieLineup(List<ClientSmokeTest.Step> steps) {
         steps.add(step("line up the zombies", 40, player -> {
+            // The test world starts on Peaceful, which removes monsters right away.
+            command("difficulty normal");
             int x = player.getBlockX() + 40;
             int y = 230;
             int z = player.getBlockZ();
@@ -176,7 +178,10 @@ final class SiteSmokeSteps {
             command(String.format("tp @s %.2f %d %.2f 180 8", x + 0.5, y, z + 6.5));
         }));
         steps.add(step("picture of the zombies", 2, player -> screenshot("zombie-lineup")));
-        steps.add(step("clear the zombies away", 5, player -> command("kill @e[type=wallis_ultimate:zombie,distance=..30]")));
+        steps.add(step("clear the zombies away", 5, player -> {
+            command("kill @e[type=wallis_ultimate:zombie,distance=..30]");
+            command("difficulty peaceful");
+        }));
     }
 
     private static void openCabinChest(LocalPlayer player) {
