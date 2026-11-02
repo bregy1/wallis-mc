@@ -1,6 +1,7 @@
 package wallis_ultimate.gametest;
 
 import com.mojang.authlib.GameProfile;
+import java.util.List;
 import java.util.UUID;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
@@ -14,14 +15,13 @@ import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.scores.PlayerTeam;
-import net.minecraft.world.scores.Scoreboard;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.combat.DodgeRoll;
 import wallis_ultimate.survival.Downed;
 import wallis_ultimate.survival.Revive;
+import wallis_ultimate.team.Teams;
 
 /** Checks for SURV-001 (downed state) and SURV-002 (revive), server logic. */
 @GameTestHolder(WallisUltimate.MOD_ID)
@@ -34,7 +34,7 @@ public final class DownedGameTests {
     }
 
     /**
-     * A mock player with its own name, so scoreboard teams can tell players apart. Not added to the level, so it isn't
+     * A mock player with its own name and UUID. Not added to the level, so it isn't
      * ticked. Relative y=1 is the platform's stone floor; stand at y=2.
      */
     private static Player mockPlayer(GameTestHelper helper, String name, BlockPos relativePos) {
@@ -54,21 +54,16 @@ public final class DownedGameTests {
         return player;
     }
 
-    private static PlayerTeam team(GameTestHelper helper, String name, Player... members) {
-        Scoreboard scoreboard = helper.getLevel().getScoreboard();
-        PlayerTeam old = scoreboard.getPlayerTeam(name);
-        if (old != null) {
-            scoreboard.removePlayerTeam(old);
-        }
-        PlayerTeam team = scoreboard.addPlayerTeam(name);
+    /** Mock players can't join FTB teams, so tests group them with {@link Teams}' test teams. */
+    private static List<Player> team(GameTestHelper helper, String name, Player... members) {
         for (Player member : members) {
-            scoreboard.addPlayerToTeam(member.getScoreboardName(), team);
+            Teams.joinTestTeam(member, name);
         }
-        return team;
+        return List.of(members);
     }
 
-    private static void removeTeam(GameTestHelper helper, PlayerTeam team) {
-        helper.getLevel().getScoreboard().removePlayerTeam(team);
+    private static void removeTeam(GameTestHelper helper, List<Player> team) {
+        team.forEach(Teams::leaveTestTeam);
     }
 
     private static void knockDown(GameTestHelper helper, Player player) {
@@ -208,7 +203,7 @@ public final class DownedGameTests {
     public static void reviveTakesThreeAndAHalfSecondsAndGivesHalfHealth(GameTestHelper helper) {
         Player reviver = mockPlayer(helper, "rv_medic", new BlockPos(2, 2, 2));
         Player target = mockPlayer(helper, "rv_patient", new BlockPos(3, 2, 2));
-        PlayerTeam team = team(helper, "wu_t_revive", reviver, target);
+        List<Player> team = team(helper, "wu_t_revive", reviver, target);
         knockDown(helper, target);
         double speed = reviver.getAttributeValue(Attributes.MOVEMENT_SPEED);
         // Mock players aren't ticked by the level, so the test drives the session like the player tick would.
@@ -246,7 +241,7 @@ public final class DownedGameTests {
     public static void damageCancelsTheRevive(GameTestHelper helper) {
         Player reviver = mockPlayer(helper, "rv_hurt", new BlockPos(2, 2, 2));
         Player target = mockPlayer(helper, "rv_waiting", new BlockPos(3, 2, 2));
-        PlayerTeam team = team(helper, "wu_t_hurt", reviver, target);
+        List<Player> team = team(helper, "wu_t_hurt", reviver, target);
         try {
             knockDown(helper, target);
             Revive.hold(reviver, target);
@@ -273,7 +268,7 @@ public final class DownedGameTests {
         Player stranger = mockPlayer(helper, "rv_stranger", new BlockPos(2, 2, 1));
         Player downedMate = mockPlayer(helper, "rv_alsodown", new BlockPos(1, 2, 2));
         Player farMate = mockPlayer(helper, "rv_far", new BlockPos(6, 2, 6));
-        PlayerTeam team = team(helper, "wu_t_only", target, downedMate, farMate);
+        List<Player> team = team(helper, "wu_t_only", target, downedMate, farMate);
         try {
             knockDown(helper, target);
             knockDown(helper, downedMate);
@@ -296,7 +291,7 @@ public final class DownedGameTests {
     public static void reviveStopsWhenTheKeyIsReleased(GameTestHelper helper) {
         Player reviver = mockPlayer(helper, "rv_release", new BlockPos(2, 2, 2));
         Player target = mockPlayer(helper, "rv_left", new BlockPos(3, 2, 2));
-        PlayerTeam team = team(helper, "wu_t_release", reviver, target);
+        List<Player> team = team(helper, "wu_t_release", reviver, target);
         knockDown(helper, target);
         Revive.hold(reviver, target);
         Revive.tickSession(reviver);

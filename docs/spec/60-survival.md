@@ -34,7 +34,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Description:** A team member revives a downed player by holding the use key on them for 3–4 seconds while standing still. Taking damage interrupts the revive, so reviving in the middle of a big group of enemies is hard.
 
 **Acceptance criteria:**
-- [x] Only members of the downed player's team can revive them. (Vanilla scoreboard teams until FTB Teams is in the dev setup; the reviver must be up and within 3 blocks.)
+- [x] Only members of the downed player's team can revive them. (Teams come from FTB Teams; a solo player has no teammates. The reviver must be up and within 3 blocks.)
 - [ ] Reviving takes 3.5 seconds of holding the use key. (70 ticks verified by GameTests; letting go stops it; holding the key to check in-game.)
 - [ ] While reviving, the reviver can't move, attack or use items. (Movement lock verified by GameTests; attack and item blocking to check in-game.)
 - [x] If the reviver takes damage, the revive is cancelled and its progress is lost.
@@ -80,7 +80,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 
 **Acceptance criteria:**
 - [ ] A bed sets the player's respawn point, as in vanilla.
-- [ ] Sleeping in a bed fully heals the player.
+- [x] Sleeping in a bed fully heals the player, when they wake up in the morning after sleeping through the night. Leaving the bed early gives nothing (answer to Q-123). (Verified with simulated wake-ups; to recheck once Hourglass speeds up the night, SURV-007.)
 - [x] Beds can't be crafted. (The 16 bed recipes are switched off; dyeing a bed you already have still works, see Q-123.)
 - [ ] Each player can own one bed per planet; it comes from a quest on that planet.
 - [ ] On Earth, every player receives their bed early, used to set up the team's first home (quest "create first home").
@@ -165,7 +165,9 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Description:** Besides sleeping, players can heal with items. Early healing items are weak; stronger ones come later.
 
 **Acceptance criteria:**
-- [x] Bandage: available in tier 1, heals 3 hearts over 5 seconds. (Right-click applies a visible "Bandaged" effect: 1 HP every 16 ticks for 100 ticks; only usable when hurt. How players obtain it: Q-119.)
+- [x] Bandage: available in tier 1, heals 3 hearts over 5 seconds. (Right-click applies a visible "Bandaged" effect: 1 HP every 16 ticks for 100 ticks; only usable when hurt.)
+- [x] Bandages are crafted from 3 string or wool plus 1 paper, and stack to 16 (answer to Q-119). (One Bandage per craft; string and wool can be mixed.)
+- [ ] Bandages are also found in loot (with the Chapter 1 structures).
 - [ ] Medkit: unlocks later (proposal: tier 3), heals much more.
 - [ ] Exact heal amounts are tuned in playtesting.
 

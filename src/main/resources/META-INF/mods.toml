@@ -22,3 +22,11 @@ description='''${mod_description}'''
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+# Teams (PROG-006): our "same team" checks ask FTB Teams.
+[[dependencies.${mod_id}]]
+    modId="ftbteams"
+    mandatory=true
+    versionRange="[2001.3,)"
+    ordering="NONE"
+    side="BOTH"

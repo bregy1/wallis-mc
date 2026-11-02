@@ -1,14 +1,19 @@
 package wallis_ultimate.gametest;
 
+import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 import wallis_ultimate.WallisUltimate;
@@ -43,6 +48,30 @@ public final class BandageGameTests {
         }
         if (player.getMainHandItem().getCount() != 1) {
             helper.fail("bandage was not consumed");
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template = PLATFORM)
+    public static void bandagesAreCraftedFromClothAndPaperAndStackTo16(GameTestHelper helper) {
+        if (ModItems.BANDAGE.get().getMaxStackSize() != 16) {
+            helper.fail("bandages stack to " + ModItems.BANDAGE.get().getMaxStackSize());
+        }
+        Recipe<?> recipe = helper.getLevel().getRecipeManager()
+                .byKey(ResourceLocation.fromNamespaceAndPath(WallisUltimate.MOD_ID, "bandage")).orElse(null);
+        if (recipe == null) {
+            helper.fail("no bandage recipe");
+            return;
+        }
+        ItemStack result = recipe.getResultItem(helper.getLevel().registryAccess());
+        if (!result.is(ModItems.BANDAGE.get()) || result.getCount() != 1) {
+            helper.fail("recipe makes " + result);
+        }
+        List<Ingredient> ingredients = recipe.getIngredients();
+        long cloth = ingredients.stream().filter(i -> i.test(new ItemStack(Items.STRING)) && i.test(new ItemStack(Items.RED_WOOL))).count();
+        long paper = ingredients.stream().filter(i -> i.test(new ItemStack(Items.PAPER))).count();
+        if (ingredients.size() != 4 || cloth != 3 || paper != 1) {
+            helper.fail("unexpected ingredients: " + ingredients.size() + " total, " + cloth + " cloth, " + paper + " paper");
         }
         helper.succeed();
     }
