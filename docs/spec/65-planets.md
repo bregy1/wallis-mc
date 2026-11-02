@@ -31,13 +31,13 @@ How planets work and how players travel between them. So far this file only hold
 **Status:** draft (your idea, 2026-11-03)
 **Priority:** must
 
-**Description:** The rest of tech runs on electricity, but rockets stay on fuel. Every trip needs a set amount of fuel to start, in both directions. Fuel can be acquired on every planet, so a team can always fuel its next trip.
+**Description:** The rest of tech runs on electricity, but rockets stay on fuel. Every trip needs a set amount of fuel to start, in both directions. Every planet has its own local way to get fuel, so a team can always fuel its next trip.
 
 **Acceptance criteria:**
 - [ ] A rocket trip only starts with the amount of fuel that trip needs; electricity can't replace it.
 - [ ] Every trip uses fuel, including the way back to an earlier planet.
-- [ ] Every planet has a way to get fuel, so nobody gets stranded.
+- [ ] Every planet has its own local way to get fuel, so nobody gets stranded.
 - [ ] A planet's way to get fuel works with what players can have there. On the Moon, for example, nothing that burns can power it (TECH-007). (Proposal.)
 
 **Open questions:** Q-168
-**Notes:** Your words: "For rockets i still want to stick to fuel." and "Rockets, a trip literally neds a certain amount of fuel to be started. We have to make sure fuel can be acquired on every planet though." Decided 2026-11-03 (answer to Q-165). Amounts come with the rocket; proposal: longer trips need more. Rockets still fire on the Moon even though burners don't run there, because they carry what they need to burn. On Earth the fuel comes from the Fuel Refinery (pool in 55-tech.md) and needs a Nether ingredient (WORLD-008). STORY-018's rules for the first return to Earth still apply.
+**Notes:** Your words: "For rockets i still want to stick to fuel." and "Rockets, a trip literally neds a certain amount of fuel to be started. We have to make sure fuel can be acquired on every planet though." Decided 2026-11-03 (answers to Q-165 and Q-168). Amounts come with the rocket; proposal: longer trips need more. Rockets still fire on the Moon even though burners don't run there, because they carry what they need to burn. On Earth the fuel comes from the Fuel Refinery (pool in 55-tech.md) and needs a Nether ingredient (WORLD-008); other planets use what's local. STORY-018's rules for the first return to Earth still apply.

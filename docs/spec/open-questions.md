@@ -166,7 +166,7 @@
 | Q-165 | Rockets stay on fuel: when does a trip burn fuel? | PLANET-002 | answered: every trip needs a set amount of fuel to start, and fuel can be acquired on every planet |
 | Q-166 | Besides generators, does anything else stop burning on the Moon (furnaces, torches, campfires, Molotovs, the flamethrower)? | PLANET-001, TECH-007 | open |
 | Q-167 | What automates food, now that Energized Power's growth chamber is gone? | TECH-003, SURV-008 | open; for later |
-| Q-168 | Fuel must be available on every planet, but WORLD-008 says a fuel material comes only from the Nether. How do they fit? Proposal: every planet has its own local way to get fuel, and the Nether rule only covers Earth's fuel. And how do players get fuel on the Moon: made there, or found in the alien base? | PLANET-002, WORLD-008 | open |
+| Q-168 | Fuel must be available on every planet, but WORLD-008 says a fuel material comes only from the Nether. How do they fit? And how do players get fuel on the Moon: made there, or found in the alien base? | PLANET-002, WORLD-008 | partly answered: every planet has its own local way to get fuel, and the Nether rule only covers Earth's fuel. Still open: how it works on the Moon. Options: a refilling alien fuel depot in the base, or Moon ice through the Fuel Refinery on solar power |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

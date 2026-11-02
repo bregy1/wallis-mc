@@ -119,10 +119,10 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 - [ ] The Nether is a separate dimension that can't be entered before the Launch tier (PROG-008) (how players get in: Q-075).
 - [ ] It's harder than the early districts (exact difficulty: balancing spec).
 - [ ] It has new, scary creatures, including skeletons that run.
-- [ ] At least one material needed for the rocket fuel comes only from the Nether.
+- [ ] At least one material needed for Earth's rocket fuel comes only from the Nether.
 
-**Open questions:** Q-075, Q-168
-**Notes:** **Conflict:** fuel must now be available on every planet (PLANET-002), which doesn't fit a material that comes only from the Nether unless this rule only covers Earth's fuel (Q-168). Your words: "The nether can be a nice underworld overhaul... It definitely sticks to providing some important last materials for the rocket! Something for the fuel!!" Decided 2026-11-01: we build our own Nether in `wallis_ultimate` (PACK-005), because Incendium can only be used unmodified and clashes with WORLD-005 and GEAR-003.
+**Open questions:** Q-075
+**Notes:** The Nether rule only covers Earth's fuel; other planets have their own local way to get it (PLANET-002, answer to Q-168). Your words: "The nether can be a nice underworld overhaul... It definitely sticks to providing some important last materials for the rocket! Something for the fuel!!" Decided 2026-11-01: we build our own Nether in `wallis_ultimate` (PACK-005), because Incendium can only be used unmodified and clashes with WORLD-005 and GEAR-003.
 
 ### WORLD-009 — No negative depth
 **Status:** implemented (district 1, verified 2026-11-02)
