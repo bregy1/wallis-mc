@@ -62,6 +62,34 @@ Tech runs on electricity. Energized Power provides the general machines and the 
 **Open questions:** Q-101
 **Notes:** Your words: "a storage mod, not something broken, it has to be scaled slowly." Autocrafting, if any, comes only from Energized Power's auto crafters, which are locked by tier as well.
 
+### TECH-005 — A few machines that combine
+**Status:** draft (your idea, 2026-11-02; for later: Earth's late game, then on through the other planets)
+**Priority:** must
+
+**Description:** Machines are where automation lives, and the fun comes from piping them together. So there are only 3–4 basic components, each doing one classic job, that combine into pipelines. Not many machines: too many and it just gets boring. No Create. Most likely we invent our own, maybe pieced together from existing tech mods.
+
+**Acceptance criteria:**
+- [ ] There are only 3–4 basic machines, and every chain in the game is built from them.
+- [ ] Any machine's output can be piped into another machine's input.
+- [ ] Ammo and fuel for batteries can be fully automated this way.
+- [ ] It starts in Earth's late game and more can be added on later planets, without changing what's there.
+
+**Open questions:** Q-159
+**Notes:** Your words: "It has definitely be automated but not by create, i think that is always just overpowered. Maybe we have very basic machines? [...] So i think we go with machines the most, but fun arrives when machines can be piped together anyways. Problem to be careful is having too many machines, then it just gets boring. We need 3-4 base composable components doing pipelines. The classic ones i guess, crushers, and fuel mixers etc. Not too much and no create as said. We will have to invent our own. this will be part of earth late game and go on in other planets, so we can still add it later." My first sketch, to discuss later: a **Crusher** (ore and scrap into dust and parts), a **Mixer** (dust and liquids into fuel and propellant), a **Press** (dust and parts into casings, plates and ammo), and a **Generator** (burns fuel, charges batteries), joined by one kind of pipe. So scrap goes through crusher and press to ammo, and crops or coal go through crusher, mixer and generator to full batteries. This changes TECH-001, which picked Energized Power (Q-159).
+
+### TECH-006 — Turrets and base defense
+**Status:** draft (your idea, 2026-11-02; for later)
+**Priority:** must
+
+**Description:** Players can defend their bases with turrets and similar defenses, kept in balance. They run on ammo and on batteries, which come out of the machines (TECH-005).
+
+**Acceptance criteria:**
+- [ ] Turrets and other base defenses exist, and help without winning a horde night on their own (pillar: nothing completely overpowered).
+- [ ] They need ammo or battery power, so a defense depends on the base's supply chain.
+
+**Open questions:**
+**Notes:** Your words: "We will also need items like turrets and base defense. in balanced manner." Goes with Chargers and Brutes, who can break through weak walls (ENEMY-005).
+
 ## Story machine idea pool (proposals)
 
 *My proposals for TECH-002. Each one solves something the story or survival actually needs. Generic processing stays with Energized Power.*

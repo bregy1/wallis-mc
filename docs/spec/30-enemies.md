@@ -74,12 +74,12 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Status:** approved (partly implemented 2026-11-02: regular zombies break no doors and trample no farmland or turtle eggs, verified by GameTests; the Brute and hardened blocks not built yet)
 **Priority:** must
 
-**Description:** Block breaking is super rare. Regular zombies can't break blocks, and only very few specials can, and only weak blocks. Nothing can break safe spot blocks or unminable blocks. Later, players can harden blocks with an alien material so enemies can't break them. Humans never invented this material, so it only comes from the aliens, and it isn't an early-game item.
+**Description:** Block breaking is super rare. Regular zombies can't break blocks, and only very few specials can, and only weak blocks. Nothing can break unminable blocks. Safe spot blocks can be destroyed, and their defenders repair them (SURV-011). Later, players can harden blocks with an alien material so enemies can't break them. Humans never invented this material, so it only comes from the aliens, and it isn't an early-game item.
 
 **Acceptance criteria:**
 - [x] Regular zombies can't break or damage blocks.
-- [ ] In version 1, the Brute is the only enemy that breaks blocks, and only wood and cobblestone (proposal).
-- [ ] No enemy can break safe spot blocks or unminable blocks (WORLD-006).
+- [ ] In version 1, only the Brute and the Charger break blocks, and only weak ones like wood and cobblestone (proposal).
+- [ ] No enemy can break unminable blocks (WORLD-006).
 - [ ] Hardened blocks can't be broken by enemies.
 - [ ] The hardening material comes only from the aliens and isn't available early (details: Q-090, to discuss later).
 
@@ -101,9 +101,10 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - [ ] The horde night counter runs per player and only counts in-game days while that player is online.
 - [ ] When team members play together, the counter closest to its horde night decides. When that horde night hits, the counters of everyone present reset.
 - [ ] In a given district, a horde night is equally strong each time (PROG-007).
+- [ ] A horde of regular zombies alone is a fair fight; its elites (the special zombies in it) are what make it very challenging. Each tier sets which elites come along. Chapter 1 has no specials yet (Q-139), so its hordes are regular zombies only.
 
 **Open questions:**
-**Notes:** Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. My proposal for the cost, which you asked for: a one-use Prayer Candle made from a boss's trophy, which every boss drops once per player, so a team only ever has a few; lighting it also costs the whole team 20% of every food group, like dying does (SURV-009). The next horde night just comes 7 nights later.
+**Notes:** Your words on elites: "So a horde without elites is kinda weak, but the elites make it very challenging." Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. My proposal for the cost, which you asked for: a one-use Prayer Candle made from a boss's trophy, which every boss drops once per player, so a team only ever has a few; lighting it also costs the whole team 20% of every food group, like dying does (SURV-009). The next horde night just comes 7 nights later.
 
 ### ENEMY-007 — Safe spots hold
 **Status:** approved (changed 2026-11-02, answer to Q-156; built through SURV-011)
@@ -140,7 +141,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - [ ] Every special zombie has a written ability and at least one counter.
 - [ ] Specials appear according to their first tier, and only occasionally (spawn rates set with balancing).
 - [ ] The Rallier is in the game (your idea).
-- [ ] The version 1 set is the ten specials designed below (my picks on your request; veto any, Q-082).
+- [ ] The version 1 set is the specials designed below (my picks on your request, plus yours; veto any, Q-082).
 - [ ] Specials that pin a player can always be escaped alone by attacking repeatedly; a teammate frees the player instantly. This keeps them fair for solo players and any team size.
 
 **Open questions:** Q-082
@@ -197,7 +198,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 
 ## Special zombie designs (proposals)
 
-*Eleven specials for version 1: the Rallier and the Necromancer are yours, the rest are my picks and designs. Every one is a different threat that needs a different answer. Numbers are proposals, measured against a vanilla zombie (20 health, 3 damage on Normal). "Scales by" is what grows per extra player (PROG-007). All looks are in vanilla style.*
+*Twelve specials for version 1: the Rallier, the Necromancer and the Charger are yours, the rest are my picks and designs. Every one is a different threat that needs a different answer. Numbers are proposals, measured against a vanilla zombie (20 health, 3 damage on Normal). "Scales by" is what grows per extra player (PROG-007). All looks are in vanilla style.*
 
 ### Ultra rare
 
@@ -259,15 +260,24 @@ Your words: "another special zombie idea, ultra rare, but necromancer. Has an ab
 
 **Spitter**
 - **Look:** a hunched zombie with a glowing green throat.
-- **Behavior:** keeps its distance and spits an arcing acid glob that leaves a 3-block acid pool for 6 seconds. The acid hurts players.
-- **Counter:** keep moving; don't fight in corners; close the distance fast.
-- **Numbers:** 18 health, 2 damage per second in acid. **Breaks blocks:** no (changed so block breaking stays super rare). **Spawns:** with groups and during horde nights. **Scales by:** pool duration.
+- **Behavior:** keeps its distance and spits an arcing acid glob that leaves a 3-block acid pool for 6 seconds. The acid hurts players. When it dies it explodes: players caught in the blast get marked, every zombie nearby focuses on them, and those zombies get a little stronger while it lasts (your idea, 2026-11-02).
+- **Counter:** keep moving; don't fight in corners; close the distance fast, but finish it from a few blocks away or the blast catches you. Water washes the mark off.
+- **Numbers:** 18 health, 2 damage per second in acid. Blast radius 4 blocks. The mark lasts 15 seconds and reaches zombies within 24 blocks, who deal 15% more damage and move 10% faster while it lasts. **Breaks blocks:** no (changed so block breaking stays super rare). **Spawns:** with groups and during horde nights. **Scales by:** pool duration.
+- **Note:** your exploding Spitter overlaps my Bloater (Tier 2), who also marks players when he bursts. I kept both for now, since one walks up to you and comes early, and the other shoots from far and strengthens the zombies.
+
+**Charger** *(your idea, 2026-11-02; the look and numbers are my proposals)*
+- **Look:** a huge former linebacker in torn shoulder pads, one shoulder swollen to twice its size.
+- **Behavior:** picks a target from afar, lowers its shoulder for a second, then charges in a straight line. Anything in the way gets hit hard and thrown aside. When it slams into a wall, the first few blocks break, like a small TNT blast. It's stunned for a few seconds afterwards.
+- **Counter:** roll or step aside at the last moment (CMBT-002), and use the stun for all your damage. Walls of stronger blocks hold it up.
+- **Numbers:** 60 health, 8 damage and strong knockback. Charges at twice a zombie's speed, every 8 seconds. Each impact breaks up to 5 weak blocks (wood, cobblestone, dirt and the like). Stunned for 3 seconds. **Breaks blocks:** yes, weak ones only; never unminable or hardened blocks. **Spawns:** with groups, often on horde nights. **Scales by:** health.
+
+Your words: "We also can take the spitter and charger from left 4 dead, so charger allows to break like the first few blocks on impact like mini tnt. Spitter is nice, he can explode and zombies focus you then and get little buffed."
 
 **Brute**
 - **Look:** a huge zombie, twice normal size. A former lumberjack.
 - **Behavior:** slow walk. Smashes weak blocks in its way. Telegraphed ground slam (raises its arms for 1 second) knocks back everything within 4 blocks. Throws debris at range.
 - **Counter:** roll through or away from the slam; fire does extra damage; keep your distance and focus fire as a team.
-- **Numbers:** 150 health, 10 damage. **Breaks blocks:** yes, the only special that does: wood and cobblestone only; never safe spot, unminable or hardened blocks. **Spawns:** rarely in the open, often on horde nights. **Scales by:** health.
+- **Numbers:** 150 health, 10 damage. **Breaks blocks:** yes: wood and cobblestone only; never unminable or hardened blocks. **Spawns:** rarely in the open, often on horde nights. **Scales by:** health.
 
 **Weeper**
 - **Look:** a pale zombie in a torn nightgown, sitting and sobbing.
@@ -277,7 +287,6 @@ Your words: "another special zombie idea, ultra rare, but necromancer. Has an ab
 
 ### Reserve (not in version 1)
 - **Screamer:** screams to call zombies from far away. Overlaps with the noise system (ENEMY-006).
-- **Bull:** charges in a straight line and slams. Overlaps with the Brute.
 
 ## Boss designs (proposals)
 

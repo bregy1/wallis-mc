@@ -157,6 +157,7 @@
 | Q-156 | How do enemies stay out of a safe spot that has no walls, like Camp Tarp? | ENEMY-007, SURV-011 | answered: every safe spot gets a wall or barricade, and anything that gets in starts a real fight. Ordinary defenders can die; reinforcements fly in by aircraft with visible drop-offs; main NPCs can't die |
 | Q-157 | Horde night with nobody at the base? | ENEMY-006, WORLD-012 | answered: the horde spawns around the player; warnings 2 minutes and 1 minute before, then a message or a transmission from Lurleen when it starts |
 | Q-158 | Can players sleep through a horde night? | ENEMY-006 | answered: no; a later item may allow skipping one by praying, at a high cost (my proposal for the cost is in ENEMY-006) |
+| Q-159 | Machines: stay with a trimmed Energized Power (TECH-001), piece something together from existing tech mods, or build our own 3–4 machines? Also: does Earth's early electricity change with it? | TECH-001, TECH-005, TECH-006 | open; for later, your lean: our own |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |
