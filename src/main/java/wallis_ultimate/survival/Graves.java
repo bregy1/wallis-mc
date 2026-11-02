@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -28,6 +29,7 @@ import wallis_ultimate.registry.ModBlocks;
 /**
  * SURV-004: on death, a player's items go into a grave instead of dropping. After a death in lava or the void
  * the grave goes to the last safe spot the player stood on. If no grave can be placed, items drop as in vanilla.
+ * The player is told where their grave is (Q-122).
  */
 @Mod.EventBusSubscriber(modid = WallisUltimate.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Graves {
@@ -133,6 +135,9 @@ public final class Graves {
             WallisUltimate.LOGGER.warn("No room for a grave for {} at {}; items drop instead", player.getGameProfile().getName(), player.blockPosition());
             return;
         }
+        BlockPos grave = result.graves().get(0);
+        player.sendSystemMessage(Component.translatable("message." + WallisUltimate.MOD_ID + ".grave.location",
+                grave.getX(), grave.getY(), grave.getZ()));
         // Whatever didn't fit drops as in vanilla.
         event.getDrops().clear();
         for (ItemStack stack : result.leftovers()) {

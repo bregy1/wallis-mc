@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -24,6 +27,7 @@ import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.block.GraveBlockEntity;
+import wallis_ultimate.block.GraveMenu;
 import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.survival.Graves;
 
@@ -96,6 +100,70 @@ public final class GraveGameTests {
         }
         if (!grave.items().stillValid(owner) || grave.items().stillValid(stranger)) {
             helper.fail("the wrong player can open the grave");
+        }
+        helper.getLevel().removeBlock(grave.getBlockPos(), false);
+        helper.succeed();
+    }
+
+    /** Q-122: a chat message tells the dead player where their grave is. */
+    @GameTest(template = PLATFORM)
+    public static void theOwnerIsToldWhereTheGraveIs(GameTestHelper helper) {
+        BlockPos pos = helper.absolutePos(new BlockPos(4, 2, 4));
+        List<Component> messages = new ArrayList<>();
+        Player owner = new Player(helper.getLevel(), pos, 0.0F, new GameProfile(UUID.randomUUID(), "gv_told")) {
+            @Override
+            public boolean isSpectator() {
+                return false;
+            }
+
+            @Override
+            public boolean isCreative() {
+                return false;
+            }
+
+            @Override
+            public void sendSystemMessage(Component message) {
+                messages.add(message);
+            }
+        };
+        owner.moveTo(Vec3.atBottomCenterOf(pos));
+        List<ItemEntity> drops = new ArrayList<>(List.of(new ItemEntity(helper.getLevel(), owner.getX(), owner.getY(), owner.getZ(), new ItemStack(Items.BREAD))));
+        MinecraftForge.EVENT_BUS.post(new LivingDropsEvent(owner, helper.getLevel().damageSources().generic(), drops, 0, false));
+        String expected = pos.getX() + ", " + pos.getY() + ", " + pos.getZ();
+        if (messages.stream().noneMatch(message -> message.getString().contains(expected))) {
+            helper.fail("no message with " + expected + ": " + messages.stream().map(Component::getString).toList());
+        }
+        helper.getLevel().removeBlock(pos, false);
+        helper.succeed();
+    }
+
+    /** Q-122: items can be taken out of a grave, but nothing can be put in, by any kind of click. */
+    @GameTest(template = PLATFORM)
+    public static void gravesAreTakeOnly(GameTestHelper helper) {
+        Player owner = mockPlayer(helper, "gv_takeonly", new BlockPos(6, 2, 6));
+        Graves.Result result = Graves.placeGraves(owner, helper.getLevel().damageSources().generic(), loot());
+        GraveBlockEntity grave = graveAt(helper, result.graves().get(0));
+        AbstractContainerMenu menu = grave.menuProvider().createMenu(1, owner.getInventory(), owner);
+        if (!(menu instanceof GraveMenu)) {
+            helper.fail("the grave opens " + menu);
+        }
+        int before = countItems(grave);
+        int emptyGraveSlot = GraveBlockEntity.SIZE - 1;
+        int firstInventorySlot = GraveBlockEntity.SIZE;
+        owner.getInventory().setItem(9, new ItemStack(Items.DIRT, 10));
+        // Shift-click from the inventory, clicking a carried stack in, and swapping in with a number key.
+        menu.clicked(firstInventorySlot, 0, ClickType.QUICK_MOVE, owner);
+        menu.setCarried(new ItemStack(Items.STONE, 5));
+        menu.clicked(emptyGraveSlot, 0, ClickType.PICKUP, owner);
+        owner.getInventory().setItem(0, new ItemStack(Items.GRAVEL, 3));
+        menu.clicked(emptyGraveSlot, 0, ClickType.SWAP, owner);
+        if (countItems(grave) != before || !grave.items().getItem(emptyGraveSlot).isEmpty()) {
+            helper.fail("items went into the grave: " + countItems(grave) + " instead of " + before);
+        }
+        menu.setCarried(ItemStack.EMPTY);
+        menu.clicked(0, 0, ClickType.QUICK_MOVE, owner);
+        if (countItems(grave) >= before) {
+            helper.fail("taking an item out didn't work");
         }
         helper.getLevel().removeBlock(grave.getBlockPos(), false);
         helper.succeed();

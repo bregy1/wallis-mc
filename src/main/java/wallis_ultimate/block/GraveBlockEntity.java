@@ -13,7 +13,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -22,7 +21,7 @@ import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.registry.ModBlockEntities;
 
 /**
- * SURV-004: holds a dead player's items. Only the owner can open it. It removes itself as soon as it's empty,
+ * SURV-004: holds a dead player's items. Only the owner can open it, and only to take items out (Q-122). It removes itself as soon as it's empty,
  * and after 60 minutes (world time) it disappears together with everything in it.
  * The block entity is deliberately not a Container and has no item capability, so hoppers and pipes can't empty it.
  */
@@ -92,7 +91,7 @@ public class GraveBlockEntity extends BlockEntity {
     }
 
     public MenuProvider menuProvider() {
-        return new SimpleMenuProvider((id, inventory, player) -> ChestMenu.sixRows(id, inventory, items),
+        return new SimpleMenuProvider((id, inventory, player) -> new GraveMenu(id, inventory, items),
                 Component.translatable("container." + WallisUltimate.MOD_ID + ".grave", ownerName));
     }
 

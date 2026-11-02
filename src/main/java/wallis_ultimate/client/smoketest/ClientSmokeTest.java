@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import javax.annotation.Nullable;
 import net.minecraft.FileUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
@@ -29,6 +31,7 @@ import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -55,8 +58,12 @@ public final class ClientSmokeTest {
 
     private enum Phase { WAITING_FOR_TITLE, LOADING, SETTLING, RUNNING, QUITTING }
 
-    /** One step: runs once, then the runner waits {@code waitAfter} ticks before the next one. */
-    record Step(String name, int waitAfter, Consumer<LocalPlayer> action) {
+    /**
+     * One step: runs once, then the runner waits {@code waitAfter} ticks before the next one. A step with
+     * {@code ready} instead waits until it's true (at most {@code waitAfter} ticks): the server can lag behind the
+     * client, so checks that depend on a command having arrived should wait for it rather than for a fixed time.
+     */
+    record Step(String name, int waitAfter, Consumer<LocalPlayer> action, @Nullable Predicate<LocalPlayer> ready) {
     }
 
     private static Phase phase = Phase.WAITING_FOR_TITLE;
@@ -70,6 +77,12 @@ public final class ClientSmokeTest {
     private static boolean pauseOnLostFocus;
     private static boolean windowHidden;
     private static ItemStack tooltip = ItemStack.EMPTY;
+    private static final int TITLE_TICKS = 20;
+    private static int titleTicks;
+    private static final List<String> chat = new ArrayList<>();
+    @Nullable
+    private static Step awaiting;
+    private static int awaitedTicks;
 
     private ClientSmokeTest() {
     }
@@ -87,7 +100,9 @@ public final class ClientSmokeTest {
             windowHidden = true;
         }
         if (phase == Phase.WAITING_FOR_TITLE) {
-            if (mc.screen instanceof TitleScreen) {
+            // Let the title screen draw for a moment, so its screenshot shows the disclaimer (STORY-014).
+            if (mc.screen instanceof TitleScreen && mc.getOverlay() == null && ++titleTicks == TITLE_TICKS) {
+                screenshot("title");
                 createWorld(mc);
             }
             return;
@@ -131,6 +146,7 @@ public final class ClientSmokeTest {
         }));
         all.addAll(walkAround());
         all.addAll(LockSmokeSteps.steps());
+        all.addAll(SurvivalSmokeSteps.steps());
         all.addAll(ZombieSmokeSteps.steps());
         all.add(step("walk again", 45, player -> walk(40, 180)));
         all.add(step("screenshot at the end", 0, player -> screenshot("end")));
@@ -159,11 +175,24 @@ public final class ClientSmokeTest {
             mc.options.keySprint.setDown(walking);
             mc.options.keyJump.setDown(walking);
         }
+        if (awaiting != null) {
+            boolean ready = awaiting.ready().test(mc.player);
+            if (!ready && ++awaitedTicks < awaiting.waitAfter()) {
+                return;
+            }
+            log((ready ? "waited " : "gave up waiting after ") + awaitedTicks + " ticks for: " + awaiting.name());
+            awaiting = null;
+        }
         if (waitTicks > 0) {
             waitTicks--;
             return;
         }
         Step step = steps.poll();
+        if (step != null && step.ready() != null) {
+            awaiting = step;
+            awaitedTicks = 0;
+            return;
+        }
         if (step == null) {
             quit(mc);
             return;
@@ -226,7 +255,19 @@ public final class ClientSmokeTest {
         }
     }
 
+    /** Remembers chat and system messages, so steps can check what the player was told. */
+    @SubscribeEvent
+    public static void onChat(ClientChatReceivedEvent event) {
+        if (ENABLED) {
+            chat.add(event.getMessage().getString());
+        }
+    }
+
     // Helpers for the step lists.
+
+    static boolean chatContains(String text) {
+        return chat.stream().anyMatch(message -> message.contains(text));
+    }
 
     /** Shows the stack's tooltip on every screen until called with an empty stack. */
     static void showTooltip(ItemStack stack) {
@@ -244,7 +285,13 @@ public final class ClientSmokeTest {
     }
 
     static Step step(String name, int waitAfter, Consumer<LocalPlayer> action) {
-        return new Step(name, waitAfter, action);
+        return new Step(name, waitAfter, action, null);
+    }
+
+    /** Waits until the condition holds, at most {@code maxTicks}; the check step after it reports what happened. */
+    static Step await(String name, int maxTicks, Predicate<LocalPlayer> ready) {
+        return new Step(name, maxTicks, player -> {
+        }, ready);
     }
 
     static void log(String message) {

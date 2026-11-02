@@ -55,7 +55,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words: "In the beginning night should not really be survivable!" and (answer to Q-086) "without gear not possible. Should stay hard." Fits the early bed from the story (SURV-005) and safe spots (SURV-006).
 
 ### ENEMY-004 — Enemies carry status effects
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: tier 1 spawn effects on regular zombies, 10% with one hidden weak effect, verified by GameTests; other enemy types and tiers come with them)
 **Priority:** must
 
 **Description:** Enemies can spawn with status effects from the potion effect system. Easy enemies get weaker effects; harder enemies get stronger effects, sometimes several at once. Wild combinations appear later in the game but stay fairly rare. Bosses can have effects too. New effects can be added (e.g. "burns in sunlight").
@@ -68,7 +68,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - [ ] Bosses have fixed effects, defined per boss.
 
 **Open questions:**
-**Notes:** Your words: "We stick to the potion brewing mechanic to get effects. Can always add more." Players keep getting effects through vanilla brewing (Q-025). Tier 1 pool decided 2026-11-02 (answer to Q-143): Strength I, Resistance I, Regeneration I and Fire Resistance (which also keeps a Sunburn zombie from burning); no Speed in tier 1, because it would make day zombies faster than walking (ENEMY-001). Speed effects start in tier 2.
+**Notes:** Your words: "We stick to the potion brewing mechanic to get effects. Can always add more." Players keep getting effects through vanilla brewing (Q-025). Tier 1 pool decided 2026-11-02 (answer to Q-143): Strength I, Resistance I, Regeneration I and Fire Resistance (which also keeps a Sunburn zombie from burning); no Speed in tier 1, because it would make day zombies faster than walking (ENEMY-001). Speed effects start in tier 2. Spawn effects are hidden like Sunburn (my reading of Q-134: "the trinket reveals effect on enemies"), so players see them only with the reveal trinket.
 
 ### ENEMY-005 — Only specials break blocks
 **Status:** approved (partly implemented 2026-11-02: regular zombies break no doors and trample no farmland or turtle eggs, verified by GameTests; the Brute and hardened blocks not built yet)

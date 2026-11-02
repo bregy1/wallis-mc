@@ -1,20 +1,34 @@
 package wallis_ultimate.gametest;
 
+import com.mojang.authlib.GameProfile;
 import java.util.Arrays;
+import java.util.UUID;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BedItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.BlockSnapshot;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.survival.Beds;
 
-/** Checks for SURV-005: beds are rare. */
+/** Checks for SURV-005: beds are rare, one placed bed per player and planet. */
 @GameTestHolder(WallisUltimate.MOD_ID)
 @PrefixGameTestTemplate(false)
 public final class BedGameTests {
@@ -36,6 +50,57 @@ public final class BedGameTests {
             }
         }
         helper.succeed();
+    }
+
+    /** Q-144: one placed bed per planet. A second is refused while the first stands, allowed once it's gone. */
+    @GameTest(template = PLATFORM)
+    public static void aSecondBedCantBePlacedWhileTheFirstStands(GameTestHelper helper) {
+        ServerLevel level = helper.getLevel();
+        BlockPos first = helper.absolutePos(new BlockPos(1, 2, 1));
+        BlockPos second = helper.absolutePos(new BlockPos(5, 2, 5));
+        Player player = new Player(level, first, 0.0F, new GameProfile(UUID.randomUUID(), "bd_owner")) {
+            @Override
+            public boolean isSpectator() {
+                return false;
+            }
+
+            @Override
+            public boolean isCreative() {
+                return false;
+            }
+        };
+        if (placeBed(level, player, first)) {
+            helper.fail("the first bed was refused");
+        }
+        if (!placeBed(level, player, second)) {
+            helper.fail("a second bed was allowed while the first stands");
+        }
+        // The usual way in: right-clicking with a bed is refused before anything is placed.
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.RED_BED));
+        PlayerInteractEvent.RightClickBlock click = new PlayerInteractEvent.RightClickBlock(player, InteractionHand.MAIN_HAND,
+                second.below(), new BlockHitResult(Vec3.atCenterOf(second.below()), Direction.UP, second.below(), false));
+        MinecraftForge.EVENT_BUS.post(click);
+        if (click.getUseItem() != Event.Result.DENY) {
+            helper.fail("right-clicking with a second bed wasn't refused");
+        }
+        level.removeBlock(first, false);
+        if (placeBed(level, player, second)) {
+            helper.fail("a new bed was refused after the old one was picked up");
+        }
+        level.removeBlock(second, false);
+        helper.succeed();
+    }
+
+    /** Puts a bed block down and fires the place event like a real placement; true if it was refused. */
+    private static boolean placeBed(ServerLevel level, Player player, BlockPos pos) {
+        level.setBlock(pos, Blocks.RED_BED.defaultBlockState(), 3);
+        BlockEvent.EntityPlaceEvent event = new BlockEvent.EntityPlaceEvent(BlockSnapshot.create(level.dimension(), level, pos),
+                Blocks.STONE.defaultBlockState(), player);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.isCanceled()) {
+            level.removeBlock(pos, false);
+        }
+        return event.isCanceled();
     }
 
     @GameTest(template = PLATFORM)

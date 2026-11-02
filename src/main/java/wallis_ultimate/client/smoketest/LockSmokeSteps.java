@@ -1,5 +1,6 @@
 package wallis_ultimate.client.smoketest;
 
+import static wallis_ultimate.client.smoketest.ClientSmokeTest.await;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.check;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.click;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.command;
@@ -59,13 +60,16 @@ final class LockSmokeSteps {
                     command("clear");
                     command("give @s minecraft:stick 2");
                 }),
+                await("the sticks arrive", 100, player -> player.getInventory().countItem(Items.STICK) == 2),
                 step("pick up a locked item", 20, player ->
                         command("summon item ~ ~ ~ {Item:{id:\"minecraft:iron_ingot\",Count:16b}}")),
+                await("the iron is picked up", 100, player -> player.getInventory().countItem(LOCKED) == 16),
                 step("check the locked pickup", 0, player -> check("locked pickups skip the hotbar",
                         count(player, LOCKED, 0, HOTBAR_END) == 0 && count(player, LOCKED, HOTBAR_END, MAIN_END) == 16,
                         describe(player))),
                 step("pick up an unlocked item", 20, player ->
                         command("summon item ~ ~ ~ {Item:{id:\"minecraft:oak_log\",Count:4b}}")),
+                await("the logs are picked up", 100, player -> player.getInventory().countItem(UNLOCKED) == 4),
                 step("check the unlocked pickup", 0, player -> check("unlocked pickups go to the hotbar",
                         count(player, UNLOCKED, 0, HOTBAR_END) == 4, describe(player))),
 
@@ -80,6 +84,7 @@ final class LockSmokeSteps {
                         !player.getOffhandItem().is(LOCKED) && count(player, LOCKED, 0, MAIN_END) == 16,
                         describe(player))),
                 step("get an iron helmet", 10, player -> command("give @s minecraft:iron_helmet")),
+                await("the helmet arrives", 100, player -> player.getInventory().countItem(Items.IRON_HELMET) == 1),
                 step("shift-click the helmet onto the head", 10, player -> click(player,
                         inventoryMenuSlot(find(player, Items.IRON_HELMET, 0, MAIN_END)), 0, ClickType.QUICK_MOVE)),
                 step("check the armor slot", 0, player -> check("a locked helmet doesn't stay on the head",
@@ -139,6 +144,7 @@ final class LockSmokeSteps {
                 step("close JEI", 5, player -> Minecraft.getInstance().setScreen(null)),
 
                 step("unlock the Iron stage", 20, player -> command("history individual unlock @s iron")),
+                await("the client learns about the unlock", 100, player -> !ClientLocks.isItemGated(new ItemStack(LOCKED))),
                 step("hold an unlocked item", 10, player -> {
                     check("unlocking the Iron stage unlocks iron on the client",
                             !ClientLocks.isItemGated(new ItemStack(LOCKED)), "still locked");
@@ -150,15 +156,18 @@ final class LockSmokeSteps {
                 step("screenshot the inventory", 0, player -> screenshot("inventory-unlocked")),
                 step("close the inventory", 5, LocalPlayer::closeContainer),
                 step("lock the Iron stage again", 20, player -> command("history individual lock @s iron")),
+                await("iron is locked again and leaves the hand", 100, player -> ClientLocks.isItemGated(new ItemStack(LOCKED)) && !player.getMainHandItem().is(LOCKED)),
                 step("check relocking", 0, player -> check("relocking moves iron out of the hand",
                         !player.getMainHandItem().is(LOCKED) && ClientLocks.isItemGated(new ItemStack(LOCKED)),
                         describe(player))),
 
                 step("switch to creative", 10, player -> command("gamemode creative")),
+                await("creative mode arrives", 100, LocalPlayer::isCreative),
                 step("hold a locked item in creative", 10, player -> hold(player, LOCKED)),
                 step("check creative", 0, player -> check("creative players can hold locked items",
                         player.getMainHandItem().is(LOCKED), describe(player))),
                 step("switch back to survival", 10, player -> command("gamemode survival")),
+                await("survival mode arrives and the item leaves the hand", 100, player -> !player.isCreative() && !player.getMainHandItem().is(LOCKED)),
                 step("check survival again", 0, player -> check("back in survival, the locked item leaves the hand",
                         !player.getMainHandItem().is(LOCKED), describe(player))));
     }

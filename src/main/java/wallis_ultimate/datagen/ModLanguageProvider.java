@@ -21,6 +21,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.GRAVE.get(), "Grave");
         add("container." + WallisUltimate.MOD_ID + ".grave", "Grave of %s");
         add("message." + WallisUltimate.MOD_ID + ".grave.not_yours", "This isn't your grave.");
+        add("message." + WallisUltimate.MOD_ID + ".grave.location", "Your things are in your grave at %s, %s, %s. It lasts 60 minutes.");
+        add("message." + WallisUltimate.MOD_ID + ".bed.already_have", "You already have a bed on this planet, at %s, %s, %s. Pick that one up first.");
+        add("menu." + WallisUltimate.MOD_ID + ".disclaimer", "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody.");
         add(ModItems.BANDAGE.get(), "Bandage");
         add(ModEffects.BANDAGED.get(), "Bandaged");
         add(ModEffects.SUNBURN.get(), "Sunburn");

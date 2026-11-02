@@ -57,7 +57,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** Your words: "After 90 seconds he teleports to last save, which is literally a bed."
 
 ### SURV-004 — Graves keep your items
-**Status:** approved (implemented 2026-11-02, verified by GameTests; a real death, the grave screen and the placeholder look still to check in-game)
+**Status:** approved (implemented 2026-11-02: verified by GameTests and in a real client by the smoke test, including a real death, the take-only grave screen and the location message; the look is a placeholder)
 **Priority:** must
 
 **Description:** Death works like vanilla, except the player's items go into a grave instead of dropping on the ground. Only the player who died can open it. A grave with items lasts 60 minutes; after that it's gone, with everything in it. An empty grave is removed right away. Dying also costs some level progress (PROG-009).
@@ -68,14 +68,14 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [x] Only the player who died can take items out of their grave. (Right-click opens a chest-like screen for the owner only. Graves can't be mined, blown up or emptied by hoppers.)
 - [x] The grave is removed as soon as it's empty.
 - [x] A grave that still holds items lasts 60 minutes, then disappears together with its contents. (World time, so it only counts while the server runs.)
-- [ ] Items can only be taken out of a grave, never put in (answer to Q-122).
-- [ ] On death, a chat message tells the player where their grave is (answer to Q-122).
+- [x] Items can only be taken out of a grave, never put in (answer to Q-122). (Its own take-only screen; verified by GameTests and the client smoke test.)
+- [x] On death, a chat message tells the player where their grave is (answer to Q-122).
 
 **Open questions:**
 **Notes:** First "like 20 minutes"; changed 2026-11-01 (answer to Q-053): "make it 60 minutes but it is lost after." Details decided 2026-11-02 (answer to Q-122): chest screen kept, take-only, 60 minutes of server time, a chat message with the grave's coordinates on death, placeholder look for now.
 
 ### SURV-005 — Beds are rare heal and respawn points
-**Status:** approved (partly implemented 2026-11-02: bed recipes removed, verified by GameTests)
+**Status:** approved (partly implemented 2026-11-02: bed recipes removed and one placed bed per planet, verified by GameTests and the client smoke test; beds from quests, safe spot beds and the Hourglass night not built yet)
 **Priority:** must
 
 **Description:** Beds are the heal and respawn points. Each player has one bed per planet, plus the beds already placed in safe spots (SURV-006). Beds can't be crafted. On every planet the bed comes from a quest, sometimes earlier, sometimes later; on Earth it's early, for the team's first home. Sleeping fully heals you, and sleeping through the night still works as in vanilla.
@@ -89,7 +89,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [ ] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
 - [ ] A player can pick up their bed and place it again, which moves their home (WORLD-012).
 - [ ] When players sleep, the night races by in a few seconds (Hourglass) instead of being skipped instantly.
-- [ ] A player can't place a second bed on a planet while their own bed there stands; they pick up the old one first (answer to Q-144).
+- [x] A player can't place a second bed on a planet while their own bed there stands; they pick up the old one first (answer to Q-144). (Creative players are exempt so they can build; verified by GameTests and the client smoke test.)
 
 **Open questions:**
 **Notes:** Your words: "Beds cannot be placed everywhere and are not easy to obtain. Beds can still be used to sleep through a night." Refined 2026-11-01 (answers to Q-052): "each player to have one bed per planet + the safe spot beds. On the new planet the bed is achievable through quest always." Picking up and moving the bed follows from "home bed decides" (WORLD-012). Dyeing kept 2026-11-02 (answer to Q-123): ownership belongs to the placed bed, so recoloring the item changes nothing. Second bed (answer to Q-144): refused while your own bed on that planet stands.

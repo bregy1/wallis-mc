@@ -1,5 +1,6 @@
 package wallis_ultimate.client.smoketest;
 
+import static wallis_ultimate.client.smoketest.ClientSmokeTest.await;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.check;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.command;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.log;
@@ -7,6 +8,9 @@ import static wallis_ultimate.client.smoketest.ClientSmokeTest.screenshot;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.step;
 
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 import java.util.Set;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -14,6 +18,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.Enemy;
 import wallis_ultimate.entity.RegularZombie;
 
 /**
@@ -32,29 +37,38 @@ final class ZombieSmokeSteps {
 
     static List<ClientSmokeTest.Step> steps() {
         return List.of(
-                step("build a platform under open sky and let night spawns happen", 100, player -> {
+                // On the ground: monsters more than 128 blocks away from a player (height counts) never spawn.
+                step("let night spawns happen around the player", 20, player -> {
+                    command("time set 18000");
+                    command("difficulty normal");
+                }),
+                await("night spawns appear", 600, player -> loadedEntities().anyMatch(entity -> entity instanceof RegularZombie)),
+                step("check the night spawns", 0, player -> {
+                    Map<String, Long> monsters = loadedEntities().filter(entity -> entity instanceof Enemy)
+                            .collect(Collectors.groupingBy(entity -> EntityType.getKey(entity.getType()).toString(),
+                                    TreeMap::new, Collectors.counting()));
+                    log("monsters loaded after nightfall: " + monsters);
+                    long regular = loadedEntities().filter(entity -> entity instanceof RegularZombie).count();
+                    long vanilla = loadedEntities().filter(entity -> VANILLA_ZOMBIES.contains(entity.getType())).count();
+                    check("monsters spawn at night, and no vanilla zombies among them", !monsters.isEmpty() && vanilla == 0,
+                            monsters.toString());
+                    check("regular zombies spawn naturally at night", regular > 0, monsters.toString());
+                }),
+                step("clear the world, build a platform under open sky and summon three zombies", 10, player -> {
+                    command("gamerule doMobSpawning false");
+                    command("kill @e[type=!minecraft:player]");
                     command("fill ~-6 199 ~-6 ~6 199 ~6 minecraft:smooth_stone");
                     command("tp @s ~ 200 ~");
                     // Zombie hits would push the player off the platform.
                     command("attribute @s minecraft:generic.knockback_resistance base set 1");
-                    command("time set 18000");
-                    command("difficulty normal");
-                }),
-                step("check the night spawns", 0, player -> {
-                    long regular = loadedEntities().filter(entity -> entity instanceof RegularZombie).count();
-                    long vanilla = loadedEntities().filter(entity -> VANILLA_ZOMBIES.contains(entity.getType())).count();
-                    check("night spawns are regular zombies, never vanilla ones", regular > 0 && vanilla == 0,
-                            regular + " regular, " + vanilla + " vanilla zombies loaded");
-                }),
-                step("clear the world and summon three zombies", 10, player -> {
-                    command("gamerule doMobSpawning false");
-                    command("kill @e[type=!minecraft:player]");
                     command(String.format(SUMMON, "~5 ~ ~"));
                     command(String.format(SUMMON, "~-5 ~ ~"));
                     command(String.format(SUMMON, "~ ~ ~5"));
                 }),
-                step("give one of them Sunburn", 40, player -> command(
+                await("the three zombies arrive", 200, player -> zombiesNear(player).size() == 3),
+                step("give one of them Sunburn", 10, player -> command(
                         "effect give @e[type=wallis_ultimate:zombie,limit=1,sort=nearest] wallis_ultimate:sunburn infinite 0 true")),
+                await("the zombies reach the player", 200, player -> zombiesNear(player).stream().anyMatch(zombie -> player.distanceTo(zombie) < 3)),
                 step("check the night", 0, player -> {
                     List<RegularZombie> zombies = zombiesNear(player);
                     double nearest = zombies.stream().mapToDouble(player::distanceTo).min().orElse(99);
@@ -62,7 +76,8 @@ final class ZombieSmokeSteps {
                             zombies.size() == 3 && nearest < 3, zombies.size() + " zombies, nearest " + Math.round(nearest) + " blocks");
                     screenshot("zombies-night");
                 }),
-                step("make it day", 200, player -> command("time set 1000")),
+                step("make it day", 20, player -> command("time set 1000")),
+                await("the Sunburn zombie catches fire", 400, player -> zombiesNear(player).stream().anyMatch(RegularZombie::isOnFire)),
                 step("check the day", 0, player -> {
                     List<RegularZombie> zombies = zombiesNear(player);
                     long burning = zombies.stream().filter(RegularZombie::isOnFire).count();

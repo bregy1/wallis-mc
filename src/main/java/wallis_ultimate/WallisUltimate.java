@@ -11,6 +11,7 @@ import wallis_ultimate.registry.ModBlockEntities;
 import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.registry.ModEffects;
 import wallis_ultimate.registry.ModEntities;
+import wallis_ultimate.registry.ModMenus;
 import wallis_ultimate.registry.ModItems;
 
 @Mod(WallisUltimate.MOD_ID)
@@ -25,6 +26,7 @@ public class WallisUltimate {
         ModItems.ITEMS.register(modBus);
         ModEffects.EFFECTS.register(modBus);
         ModEntities.ENTITY_TYPES.register(modBus);
+        ModMenus.MENUS.register(modBus);
         modBus.addListener(ModItems::addToCreativeTabs);
         modBus.addListener(ModEntities::registerAttributes);
         modBus.addListener(ModEntities::registerSpawnPlacements);

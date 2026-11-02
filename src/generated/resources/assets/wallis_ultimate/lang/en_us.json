@@ -18,5 +18,8 @@
   "key.categories.wallis_ultimate": "Wallis Ultimate",
   "key.wallis_ultimate.give_up": "Give Up (When Downed)",
   "key.wallis_ultimate.roll": "Dodge Roll",
+  "menu.wallis_ultimate.disclaimer": "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody.",
+  "message.wallis_ultimate.bed.already_have": "You already have a bed on this planet, at %s, %s, %s. Pick that one up first.",
+  "message.wallis_ultimate.grave.location": "Your things are in your grave at %s, %s, %s. It lasts 60 minutes.",
   "message.wallis_ultimate.grave.not_yours": "This isn't your grave."
 }

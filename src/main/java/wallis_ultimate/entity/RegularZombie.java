@@ -1,11 +1,14 @@
 package wallis_ultimate.entity;
 
+import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
@@ -30,6 +33,13 @@ import wallis_ultimate.registry.ModEffects;
 public class RegularZombie extends Zombie {
     /** Share of spawns that get Sunburn (ENEMY-002). */
     public static final float SUNBURN_CHANCE = 0.15F;
+    /**
+     * ENEMY-004, tier 1: 10% spawn with one weak effect from this pool. No Speed in tier 1, it would make day zombies
+     * faster than walking (Q-143). Every regular zombie uses the tier 1 values until later districts exist.
+     */
+    public static final float SPAWN_EFFECT_CHANCE = 0.10F;
+    public static final List<MobEffect> TIER_1_SPAWN_EFFECTS = List.of(MobEffects.DAMAGE_BOOST, MobEffects.DAMAGE_RESISTANCE,
+            MobEffects.REGENERATION, MobEffects.FIRE_RESISTANCE);
     /** How far a walking player gets per tick on normal ground (4.317 m/s). */
     public static final double PLAYER_WALK_BLOCKS_PER_TICK = 0.21585;
     /** Movement speed attributes: 80% of a walking player's speed by day, 110% at night (Q-132). */
@@ -104,6 +114,11 @@ public class RegularZombie extends Zombie {
                 spawnData == null ? new ZombieGroupData(false, false) : spawnData, tag);
         if (getRandom().nextFloat() < SUNBURN_CHANCE) {
             giveSunburn();
+        }
+        if (getRandom().nextFloat() < SPAWN_EFFECT_CHANCE) {
+            MobEffect effect = TIER_1_SPAWN_EFFECTS.get(getRandom().nextInt(TIER_1_SPAWN_EFFECTS.size()));
+            // Hidden like Sunburn: enemies' effects only show with the reveal trinket (Q-134).
+            addEffect(new MobEffectInstance(effect, MobEffectInstance.INFINITE_DURATION, 0, false, false));
         }
         return data;
     }

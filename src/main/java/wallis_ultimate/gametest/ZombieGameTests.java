@@ -6,6 +6,7 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.MobSpawnType;
@@ -74,6 +75,35 @@ public final class ZombieGameTests {
         zombie.setBaby(true);
         if (zombie.isBaby()) {
             helper.fail("setBaby(true) made a baby");
+        }
+        helper.succeed();
+    }
+
+    /** ENEMY-004, tier 1: about 10% get one hidden weak effect from the pool, never Speed (Q-143). */
+    @GameTest(template = PLATFORM)
+    public static void aboutTenPercentSpawnWithOneHiddenWeakEffect(GameTestHelper helper) {
+        ServerLevel level = helper.getLevel();
+        BlockPos pos = helper.absolutePos(new BlockPos(2, 2, 2));
+        int samples = 600;
+        int withEffect = 0;
+        for (int i = 0; i < samples; i++) {
+            RegularZombie zombie = ModEntities.ZOMBIE.get().create(level);
+            zombie.moveTo(Vec3.atBottomCenterOf(pos));
+            zombie.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.NATURAL, null, null);
+            List<MobEffectInstance> effects = zombie.getActiveEffects().stream()
+                    .filter(effect -> effect.getEffect() != ModEffects.SUNBURN.get()).toList();
+            if (effects.size() > 1 || effects.stream().anyMatch(effect -> !RegularZombie.TIER_1_SPAWN_EFFECTS.contains(effect.getEffect())
+                    || effect.getAmplifier() != 0 || effect.isVisible())) {
+                helper.fail("unexpected spawn effects: " + effects);
+            }
+            if (zombie.hasEffect(MobEffects.MOVEMENT_SPEED)) {
+                helper.fail("a tier 1 zombie spawned with Speed");
+            }
+            withEffect += effects.size();
+        }
+        // Expected 60 (10%); more than four standard deviations off would be a real error.
+        if (withEffect < 31 || withEffect > 89) {
+            helper.fail(withEffect + " of " + samples + " have a spawn effect, expected about 60");
         }
         helper.succeed();
     }

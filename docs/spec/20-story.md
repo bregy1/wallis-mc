@@ -369,14 +369,14 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Notes:** Your words: "We remove what we have to, but we keep a separate jar file mod which i dont publish on curseforge but may use local on my computer. Meaning the sexy part and the real person thing." Decided 2026-11-01 together with "fully fictional names" for the public pack. The spec uses the public names; the uncut names are only in the cast table (Q-117).
 
 ### STORY-014 — Fiction disclaimer
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: the title screen line, checked by screenshot in the client smoke test; the modpack description comes with the release)
 **Priority:** must
 
 **Description:** The pack states that all characters are fictional and that any resemblance to real persons is coincidental or parody.
 
 **Acceptance criteria:**
 - [ ] The disclaimer appears in the modpack description and as a line on the title screen (answer to Q-145; Forge's loading screen can't show it without a mixin).
-- [ ] The text reads: "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody." (through the lang file)
+- [x] The text reads: "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody." (through the lang file)
 
 **Open questions:**
 **Notes:** Wording confirmed 2026-11-01 (answer to Q-059). Before a public release, check the hosting platforms' rules on parodies.
