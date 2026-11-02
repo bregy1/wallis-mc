@@ -25,6 +25,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("message." + WallisUltimate.MOD_ID + ".bed.already_have", "You already have a bed on this planet, at %s, %s, %s. Pick that one up first.");
         add("menu." + WallisUltimate.MOD_ID + ".disclaimer", "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody.");
         add(ModItems.BANDAGE.get(), "Bandage");
+        add(ModItems.COPPER_PICKAXE.get(), "Copper Pickaxe");
+        add(ModItems.COPPER_AXE.get(), "Copper Axe");
+        add(ModItems.COPPER_SHOVEL.get(), "Copper Shovel");
+        add(ModItems.COPPER_HOE.get(), "Copper Hoe");
         add(ModItems.GRANNYS_RABBIT_FOOT.get(), "Granny's Rabbit Foot");
         add(ModItems.JOGGING_HEADBAND.get(), "Jogging Headband");
         add(ModItems.WORN_SPURS.get(), "Worn Spurs");

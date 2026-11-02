@@ -28,6 +28,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(curiosSlot("necklace")).add(ModItems.LUCKY_HORSESHOE.get());
         tag(curiosSlot("hands")).add(ModItems.BRASS_KNUCKLES.get());
         tag(curiosSlot("body")).add(ModItems.THICK_FLANNEL.get());
+        // GEAR-006: copper tools count as tools for vanilla and other mods.
+        tag(ItemTags.PICKAXES).add(ModItems.COPPER_PICKAXE.get());
+        tag(ItemTags.AXES).add(ModItems.COPPER_AXE.get());
+        tag(ItemTags.SHOVELS).add(ModItems.COPPER_SHOVEL.get());
+        tag(ItemTags.HOES).add(ModItems.COPPER_HOE.get());
     }
 
     private static TagKey<Item> curiosSlot(String slot) {

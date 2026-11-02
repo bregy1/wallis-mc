@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -49,16 +50,36 @@ final class TrinketSmokeSteps {
                     check("the Thick Flannel gives armor", player.getAttributeValue(Attributes.ARMOR) == BASE_ARMOR + 2,
                             "armor " + player.getAttributeValue(Attributes.ARMOR));
                 }),
-                step("open the trinket screen", 5, player -> pressKey("key.curios.open.desc")),
+                // Curios ignores its key while the window is inactive, and the test window is hidden.
+                step("open the trinket screen", 5, player -> {
+                    Minecraft.getInstance().setWindowActive(true);
+                    pressKey("key.curios.open.desc");
+                }),
                 await("the trinket screen opens", 100, player -> Minecraft.getInstance().screen != null
                         && Minecraft.getInstance().screen.getClass().getName().contains("curios")),
                 step("screenshot the trinket screen", 5, player -> {
+                    Minecraft.getInstance().setWindowActive(false);
                     check("the trinket screen opens", Minecraft.getInstance().screen != null
                                     && Minecraft.getInstance().screen.getClass().getName().contains("curios"),
                             "screen " + Minecraft.getInstance().screen);
                     screenshot("trinkets");
                 }),
                 step("close the trinket screen", 5, LocalPlayer::closeContainer),
+
+                // GEAR-006: how the new items look. Copper tools are locked until the Iron stage, so they show gray.
+                step("get the copper tools", 20, player -> {
+                    command("give @s wallis_ultimate:copper_pickaxe");
+                    command("give @s wallis_ultimate:copper_axe");
+                    command("give @s wallis_ultimate:copper_shovel");
+                    command("give @s wallis_ultimate:copper_hoe");
+                    command("give @s wallis_ultimate:grannys_rabbit_foot");
+                    command("give @s wallis_ultimate:lucky_horseshoe");
+                    command("give @s wallis_ultimate:spare_clip");
+                    command("give @s wallis_ultimate:brass_knuckles");
+                }),
+                step("open the inventory", 15, player -> Minecraft.getInstance().setScreen(new InventoryScreen(player))),
+                step("screenshot the new items", 0, player -> screenshot("new-items")),
+                step("close the inventory", 5, LocalPlayer::closeContainer),
 
                 step("get on a horse", 20, player -> {
                     command("summon minecraft:horse ~ ~ ~ {Tame:1b,SaddleItem:{id:\"minecraft:saddle\",Count:1b}}");

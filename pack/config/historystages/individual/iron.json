@@ -27,7 +27,11 @@
     "minecraft:iron_helmet",
     "minecraft:iron_chestplate",
     "minecraft:iron_leggings",
-    "minecraft:iron_boots"
+    "minecraft:iron_boots",
+    "wallis_ultimate:copper_pickaxe",
+    "wallis_ultimate:copper_axe",
+    "wallis_ultimate:copper_shovel",
+    "wallis_ultimate:copper_hoe"
 
   ]
 }

@@ -2,9 +2,14 @@ package wallis_ultimate.registry;
 
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -17,6 +22,8 @@ import wallis_ultimate.item.TrinketItem;
 
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, WallisUltimate.MOD_ID);
+    /** Read here so the tier registers while the mod is being constructed, as Forge requires. */
+    private static final Tier COPPER = ModTiers.COPPER;
 
     // Block items exist so structures can be built in creative; there are no recipes or loot for them (WORLD-006).
     public static final RegistryObject<Item> REINFORCED_CONCRETE = blockItem(ModBlocks.REINFORCED_CONCRETE);
@@ -25,6 +32,12 @@ public final class ModItems {
 
     /** SURV-010: stacks to 16 (Q-119). */
     public static final RegistryObject<Item> BANDAGE = ITEMS.register("bandage", () -> new BandageItem(new Item.Properties().stacksTo(16)));
+
+    // GEAR-006: copper tools, between stone and iron. Attack values follow vanilla's stone and iron tools.
+    public static final RegistryObject<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe", () -> new PickaxeItem(COPPER, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe", () -> new AxeItem(COPPER, 6.5F, -3.15F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel", () -> new ShovelItem(COPPER, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe", () -> new HoeItem(COPPER, -1, -1.5F, new Item.Properties()));
 
     // CMBT-003, Chapter 1 trinkets. Their Curios slots are the item tags in datagen; numbers in Trinkets or here.
     public static final RegistryObject<Item> GRANNYS_RABBIT_FOOT = ITEMS.register("grannys_rabbit_foot", TrinketItem::new);
@@ -59,6 +72,10 @@ public final class ModItems {
         } else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ZOMBIE_SPAWN_EGG);
         } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(COPPER_PICKAXE);
+            event.accept(COPPER_AXE);
+            event.accept(COPPER_SHOVEL);
+            event.accept(COPPER_HOE);
             event.accept(GRANNYS_RABBIT_FOOT);
             event.accept(JOGGING_HEADBAND);
             event.accept(WORN_SPURS);

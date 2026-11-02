@@ -1,3 +1,11 @@
-// 1.20.1	2026-11-02T01:41:16.0683086	Recipes
+// 1.20.1	2026-11-02T21:54:01.9698387	Recipes
 a6d018084dbef95bd8d39d0c032829a094cb00d6 data/wallis_ultimate/advancements/recipes/misc/bandage.json
+5132cfb42425a8d64a51b0d23d8765fc6facca35 data/wallis_ultimate/advancements/recipes/tools/copper_axe.json
+8817b54cfcf116f21aaed6eb847040dde36774f2 data/wallis_ultimate/advancements/recipes/tools/copper_hoe.json
+caa612a1f00e0bc428d38f82cdf1ebd62a9ba5bf data/wallis_ultimate/advancements/recipes/tools/copper_pickaxe.json
+9b60be6f64fdef7aca6f3755ffa11a75697f07b9 data/wallis_ultimate/advancements/recipes/tools/copper_shovel.json
 aa7d09d80b3e105a425c6be641a28ed177b4fe08 data/wallis_ultimate/recipes/bandage.json
+20911023d00960d6c7f9e458c76410454a9621ae data/wallis_ultimate/recipes/copper_axe.json
+902209983c9d7ed7291ef6584f2fa53848ef4678 data/wallis_ultimate/recipes/copper_hoe.json
+56e208079cd7cecf09b5e88fe01a3d0ef4d62ead data/wallis_ultimate/recipes/copper_pickaxe.json
+a1ae86bd30bb8930a11d27f29e152c46be00931a data/wallis_ultimate/recipes/copper_shovel.json

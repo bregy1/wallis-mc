@@ -22,5 +22,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BRASS_KNUCKLES.get());
         basicItem(ModItems.THICK_FLANNEL.get());
         withExistingParent(ModItems.ZOMBIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        handheld(ModItems.COPPER_PICKAXE.getId().getPath());
+        handheld(ModItems.COPPER_AXE.getId().getPath());
+        handheld(ModItems.COPPER_SHOVEL.getId().getPath());
+        handheld(ModItems.COPPER_HOE.getId().getPath());
+    }
+
+    /** Held like a tool, not like a flat item. */
+    private void handheld(String name) {
+        withExistingParent(name, mcLoc("item/handheld")).texture("layer0", modLoc("item/" + name));
     }
 }

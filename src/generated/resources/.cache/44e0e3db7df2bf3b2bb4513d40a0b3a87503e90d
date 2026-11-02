@@ -1,3 +1,4 @@
-// 1.20.1	2026-11-02T01:20:35.6583488	Tags for minecraft:block mod id wallis_ultimate
+// 1.20.1	2026-11-02T21:54:01.9688416	Tags for minecraft:block mod id wallis_ultimate
 c7178be7af101f55ca4ec899bcf420e9349050e3 data/minecraft/tags/blocks/dragon_immune.json
 c7178be7af101f55ca4ec899bcf420e9349050e3 data/minecraft/tags/blocks/wither_immune.json
+b76d95bca371efda20b7d956d2c78eb4b6f41775 data/wallis_ultimate/tags/blocks/needs_copper_tool.json

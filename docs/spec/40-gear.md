@@ -75,7 +75,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 **Notes:** Your words: "Later guns as well." The idea pool's Tesla Coil Gun and Plasma Cutter fit here.
 
 ### GEAR-006 — Tools for every ore
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: district 1's ores: copper tools and the copper tier, iron needs a copper pickaxe, verified by GameTests; gold and later ores come with their districts)
 **Priority:** must
 
 **Description:** Every ore material gets its own set of tools. Tools get faster with each new material, but later materials are also harder to mine, so you need the previous tier's tools to get them.
@@ -83,8 +83,8 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 **Acceptance criteria:**
 - [ ] Every ore material, vanilla and modded, has a full tool set (pickaxe, axe, shovel, hoe), including ones vanilla lacks, like copper.
 - [ ] Tool tiers are ordered by material, with speed and durability scaled to match (e.g. copper between stone and iron; gold rebalanced to fit its place). Exact order and values come with balancing.
-- [ ] Each tool tier digs faster than the one before.
-- [ ] Each new ore needs at least the previous tier's pickaxe to mine.
+- [x] Each tool tier digs faster than the one before. (Wood to iron so far.)
+- [x] Each new ore needs at least the previous tier's pickaxe to mine. (Copper a stone one, iron a copper one.)
 - [ ] New ores added later (WORLD-010) come with their own tools.
 
 **Open questions:**
