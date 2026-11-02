@@ -39,6 +39,7 @@ Optimised for three-player teams, while supporting any reasonable team size (sol
 - A cast of famous-people parodies, gung-ho army characters and weirdos (see the `story` skill)
 - A later planet where magic works: the aliens' ruined home world (STORY-012, after version 1)
 - Fiction disclaimer (STORY-014)
+- Published on CurseForge (PACK-007): public pack with fictional names and no nudity; a local-only "uncut" add-on with the parody names and spicier moments (STORY-019)
 - Story-driven progression with locked content, plus points for special utility items (see `10-progression.md`)
 - Multiple planets, each with a theme and difficulty; planets stack — new ones add on top, open-ended
 - Earth: zombie apocalypse with hordes and specialised mutated zombies (Left 4 Dead flavour)

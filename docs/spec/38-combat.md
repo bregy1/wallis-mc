@@ -22,21 +22,21 @@ Fighting is real-time and built on vanilla Minecraft combat. On top of that, pla
 **Notes:** Your words: "Default minecraft mechanics with like an additional roll to use and dodge."
 
 ### CMBT-002 — Dodge roll
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: server logic verified by GameTests; in-game feel, chat key and downed check still open)
 **Priority:** must
 
 **Description:** Players can do a quick forward roll to get out of the way of attacks.
 
 **Acceptance criteria:**
-- [ ] Pressing the roll key makes the player roll about 3 blocks forward.
-- [ ] The roll has a 2-second cooldown and costs a little hunger, like a sprint jump.
-- [ ] The roll key defaults to T and can be rebound.
-- [ ] The pack moves vanilla's "open chat" default from T to Enter, so the two don't clash.
-- [ ] The player is immune to damage for a split second (about 0.25 seconds) during the roll.
-- [ ] A downed player (SURV-001) can't roll.
+- [ ] Pressing the roll key makes the player roll about 3 blocks forward. (Implemented as a 1.36 ground impulse in the look direction; distance to check in-game.)
+- [x] The roll has a 2-second cooldown and costs a little hunger, like a sprint jump. (40 ticks; 0.2 exhaustion.)
+- [ ] The roll key defaults to T and can be rebound. (Implemented; to check in-game.)
+- [ ] The pack moves vanilla's "open chat" default from T to Enter, so the two don't clash. (Pack config, done when the pack is assembled.)
+- [x] The player is immune to damage for a split second (about 0.25 seconds) during the roll. (5 ticks; void and /kill still hit.)
+- [ ] A downed player (SURV-001) can't roll. (Added with SURV-001.)
 
-**Open questions:**
-**Notes:** Decided 2026-11-01: "just a roll, going forward. Bound on T in beginning."
+**Open questions:** Q-120
+**Notes:** Decided 2026-11-01: "just a roll, going forward. Bound on T in beginning." Built in our own mod (PACK-005), no fork. No roll animation yet (presentation, later).
 
 ### CMBT-003 — Trinkets add fighting abilities
 **Status:** approved

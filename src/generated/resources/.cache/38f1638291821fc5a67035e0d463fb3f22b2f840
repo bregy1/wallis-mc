@@ -1,0 +1,10 @@
+// 1.20.1	2026-11-02T00:33:20.7668336	Block States: wallis_ultimate
+284692ce9f60ff07ff5f6fd0c20861580b21a1d8 assets/wallis_ultimate/blockstates/alien_alloy.json
+8d7218637877c1553ac3d0bd1bccca6dc86f0355 assets/wallis_ultimate/blockstates/reinforced_concrete.json
+ebf7579b60d0fa335ff5e969aa5c6a00971081ac assets/wallis_ultimate/blockstates/riveted_steel.json
+b7810012e27643670402148dde93c348c9444148 assets/wallis_ultimate/models/block/alien_alloy.json
+2830fa935bfa51ef4d417fdbd78a48135fcf28ab assets/wallis_ultimate/models/block/reinforced_concrete.json
+15e0aa251e5c008a458b71d849a5b5c07d562a6b assets/wallis_ultimate/models/block/riveted_steel.json
+62b0a884b115dd4ac2d662a6cc3b594145721a94 assets/wallis_ultimate/models/item/alien_alloy.json
+559a98d411b0f4629d04718dcc5f5be64f7f11fb assets/wallis_ultimate/models/item/reinforced_concrete.json
+88310d72ccec0ec91dc3246e1506d51f33e28437 assets/wallis_ultimate/models/item/riveted_steel.json

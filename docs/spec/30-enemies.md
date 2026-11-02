@@ -156,7 +156,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - [ ] Discovering a new enemy type gives utility points (PROG-005).
 
 **Open questions:** Q-083
-**Notes:** From features.md: "Need a system like a tracker or smth where enemies can be looked up and counter mechanics can be seen." Story hooks if picked: the deserter chicken and Mark Zuckerbot's scanner add details.
+**Notes:** From features.md: "Need a system like a tracker or smth where enemies can be looked up and counter mechanics can be seen." Story hooks if picked: the deserter chicken and Morris Byte's scanner add details.
 
 ### ENEMY-011 — Bosses have mechanics
 **Status:** approved (Milestone 1: the rules and Hog Daddy; other bosses stay draft)

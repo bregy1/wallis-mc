@@ -73,7 +73,7 @@ Tech runs on electricity. Energized Power provides the general machines and the 
 | Electric Fence | 2 Settler | Shocks zombies at the base perimeter; a base defense extra (PROG-005) | Electric |
 | Alarm | 2 Settler | Warns when enemies approach the base on horde nights | Electric |
 | Ammo Press | 3 Gunsmith | Turns metal and powder into ammo for the few TaCZ guns; the main automation goal of tier 3 | Electric |
-| Scanner Station | 3 Gunsmith | Studies enemy samples to fill the enemy tracker (ENEMY-010); a Zuckerbot tie-in | Electric |
+| Scanner Station | 3 Gunsmith | Studies enemy samples to fill the enemy tracker (ENEMY-010); a Morris Byte tie-in | Electric |
 | Radio Tower | 3 Gunsmith | Picks up broadcasts that point to new districts ("Radio voices") | Electric |
 | Fuel Refinery | 4 Launch | Refines the Nether ingredient into rocket fuel; the big automation chain before the launch | Electric |
 | Launch Pad Controller | 4 Launch | Assembles and checks the built rocket, starts the launch defense | Electric |

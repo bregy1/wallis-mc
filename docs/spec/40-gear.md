@@ -56,6 +56,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 **Acceptance criteria:**
 - [ ] No craftable gun is unlocked before the Gunsmith tier (PROG-008).
 - [ ] Gun recipes need materials that take real effort to get (exact costs: later, with the balancing spec).
+- [ ] Our guns use only our own art; TaCZ's default gun art is non-commercial and can't be part of a pack that earns money (PACK-007, Q-116).
 
 **Open questions:**
 **Notes:** From plans.md: "Guns exist, not too easy to craft."

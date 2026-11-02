@@ -7,7 +7,7 @@
 ## Summary
 A group of rough, foul-mouthed rednecks didn't notice the world ended — until now. Earth is overrun by an infection that seems home-grown, but is really the work of an alien species that will later follow the survivors to other planets. Along the way the player meets allies, wins over (or turns against) factions like the military, fights raiders and a mysterious group, and makes choices with consequences. Tone mixes humor and seriousness depending on planet and district. Key moments are told through cutscenes that still look like Minecraft.
 
-> **Disclaimer (draft wording, see STORY-014 and Q-059):** Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody.
+> **Disclaimer (final wording, STORY-014):** Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody.
 
 ## General story
 
@@ -19,7 +19,7 @@ They look goofy: redneck-themed, yet clearly not human, and partly chicken. **(p
 
 Away from home they have no magic and no other weapons, so they can't simply conquer a planet. Instead they clear it with a virus. Humans are easy to kill that way, and with lives that long, the aliens can afford to wait.
 
-To make the virus work on humans, they had help from **Elon Tusk**, a tech billionaire who looks a lot like a certain real one. The aliens tricked him: **(proposal)** he thought he was building a longevity cure. When he learns the truth, he turns against them. He leads the **Tusk group**, rednecks and rich people fighting side by side, and helps the survivors a lot.
+To make the virus work on humans, they had help from **Dexter Vane**, a tech billionaire with his own rocket company. The aliens tricked him: **(proposal)** he thought he was building a longevity cure. When he learns the truth, he turns against them. He leads the **Vane group**, rednecks and rich people fighting side by side, and helps the survivors a lot.
 
 On Earth, the aliens hide behind a cult of human collaborators (the "unknown group"), led by aliens disguised as humans. Aliens themselves don't show up at all in the first few districts. Later, small chicken aliens appear here and there, using guns they got on Earth; at home they mostly use magic.
 
@@ -36,16 +36,16 @@ The super-rich mostly survived, because they had bunkers. So famous faces (parod
 *Everything in this section is my proposal, built from your decisions and the plots picked below. Each Earth chapter matches a tier (PROG-008) and ends in that tier's milestone. Cast names are from the Cast proposals.*
 
 **Chapter 1: Scavenger. "Wait, what apocalypse?"** *(approved for Milestone 1)*
-The rednecks wake up after their bender to a world overrun by zombies. Comedy opening cutscene. They meet Lurleen (STORY-003), the first ally, who moves into their first home. Scavenging, basic melee weapons and bows. Every player is given a bed, and the quest "create first home" has the team set up its first base (your idea, SURV-005). Along the way they find safe spots held by friendly redneck defenders (SURV-006). An old radio crackles: a podcast host broadcasting from his bunker (Joe Rogaine) talks about survivors out there. *Radio voices begins.* A tinfoil-hat weirdo (Conspiracy Carl) rants that it's aliens; nobody believes him. *First clue.* *Milestone:* a big mutated zombie attacks the cabin; beating it opens tier 2.
+The rednecks wake up after their bender to a world overrun by zombies. Comedy opening cutscene. They meet Lurleen (STORY-003), the first ally, who moves into their first home. Scavenging, basic melee weapons and bows. Every player is given a bed, and the quest "create first home" has the team set up its first base (your idea, SURV-005). Along the way they find safe spots held by friendly redneck defenders (SURV-006). An old radio crackles: a podcast host broadcasting from his bunker (Dusty Holler) talks about survivors out there. *Radio voices begins.* A tinfoil-hat weirdo (Conspiracy Carl) rants that it's aliens; nobody believes him. *First clue.* *Milestone:* a big mutated zombie attacks the cabin; beating it opens tier 2.
 
 **Chapter 2: Settler. "This ain't our land no more"**
 The team builds a fortified base. The first specialised zombies appear, and raiders show up (STORY-007). The raider king offers a deal: join him or fight him (optional choice, STORY-005). *Raider king.* First contact with the military: they warn the team off and refuse to help. Strange robed figures are seen near infection zones, and the redneck woman spots her missing brother among them. *Missing brother begins.* The robed figures are fencing off lakes and reservoirs, which makes no sense yet. *Water grab, first clue.* *Milestone:* survive a large raider assault on the base; the military notices the team can handle itself.
 
 **Chapter 3: Gunsmith. "Follow the money"**
-Guns, hordes and stronger specials. The military starts handing out jobs, and its attitude improves (STORY-004). The team investigates the "military lab" story and finds documents showing the military knew about "visitors" before the outbreak. *The military's secret.* Then a safe spot falls: a traitor among the redneck defenders opens the gates to the cult, and the traitor turns out to work for a general who secretly serves the cult. *A safe spot falls.* The first mini chicken aliens with guns show up; one of them refuses to fight, deserts, and starts explaining alien weaknesses. *The deserter chicken.* The cult openly takes over reservoirs, and quests to win them back begin. *Milestone (decided, Q-032):* storm the cult's stronghold. The redneck woman faces her brother: save him or fight him (choice). A cutscene reveals the leaders' true alien form and the truth: the virus is alien and Earth is being cleared for its water. The aliens tricked Elon Tusk into helping make it; shaken, he and the Tusk group join the fight. The traitor general is exposed.
+Guns, hordes and stronger specials. The military starts handing out jobs, and its attitude improves (STORY-004). The team investigates the "military lab" story and finds documents showing the military knew about "visitors" before the outbreak. *The military's secret.* Then a safe spot falls: a traitor among the redneck defenders opens the gates to the cult, and the traitor turns out to work for a general who secretly serves the cult. *A safe spot falls.* The first mini chicken aliens with guns show up; one of them refuses to fight, deserts, and starts explaining alien weaknesses. *The deserter chicken.* The cult openly takes over reservoirs, and quests to win them back begin. *Milestone (decided, Q-032):* storm the cult's stronghold. The redneck woman faces her brother: save him or fight him (choice). A cutscene reveals the leaders' true alien form and the truth: the virus is alien and Earth is being cleared for its water. The aliens tricked Dexter Vane into helping make it; shaken, he and the Vane group join the fight. The traitor general is exposed.
 
 **Chapter 4: Launch. "Get off this rock"**
-Now allied with the purged military and the Tusk group, the team builds a rocket. **(proposal)** At a Tusk launch site, while rival billionaire Jeff Bozos races to launch his own rocket first. The fuel needs one last ingredient found only in the Nether, so the team opens the overhauled, scary underworld (WORLD-008). Joe Rogaine's broadcasts reveal he's been coordinating survivors all along. *Milestone:* the launch defense (PROG-010), a huge siege until liftoff, with the aliens throwing everything at the escaping humans. The deserter chicken comes along.
+Now allied with the purged military and the Vane group, the team builds a rocket. **(proposal)** At a Vane launch site, while rival billionaire Barton Shipley races to launch his own rocket first. The fuel needs one last ingredient found only in the Nether, so the team opens the overhauled, scary underworld (WORLD-008). Dusty Holler's broadcasts reveal he's been coordinating survivors all along. *Milestone:* the launch defense (PROG-010), a huge siege until liftoff, with the aliens throwing everything at the escaping humans. The deserter chicken comes along.
 
 **Chapter 5: The Moon. "So this is where they live?"** *(end of version 1)*
 Everyone believes the Moon is the aliens' magic home. It turns out to be only a mini base (STORY-017). No magic works there, but there are signs of it, and maybe the first pieces of a very basic magic weapon that's still useless for now. The deserter chicken recognises the signs and gets nervous. Clues, not answers.
@@ -62,27 +62,29 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 | The missing brother | The redneck woman's brother turns up in the cult. Save him or fight him. | STORY-003, STORY-005 choices | picked: adds heart and a hard choice |
 | The military's secret | The military knew about the aliens before the outbreak and covered it up. A general secretly works with the cult and betrays everyone mid-game. | STORY-004, slow build-up | picked: explains why the military is hostile, and gives a betrayal |
 | A safe spot falls | A traitor among the redneck defenders opens the gates to the cult. One of the story-only overruns. | SURV-006 | picked: a shock moment that raises the stakes |
-| The cure hunt | A Tusk group scientist works on a cure. Side quests collect samples from specialised zombies. | Tusk group, enemies | not picked: a cure would undercut leaving Earth |
+| The cure hunt | A Vane group scientist works on a cure. Side quests collect samples from specialised zombies. | Vane group, enemies | not picked: a cure would undercut leaving Earth |
 | The deserter chicken | A mini chicken alien who doesn't want humans wiped out. Comic ally who explains alien weaknesses and drops the first magic clues. | Enemy tracker, magic clues | picked: humor, clues, and a reason the enemy tracker knows things |
 | Moonshine works | The rednecks' moonshine turns out to slow the infection. A running gag that becomes a plot point, and maybe an item. | Redneck humor | not picked: too far from "somewhat realistic"; fine as a joke line |
 | The raider king | The raider leader has his own plan. Recruit him or take him down. | STORY-005 choices | picked: an optional choice with consequences |
-| Radio voices | Mysterious radio broadcasts lead the team from district to district. Who's sending them is revealed later. | Districts, slow build-up | picked: guides travel between districts; voiced by Joe Rogaine |
+| Radio voices | Mysterious radio broadcasts lead the team from district to district. Who's sending them is revealed later. | Districts, slow build-up | picked: guides travel between districts; voiced by Dusty Holler |
 | Water grab | The aliens need fresh water, so they're quietly taking over Earth's lakes and reservoirs. Quests to stop them. | Alien lore | picked: makes the alien motive visible on Earth |
 
 ## Cast (proposals)
 
-*Your idea from story.md: famous people with near-identical names, army characters who love it, and random weirdos. All names and roles are proposals. Any sexy moments stay with clearly adult, fictional characters, never the parodies (story skill).*
+*Your idea from story.md: famous people with near-identical names, army characters who love it, and random weirdos. All names and roles are proposals. Any sexy moments stay with clearly adult, fictional characters, never the parodies (story skill). The parody names below are for the local "uncut" add-on only; the public pack gets fictional names (STORY-019, Q-117).*
 
 **Famous faces** (the rich survived in their bunkers)
 
-| Character | Parody of | Role |
-|---|---|---|
-| Elon Tusk | Elon Musk | Decided: tricked into helping make the virus, then leads the Tusk group (STORY-013) |
-| Jeff Bozos | Jeff Bezos | Rival billionaire in a fortified mega-warehouse. Sells supplies at absurd prices with "two-day drone delivery", even now. Races Tusk to launch a rocket first |
-| Mark Zuckerbot | Mark Zuckerberg | Hides in his island bunker, talks like a robot, tracks everyone. Sells scanner tech that feeds the enemy tracker |
-| Joe Rogaine | Joe Rogan | Podcast host broadcasting from his bunker; the voice behind "Radio voices". Confirmed for Chapter 1 |
-| Gordon Damsay | Gordon Ramsay | Furious celebrity chef running the kitchen at a redneck safe spot. Food quests, nonstop insults |
-| Arnold Schwarzenschnitzel | Arnold Schwarzenegger | Ex-action-star general leading a military unit. One-liners only |
+| Public name | Uncut add-on name | Inspired by | Role |
+|---|---|---|---|
+| Dexter Vane | Elon Tusk | Elon Musk | Decided: tricked into helping make the virus, then leads the Vane group (STORY-013) |
+| Barton Shipley | Jeff Bozos | Jeff Bezos | Rival billionaire in a fortified mega-warehouse. Sells supplies at absurd prices with "two-day drone delivery", even now. Races Vane to launch a rocket first |
+| Morris Byte | Mark Zuckerbot | Mark Zuckerberg | Hides in his island bunker, talks like a robot, tracks everyone. Sells scanner tech that feeds the enemy tracker |
+| Dusty Holler | Joe Rogaine | Joe Rogan | Podcast host broadcasting from his bunker; the voice behind "Radio voices". Confirmed for Chapter 1 |
+| Chef Angus Roast | Gordon Damsay | Gordon Ramsay | Furious celebrity chef running the kitchen at a redneck safe spot. Food quests, nonstop insults |
+| General Rocco Ironhart | Arnold Schwarzenschnitzel | Arnold Schwarzenegger | Ex-action-star general leading a military unit. One-liners only |
+
+*Public names decided 2026-11-01 (Q-117). The public pack only ever uses the public names; the uncut add-on swaps in the other column (STORY-019).*
 
 **Army characters who love it**
 
@@ -278,29 +280,29 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Open questions:** Q-063
 **Notes:** Decided 2026-11-01 (answer to Q-057). The real home planet comes after version 1; the Moon in version 1 is only a mini base (STORY-017). You may later add a very-late-game item that allows magic on other planets too. Linking the magic planet to the alien home world started as "Maybe the alien planet with the virus!" and is now part of the lore.
 
-### STORY-013 — Elon Tusk
+### STORY-013 — Dexter Vane
 **Status:** draft
 **Priority:** should
 
-**Description:** Elon Tusk is a tech billionaire who looks like a certain real one (parody). The aliens tricked him into helping create the virus. When he learns the truth, he turns against them, leads the Tusk group (STORY-015), and helps the survivors a lot.
+**Description:** Dexter Vane is a fictional tech billionaire with his own rocket company. In the local uncut add-on he becomes the parody Elon Tusk (STORY-019). The aliens tricked him into helping create the virus. When he learns the truth, he turns against them, leads the Vane group (STORY-015), and helps the survivors a lot.
 
 **Acceptance criteria:**
-- [ ] Tusk appears in person in the story, as a leader in some places.
+- [ ] Vane appears in person in the story, as a leader in some places.
 - [ ] Players learn that he helped make the virus at the big reveal (STORY-001), together with the fact that he was tricked.
 - [ ] After the reveal he actively helps the team (quests, resources, the launch).
 
 **Open questions:** Q-059
 **Notes:** Decided 2026-11-01 (answer to Q-058): "tricked, then redemption". What he thought he was building is a proposal: a longevity cure.
 
-### STORY-015 — The Tusk group
+### STORY-015 — The Vane group
 **Status:** draft
 **Priority:** should
 
-**Description:** A faction led by Elon Tusk: rednecks and rich people fighting side by side. It has real impact on the story and helps the team a lot.
+**Description:** A faction led by Dexter Vane: rednecks and rich people fighting side by side. It has real impact on the story and helps the team a lot. (Uncut add-on name: the Tusk group.)
 
 **Acceptance criteria:**
-- [ ] The Tusk group is a faction (STORY-004) whose members are rednecks and rich people.
-- [ ] Tusk leads it and appears at some of its places.
+- [ ] The Vane group is a faction (STORY-004) whose members are rednecks and rich people.
+- [ ] Vane leads it and appears at some of its places.
 - [ ] Its starting attitude toward the team follows Q-072.
 
 **Open questions:** Q-072
@@ -313,7 +315,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Description:** Big truths are revealed gradually. Each one is hinted at through clues well before the reveal.
 
 **Acceptance criteria:**
-- [ ] Every major reveal (alien origin, Tusk's part, the Moon being only a mini base) has clues in earlier districts or chapters.
+- [ ] Every major reveal (alien origin, Vane's part, the Moon being only a mini base) has clues in earlier districts or chapters.
 - [ ] No major reveal happens in the first district it's relevant to without earlier hints.
 
 **Open questions:**
@@ -350,14 +352,31 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Open questions:** Q-114
 **Notes:** Your words: "the first time we come back to earth, we have to go as team... we have to finish the moon first to get a special magic weapon to actually start clearing earth... But that is for later!" Planned for after version 1. **Conflict:** STORY-012 says magic only works on the aliens' home planet, and STORY-017 says no magic works on the Moon. A magic weapon that works on Earth needs an explanation (Q-114).
 
+### STORY-019 — Public pack and local "uncut" add-on
+**Status:** draft
+**Priority:** must
+
+**Description:** The pack exists in two flavors. The public CurseForge pack uses fully fictional characters and has no nudity. A separate add-on jar, used only on your own computer and never uploaded, swaps in the real-person parody names and adds the spicier moments.
+
+**Acceptance criteria:**
+- [ ] The public pack contains no nudity and no names, looks or descriptions tied to real people.
+- [ ] Every famous-person character has a fictional public name and look, plus an "uncut" parody name (mapping: Q-117).
+- [ ] The uncut add-on is a separate jar that only overrides content (names, lines, textures, scenes); the public pack works fully without it.
+- [ ] The uncut add-on is never uploaded to CurseForge or anywhere else.
+- [ ] Even in the uncut add-on, sexy moments never involve the real-person parodies (story skill guardrail).
+
+**Open questions:** Q-117
+**Notes:** Your words: "We remove what we have to, but we keep a separate jar file mod which i dont publish on curseforge but may use local on my computer. Meaning the sexy part and the real person thing." Decided 2026-11-01 together with "fully fictional names" for the public pack. The spec uses the public names; the uncut names are only in the cast table (Q-117).
+
 ### STORY-014 — Fiction disclaimer
-**Status:** approved (exact wording still open: Q-059)
+**Status:** approved
 **Priority:** must
 
 **Description:** The pack states that all characters are fictional and that any resemblance to real persons is coincidental or parody.
 
 **Acceptance criteria:**
-- [ ] The disclaimer appears in the modpack description and on the loading screen when the game starts (exact wording: Q-059).
+- [ ] The disclaimer appears in the modpack description and on the loading screen when the game starts.
+- [ ] The text reads: "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody." (through the lang file)
 
-**Open questions:** Q-059
-**Notes:** Draft wording is at the top of this file.
+**Open questions:**
+**Notes:** Wording confirmed 2026-11-01 (answer to Q-059). Before a public release, check the hosting platforms' rules on parodies.

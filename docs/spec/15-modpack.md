@@ -32,6 +32,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 - [ ] Every mod in the pack has its license (code and assets) recorded in the table below.
 - [ ] Mods marked "unmodified only" are never forked or changed.
 - [ ] Our own mod `wallis_ultimate` is licensed MIT. No GPL or LGPL code is ever copied into it; forks of GPL/LGPL mods keep their license and ship as separate jars.
+- [ ] Our mod and every fork are their own CurseForge projects, never jars bundled into the pack. Forks credit and link the original and say what changed; GPL/LGPL forks publish their source.
 - [ ] `CREDITS.md` lists every mod used, forked or borrowed from, with author, URL and license.
 
 **Open questions:**
@@ -44,11 +45,11 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 **Description:** The pack ships with a performance base and avoids mods known to cause lag over time.
 
 **Acceptance criteria:**
-- [ ] Embeddium, ModernFix and FerriteCore are in the pack.
+- [ ] Embeddium, ModernFix and FerriteCore are in the pack. Entity Culling isn't: its license forbids earning money with it, and the pack joins CurseForge's Rewards Program (PACK-007).
 - [ ] Every new mod is checked for known performance problems before it's added.
 
-**Open questions:** Q-094
-**Notes:** Pillar "we don't want lag". Create was rejected partly for this reason (2026-11-01).
+**Open questions:**
+**Notes:** Pillar "we don't want lag". Entity Culling's license checked 2026-11-01 (Q-094): fine only without monetization, so it was dropped when you chose to join the Rewards Program. Create was rejected partly for this reason (2026-11-01).
 
 ### PACK-004 — Core mod list
 **Status:** approved (Milestone 1: the mods Chapter 1 needs; other picks stay draft)
@@ -60,22 +61,23 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 |---|---|---|---|---|---|
 | Quests | FTB Quests | No license file; treat as unmodified only | Unmodified | PROG-003 | Odyssey Quests (MIT, 1.20.1 build stale since 2024) |
 | Teams | FTB Teams | No license file; treat as unmodified only | Unmodified | PROG-006 | Open Parties and Claims (LGPL, no shared progression) |
-| Item locking per team | History Stages | Custom: official jar allowed in packs; no forks or modified copies | Unmodified; changes only by asking the author | PROG-002 | AStages (ARR, no team scope); Game Stages + Item Stages (drops held items, clashes with PROG-002) |
+| Item locking per team | History Stages (6.1.1 for Forge 1.20.1; requires Lootr) | Custom: official jar allowed in packs; no forks or modified copies | Unmodified, configured: individual stages shared with the FTB team; pickup allowed for every locked entry; machines lock only "place", never their GUI; loot and container access allowed; loot replacement off. Our mod adds the rest (PACK-005) | PROG-002 | AStages (ARR, no team scope); Game Stages + Item Stages (drops held items, clashes with PROG-002) |
 | Recipe viewer | JEI | MIT | Unmodified | PROG-002 | EMI (MIT) |
 | NPCs with dialogue and reply choices | Easy NPC | MIT | Unmodified or fork | STORY-002, STORY-003 | interactEntity (MIT, small project) |
 | Cutscenes | ImmersiveCinematics | MIT | Unmodified, plus our glue for team-wide playback | STORY-010 | CMDCam (LGPL-2.1, more manual) |
 | Trinket slots | Curios API | LGPL-3.0 | Library dependency | CMBT-003 | None serious |
-| Guns | TaCZ | GPL-3.0 | Unmodified, with our own small gun pack | GEAR-004 | Scorched Guns 2 (GPL-3.0) |
+| Guns | TaCZ | Code GPL-3.0; assets CC BY-NC-ND 4.0 (non-commercial) | Unmodified, with our own small gun pack using only our own art (Q-116) | GEAR-004 | Scorched Guns 2 (GPL-3.0) |
 | Melee weapons | Spartan Weaponry (candidate) | Apache-2.0 code; asset terms unverified | Decide together with the weapon picks (Q-064) | GEAR-002 | Simply Swords (custom license) |
 | Backpacks | Traveler's Backpack | LGPL-3.0 | Unmodified; integrates with Curios | UTIL | Sophisticated Backpacks (ARR) |
 | Day length | Hourglass | LGPL-3.0 | Unmodified; its sleep speed-up is accepted (SURV-005) | SURV-007 | None found |
 | Minimap and world map | Xaero's Minimap + World Map | ARR, pack use allowed with credit | Unmodified | WORLD-003 | JourneyMap (ARR, pack terms unclear) |
-| Performance | Embeddium, ModernFix, FerriteCore | LGPL-3.0, LGPL-3.0, MIT | Unmodified | PACK-003 | Entity Culling (terms unclear, Q-094) |
+| Performance | Embeddium, ModernFix, FerriteCore | LGPL-3.0, LGPL-3.0, MIT | Unmodified | PACK-003 | Entity Culling (dropped: no money allowed), Canary (stale) |
 | Storage | Tom's Simple Storage | MIT | Unmodified; its recipes locked by tier (PROG-002) | TECH-004 | Applied Energistics 2 (complex, non-commercial textures); Refined Storage (Forge 1.20.1 build stale since 2023) |
 | Flying vehicles | Immersive Aircraft | GPL-3.0-only | Trimmed to 1–2 aircraft, armed Warship disabled; electric engines via a small GPL fork as a separate jar, or fuel mapped to a charged battery item (Q-102) | TRANS-003 | Our own aircraft |
 | Food | Farmer's Delight | MIT (asset terms unverified) | Unmodified; check its Nourishment buff (Q-103) | SURV-008 | Vanilla food only |
 | Diet | A Balanced Diet | LGPL-3.0-or-later | Unmodified; effects set in its data files (Q-105) | SURV-009 | Spice of Life Onion (variety only, LGPL) |
-| Personal loot chests | Lootr (candidate) | License UNVERIFIED, check before adding | Unmodified | WORLD-011 | Our own per-player loot |
+| Personal loot chests | Lootr (0.7.35.94 for Forge 1.20.1) | Code MIT; assets All Rights Reserved; modpack terms not stated (check CurseForge's distribution setting or ask the author) | Unmodified; History Stages requires it anyway. Works automatically for every loot-table container, including our structures' chests | WORLD-011 | Our own per-player loot |
+| Mob animations | GeckoLib (4.8.4 for Forge 1.20.1) | MIT | Library dependency | ENEMY-012 | Vanilla's keyframe animations (as used by the Warden) |
 | Food values on screen | AppleSkin | The Unlicense (public domain) | Unmodified | SURV-009 | None needed |
 | Tech machines and power (generators, batteries, cables) | Energized Power | MIT; some textures credited to flashbulbs (terms unverified); pack use explicitly allowed | Unmodified or MIT fork; power trimmed to a few tiers (which: Q-096) | TECH | Mekanism, Industrial Foregoing (both lean overpowered); own power system |
 
@@ -94,6 +96,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 
 | System | Spec | Why our own |
 |---|---|---|
+| Locked-item handling on top of History Stages: pickup only into the 27 main slots (stays on the ground if full), locked items in the hotbar or hands move back to the main inventory, offhand and armor refusal where History Stages doesn't cover it, grayed-out rendering, and optionally "unlocked by…" info in JEI | PROG-002 | History Stages doesn't do these (checked 2026-11-01, Q-091) and can't be forked; our code uses its API to ask whether an item is locked for a player |
 | Districts as dimensions, with per-district world borders | WORLD-002 | Datapack dimensions work, but vanilla only sends the Overworld's border to players (bug MC-213713), and no Forge 1.20.1 mod fixes it |
 | District map and safe spot travel | WORLD-003, WORLD-004 | Map mods are ARR and can't be extended |
 | Unminable blocks and hardening | WORLD-006, ENEMY-005 | Our own content |
@@ -114,6 +117,22 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 
 **Open questions:**
 **Notes:**
+
+### PACK-007 — Publishable on CurseForge
+**Status:** draft
+**Priority:** must
+
+**Description:** The pack will be published on CurseForge. Every mod, fork and piece of content in it has to be allowed there.
+
+**Acceptance criteria:**
+- [ ] Every mod in the pack is on CurseForge and is referenced through the pack's manifest, never bundled. A mod that isn't on CurseForge may only be included if it's on CurseForge's approved non-CurseForge list.
+- [ ] Our own mod and every fork we ship are uploaded as their own CurseForge projects; GPL and LGPL forks publish their source (PACK-002).
+- [ ] The public pack has no nudity and no real-person names or likenesses; the project page, description and screenshots stay clean (STORY-019, story skill).
+- [ ] The local "uncut" add-on (STORY-019) is never uploaded.
+- [ ] The pack joins CurseForge's Rewards Program. Every mod's license must therefore allow use in a pack that earns money (Entity Culling dropped; TaCZ checked in Q-116).
+
+**Open questions:** Q-116
+**Notes:** Your words: "we want to later on publish the pack on curseforge." Checked 2026-11-01: all 24 picked mods are on CurseForge with Forge 1.20.1 files. Decisions 2026-11-01 (answers to Q-115): no nudity and fully fictional names in the public pack, a local uncut add-on, join the Rewards Program.
 
 ### PACK-006 — Inspiration only
 **Status:** approved

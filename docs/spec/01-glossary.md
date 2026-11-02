@@ -11,7 +11,7 @@
 | Player level | Per-player level from combat and quest XP. Level-ups add utility points to the team; no stat bonuses. | — |
 | Launch defense | Earth's finale: a horde siege on the base from launch start until rocket liftoff. | — |
 | District | A size-limited dimension within a planet, with its own biomes, enemies, tone and unique structures; opened by the story. | TBD |
-| Tusk group | Faction led by Elon Tusk: rednecks and rich people fighting side by side; allies of the team. | — |
+| Vane group | Faction led by Dexter Vane: rednecks and rich people fighting side by side; allies of the team. Uncut add-on name: Tusk group. | — |
 | Mini chicken | Small chicken alien that uses guns picked up on Earth. | TBD |
 | Special zombie | A zombie with one clear ability and a counter (e.g. the Rallier). | TBD |
 | Rallier | Special zombie that makes nearby zombies faster. | TBD |
@@ -31,6 +31,7 @@
 | The aliens *(name TBD)* | Ancient, goofy-looking, redneck-themed, part-chicken species (~4,000-year lifespans) that ruined its own planet and spreads a virus to clear new ones. | — |
 | Magic planet | The aliens' ruined home world; the only place where magic works. | TBD |
 | Magic book *(name TBD)* | The special book used to cast magic on the magic planet. | TBD |
-| Elon Tusk | Parody tech billionaire who helped the aliens create the virus. | — |
+| Dexter Vane | Fictional tech billionaire who was tricked into helping the aliens create the virus. Uncut add-on name: Elon Tusk. | — |
+| Uncut add-on | Local-only jar, never uploaded, that swaps in parody names and spicier moments (STORY-019). | — |
 | Dodge roll | A quick roll players use to avoid attacks. | — |
 | Trinket | An item worn in an extra equipment slot that grants a fighting ability or power. | — |

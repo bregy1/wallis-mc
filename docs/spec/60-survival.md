@@ -133,7 +133,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [ ] Farmer's Delight's Nourishment buff only slows hunger drain; it never stops it.
 
 **Open questions:**
-**Notes:** Decided 2026-11-01. Fits Gordon Damsay's food quests (cast proposal) and Energized Power's growth chamber for food automation (TECH-003).
+**Notes:** Decided 2026-11-01. Fits Chef Angus Roast's food quests (cast proposal) and Energized Power's growth chamber for food automation (TECH-003).
 
 ### SURV-009 — Diet: what you eat matters
 **Status:** approved
@@ -159,13 +159,13 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** Values decided 2026-11-01 (answer to Q-105). Your words: "Mid tier penalties for bad diet is good! So we actually have to check for it. Makes early game even harder due to debuffs. Weakening debuffs but not slowing or blindness or something super annoying."
 
 ### SURV-010 — Healing items
-**Status:** approved
+**Status:** approved (partly implemented: Bandage, verified by GameTests 2026-11-02; Medkit later)
 **Priority:** must
 
 **Description:** Besides sleeping, players can heal with items. Early healing items are weak; stronger ones come later.
 
 **Acceptance criteria:**
-- [ ] Bandage: available in tier 1, heals 3 hearts over 5 seconds.
+- [x] Bandage: available in tier 1, heals 3 hearts over 5 seconds. (Right-click applies a visible "Bandaged" effect: 1 HP every 16 ticks for 100 ticks; only usable when hurt. How players obtain it: Q-119.)
 - [ ] Medkit: unlocks later (proposal: tier 3), heals much more.
 - [ ] Exact heal amounts are tuned in playtesting.
 

@@ -60,7 +60,7 @@
 | Q-056 | Trinkets: slots, effects, how obtained. | CMBT-003 | answered: Curios with ~20 body slots; found in the world; mostly passive, a few rare active ones with cooldowns |
 | Q-057 | The magic planet: does magic work only there, or does only magic work there? | STORY-012, PLANET | answered: magic works only there, through a special book; tech and guns still work; the magic chapter comes after version 1 |
 | Q-058 | Elon Tusk: is he met in the game, and why did he help the aliens? | STORY-013, STORY-015 | answered: appears as a leader, leads the Tusk group, helps a lot; the aliens tricked him, then redemption |
-| Q-059 | Disclaimer text: is this wording OK for the loading screen? "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody." (The "or intended as parody" part is there because Elon Tusk and friends are obvious parodies.) Before a public release, also check the hosting platforms' rules on parodies. | STORY-014 | partly answered: shown on the loading screen. Still open: OK the wording |
+| Q-059 | Disclaimer text: is this wording OK for the loading screen? "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody." (The "or intended as parody" part is there because Elon Tusk and friends are obvious parodies.) Before a public release, also check the hosting platforms' rules on parodies. | STORY-014 | answered: wording confirmed, shown on the loading screen |
 | Q-060 | The aliens: name, why they ruined their planet, look. | STORY-011 | partly answered: wore out their planet like humans, fertility problem, need fresh water; goofy, redneck-themed, part chicken. Mini chickens use guns from Earth; mostly magic at home; no aliens in the first districts. Still open: their name |
 | Q-061 | Which weapons, tools and gadgets exist? | GEAR | answered: vanilla tools, curated weapon mods, plus invented weapons (idea pool in 40-gear.md) |
 | Q-062 | Safe spots: how many, who can use them, what do defenders do? | SURV-006, WORLD | answered: 3–4 per district along main routes; open to all players; defenders give quests and trade |
@@ -73,12 +73,12 @@
 | Q-069 | Unminable blocks: names, explosions, player access? | WORLD-006 | answered: Reinforced Concrete, Riveted Steel, Alien Alloy; immune to explosions; never for players |
 | Q-070 | Moon: which clues and which first magic items exactly? | STORY-017, PLANET | open |
 | Q-071 | Which plots from the plot idea pool in 20-story.md do we keep? | STORY | answered: I picked seven on your request (missing brother, military's secret, a safe spot falls, deserter chicken, raider king, radio voices, water grab); veto any |
-| Q-072 | Is the Tusk group friendly from the start, or does it have to be won over like the military? | STORY-015 | open |
+| Q-072 | Is the Vane group friendly from the start, or does it have to be won over like the military? | STORY-015 | open |
 | Q-073 | World height: what does "only 0–64" mean? | WORLD-009 | answered: lowest point is Y 0, no negative depth; normal build height above |
 | Q-074 | Ores: how are they spread? | WORLD-010, balancing spec | answered: ores match the tier, later ores only in later districts, more ores keep coming; exact lists tuned with balancing |
 | Q-075 | Nether: how do players get in (a vanilla portal the story unlocks, or something else)? Size limit like districts? Keep vanilla Nether biomes and mobs, replace them, or mix? | WORLD-008 | open |
 | Q-076 | End items without the End? | WORLD-007 | answered: shulker boxes stay; elytra, end crystals and chorus fruit removed (elytra parked as a very-late idea) |
-| Q-077 | Cast: which parody characters, army characters and weirdos from 20-story.md do we keep? | STORY | partly answered: Conspiracy Carl and Joe Rogaine confirmed for Chapter 1. Still open: the rest of the cast |
+| Q-077 | Cast: which parody characters, army characters and weirdos from 20-story.md do we keep? | STORY | partly answered: Conspiracy Carl and Dusty Holler confirmed for Chapter 1. Still open: the rest of the cast |
 | Q-078 | Zombie speeds by day and night? | ENEMY-001 | answered: by day slower than a walking player; at night slightly faster than walking, slower than sprinting; Rallier +25% within 8 blocks; scarier looks (ENEMY-012) |
 | Q-079 | Horde nights: how often? In which districts? | ENEMY-006 | partly answered: every 7th night; counter per player, per team when online together. Still open: in which districts |
 | Q-080 | Noise: which actions count as loud? | ENEMY-006 | answered: loud actions only (gunshots ~32, explosions ~48, chainsaws ~24, glass/doors ~12 blocks) |
@@ -91,10 +91,10 @@
 | Q-087 | Horde night counters? | ENEMY-006 | answered: days count only while online; together, the soonest counter decides and everyone present resets |
 | Q-088 | Specialisations after the team-size change? | PROG-011 | answered: four specialist trees, two per player; teams cover more between them |
 | Q-089 | Boss fights: how do we make them good in Minecraft? | ENEMY-011 | answered: sealed arenas, ground telegraphs, one signature twist per boss (some as minigame phases); some hitting is fine |
-| Q-091 | History Stages vs. PROG-002's exact rules (picked-up locked items go only to the main inventory; main hand bounces back; grayed recipes with unlock info): what does it do out of the box? Anything missing has to be asked of its author or built around it, since it can't be forked. | PROG-002, PACK-004 | open |
+| Q-091 | History Stages vs. PROG-002's exact rules? | PROG-002, PACK-004 | answered (checked 2026-11-01): it covers team-shared locks, blocked use, crafting and placing, Curios, other mods' items, FTB Quests rewards, and JEI lock overlays. Our mod adds pickup routing to the main slots, the hotbar/hand bounce, gray rendering, possibly offhand/armor refusal and JEI unlock info (PACK-005). Its exact Java API must be read before coding |
 | Q-092 | Which license does our own mod get? | PACK-002 | answered: MIT |
 | Q-093 | Hourglass sleep speed-up vs instant skip? | SURV-005, SURV-007, PACK-004 | answered: the fast speed-up is fine |
-| Q-094 | Entity Culling: its license forbids use "for commercial advantage or money". Fine for our pack? (Check the terms before adding it.) | PACK-003 | open |
+| Q-094 | Entity Culling's license? | PACK-003 | answered: fine for a free pack with no monetization |
 | Q-095 | Power, tech mod, rocket and Moon without Create? | TECH, PROG-010, STORY-017, PACK-004 | answered: Energized Power for tech and power (trimmed); our own rocket build and Moon dimension |
 | Q-096 | Which Energized Power tiers do we keep (proposal: 3 generators, 2–3 batteries, 2 cables), and which machines? | TECH, PACK-004 | open |
 | Q-097 | Any early mount besides vanilla horses? | TRANS-002 | answered: horses only, tunable with trinkets |
@@ -113,6 +113,12 @@
 | Q-112 | Which materials get tool sets? | GEAR-006 | answered: all of them, scaled to their tier |
 | Q-113 | Can buffed zombies reach sprint speed? | ENEMY-001 | answered (changed): early on at night, buffed zombies can outrun a sprinting player; speed trinkets and skill levels let players catch up; well into a district they can't outrun you anymore |
 | Q-114 | The special weapon from finishing the Moon is a magic weapon that works on Earth, but magic only works on the aliens' home planet (STORY-012) and not on the Moon (STORY-017). How does it fit? Options: it's alien tech rather than magic; it's the parked "magic elsewhere" item; or it runs on something brought from the home planet. (After version 1.) | STORY-018, STORY-012 | open |
+| Q-115 | CurseForge: mod availability, content rules, rewards? | PACK-007, story skill | answered: all 24 mods are on CurseForge; public pack has no nudity and fully fictional names, a local uncut add-on keeps the rest (STORY-019); join the Rewards Program and drop Entity Culling |
+| Q-116 | TaCZ in a pack that earns money: its code is GPL but its art is non-commercial (CC BY-NC-ND). Is including the unmodified TaCZ jar (with its default art inside) OK if we only use our own gun art, or do we ask the TaCZ authors / switch to Scorched Guns 2? | PACK-004, PACK-007, GEAR-004 | open |
+| Q-117 | Fictional public names for the famous-person cast? | STORY-019, cast | answered: Dexter Vane (Vane group), Barton Shipley, Morris Byte, Dusty Holler, Chef Angus Roast, General Rocco Ironhart; uncut names in the cast table |
+| Q-118 | Blaze rods (needed for brewing) only come from Nether fortresses. When our own Nether replaces the vanilla one (WORLD-008), where do players get them? (Proposal: blaze-like creatures in our Nether, or a quest/trade source.) | WORLD-008, Q-025 | open |
+| Q-119 | How do players get Bandages in Chapter 1: a crafting recipe (proposal: 3 wool or string + 1 paper), loot in structures, quest rewards, or a mix? Right now there's no recipe. Also: stack size (vanilla default 64; proposal 16)? | SURV-010 | open |
+| Q-120 | Dodge roll: I made it ground-only (no roll in mid-air, so it can't be used as an air dash). OK? And should it get a visible roll animation later (presentation spec)? | CMBT-002 | open |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

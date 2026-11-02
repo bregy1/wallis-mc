@@ -8,7 +8,7 @@ All spec areas we expect to need, so we can see what's left before going deep on
 |---|---|---|---|---|---|
 | `10-progression.md` | Progression | PROG | Tiers, locked items, story unlocks, utility points, teams, leveling, Earth tiers, launch finale, specialisations | Q-004, Q-006, Q-011, Q-013, Q-014, Q-020–024, Q-027–030, Q-042, Q-043 | draft |
 | `15-modpack.md` | Modpack composition | PACK | One mod per system, license rules, performance base, core mod list, what our mod builds, inspiration-only mods | Q-064, Q-091–095 | draft |
-| `20-story.md` | Story and characters | STORY | General story and storyline, alien origin and reveal, redneck opening, allies, factions, choices, random quests, human and hidden enemies, tone, cutscenes, the aliens, Elon Tusk and the Tusk group, slow build-up, the Moon, plot idea pool with picks, cast. Rules for story content live in the `story` skill | Q-013, Q-031–041, Q-044, Q-059–060, Q-070, Q-072, Q-077 | draft |
+| `20-story.md` | Story and characters | STORY | General story and storyline, alien origin and reveal, redneck opening, allies, factions, choices, random quests, human and hidden enemies, tone, cutscenes, the aliens, Dexter Vane and the Vane group, public and uncut versions, slow build-up, the Moon, plot idea pool with picks, cast. Rules for story content live in the `story` skill | Q-013, Q-031–041, Q-044, Q-059–060, Q-070, Q-072, Q-077 | draft |
 | `25-world.md` | World and districts | WORLD | Vanilla-style terrain, districts as size-limited dimensions, story-opened districts, safe spot travel, unique structures, unminable blocks, no End, Nether overhaul, world height, ores per district | Q-029, Q-065–069, Q-073–076 | draft |
 | `30-enemies.md` | Enemies and bosses | ENEMY | Day/night zombie behavior, sunlight, status effects, block breaking, hordes, safe spots, human and alien enemies, special zombies and boss pools, enemy tracker | Q-010, Q-030, Q-078–086 | draft |
 | `35-balancing.md` | Balancing | BAL | Damage, defense and enemy strength model; the balancing approach from plans.md | Q-030 | not started |
@@ -29,6 +29,10 @@ All spec areas we expect to need, so we can see what's left before going deep on
 The first thing we build: the Scavenger tier in the first district, from the redneck opening to beating Hog Daddy.
 
 **Status: approved 2026-11-01.** All requirements below are `approved` (partly approved where marked).
+
+**Progress**
+- 2026-11-01: mod skeleton builds; client and dedicated server load the mod.
+- 2026-11-02: District 1 done and checked in-game: Overworld reshaped to Y 0–320, 2,000-block border, no End, no Overworld structures, district 1 ores. WORLD-001 and WORLD-009 implemented; WORLD-002, WORLD-005, WORLD-007, WORLD-010 partly implemented.
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)
@@ -52,7 +56,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 6. ~~Combat, gear, food: Q-055, Q-056, Q-064 (tier 1), Q-093, Q-103, Q-105, Q-108, Q-112~~ done
 7. ~~Story and project: Q-011, Q-035, Q-041, Q-071/Q-077 (Chapter 1 cast and plots), Q-092 (our mod's license)~~ done
 
-Technical checks Claude does before coding (no decision needed from you): Q-091 (History Stages behavior), Lootr's license, Q-094 (Entity Culling terms), an animation library for custom zombie animations (ENEMY-012) and its license.
+~~Technical checks Claude does before coding: Q-091 (History Stages behavior), Lootr's license, Q-094 (Entity Culling terms), an animation library for custom zombie animations (ENEMY-012) and its license.~~ Done 2026-11-01 (results in PACK-004 and PACK-005). One leftover: Lootr's modpack terms aren't stated anywhere.
 
 Still open but not blocking Chapter 1: Q-010, Q-029, Q-030 (balancing), Q-059 (disclaimer wording), Q-114 (return to Earth, after version 1). Next: the technical checks above, then the mod skeleton.
 

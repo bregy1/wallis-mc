@@ -10,31 +10,31 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 ## Requirements
 
 ### WORLD-001 — Vanilla-style terrain you can explore and mine
-**Status:** approved
+**Status:** implemented (district 1, verified 2026-11-02)
 **Priority:** must
 
 **Description:** Inside a district, terrain is generated in vanilla style. Players explore, mine and build as in normal Minecraft.
 
 **Acceptance criteria:**
-- [ ] District terrain is generated (not hand-built), in vanilla style.
-- [ ] Players can mine and place blocks as in vanilla, except for protected structures (WORLD-006).
+- [x] District terrain is generated (not hand-built), in vanilla style.
+- [x] Players can mine and place blocks as in vanilla, except for protected structures (WORLD-006).
 
 **Open questions:** Q-068
 **Notes:** Your words: "I still want to keep exploring and vanilla theme... The ground can still be mined."
 
 ### WORLD-002 — Districts are size-limited dimensions
-**Status:** approved
+**Status:** approved (partly implemented: district 1 dimension and border, verified 2026-11-02)
 **Priority:** must
 
 **Description:** Each district is its own dimension with a size limit. It has its own biomes, enemies (PROG-007) and tone (STORY-009).
 
 **Acceptance criteria:**
-- [ ] Each district is a separate dimension.
-- [ ] Each district is 2,000 x 2,000 blocks, and players can't go past its edge (size may change later).
+- [x] Each district is a separate dimension. (District 1 = the reshaped Overworld.)
+- [x] Each district is 2,000 x 2,000 blocks, and players can't go past its edge (size may change later). (District 1.)
 - [ ] Each district defines its own biomes, enemy spawns and tone.
 
 **Open questions:** Q-065, Q-066
-**Notes:** Decided 2026-11-01. Chosen for control, clean size limits and performance (districts nobody is in don't need to run). Downside: travel feels a bit more "level-based" than one open world.
+**Notes:** Decided 2026-11-01. Chosen for control, clean size limits and performance (districts nobody is in don't need to run). Downside: travel feels a bit more "level-based" than one open world. Implementation (2026-11-02): district 1 is the vanilla Overworld, reshaped (Y 0–320, 2,000-block border set once on a fresh world, no End in the world preset, only the default world type selectable). Districts 2–4 will be their own dimensions and need our own border sync (vanilla only sends the Overworld's border to players).
 
 ### WORLD-003 — Districts open through the story
 **Status:** approved
@@ -66,7 +66,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your words: "safe spot to other safe spot travel is possible."
 
 ### WORLD-005 — Every structure is unique
-**Status:** approved
+**Status:** approved (partly implemented: vanilla structures removed, verified 2026-11-02)
 **Priority:** must
 
 **Description:** Every structure in a district is placed on purpose, exactly once. Nothing repeats, not even small things like wrecked cars or ruined houses.
@@ -74,35 +74,35 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Acceptance criteria:**
 - [ ] Each structure exists exactly once, at a defined place in a defined district.
 - [ ] No structure is generated randomly or more than once.
-- [ ] Vanilla structures (villages, mineshafts, dungeons, temples, strongholds…) don't generate.
+- [x] Vanilla structures (villages, mineshafts, dungeons, temples, strongholds…) don't generate. (Overworld; Nether structures stay until WORLD-008.)
 
 **Open questions:**
-**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work.
+**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work. Implementation (2026-11-02): Overworld structure tags are emptied, and dungeons, fossils, desert wells and amethyst geodes are removed. Nether structures stay vanilla until the Nether overhaul (WORLD-008), because fortresses are the only source of blaze rods for brewing (Q-118).
 
 ### WORLD-006 — Protected structures use unminable blocks
-**Status:** approved
+**Status:** approved (partly implemented: the three blocks, verified by GameTests 2026-11-02; structures use them once structures exist)
 **Priority:** must
 
 **Description:** Key structures are built from several special block types that players can't mine. These blocks look clearly different from all vanilla blocks, so players can see at a glance which structures are protected. Other structures and the ground stay minable.
 
 **Acceptance criteria:**
-- [ ] There are three unminable block types: Reinforced Concrete (human and military buildings), Riveted Steel (bunkers, launch sites) and Alien Alloy (cult and alien sites).
-- [ ] They can't be broken in survival mode and are immune to explosions.
-- [ ] Players can never obtain them; for their own builds they get the alien hardening later (ENEMY-005).
-- [ ] Each one is visually distinct from every vanilla block.
+- [x] There are three unminable block types: Reinforced Concrete (human and military buildings), Riveted Steel (bunkers, launch sites) and Alien Alloy (cult and alien sites).
+- [x] They can't be broken in survival mode and are immune to explosions. (Also wither/dragon immune, can't be pushed by pistons.)
+- [x] Players can never obtain them; for their own builds they get the alien hardening later (ENEMY-005). (No loot, no recipe; block items only in creative for building structures.)
+- [x] Each one is visually distinct from every vanilla block. (Placeholder textures for now; real art later.)
 - [ ] Key structures use them; ordinary structures and terrain don't.
 
 **Open questions:**
-**Notes:** Your words: "add several unminable materials for the player which connect to proper structures so it is visible."
+**Notes:** Your words: "add several unminable materials for the player which connect to proper structures so it is visible." Implementation (2026-11-02): blocks `wallis_ultimate:reinforced_concrete`, `riveted_steel`, `alien_alloy`; GameTests `cannotbeminedorlooted`, `survivestnt`, `norecipemakesthem` pass.
 
 ### WORLD-007 — No End
-**Status:** approved
+**Status:** approved (partly implemented: no End dimension, verified 2026-11-02)
 **Priority:** must
 
 **Description:** The End dimension is removed from the game.
 
 **Acceptance criteria:**
-- [ ] The End can't be reached in survival.
+- [x] The End can't be reached in survival.
 - [ ] Shulker boxes stay in the game, but are very rare: each player gets one shulker box per planet, as a quest reward.
 - [ ] Elytra, end crystals and chorus fruit are removed.
 
@@ -125,32 +125,32 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your words: "The nether can be a nice underworld overhaul... It definitely sticks to providing some important last materials for the rocket! Something for the fuel!!" Decided 2026-11-01: we build our own Nether in `wallis_ultimate` (PACK-005), because Incendium can only be used unmodified and clashes with WORLD-005 and GEAR-003.
 
 ### WORLD-009 — No negative depth
-**Status:** approved
+**Status:** implemented (district 1, verified 2026-11-02)
 **Priority:** should
 
 **Description:** The underground stops at Y 0, so there are no negative layers. Upward, the normal build height stays.
 
 **Acceptance criteria:**
-- [ ] The lowest block in a district is at Y 0; nothing generates or can be placed below it.
-- [ ] Players can build up to vanilla's normal limit (Y 320).
+- [x] The lowest block in a district is at Y 0; nothing generates or can be placed below it.
+- [x] Players can build up to vanilla's normal limit (Y 320).
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answer to Q-073). Vanilla 1.20.1 runs from Y -64 to 320. Districts need their own terrain settings for this, and ores that vanilla places below Y 0 (e.g. diamonds) have to move up (WORLD-010).
 
 ### WORLD-010 — Ores are set per district and balanced with progression
-**Status:** approved
+**Status:** approved (partly implemented: district 1 ores, verified 2026-11-02)
 **Priority:** must
 
 **Description:** Ore generation is adjusted from vanilla. Each district only has the ores its tier needs; later-tier ores appear only in later districts. New ores keep coming with later districts and planets, from mods or our own.
 
 **Acceptance criteria:**
-- [ ] Each district has its own ore settings (ore types, amounts, depths).
-- [ ] A district's ores match its tier; ores for later tiers don't appear in earlier districts.
+- [x] Each district has its own ore settings (ore types, amounts, depths). (District 1.)
+- [x] A district's ores match its tier; ores for later tiers don't appear in earlier districts. (District 1: coal, copper, iron only.)
 - [ ] Starting point (proposal, tuned with balancing): district 1 has coal, copper and iron; district 2 adds gold, redstone and lapis; district 3 adds rare diamonds; district 4 adds what the rocket needs.
-- [ ] Later districts and planets can add new ores, from mods or our own, without changing earlier districts.
+- [ ] Later districts and planets can add new ores, from mods or our own, without changing earlier districts. (Not yet: district 1's ores are added to the shared vanilla biomes, so district 2 needs a per-dimension ore filter.)
 
 **Open questions:**
-**Notes:** Your question "we have to balance that in as well?": yes. What a district can mine paces progression just as much as what's locked. Decided 2026-11-01 (answer to Q-074): "make it we can go on and have more ores after district." Tools for every ore: GEAR-006.
+**Notes:** Your question "we have to balance that in as well?": yes. What a district can mine paces progression just as much as what's locked. Decided 2026-11-01 (answer to Q-074): "make it we can go on and have more ores after district." Tools for every ore: GEAR-006. Implementation (2026-11-02): district 1 is the vanilla Overworld; vanilla coal and upper/small iron stay as they are; middle iron moved to Y 0–64 and copper to Y 0–112 (vanilla amounts); gold, redstone, diamond, lapis, emerald and large copper removed. Values to tune in playtesting.
 
 ### WORLD-011 — Personal loot chests
 **Status:** approved
