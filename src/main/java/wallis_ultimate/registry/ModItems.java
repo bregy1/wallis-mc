@@ -18,9 +18,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.combat.WeaponEffects;
+import wallis_ultimate.entity.MolotovProjectile;
+import wallis_ultimate.entity.PipeBomb;
 import wallis_ultimate.item.BandageItem;
 import wallis_ultimate.item.HeavyShovelItem;
 import wallis_ultimate.item.ScavengedWeaponItem;
+import wallis_ultimate.item.SlingshotItem;
+import wallis_ultimate.item.ThrownWeaponItem;
 import wallis_ultimate.item.TrinketItem;
 
 public final class ModItems {
@@ -52,6 +56,11 @@ public final class ModItems {
     public static final RegistryObject<Item> FRYING_PAN = ITEMS.register("frying_pan",
             () -> new ScavengedWeaponItem(120, 3.0, 1.6, 0.0, (target, attacker) -> {
             }));
+
+    // GEAR-007: thrown and fired weapons.
+    public static final RegistryObject<Item> MOONSHINE_MOLOTOV = ITEMS.register("moonshine_molotov", () -> new ThrownWeaponItem(MolotovProjectile::new));
+    public static final RegistryObject<Item> PIPE_BOMB = ITEMS.register("pipe_bomb", () -> new ThrownWeaponItem(PipeBomb::new));
+    public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot", SlingshotItem::new);
 
     // CMBT-003, Chapter 1 trinkets. Their Curios slots are the item tags in datagen; numbers in Trinkets or here.
     public static final RegistryObject<Item> GRANNYS_RABBIT_FOOT = ITEMS.register("grannys_rabbit_foot", TrinketItem::new);
@@ -90,6 +99,9 @@ public final class ModItems {
             event.accept(HEAVY_SHOVEL);
             event.accept(PITCHFORK);
             event.accept(FRYING_PAN);
+            event.accept(MOONSHINE_MOLOTOV);
+            event.accept(PIPE_BOMB);
+            event.accept(SLINGSHOT);
         } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(COPPER_PICKAXE);
             event.accept(COPPER_AXE);

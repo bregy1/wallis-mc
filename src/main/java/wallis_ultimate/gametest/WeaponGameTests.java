@@ -25,7 +25,11 @@ import net.minecraftforge.gametest.PrefixGameTestTemplate;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.combat.Noise;
 import wallis_ultimate.combat.WeaponEffects;
+import wallis_ultimate.entity.GravelShot;
+import wallis_ultimate.entity.MolotovProjectile;
+import wallis_ultimate.entity.PipeBomb;
 import wallis_ultimate.entity.RegularZombie;
+import wallis_ultimate.item.SlingshotItem;
 import wallis_ultimate.registry.ModEffects;
 import wallis_ultimate.registry.ModEntities;
 import wallis_ultimate.registry.ModItems;
@@ -157,6 +161,96 @@ public final class WeaponGameTests {
         LivingAttackEvent event = new LivingAttackEvent(player, helper.getLevel().damageSources().mobAttack(zombie), 5.0F);
         MinecraftForge.EVENT_BUS.post(event);
         return event.isCanceled();
+    }
+
+    /** A molotov that lands leaves flames that burn and push enemies out, but never light a block (Q-142). */
+    @GameTest(template = PLATFORM, timeoutTicks = 100)
+    public static void aMolotovLeavesFlamesThatNeverLightBlocks(GameTestHelper helper) {
+        Player thrower = mockPlayer(helper, "wp_molotov", new BlockPos(1, 2, 1));
+        RegularZombie zombie = helper.spawn(ModEntities.ZOMBIE.get(), new Vec3(4.5, 2, 4.5));
+        MolotovProjectile molotov = new MolotovProjectile(helper.getLevel(), thrower);
+        molotov.setPos(helper.absoluteVec(new Vec3(4.5, 4, 4.5)));
+        molotov.setDeltaMovement(0.0, -0.5, 0.0);
+        helper.getLevel().addFreshEntity(molotov);
+        helper.runAfterDelay(45, () -> {
+            if (helper.getEntities(ModEntities.BURNING_PATCH.get(), new BlockPos(4, 2, 4), 5.0).isEmpty()) {
+                helper.fail("no flames where the molotov landed");
+            }
+            if (zombie.getHealth() >= zombie.getMaxHealth()) {
+                helper.fail("the flames didn't hurt the zombie");
+            }
+            if (zombie.position().subtract(helper.absoluteVec(new Vec3(4.5, 2, 4.5))).horizontalDistance() < 1.0) {
+                helper.fail("the zombie wasn't pushed out of the flames");
+            }
+            for (BlockPos pos : BlockPos.betweenClosed(new BlockPos(0, 1, 0), new BlockPos(7, 4, 7))) {
+                if (helper.getBlockState(pos).is(Blocks.FIRE)) {
+                    helper.fail("a block caught fire at " + pos);
+                }
+            }
+            helper.killAllEntities();
+            helper.succeed();
+        });
+    }
+
+    /** A landed pipe bomb lures zombies, then hurts what's close and leaves the blocks alone (Q-142). */
+    @GameTest(template = PLATFORM, timeoutTicks = 120)
+    public static void aPipeBombLuresThenExplodesWithoutACrater(GameTestHelper helper) {
+        Player thrower = mockPlayer(helper, "wp_bomb", new BlockPos(1, 2, 1));
+        RegularZombie close = helper.spawn(ModEntities.ZOMBIE.get(), new Vec3(4.5, 2, 3.5));
+        close.goalSelector.removeAllGoals(goal -> true);
+        RegularZombie lured = helper.spawn(ModEntities.ZOMBIE.get(), new Vec3(0.5, 2, 7.5));
+        PipeBomb bomb = new PipeBomb(helper.getLevel(), thrower);
+        bomb.setPos(helper.absoluteVec(new Vec3(4.5, 2, 4.5)));
+        helper.getLevel().addFreshEntity(bomb);
+        bomb.land();
+        helper.runAfterDelay(2, () -> {
+            if (lured.heardNoise() == null) {
+                helper.fail("the beeping didn't reach the zombie");
+            }
+        });
+        helper.runAfterDelay(PipeBomb.FUSE_TICKS + 5, () -> {
+            if (bomb.isAlive()) {
+                helper.fail("the bomb didn't go off");
+            }
+            if (close.getHealth() >= close.getMaxHealth()) {
+                helper.fail("the blast didn't hurt the zombie next to it");
+            }
+            for (int x = 0; x < 8; x++) {
+                for (int z = 0; z < 8; z++) {
+                    helper.assertBlockPresent(Blocks.STONE, new BlockPos(x, 1, z));
+                }
+            }
+            helper.killAllEntities();
+            helper.succeed();
+        });
+    }
+
+    /** A slingshot shot hurts what it hits, and where it hits a block it makes noise. */
+    @GameTest(template = PLATFORM, timeoutTicks = 60)
+    public static void slingshotShotsHurtAndMakeNoise(GameTestHelper helper) {
+        Player shooter = mockPlayer(helper, "wp_sling", new BlockPos(1, 2, 1));
+        RegularZombie target = helper.spawn(ModEntities.ZOMBIE.get(), new Vec3(6.5, 2, 1.5));
+        target.goalSelector.removeAllGoals(goal -> true);
+        RegularZombie listener = helper.spawn(ModEntities.ZOMBIE.get(), new Vec3(1.5, 2, 6.5));
+        listener.goalSelector.removeAllGoals(goal -> true);
+        GravelShot atZombie = new GravelShot(helper.getLevel(), shooter, SlingshotItem.FULL_DRAW_DAMAGE);
+        atZombie.setPos(helper.absoluteVec(new Vec3(4.5, 3, 1.5)));
+        atZombie.setDeltaMovement(1.0, 0.0, 0.0);
+        helper.getLevel().addFreshEntity(atZombie);
+        GravelShot atFloor = new GravelShot(helper.getLevel(), shooter, SlingshotItem.FULL_DRAW_DAMAGE);
+        atFloor.setPos(helper.absoluteVec(new Vec3(1.5, 4, 4.5)));
+        atFloor.setDeltaMovement(0.0, -1.0, 0.0);
+        helper.getLevel().addFreshEntity(atFloor);
+        helper.runAfterDelay(20, () -> {
+            if (target.getHealth() >= target.getMaxHealth()) {
+                helper.fail("the shot didn't hurt the zombie");
+            }
+            if (listener.heardNoise() == null) {
+                helper.fail("the shot landing made no noise");
+            }
+            helper.killAllEntities();
+            helper.succeed();
+        });
     }
 
     /** ENEMY-006: zombies in earshot walk to the noise, others don't hear it. */

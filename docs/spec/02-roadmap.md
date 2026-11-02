@@ -39,7 +39,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - 2026-11-02: pack mods in the dev runs (Hourglass, Farmer's Delight, A Balanced Diet, AppleSkin, Easy NPC, ImmersiveCinematics, Xaero's maps, performance mods, three decoration mods). SURV-007 done (16/8 minute days); SURV-009 and SURV-008 mostly done (our diet suite, weaker Nourishment); bed heal fixed for Hourglass's dawn wake-up; 59 GameTests and 45 client smoke checks passing.
 - 2026-11-02: trinkets (CMBT-003): the 20 Curios slots and seven Chapter 1 trinkets; give-up key moved to H because Curios uses G. 64 GameTests and 50 client smoke checks passing.
 - 2026-11-02: copper tools and tier (GEAR-006): iron ore now needs a copper pickaxe. 66 GameTests and 50 client smoke checks passing.
-- 2026-11-02: melee weapons (GEAR-007) and noise (ENEMY-006): Nail Bat, Heavy Shovel, Pitchfork, Frying Pan; zombies walk to noises. Cooking stage for Farmer's Delight's kit; WORLD-013 props approved. 72 GameTests and 51 client smoke checks passing.
+- 2026-11-02: all seven Chapter 1 weapons (GEAR-007) and noise (ENEMY-006); zombies walk to noises. Cooking stage for Farmer's Delight's kit; WORLD-013 props approved. 75 GameTests and 54 client smoke checks passing.
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)
@@ -75,6 +75,7 @@ Ideas you want to keep in mind but not build yet.
 - **Earth cleanup storyline.** Return to Earth after the Moon with a special weapon and clear it section by section (STORY-018).
 - **A violet alien planet where shulkers drop shulker shells.** Later in the game (WORLD-007).
 - **An item that allows magic outside the magic planet.** Very late game, after version 1 (STORY-012).
+- **Optimisation pass.** Once there's a working version: a faster loading screen and no lag in-game (PACK-003). Bring it up when no other tasks are left.
 
 ## Suggested next (your call)
 1. **Story and characters**: it gives every other area its reasons (why you go somewhere, who you meet, which fights matter).

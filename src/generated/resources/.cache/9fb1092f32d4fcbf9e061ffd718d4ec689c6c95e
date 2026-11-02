@@ -1,8 +1,11 @@
-// 1.20.1	2026-11-02T22:09:15.7504382	Recipes
+// 1.20.1	2026-11-02T22:37:37.410503	Recipes
 9a6a2595d2890b6d6f6a22cc430079bddff872c6 data/wallis_ultimate/advancements/recipes/combat/frying_pan.json
 65ee488699de4bda967e9bcbed8f6f5422904308 data/wallis_ultimate/advancements/recipes/combat/heavy_shovel.json
+d1415854dbd90eb1c03d56d8f58e9a0110edaadd data/wallis_ultimate/advancements/recipes/combat/moonshine_molotov.json
 b6583005def285f51b3a20248080f344293c8ee0 data/wallis_ultimate/advancements/recipes/combat/nail_bat.json
+195af6418e44fc25f30e39dce26f139f521c8f0b data/wallis_ultimate/advancements/recipes/combat/pipe_bomb.json
 1a6552fd471ef19a295bb593c62d0216dc798e62 data/wallis_ultimate/advancements/recipes/combat/pitchfork.json
+d58c0f5b13d09d39ad68b3c60d81331cfd95731d data/wallis_ultimate/advancements/recipes/combat/slingshot.json
 a6d018084dbef95bd8d39d0c032829a094cb00d6 data/wallis_ultimate/advancements/recipes/misc/bandage.json
 5132cfb42425a8d64a51b0d23d8765fc6facca35 data/wallis_ultimate/advancements/recipes/tools/copper_axe.json
 8817b54cfcf116f21aaed6eb847040dde36774f2 data/wallis_ultimate/advancements/recipes/tools/copper_hoe.json
@@ -15,5 +18,8 @@ aa7d09d80b3e105a425c6be641a28ed177b4fe08 data/wallis_ultimate/recipes/bandage.js
 a1ae86bd30bb8930a11d27f29e152c46be00931a data/wallis_ultimate/recipes/copper_shovel.json
 dbc424438bb3daecf1af70ec417ba4339c8425d1 data/wallis_ultimate/recipes/frying_pan.json
 6617cae8d59f8e927a3c77ff009d2977665bc9a5 data/wallis_ultimate/recipes/heavy_shovel.json
+64e38f26d95219a8d21767ee152df9545b454a8d data/wallis_ultimate/recipes/moonshine_molotov.json
 f3e3c3ad4d03c1b40464f4cb218d6805c17a0a7c data/wallis_ultimate/recipes/nail_bat.json
+87cab51fce439f01d3bea9148d621ff80a0986e6 data/wallis_ultimate/recipes/pipe_bomb.json
 07047bbaa54d7be43623b459ed25d3c396b808c2 data/wallis_ultimate/recipes/pitchfork.json
+3703653f9afb4fef348fe1cfbe3d332d6f1c4509 data/wallis_ultimate/recipes/slingshot.json

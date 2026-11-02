@@ -34,6 +34,13 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.PITCHFORK.get(), "Pitchfork");
         add(ModItems.FRYING_PAN.get(), "Frying Pan");
         add(ModEffects.BLEEDING.get(), "Bleeding");
+        add(ModItems.MOONSHINE_MOLOTOV.get(), "Moonshine Molotov");
+        add(ModItems.PIPE_BOMB.get(), "Pipe Bomb");
+        add(ModItems.SLINGSHOT.get(), "Slingshot");
+        add(ModEntities.MOONSHINE_MOLOTOV.get(), "Moonshine Molotov");
+        add(ModEntities.PIPE_BOMB.get(), "Pipe Bomb");
+        add(ModEntities.GRAVEL_SHOT.get(), "Gravel Shot");
+        add(ModEntities.BURNING_PATCH.get(), "Burning Patch");
         add(ModItems.GRANNYS_RABBIT_FOOT.get(), "Granny's Rabbit Foot");
         add(ModItems.JOGGING_HEADBAND.get(), "Jogging Headband");
         add(ModItems.WORN_SPURS.get(), "Worn Spurs");

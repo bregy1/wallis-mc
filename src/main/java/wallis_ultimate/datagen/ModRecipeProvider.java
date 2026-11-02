@@ -52,6 +52,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('I', Items.IRON_INGOT).define('S', Items.STICK)
                 .pattern("II").pattern("II").pattern(" S")
                 .unlockedBy("has_iron", has(Items.IRON_INGOT)).save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.MOONSHINE_MOLOTOV.get())
+                .requires(Items.GLASS_BOTTLE).requires(Items.SUGAR).requires(Items.PAPER)
+                .unlockedBy("has_bottle", has(Items.GLASS_BOTTLE)).save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.PIPE_BOMB.get())
+                .requires(Items.IRON_INGOT).requires(Items.GUNPOWDER).requires(Items.STRING)
+                .unlockedBy("has_gunpowder", has(Items.GUNPOWDER)).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.SLINGSHOT.get())
+                .define('S', Items.STICK).define('T', Items.STRING)
+                .pattern("STS").pattern(" S ").pattern(" S ")
+                .unlockedBy("has_string", has(Items.STRING)).save(consumer);
     }
 
     private static void copperTool(Consumer<FinishedRecipe> consumer, Item result, String... pattern) {

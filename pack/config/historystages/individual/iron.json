@@ -32,7 +32,9 @@
     "wallis_ultimate:copper_axe",
     "wallis_ultimate:copper_shovel",
     "wallis_ultimate:copper_hoe",
-    "wallis_ultimate:frying_pan"
+    "wallis_ultimate:frying_pan",
+    "wallis_ultimate:pipe_bomb",
+    "minecraft:gunpowder"
 
   ]
 }

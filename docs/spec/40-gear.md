@@ -91,7 +91,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 **Notes:** Answer to Q-112: "Just all, scale accordingly." Your words: "We should literally add tools for every ore too! So tools get faster and faster after time. But materials also harder!" District 1's order (my starting values, tuned with balancing): wood, stone, copper, iron. Copper sits between stone and iron: 180 uses, mining speed 5, attack bonus 1.5 (stone: 131, 4, 1; iron: 250, 6, 2). Iron ore needs a copper pickaxe; copper ore a stone one. Copper tools unlock with the Iron stage, together with copper itself (Q-125).
 
 ### GEAR-007 — Tier 1 weapons
-**Status:** approved (partly implemented 2026-11-02: the four melee weapons, verified by GameTests and a real swing in the client smoke test; throwables and the slingshot not built yet; placeholder icons)
+**Status:** implemented 2026-11-02 (all seven weapons, verified by GameTests and by really swinging, throwing and shooting in the client smoke test; placeholder icons; quests that unlock them come with the story)
 **Priority:** must
 
 **Description:** Chapter 1 gets seven weapons from the idea pool below, each with its own trait. They unlock through the Chapter 1 story (PROG-003).
@@ -101,13 +101,13 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 - [x] Shovel: heavy swing knocks enemies back and briefly stuns them; still digs. (Called the Heavy Shovel, since vanilla has shovels.)
 - [x] Pitchfork: long reach; hits two enemies standing in a line.
 - [x] Frying Pan: held in the offhand, blocks one hit like a weak shield, with a loud "bong".
-- [ ] Moonshine Molotov: thrown, leaves a burning patch that blocks a path for a few seconds.
-- [ ] Pipe Bomb: thrown, beeps and lures zombies to it before exploding (counts as loud noise, ENEMY-006).
-- [ ] Slingshot: silent, cheap gravel ammo; a shot can make noise somewhere to distract enemies.
-- [ ] The Pipe Bomb and the Moonshine Molotov never damage blocks: no crater, and the molotov's flames never light blocks or spread (answer to Q-142).
+- [x] Moonshine Molotov: thrown, leaves a burning patch that blocks a path for a few seconds.
+- [x] Pipe Bomb: thrown, beeps and lures zombies to it before exploding (counts as loud noise, ENEMY-006).
+- [x] Slingshot: silent, cheap gravel ammo; a shot can make noise somewhere to distract enemies.
+- [x] The Pipe Bomb and the Moonshine Molotov never damage blocks: no crater, and the molotov's flames never light blocks or spread (answer to Q-142).
 
 **Open questions:**
-**Notes:** Decided 2026-11-01 (answer to Q-064 for tier 1). Numbers come with balancing. Starting values (my proposals, tuned with balancing), against an iron sword's 6 damage and 1.6 attacks per second. Nail Bat: 5 damage, 1.4 attacks per second, Bleeding for 4 seconds (1 damage per second, doesn't stack). Shovel: 4 damage, 1.0 attacks per second, strong knockback, stuns for 1 second (Slowness IV), still digs like a stone shovel. Pitchfork: 4.5 damage, 1.2 attacks per second, reach +1.5 blocks, also hits one enemy behind the target. Frying Pan: offhand, blocks one hit every 5 seconds like a shield, with a bong that counts as noise (about 12 blocks). Moonshine Molotov: 8-block throw, a 3-block burning patch for 5 seconds, 2 damage per second plus fire; flames never light blocks. Pipe Bomb: 8-block throw, beeps for 4 seconds and draws zombies within 24 blocks, then explodes for 12 damage in 4 blocks (no block damage). Slingshot: gravel ammo, 3 damage at full draw, silent; a shot landing makes noise (about 12 blocks) that draws zombies. How players get them (my proposal): the Nail Bat, Heavy Shovel and Pitchfork unlock together through the Scavenger Weapons stage, from a Chapter 1 quest, and craft from flint, wood, stone and string, because iron is locked at first. The Frying Pan needs iron, so it comes with the Iron stage.
+**Notes:** Decided 2026-11-01 (answer to Q-064 for tier 1). Numbers come with balancing. Starting values (my proposals, tuned with balancing), against an iron sword's 6 damage and 1.6 attacks per second. Nail Bat: 5 damage, 1.4 attacks per second, Bleeding for 4 seconds (1 damage per second, doesn't stack). Shovel: 4 damage, 1.0 attacks per second, strong knockback, stuns for 1 second (Slowness IV), still digs like a stone shovel. Pitchfork: 4.5 damage, 1.2 attacks per second, reach +1.5 blocks, also hits one enemy behind the target. Frying Pan: offhand, blocks one hit every 5 seconds like a shield, with a bong that counts as noise (about 12 blocks). Moonshine Molotov: 8-block throw, a 3-block burning patch for 5 seconds, 2 damage per second plus fire; flames never light blocks. Pipe Bomb: 8-block throw, beeps for 4 seconds and draws zombies within 24 blocks, then explodes for 12 damage in 4 blocks (no block damage). Slingshot: gravel ammo, 3 damage at full draw, silent; a shot landing makes noise (about 12 blocks) that draws zombies. How players get them (my proposal): the Nail Bat, Heavy Shovel and Pitchfork unlock together through the Scavenger Weapons stage, from a Chapter 1 quest, and craft from flint, wood, stone and string, because iron is locked at first. The Moonshine Molotov and Slingshot are in that stage too, along with glass bottles. The Frying Pan and Pipe Bomb need iron, so they come with the Iron stage, along with gunpowder.
 
 ## Weapon idea pool (proposals)
 

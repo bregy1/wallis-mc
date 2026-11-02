@@ -17,12 +17,19 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
+import wallis_ultimate.entity.PipeBomb;
 import wallis_ultimate.entity.RegularZombie;
 import wallis_ultimate.registry.ModEffects;
+import wallis_ultimate.registry.ModEntities;
 import wallis_ultimate.registry.ModItems;
 
 /**
@@ -37,6 +44,7 @@ final class ZombieSmokeSteps {
     private static final String SUMMON = "summon wallis_ultimate:zombie %s {Tags:[\"smoketest\"]}";
 
     private static RegularZombie bleedingTarget;
+    private static BlockPos blastSpot;
 
     private ZombieSmokeSteps() {
     }
@@ -114,6 +122,46 @@ final class ZombieSmokeSteps {
                 await("the zombie bleeds", 100, player -> bleedsOnServer(bleedingTarget)),
                 step("check the bleeding", 0, player -> check("hitting a zombie with the Nail Bat makes it bleed",
                         bleedsOnServer(bleedingTarget), attackDetails(player))),
+
+                // GEAR-007: really throwing and shooting, from the platform, looking down at it.
+                step("get the thrown weapons", 10, player -> {
+                    command("history individual unlock @s iron");
+                    command("give @s wallis_ultimate:moonshine_molotov");
+                    command("give @s wallis_ultimate:pipe_bomb");
+                    command("give @s wallis_ultimate:slingshot");
+                    command("give @s minecraft:gravel 4");
+                    player.setXRot(50.0F);
+                }),
+                await("the thrown weapons arrive", 100, player -> player.getInventory().countItem(ModItems.PIPE_BOMB.get()) == 1
+                        && player.getInventory().countItem(Items.GRAVEL) == 4),
+                step("throw the molotov", 5, player -> useFromHotbar(player, ModItems.MOONSHINE_MOLOTOV.get())),
+                await("the flames appear", 100, player -> loadedEntities().anyMatch(entity -> entity.getType() == ModEntities.BURNING_PATCH.get())),
+                step("check the flames", 0, player -> {
+                    check("a thrown molotov leaves flames", loadedEntities().anyMatch(entity -> entity.getType() == ModEntities.BURNING_PATCH.get()),
+                            "no flames; molotovs left " + player.getInventory().countItem(ModItems.MOONSHINE_MOLOTOV.get()));
+                    screenshot("molotov");
+                }),
+                step("throw the pipe bomb", 5, player -> useFromHotbar(player, ModItems.PIPE_BOMB.get())),
+                await("the pipe bomb lands", 100, player -> loadedEntities().anyMatch(entity -> entity instanceof PipeBomb bomb && bomb.hasLanded())),
+                step("note the blast spot", 0, player -> blastSpot = loadedEntities().filter(entity -> entity instanceof PipeBomb)
+                        .findFirst().map(Entity::blockPosition).orElse(player.blockPosition())),
+                await("the pipe bomb goes off", PipeBomb.FUSE_TICKS + 60, player -> loadedEntities().noneMatch(entity -> entity instanceof PipeBomb)),
+                step("check the blast", 0, player -> {
+                    check("the pipe bomb goes off without a crater",
+                            loadedEntities().noneMatch(entity -> entity instanceof PipeBomb)
+                                    && Minecraft.getInstance().level.getBlockState(blastSpot.below()).is(Blocks.SMOOTH_STONE),
+                            "block under the blast: " + Minecraft.getInstance().level.getBlockState(blastSpot.below()));
+                    screenshot("after-the-blast");
+                }),
+                // The game lets go of a drawn bow as soon as the use key isn't held.
+                step("draw the slingshot", 30, player -> {
+                    Minecraft.getInstance().options.keyUse.setDown(true);
+                    useFromHotbar(player, ModItems.SLINGSHOT.get());
+                }),
+                step("let go", 10, player -> Minecraft.getInstance().options.keyUse.setDown(false)),
+                await("the gravel is used", 100, player -> player.getInventory().countItem(Items.GRAVEL) == 3),
+                step("check the slingshot", 0, player -> check("the slingshot fires gravel",
+                        player.getInventory().countItem(Items.GRAVEL) == 3, "gravel left " + player.getInventory().countItem(Items.GRAVEL))),
                 step("clean up", 10, player -> {
                     command("kill @e[type=wallis_ultimate:zombie]");
                     command("difficulty peaceful");
@@ -129,6 +177,16 @@ final class ZombieSmokeSteps {
 
     private static List<RegularZombie> zombiesNear(LocalPlayer player) {
         return player.level().getEntitiesOfClass(RegularZombie.class, player.getBoundingBox().inflate(16));
+    }
+
+    /** Selects the item in the hotbar and right-clicks with it, like a player. */
+    private static void useFromHotbar(LocalPlayer player, Item item) {
+        for (int i = 0; i < 9; i++) {
+            if (player.getInventory().getItem(i).is(item)) {
+                player.getInventory().selected = i;
+            }
+        }
+        Minecraft.getInstance().gameMode.useItem(player, InteractionHand.MAIN_HAND);
     }
 
     /** The client doesn't get a mob's effects, so ask the integrated server's copy of the zombie. */
