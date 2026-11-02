@@ -12,7 +12,7 @@
 | Distribution | Modpack + this custom mod; selected existing mods may be forked (license permitting) |
 | Base package | `wallis_ultimate` |
 | License (our mod) | MIT — never copy GPL/LGPL code into it |
-| Dependencies / APIs | See `docs/spec/15-modpack.md` (draft) |
+| Dependencies / APIs | See `docs/spec/15-modpack.md` (draft). Pack mods our code works with (FTB Quests/Teams/Library, Architectury, History Stages, Lootr, Curios, JEI) are Gradle dependencies in `build.gradle` (versions in `gradle.properties`), loaded in dev runs via `fg.deobf`; never drop jars into `run/mods` |
 | Repository | https://github.com/bregy1/wallis-mc (project name "wallis-ultimate") |
 
 If any field above still says TODO, ask me before writing code that depends on it.

@@ -25,6 +25,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            // Mixins in the dependency mods only apply in dev runs if their refmaps are remapped to our names.
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 "${mod_id}" {
@@ -71,11 +74,61 @@ if (project.hasProperty('hotReload')) {
     }
 }
 
+// Pack mods our code works with, loaded in the dev runs (PACK-004). None of them ship inside our jar.
 repositories {
+    maven {
+        name = 'Curios'
+        url = 'https://maven.theillusivec4.top/'
+        content { includeGroup 'top.theillusivec4.curios' }
+    }
+    maven {
+        name = 'JEI'
+        url = 'https://maven.blamejared.com/'
+        content {
+            includeGroup 'mezz.jei'
+            includeGroup 'net.mezzdev.config' // JEI's config library; ForgeGradle resolves it while remapping JEI
+        }
+    }
+    maven {
+        name = 'Architectury'
+        url = 'https://maven.architectury.dev/'
+        content { includeGroup 'dev.architectury' }
+    }
+    maven {
+        name = 'FTB'
+        url = 'https://maven.ftb.dev/releases'
+        content { includeGroup 'dev.ftb.mods' }
+    }
+    // Not exclusiveContent: ForgeGradle serves the remapped copies of these jars from its own local repository.
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Trinket slots (CMBT-003): compile against the API, run the full mod.
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+
+    // Recipe viewer (PROG-002): same split. The JEI jar already contains its own modules and config library,
+    // so the ones its pom lists must not be added again (duplicate packages crash Forge).
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")) { transitive = false }
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")) { transitive = false }
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")) { transitive = false }
+
+    // Teams and quests (PROG-006, PROG-003). FTB Library and Architectury are their required mods.
+    implementation(fg.deobf("dev.architectury:architectury-forge:${architectury_version}")) { transitive = false }
+    implementation(fg.deobf("dev.ftb.mods:ftb-library-forge:${ftb_library_version}")) { transitive = false }
+    implementation(fg.deobf("dev.ftb.mods:ftb-teams-forge:${ftb_teams_version}")) { transitive = false }
+    implementation(fg.deobf("dev.ftb.mods:ftb-quests-forge:${ftb_quests_version}")) { transitive = false }
+
+    // Item locks per team (PROG-002). History Stages requires Lootr.
+    implementation fg.deobf("maven.modrinth:lootr:${lootr_version}")
+    implementation fg.deobf("maven.modrinth:history-stages:${history_stages_version}")
 }
 
 tasks.named('processResources', ProcessResources).configure {

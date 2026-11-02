@@ -87,6 +87,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 
 **Open questions:** Q-064, Q-091, Q-093, Q-096
 **Notes:** Picks are recommendations from the 2026-11-01 research; confirm or swap. Tech and power decided 2026-11-01: Energized Power for both, power trimmed. Its Forge Energy compatibility is unverified; Forge 1.20.1 itself provides the `IEnergyStorage` capability.
+Dev setup (2026-11-02): the mods our code works with load in the dev runs, at their latest Forge 1.20.1 releases: FTB Quests 2001.4.22, FTB Teams 2001.3.2, History Stages 6.1.1-1.20.1, Lootr 0.7.35.94, Curios API 5.14.1+1.20.1, JEI 15.74.0.234. FTB Quests and Teams also need FTB Library (2001.2.13) and Architectury (9.2.14), so the pack needs those two as well; their licenses are not yet checked. Versions live in `gradle.properties`.
 
 ### PACK-005 — Built in our own mod
 **Status:** approved
