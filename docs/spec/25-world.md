@@ -52,32 +52,32 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your words: "I still want the player to actively change to a district on the map."
 
 ### WORLD-004 — Travel between safe spots
-**Status:** approved
+**Status:** implemented 2026-11-02 (GameTests; in a real client by the smoke test: right-click the signpost, pick a place, arrive)
 **Priority:** must
 
 **Description:** Players can travel from one safe spot (SURV-006) to another.
 
 **Acceptance criteria:**
-- [ ] From a safe spot, a player can travel to any other safe spot their team has visited.
-- [ ] Travel is free.
-- [ ] Travel isn't possible while in combat (hit or attacking in the last 10 seconds).
+- [x] From a safe spot, a player can travel to any other safe spot their team has visited.
+- [x] Travel is free.
+- [x] Travel isn't possible while in combat (hit or attacking in the last 10 seconds).
 
 **Open questions:**
-**Notes:** Your words: "safe spot to other safe spot travel is possible."
+**Notes:** Your words: "safe spot to other safe spot travel is possible." Implementation (2026-11-02), my proposals for the look: every safe spot has a hand-painted signpost; right-clicking it opens a list of the places the team has found. A team has found a place as soon as one of its members walks into its area, and everyone online in the team gets told.
 
 ### WORLD-005 — Every structure is unique
-**Status:** approved (partly implemented: vanilla structures removed, verified 2026-11-02)
+**Status:** approved (partly implemented: vanilla structures removed; the cabin and four safe spots placed when the world is created, verified 2026-11-02)
 **Priority:** must
 
 **Description:** Every structure in a district is placed on purpose, exactly once. Nothing repeats, not even small things like wrecked cars or ruined houses.
 
 **Acceptance criteria:**
-- [ ] Each structure exists exactly once, at a defined place in a defined district.
-- [ ] No structure is generated randomly or more than once.
+- [ ] Each structure exists exactly once, at a defined place in a defined district. (So far: the cabin and four safe spots.)
+- [x] No structure is generated randomly or more than once.
 - [x] Vanilla structures (villages, mineshafts, dungeons, temples, strongholds…) don't generate. (Overworld; Nether structures stay until WORLD-008.)
 
 **Open questions:**
-**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work. Implementation (2026-11-02): Overworld structure tags are emptied, and dungeons, fossils, desert wells and amethyst geodes are removed. Nether structures stay vanilla until the Nether overhaul (WORLD-008), because fortresses are the only source of blaze rods for brewing (Q-118). Several teams (answer to Q-136, 2026-11-02): places stay single and work MMO-style. An NPC can appear in several places, and every team gets its own quests and story state there. Usually there is one team per server. Players start at the rednecks' cabin at world spawn (Q-137).
+**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work. Implementation (2026-11-02): Overworld structure tags are emptied, and dungeons, fossils, desert wells and amethyst geodes are removed. Nether structures stay vanilla until the Nether overhaul (WORLD-008), because fortresses are the only source of blaze rods for brewing (Q-118). Several teams (answer to Q-136, 2026-11-02): places stay single and work MMO-style. An NPC can appear in several places, and every team gets its own quests and story state there. Usually there is one team per server. Players start at the rednecks' cabin at world spawn (Q-137). Implementation (2026-11-02): each structure is written down block by block in code (`worldgen/CabinBuild`, `SafeSpotBuilds`), and built once when a world is first started, before anyone joins. The spot depends on the seed: the ground gets flattened there, and the terrain around it slopes back to what it was. The cabin looks for the forest closest to the map's middle, and the flattest place in it that's off the shore; safe spots take the flattest place in their direction. This adds about 20 seconds to creating a new world, a point for the optimisation pass.
 
 ### WORLD-006 — Protected structures use unminable blocks
 **Status:** approved (partly implemented: the three blocks, verified by GameTests 2026-11-02; structures use them once structures exist)
@@ -153,15 +153,15 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Your question "we have to balance that in as well?": yes. What a district can mine paces progression just as much as what's locked. Decided 2026-11-01 (answer to Q-074): "make it we can go on and have more ores after district." Tools for every ore: GEAR-006. Implementation (2026-11-02): district 1 is the vanilla Overworld; vanilla coal and upper/small iron stay as they are; middle iron moved to Y 0–64 and copper to Y 0–112 (vanilla amounts); gold, redstone, diamond, lapis, emerald and large copper removed. Values to tune in playtesting.
 
 ### WORLD-011 — Personal loot chests
-**Status:** approved
+**Status:** implemented 2026-11-02 (Lootr chests in the cabin and safe spots; looting, no refill and no reroll verified in a real client by the smoke test. Two players on one chest is Lootr's own feature, not tested by us)
 **Priority:** must
 
 **Description:** Loot chests in structures are personal: every player gets their own contents from each chest, so nobody misses out because a teammate opened it first.
 
 **Acceptance criteria:**
-- [ ] Each player who opens a loot chest sees their own contents, rolled for them.
-- [ ] What one player takes doesn't change what another player finds in the same chest.
-- [ ] Loot chests never refill: each player loots each chest once.
+- [x] Each player who opens a loot chest sees their own contents, rolled for them.
+- [x] What one player takes doesn't change what another player finds in the same chest.
+- [x] Loot chests never refill: each player loots each chest once.
 
 **Open questions:**
 **Notes:** Your words: "please personalise loot chests".
@@ -181,16 +181,16 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Decided 2026-11-01 (answers to Q-066, Q-107). Since every structure exists only once (WORLD-005), personal loot keeps exploring worthwhile for every team member. Candidate mod: Lootr (license still to check).
 
 ### WORLD-013 — Apocalypse props
-**Status:** approved
+**Status:** implemented 2026-11-02 (placeholder art by Claude; GameTests, and seen and walked through in a real client by the smoke test)
 **Priority:** should
 
 **Description:** Our own decorative blocks for structures, for the apocalypse look no pack mod offers (answer to Q-154). Art by Claude as placeholders.
 
 **Acceptance criteria:**
-- [ ] Sandbags, barbed wire, oil drums, tarps and supply crates exist as blocks and are used in safe spots and other structures.
-- [ ] Barbed wire hurts and slows anything walking through it, including players and zombies.
-- [ ] Wrecked cars are built from several blocks, so they can be placed in any structure.
-- [ ] Players can't craft or use them unless a stage unlocks them; they're for structures first (PROG-002).
+- [x] Sandbags, barbed wire, oil drums, tarps and supply crates exist as blocks and are used in safe spots and other structures.
+- [x] Barbed wire hurts and slows anything walking through it, including players and zombies.
+- [x] Wrecked cars are built from several blocks, so they can be placed in any structure.
+- [x] Players can't craft or use them unless a stage unlocks them; they're for structures first (PROG-002).
 
 **Open questions:**
-**Notes:** Your words on safe spots (Q-146): "We definitely want to use some world ending theme modpack items for that too! deko and detail is impoirtant." Which props players may build with themselves comes with the base spec.
+**Notes:** Your words on safe spots (Q-146): "We definitely want to use some world ending theme modpack items for that too! deko and detail is impoirtant." Which props players may build with themselves comes with the base spec. Built (2026-11-02), my proposals to veto: sandbags and sandbag slabs; barbed wire (half a heart per hit while moving through it, about 40% speed; zombies walk right into it instead of around); oil drums, also as lit burn barrels that serve as lights; green and blue tarps, flat or sloped for tent roofs; supply crates; wreck body, panel, window and wheel blocks; for the cabin, beer cans and antlers. All can be mined and drop themselves, and stay locked for players.

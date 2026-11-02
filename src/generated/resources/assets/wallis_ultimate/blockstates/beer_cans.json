@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/beer_cans",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/beer_cans"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/beer_cans",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/beer_cans",
+      "y": 270
+    }
+  }
+}

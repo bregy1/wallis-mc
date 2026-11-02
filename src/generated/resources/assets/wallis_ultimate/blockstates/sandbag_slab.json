@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wallis_ultimate:block/sandbag_slab"
+    },
+    "type=double": {
+      "model": "wallis_ultimate:block/sandbags"
+    },
+    "type=top": {
+      "model": "wallis_ultimate:block/sandbag_slab_top"
+    }
+  }
+}

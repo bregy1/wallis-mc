@@ -37,6 +37,23 @@ public final class ModItems {
     public static final RegistryObject<Item> RIVETED_STEEL = blockItem(ModBlocks.RIVETED_STEEL);
     public static final RegistryObject<Item> ALIEN_ALLOY = blockItem(ModBlocks.ALIEN_ALLOY);
 
+    // WORLD-013: locked for players by the Settler stage, since it names our whole mod and these aren't on its exceptions.
+    public static final RegistryObject<Item> SANDBAGS = blockItem(ModBlocks.SANDBAGS);
+    public static final RegistryObject<Item> SANDBAG_SLAB = ITEMS.register("sandbag_slab", () -> new BlockItem(ModBlocks.SANDBAG_SLAB.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BARBED_WIRE = blockItem(ModBlocks.BARBED_WIRE);
+    public static final RegistryObject<Item> OIL_DRUM = blockItem(ModBlocks.OIL_DRUM);
+    public static final RegistryObject<Item> GREEN_TARP = blockItem(ModBlocks.GREEN_TARP);
+    public static final RegistryObject<Item> BLUE_TARP = blockItem(ModBlocks.BLUE_TARP);
+    public static final RegistryObject<Item> GREEN_TARP_SLOPE = blockItem(ModBlocks.GREEN_TARP_SLOPE);
+    public static final RegistryObject<Item> BLUE_TARP_SLOPE = blockItem(ModBlocks.BLUE_TARP_SLOPE);
+    public static final RegistryObject<Item> SUPPLY_CRATE = blockItem(ModBlocks.SUPPLY_CRATE);
+    public static final RegistryObject<Item> WRECK_BODY = blockItem(ModBlocks.WRECK_BODY);
+    public static final RegistryObject<Item> WRECK_PANEL = ITEMS.register("wreck_panel", () -> new BlockItem(ModBlocks.WRECK_PANEL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WRECK_WINDOW = blockItem(ModBlocks.WRECK_WINDOW);
+    public static final RegistryObject<Item> WRECK_WHEEL = blockItem(ModBlocks.WRECK_WHEEL);
+    public static final RegistryObject<Item> BEER_CANS = blockItem(ModBlocks.BEER_CANS);
+    public static final RegistryObject<Item> ANTLERS = blockItem(ModBlocks.ANTLERS);
+
     /** SURV-010: stacks to 16 (Q-119). */
     public static final RegistryObject<Item> BANDAGE = ITEMS.register("bandage", () -> new BandageItem(new Item.Properties().stacksTo(16)));
 
@@ -90,6 +107,21 @@ public final class ModItems {
             event.accept(REINFORCED_CONCRETE);
             event.accept(RIVETED_STEEL);
             event.accept(ALIEN_ALLOY);
+            event.accept(SANDBAGS);
+            event.accept(SANDBAG_SLAB);
+            event.accept(BARBED_WIRE);
+            event.accept(OIL_DRUM);
+            event.accept(GREEN_TARP);
+            event.accept(GREEN_TARP_SLOPE);
+            event.accept(BLUE_TARP);
+            event.accept(BLUE_TARP_SLOPE);
+            event.accept(SUPPLY_CRATE);
+            event.accept(WRECK_BODY);
+            event.accept(WRECK_PANEL);
+            event.accept(WRECK_WINDOW);
+            event.accept(WRECK_WHEEL);
+            event.accept(BEER_CANS);
+            event.accept(ANTLERS);
         } else if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(BANDAGE);
         } else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {

@@ -79,6 +79,9 @@ if (project.hasProperty('hotReload')) {
 if (project.hasProperty('smokeTest')) {
     tasks.matching { it.name == 'runClient' }.configureEach {
         systemProperty 'wallis_ultimate.smoketest', 'true'
+        if (project.hasProperty('smokeSites')) {
+            systemProperty 'wallis_ultimate.smoketest.sites', 'true'
+        }
     }
 }
 

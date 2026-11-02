@@ -53,5 +53,15 @@ public final class ModNetwork {
                 .decoder(ReviveHoldPacket::decode)
                 .consumerMainThread(ReviveHoldPacket::handle)
                 .add();
+        CHANNEL.messageBuilder(TravelMenuPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(TravelMenuPacket::encode)
+                .decoder(TravelMenuPacket::decode)
+                .consumerMainThread(TravelMenuPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(TravelRequestPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(TravelRequestPacket::encode)
+                .decoder(TravelRequestPacket::decode)
+                .consumerMainThread(TravelRequestPacket::handle)
+                .add();
     }
 }

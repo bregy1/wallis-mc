@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/blue_tarp_slope",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/blue_tarp_slope"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/blue_tarp_slope",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/blue_tarp_slope",
+      "y": 270
+    }
+  }
+}

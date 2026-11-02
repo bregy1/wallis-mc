@@ -144,11 +144,17 @@ public final class ClientSmokeTest {
             command("time set day");
             command("weather clear");
         }));
+        all.addAll(SiteSmokeSteps.steps());
+        // bash tools/testsnapshot.sh look: just a look at the structures, which takes a minute instead of several.
+        if (Boolean.getBoolean("wallis_ultimate.smoketest.sites")) {
+            return all;
+        }
         all.addAll(walkAround());
         all.addAll(DietSmokeSteps.steps());
         all.addAll(TrinketSmokeSteps.steps());
         all.addAll(LockSmokeSteps.steps());
         all.addAll(SurvivalSmokeSteps.steps());
+        all.addAll(PropSmokeSteps.steps());
         all.addAll(ZombieSmokeSteps.steps());
         all.add(step("walk again", 45, player -> walk(40, 180)));
         all.add(step("screenshot at the end", 0, player -> screenshot("end")));

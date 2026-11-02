@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/wreck_wheel",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/wreck_wheel"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/wreck_wheel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/wreck_wheel",
+      "y": 270
+    }
+  }
+}

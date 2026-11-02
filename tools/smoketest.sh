@@ -2,6 +2,7 @@
 # Client smoke test: starts the dev client, which creates a fresh survival world, walks around, runs the steps in
 # src/main/java/wallis_ultimate/client/smoketest, takes screenshots (run/screenshots/smoketest-*.png) and quits.
 # Prints the [SMOKETEST] lines and any errors. Exit code = number of failed checks, 100 if the run didn't finish.
+# With -PsmokeSites as the argument it only looks at the structures.
 set -u
 JDK="${JDK17:-C:/Program Files/Java/jdk-17}"
 LOG="build/smoketest-client.log"
@@ -17,7 +18,7 @@ stop_client() {
 rm -rf run/saves/wallis-smoketest*
 rm -f run/screenshots/smoketest-*.png
 
-./gradlew runClient -PsmokeTest --console=plain > "$LOG" 2>&1 &
+./gradlew runClient -PsmokeTest ${1:-} --console=plain > "$LOG" 2>&1 &
 CLIENT_PID=$!
 
 # The client quits by itself (also after its own 5-minute limit); this only catches a hang before that.

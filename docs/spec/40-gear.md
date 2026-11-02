@@ -158,3 +158,5 @@ Magic (the special book) comes later, on the magic planet (STORY-012).
 | Spare Clip | Belt | +5 shots on the downed pistol | SURV-001 |
 | Brass Knuckles | Hands | +1 attack damage | A plain early power boost |
 | Thick Flannel | Body | +2 armor | A plain early defense boost |
+
+Where they are (my proposal): since every structure exists once, each trinket has one home. Thick Flannel in the cabin, Lucky Horseshoe and Brass Knuckles at Earl's Salvage, Spare Clip at Gas-N-Guns, Jogging Headband at Camp Tarp, Worn Spurs at The Stranded Hauler, all guaranteed in that place's chest. Granny's Rabbit Foot stays a quest reward. Loot is personal (WORLD-011), so everyone in a team can get their own.

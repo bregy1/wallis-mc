@@ -32,6 +32,18 @@ public final class Teams {
                 && FTBTeamsAPI.api().getManager().arePlayersInSameTeam(a.getUUID(), b.getUUID());
     }
 
+    /** A name for the player's team that stays the same, for remembering what the team has done. */
+    public static String teamKey(Player player) {
+        String testTeam = TEST_TEAMS.get(player.getUUID());
+        if (testTeam != null) {
+            return testTeam;
+        }
+        if (FTBTeamsAPI.api().isManagerLoaded()) {
+            return FTBTeamsAPI.api().getManager().getTeamForPlayerID(player.getUUID()).map(team -> team.getId().toString()).orElse(player.getStringUUID());
+        }
+        return player.getStringUUID();
+    }
+
     public static List<ServerPlayer> onlineTeammates(ServerPlayer player) {
         return player.server.getPlayerList().getPlayers().stream().filter(other -> sameTeam(player, other)).toList();
     }

@@ -1,5 +1,9 @@
-// 1.20.1	2026-11-02T22:37:37.4175043	Item Models: wallis_ultimate
+// 1.20.1	2026-11-02T23:01:49.7282498	Item Models: wallis_ultimate
+3f0a103d2d5ab60930c170c1abb3432c6b9eb4f9 assets/wallis_ultimate/models/item/antlers.json
 d5f83fe9eb85a8bf0615ce28bb1aebd868ae6234 assets/wallis_ultimate/models/item/bandage.json
+367388bc4372593b81f7c875e3cf2f6417dae9ab assets/wallis_ultimate/models/item/barbed_wire.json
+73bf2dd19b778bed10e774ce6b3296b0009256a7 assets/wallis_ultimate/models/item/blue_tarp.json
+73bf2dd19b778bed10e774ce6b3296b0009256a7 assets/wallis_ultimate/models/item/blue_tarp_slope.json
 d35836d52e5c06cdffa525aa0e5ff8f53675d63e assets/wallis_ultimate/models/item/brass_knuckles.json
 73a54d90737099745cb7da6df9d9e3e8eafd8385 assets/wallis_ultimate/models/item/copper_axe.json
 3d061c68a795b3c10ecc24bbff91e9dfa45771f0 assets/wallis_ultimate/models/item/copper_hoe.json
@@ -7,6 +11,8 @@ d35836d52e5c06cdffa525aa0e5ff8f53675d63e assets/wallis_ultimate/models/item/bras
 8b46884b4fc98e07976fe3746f07abeb6070aad4 assets/wallis_ultimate/models/item/copper_shovel.json
 d62043c8e057a64e0647895d8032bc4441e8eabb assets/wallis_ultimate/models/item/frying_pan.json
 e1dc3ebca121e9f156d7cc250440f9fd4879e958 assets/wallis_ultimate/models/item/grannys_rabbit_foot.json
+500f3a981b136bf4fda29f2e6057927a89c72b11 assets/wallis_ultimate/models/item/green_tarp.json
+500f3a981b136bf4fda29f2e6057927a89c72b11 assets/wallis_ultimate/models/item/green_tarp_slope.json
 5a81bcd86e9829ec52df66ee94d3c6ada0f3e1a7 assets/wallis_ultimate/models/item/heavy_shovel.json
 465407875f9bcb0c409f188cd8a2ec119ca4b1fc assets/wallis_ultimate/models/item/jogging_headband.json
 c1d6e938272aeb1974f18bf8263b37d1fcd90abd assets/wallis_ultimate/models/item/lucky_horseshoe.json
@@ -18,4 +24,5 @@ c9046517f0b439269c3af2645afd6fc389b86ecc assets/wallis_ultimate/models/item/slin
 59c0250133cdd725fa01fb8c6ee3318f41d79141 assets/wallis_ultimate/models/item/spare_clip.json
 5b97e9ef7cf6e470bfa7b632f293b7a4de34fbed assets/wallis_ultimate/models/item/thick_flannel.json
 2f93b6c67c46fde87cdfc66909d7058e2b9a3f03 assets/wallis_ultimate/models/item/worn_spurs.json
+67145e6aabd3c08dfabaa44d728a5a0b7c4be84c assets/wallis_ultimate/models/item/wreck_window.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/wallis_ultimate/models/item/zombie_spawn_egg.json

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "wallis_ultimate:block/oil_drum"
+    },
+    "lit=true": {
+      "model": "wallis_ultimate:block/oil_drum_lit"
+    }
+  }
+}

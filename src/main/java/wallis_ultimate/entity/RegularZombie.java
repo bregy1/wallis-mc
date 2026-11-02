@@ -29,7 +29,7 @@ import wallis_ultimate.registry.ModEffects;
  * The regular zombie (ENEMY-012), our own type that replaces vanilla zombies in natural spawns (Q-131, Q-135).
  * Vanilla's zombie with our rules: slower than a walking player by day and a bit faster at night (ENEMY-001), only
  * the ones with Sunburn burn in daylight (ENEMY-002), never a baby (Q-133), and no block damage: no door breaking,
- * no turtle eggs, no turning into a drowned (ENEMY-005). Looks like a vanilla zombie until it gets its own model.
+ * no turtle eggs, no turning into a drowned (ENEMY-005). Its look is RegularZombieRenderer's.
  */
 public class RegularZombie extends Zombie {
     /** Share of spawns that get Sunburn (ENEMY-002). */
@@ -55,6 +55,7 @@ public class RegularZombie extends Zombie {
 
     /** How long a zombie keeps walking to a noise before it loses interest. */
     private static final int NOISE_MEMORY_TICKS = 300;
+    private static final int LOOKS = 5;
 
     @Nullable
     private BlockPos heardNoise;
@@ -95,6 +96,11 @@ public class RegularZombie extends Zombie {
 
     public void forgetNoise() {
         heardNoise = null;
+    }
+
+    /** ENEMY-012: which of the rural victims this one is. From its UUID, which the client knows and never changes. */
+    public int look() {
+        return Math.floorMod(getUUID().hashCode(), LOOKS);
     }
 
     public boolean burnsInSunlight() {

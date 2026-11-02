@@ -1,0 +1,213 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#all",
+          "uv": [
+            5.0,
+            0.0,
+            8.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            5.0,
+            0.0,
+            8.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        0,
+        3
+      ],
+      "to": [
+        6,
+        5,
+        6
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#all",
+          "uv": [
+            5.0,
+            0.0,
+            8.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            5.0,
+            0.0,
+            8.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        }
+      },
+      "from": [
+        9,
+        0,
+        5
+      ],
+      "to": [
+        12,
+        5,
+        8
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#all",
+          "uv": [
+            5.0,
+            0.0,
+            8.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            5.0,
+            0.0,
+            8.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            5.0
+          ]
+        }
+      },
+      "from": [
+        5,
+        0,
+        10
+      ],
+      "to": [
+        10,
+        3,
+        13
+      ]
+    }
+  ],
+  "textures": {
+    "all": "wallis_ultimate:block/beer_can",
+    "particle": "wallis_ultimate:block/beer_can"
+  }
+}

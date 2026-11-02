@@ -134,7 +134,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 - [ ] In a team, each time a reply is needed, the game randomly picks one present team member to choose it. The others see the conversation but don't choose.
 
 **Open questions:**
-**Notes:** Decided 2026-11-01 (answers to Q-033, Q-034, Q-045). Before release, check the hosting platforms' content rules on swearing. Start decided 2026-11-02 (answers to Q-137, Q-147): everyone wakes up in front of the rednecks' cabin at world spawn, a run-down hunting cabin in the woods with a porch and a sagging couch, beer cans, a moonshine still out back, a rusty pickup, antlers over the door and a campfire pit.
+**Notes:** Decided 2026-11-01 (answers to Q-033, Q-034, Q-045). Before release, check the hosting platforms' content rules on swearing. Start decided 2026-11-02 (answers to Q-137, Q-147): everyone wakes up in front of the rednecks' cabin at world spawn, a run-down hunting cabin in the woods with a porch and a sagging couch, beer cans, a moonshine still out back, a rusty pickup, antlers over the door and a campfire pit. Built 2026-11-02 as a placeholder by Claude, plus an outhouse and a woodpile; players appear north of the fire, looking south at the cabin.
 
 ### STORY-003 — First ally: Lurleen
 **Status:** approved

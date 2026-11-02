@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "wallis_ultimate:block/blue_tarp",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "wallis_ultimate:block/blue_tarp",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/blue_tarp",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/blue_tarp",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "wallis_ultimate:block/blue_tarp"
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/blue_tarp",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

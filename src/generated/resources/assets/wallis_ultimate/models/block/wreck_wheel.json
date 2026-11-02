@@ -1,0 +1,234 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#tread"
+        },
+        "east": {
+          "texture": "#tread"
+        },
+        "north": {
+          "texture": "#face"
+        },
+        "south": {
+          "texture": "#face"
+        },
+        "up": {
+          "texture": "#tread"
+        },
+        "west": {
+          "texture": "#tread"
+        }
+      },
+      "from": [
+        0,
+        5,
+        0
+      ],
+      "to": [
+        1,
+        11,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tread"
+        },
+        "east": {
+          "texture": "#tread"
+        },
+        "north": {
+          "texture": "#face"
+        },
+        "south": {
+          "texture": "#face"
+        },
+        "up": {
+          "texture": "#tread"
+        },
+        "west": {
+          "texture": "#tread"
+        }
+      },
+      "from": [
+        1,
+        3,
+        0
+      ],
+      "to": [
+        2,
+        13,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tread"
+        },
+        "east": {
+          "texture": "#tread"
+        },
+        "north": {
+          "texture": "#face"
+        },
+        "south": {
+          "texture": "#face"
+        },
+        "up": {
+          "texture": "#tread"
+        },
+        "west": {
+          "texture": "#tread"
+        }
+      },
+      "from": [
+        2,
+        1,
+        0
+      ],
+      "to": [
+        4,
+        15,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tread"
+        },
+        "east": {
+          "texture": "#tread"
+        },
+        "north": {
+          "texture": "#face"
+        },
+        "south": {
+          "texture": "#face"
+        },
+        "up": {
+          "texture": "#tread"
+        },
+        "west": {
+          "texture": "#tread"
+        }
+      },
+      "from": [
+        4,
+        0,
+        0
+      ],
+      "to": [
+        12,
+        16,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tread"
+        },
+        "east": {
+          "texture": "#tread"
+        },
+        "north": {
+          "texture": "#face"
+        },
+        "south": {
+          "texture": "#face"
+        },
+        "up": {
+          "texture": "#tread"
+        },
+        "west": {
+          "texture": "#tread"
+        }
+      },
+      "from": [
+        12,
+        1,
+        0
+      ],
+      "to": [
+        14,
+        15,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tread"
+        },
+        "east": {
+          "texture": "#tread"
+        },
+        "north": {
+          "texture": "#face"
+        },
+        "south": {
+          "texture": "#face"
+        },
+        "up": {
+          "texture": "#tread"
+        },
+        "west": {
+          "texture": "#tread"
+        }
+      },
+      "from": [
+        14,
+        3,
+        0
+      ],
+      "to": [
+        15,
+        13,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#tread"
+        },
+        "east": {
+          "texture": "#tread"
+        },
+        "north": {
+          "texture": "#face"
+        },
+        "south": {
+          "texture": "#face"
+        },
+        "up": {
+          "texture": "#tread"
+        },
+        "west": {
+          "texture": "#tread"
+        }
+      },
+      "from": [
+        15,
+        5,
+        0
+      ],
+      "to": [
+        16,
+        11,
+        5
+      ]
+    }
+  ],
+  "textures": {
+    "face": "wallis_ultimate:block/wreck_wheel",
+    "particle": "wallis_ultimate:block/wreck_tread",
+    "tread": "wallis_ultimate:block/wreck_tread"
+  }
+}

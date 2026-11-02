@@ -86,7 +86,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [x] Beds can't be crafted. (The 16 bed recipes are switched off; dyeing a bed you already have still works, see Q-123.)
 - [ ] Each player can own one bed per planet; it comes from a quest on that planet.
 - [ ] On Earth, every player receives their bed early, used to set up the team's first home (quest "create first home").
-- [ ] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
+- [x] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
 - [ ] A player can pick up their bed and place it again, which moves their home (WORLD-012).
 - [x] When players sleep, the night races by in a few seconds (Hourglass) instead of being skipped instantly.
 - [x] A player can't place a second bed on a planet while their own bed there stands; they pick up the old one first (answer to Q-144). (Creative players are exempt so they can build; verified by GameTests and the client smoke test.)
@@ -95,19 +95,39 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** Your words: "Beds cannot be placed everywhere and are not easy to obtain. Beds can still be used to sleep through a night." Refined 2026-11-01 (answers to Q-052): "each player to have one bed per planet + the safe spot beds. On the new planet the bed is achievable through quest always." Picking up and moving the bed follows from "home bed decides" (WORLD-012). Dyeing kept 2026-11-02 (answer to Q-123): ownership belongs to the placed bed, so recoloring the item changes nothing. Second bed (answer to Q-144): refused while your own bed on that planet stands.
 
 ### SURV-006 — Safe spots
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: four safe spots with beds and signposts, verified by GameTests and in a real client by the smoke test. Defenders: SURV-011)
 **Priority:** must
 
 **Description:** Safe spots along the way have beds already placed, working as respawn and heal points. Some safe spots on Earth are guarded by friendly redneck defenders. They're heavily fortified, easily withstand attacks, and only fall when the story says so.
 
 **Acceptance criteria:**
-- [ ] Each district has about 3–4 safe spots along its main routes, each with a bed already placed that works as a respawn and heal point.
-- [ ] Any player can use a safe spot's bed and its travel point.
+- [x] Each district has about 3–4 safe spots along its main routes, each with a bed already placed that works as a respawn and heal point. (District 1.)
+- [x] Any player can use a safe spot's bed and its travel point.
 - [ ] Some safe spots on Earth are guarded by friendly redneck defenders, who give quests and trade.
-- [ ] No safe spot, defended or not, can be overrun by enemies or hordes, except where the story makes it fall (ENEMY-007).
+- [ ] No safe spot can be overrun by enemies or hordes, except where the story makes it fall (ENEMY-007, SURV-011).
 
 **Open questions:**
-**Notes:** Your words: "They only would be overrun when the story tells so." Count, access and defenders decided 2026-11-01 (answer to Q-062). Placement of safe spots belongs in the world spec (WORLD). Placement and look decided 2026-11-02 (answers to Q-138, Q-146): district 1 has four safe spots placed when the world is created, about 350–600 blocks from spawn in the four directions, with Hog Daddy's farm between two of them. Each looks different: bigger ones are fortified bases built from found materials with lots of apocalypse decoration and detail; smaller ones can be a truck or a few tents.
+**Notes:** Your words: "They only would be overrun when the story tells so." Count, access and defenders decided 2026-11-01 (answer to Q-062). Placement of safe spots belongs in the world spec (WORLD). Placement and look decided 2026-11-02 (answers to Q-138, Q-146): district 1 has four safe spots placed when the world is created, about 350–600 blocks from spawn in the four directions, with Hog Daddy's farm between two of them. Each looks different: bigger ones are fortified bases built from found materials with lots of apocalypse decoration and detail; smaller ones can be a truck or a few tents. Built (2026-11-02), placeholders by Claude, names are my proposals: Earl's Salvage to the north (a junkyard fort with a palisade, stacked wrecks, two lookout towers), Gas-N-Guns to the west (a fortified gas station), Camp Tarp to the east (three tents around a fire), The Stranded Hauler to the south (a broken-down semi to sleep in). Rules inside a safe spot: SURV-011 (answers to Q-155, Q-156).
+
+### SURV-011 — Safe spot defenders
+**Status:** approved 2026-11-02 (your answers to Q-155, Q-156; the numbers and looks are my proposals)
+**Priority:** must
+
+**Description:** Safe spots aren't protected by magic. They have real walls or barricades and armed NPCs, and anything that gets in starts a fight. When a horde reaches one, a big battle breaks out: many defenders die, reinforcements fly in by aircraft and land in visible drop-offs, and the place is patched up afterwards.
+
+**Acceptance criteria:**
+- [ ] Every safe spot is closed in by some kind of wall or barricade, with a way in.
+- [ ] Ordinary defenders are armed with weapons that are okay-ish, and fight any enemy that comes near or gets in.
+- [ ] Ordinary defenders can die. Main NPCs (the named ones who give quests) can't.
+- [ ] When a horde reaches a safe spot, a big fight breaks out around it, without the players having to do anything.
+- [ ] Lost defenders are replaced by supporting troops, who fly in by aircraft with a visible drop-off.
+- [ ] Blocks can be destroyed. Defenders slowly repair everything back to how it was.
+- [ ] Players can mine there, but defenders then turn on that player and try to kill them.
+- [ ] An NPC that gets stuck teleports to the closest free spot; no NPC stays trapped in a hole. This goes for all NPCs, not only defenders.
+- [ ] Enemies never spawn inside a safe spot's area: a fight there always comes from outside. (Built 2026-11-02, verified by a GameTest.)
+
+**Open questions:**
+**Notes:** Your words: "I like if a player breaks stuff the npcs start killing them, so mining is fine, but the npcs slowly fix it up anyways. In general, if npcs get stuck, they should teleport to the closest spot, i dont want npcs to be trapped in holes and stuff." And: "There should be some sort of barricade or wall or whatever. Everything which intrudes still will actually trigger a fight. The weapons they have should be still okayish. If a horde arrives to a safe spot a big fight should break out. So basically lot of npcs die, but there is also supporting troops flying in by the aircraft with a visual mechanic like drop offs. So safe spots npcs (if not the main ones) actually can die and fights happen around them for fun. Stuff can be destroyed, but is slowly patched up by the builders which are basically the npcs."
 
 ### SURV-007 — Longer days, shorter nights
 **Status:** implemented 2026-11-02 (Hourglass config in pack/defaultconfigs; speeds measured in a real client by the smoke test)

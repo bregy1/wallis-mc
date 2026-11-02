@@ -1,0 +1,178 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#post"
+        },
+        "east": {
+          "texture": "#post"
+        },
+        "north": {
+          "texture": "#post"
+        },
+        "south": {
+          "texture": "#post"
+        },
+        "up": {
+          "texture": "#post"
+        },
+        "west": {
+          "texture": "#post"
+        }
+      },
+      "from": [
+        7,
+        0,
+        7
+      ],
+      "to": [
+        9,
+        26,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            0.0,
+            14.0,
+            4.0
+          ]
+        },
+        "east": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            0.0,
+            14.0,
+            4.0
+          ]
+        },
+        "north": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            0.0,
+            14.0,
+            4.0
+          ]
+        },
+        "south": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            0.0,
+            14.0,
+            4.0
+          ]
+        },
+        "up": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            0.0,
+            14.0,
+            4.0
+          ]
+        },
+        "west": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            0.0,
+            14.0,
+            4.0
+          ]
+        }
+      },
+      "from": [
+        1,
+        18,
+        9
+      ],
+      "to": [
+        15,
+        22,
+        10
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            4.0,
+            14.0,
+            8.0
+          ]
+        },
+        "east": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            4.0,
+            14.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            4.0,
+            14.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            4.0,
+            14.0,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            4.0,
+            14.0,
+            8.0
+          ]
+        },
+        "west": {
+          "texture": "#board",
+          "uv": [
+            0.0,
+            4.0,
+            14.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        9,
+        12,
+        1
+      ],
+      "to": [
+        10,
+        16,
+        15
+      ]
+    }
+  ],
+  "textures": {
+    "board": "wallis_ultimate:block/travel_sign",
+    "particle": "minecraft:block/spruce_log",
+    "post": "minecraft:block/spruce_log"
+  }
+}

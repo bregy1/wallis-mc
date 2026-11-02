@@ -1,0 +1,76 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#plaque"
+        },
+        "east": {
+          "texture": "#plaque"
+        },
+        "north": {
+          "texture": "#plaque"
+        },
+        "south": {
+          "texture": "#plaque"
+        },
+        "up": {
+          "texture": "#plaque"
+        },
+        "west": {
+          "texture": "#plaque"
+        }
+      },
+      "from": [
+        6,
+        3,
+        0
+      ],
+      "to": [
+        10,
+        9,
+        2
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#rack",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#rack",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        2,
+        2.5
+      ],
+      "shade": false,
+      "to": [
+        16,
+        18,
+        2.5
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "wallis_ultimate:block/antlers",
+    "plaque": "minecraft:block/dark_oak_planks",
+    "rack": "wallis_ultimate:block/antlers"
+  }
+}
