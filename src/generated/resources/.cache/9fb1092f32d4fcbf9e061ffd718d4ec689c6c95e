@@ -1,4 +1,8 @@
-// 1.20.1	2026-11-02T21:54:01.9698387	Recipes
+// 1.20.1	2026-11-02T22:09:15.7504382	Recipes
+9a6a2595d2890b6d6f6a22cc430079bddff872c6 data/wallis_ultimate/advancements/recipes/combat/frying_pan.json
+65ee488699de4bda967e9bcbed8f6f5422904308 data/wallis_ultimate/advancements/recipes/combat/heavy_shovel.json
+b6583005def285f51b3a20248080f344293c8ee0 data/wallis_ultimate/advancements/recipes/combat/nail_bat.json
+1a6552fd471ef19a295bb593c62d0216dc798e62 data/wallis_ultimate/advancements/recipes/combat/pitchfork.json
 a6d018084dbef95bd8d39d0c032829a094cb00d6 data/wallis_ultimate/advancements/recipes/misc/bandage.json
 5132cfb42425a8d64a51b0d23d8765fc6facca35 data/wallis_ultimate/advancements/recipes/tools/copper_axe.json
 8817b54cfcf116f21aaed6eb847040dde36774f2 data/wallis_ultimate/advancements/recipes/tools/copper_hoe.json
@@ -9,3 +13,7 @@ aa7d09d80b3e105a425c6be641a28ed177b4fe08 data/wallis_ultimate/recipes/bandage.js
 902209983c9d7ed7291ef6584f2fa53848ef4678 data/wallis_ultimate/recipes/copper_hoe.json
 56e208079cd7cecf09b5e88fe01a3d0ef4d62ead data/wallis_ultimate/recipes/copper_pickaxe.json
 a1ae86bd30bb8930a11d27f29e152c46be00931a data/wallis_ultimate/recipes/copper_shovel.json
+dbc424438bb3daecf1af70ec417ba4339c8425d1 data/wallis_ultimate/recipes/frying_pan.json
+6617cae8d59f8e927a3c77ff009d2977665bc9a5 data/wallis_ultimate/recipes/heavy_shovel.json
+f3e3c3ad4d03c1b40464f4cb218d6805c17a0a7c data/wallis_ultimate/recipes/nail_bat.json
+07047bbaa54d7be43623b459ed25d3c396b808c2 data/wallis_ultimate/recipes/pitchfork.json

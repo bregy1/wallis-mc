@@ -29,6 +29,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.COPPER_AXE.get(), "Copper Axe");
         add(ModItems.COPPER_SHOVEL.get(), "Copper Shovel");
         add(ModItems.COPPER_HOE.get(), "Copper Hoe");
+        add(ModItems.NAIL_BAT.get(), "Nail Bat");
+        add(ModItems.HEAVY_SHOVEL.get(), "Heavy Shovel");
+        add(ModItems.PITCHFORK.get(), "Pitchfork");
+        add(ModItems.FRYING_PAN.get(), "Frying Pan");
+        add(ModEffects.BLEEDING.get(), "Bleeding");
         add(ModItems.GRANNYS_RABBIT_FOOT.get(), "Granny's Rabbit Foot");
         add(ModItems.JOGGING_HEADBAND.get(), "Jogging Headband");
         add(ModItems.WORN_SPURS.get(), "Worn Spurs");

@@ -124,7 +124,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** Decided 2026-11-01. Vanilla has no setting for day length; Hourglass covers it (PACK-004). Zombie behavior by time of day is in ENEMY-001 to ENEMY-003.
 
 ### SURV-008 — Food: vanilla hunger plus cooking
-**Status:** approved (partly implemented 2026-11-02: Farmer's Delight in the pack, Nourishment weakened, verified by a GameTest; balance and what's locked still open, Q-152)
+**Status:** approved (partly implemented 2026-11-02: Farmer's Delight in the pack, Nourishment weakened, verified by a GameTest; balance still to check; the Cooking stage is in place, its quest comes with the story)
 **Priority:** should
 
 **Description:** Hunger works as in vanilla. Farmer's Delight adds cooking (cooking pot, cutting board), new crops and hearty meals, in vanilla style.
@@ -136,10 +136,10 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [x] Farmer's Delight's Nourishment buff only slows hunger drain; it never stops it. (Half the drain still counts; verified by a GameTest.)
 
 **Open questions:**
-**Notes:** Decided 2026-11-01. Fits Chef Angus Roast's food quests (cast proposal) and Energized Power's growth chamber for food automation (TECH-003).
+**Notes:** Decided 2026-11-01. Fits Chef Angus Roast's food quests (cast proposal) and Energized Power's growth chamber for food automation (TECH-003). What's free (2026-11-02, answer to Q-152): crops, simple foods and hand-made meals from the start; the cooking pot, skillet, stove and cutting board unlock through the Cooking stage, from an early Chapter 1 quest by Lurleen.
 
 ### SURV-009 — Diet: what you eat matters
-**Status:** approved (partly implemented 2026-11-02: our diet suite gives every group's benefit and penalty, verified in a real client by the smoke test and by GameTests; decay speed, Farmer's Delight's groups and the death penalty still open, Q-153)
+**Status:** approved (partly implemented 2026-11-02: our diet suite gives every group's benefit and penalty, verified in a real client by the smoke test and by GameTests; decay speed and Farmer's Delight's groups still to check)
 **Priority:** must
 
 **Description:** Food falls into five groups: fruits, vegetables, grains, proteins and sugars. Eating a balanced diet gives real benefits; neglecting groups gives medium penalties, so players actually have to pay attention. Penalties weaken the player but are never slowing, blinding or otherwise super annoying. This makes the early game even harder, on purpose.
@@ -147,19 +147,19 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Acceptance criteria:**
 - [x] The diet system is A Balanced Diet, with five food groups (PACK-004).
 - [x] Each group's level gives benefits when high and penalties when low. Starting values (tuned in playtesting):
-  - Proteins: more attack damage / Weakness
+  - Proteins: more attack damage / less attack damage
   - Vegetables: faster natural healing / slower natural healing
   - Fruits: +2 max health / -2 max health
   - Grains: more saturation / hunger drains faster
   - Sugars: a short speed boost after eating / nothing
-- [x] Penalties only weaken (e.g. Weakness, lower max health, slower natural healing). They never include Slowness, Mining Fatigue, Blindness, Nausea, Darkness or similar.
+- [x] Penalties only weaken (e.g. less attack damage, lower max health, slower natural healing). They never include Slowness, Mining Fatigue, Blindness, Nausea, Darkness or similar.
 - [ ] Benefits stay below overpowered (pillar).
 - [ ] Group levels change gradually, so benefits and penalties last a reasonable time instead of flickering on and off: a full group lasts about 2 in-game days without eating from it.
 - [ ] Farmer's Delight foods count toward the right groups.
 - [ ] Players can see food values and group levels (AppleSkin and the diet screen).
 
 **Open questions:**
-**Notes:** Values decided 2026-11-01 (answer to Q-105). Your words: "Mid tier penalties for bad diet is good! So we actually have to check for it. Makes early game even harder due to debuffs. Weakening debuffs but not slowing or blindness or something super annoying." How it is built (my numbers, tuned in playtesting): groups count as high from 70% and low below 30%, and new players start at 50% so they have no penalties at first. Proteins: +1 attack damage / Weakness. Vegetables: Hearty (natural healing x1.5) / Frail (x0.5). Fruits: +2 / -2 max health. Grains: Filling (+25% saturation from meals) / the Hunger effect. Sugars: Sugar Buzz (Speed I for 5 seconds after eating). The diet mod applies these every few seconds. "Lasts about 2 in-game days" depends on how fast hunger drops, so it needs a playtest.
+**Notes:** Values decided 2026-11-01 (answer to Q-105). Your words: "Mid tier penalties for bad diet is good! So we actually have to check for it. Makes early game even harder due to debuffs. Weakening debuffs but not slowing or blindness or something super annoying." How it is built (my numbers, tuned in playtesting): groups count as high from 70% and low below 30%, and new players start at 50% so they have no penalties at first. Proteins: +1 attack damage / 25% less attack damage (not vanilla Weakness, whose flat -4 would make fists and wooden swords do nothing). Vegetables: Hearty (natural healing x1.5) / Frail (x0.5). Fruits: +2 / -2 max health. Grains: Filling (+25% saturation from meals) / the Hunger effect. Sugars: Sugar Buzz (Speed I for 5 seconds after eating). The diet mod applies these every few seconds. "Lasts about 2 in-game days" depends on how fast hunger drops, so it needs a playtest. Dying costs every group 20% (2026-11-02, answer to Q-153).
 
 ### SURV-010 — Healing items
 **Status:** approved (partly implemented: Bandage, verified by GameTests 2026-11-02; Medkit later)

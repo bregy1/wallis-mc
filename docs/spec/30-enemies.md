@@ -87,7 +87,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words: "make sure to not add too much block breaking!! it has to be super rare." Base fortification details belong in the base spec (BASE).
 
 ### ENEMY-006 — Hordes
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: noise pulls regular zombies toward it, verified by a GameTest; horde nights and story hordes not built yet)
 **Priority:** must
 
 **Description:** Hordes come from three sources: noise attracts nearby zombies, the story sends hordes at key moments, and horde nights send big attacks at bases. There are no randomly wandering hordes.

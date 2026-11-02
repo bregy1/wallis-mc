@@ -1,0 +1,14 @@
+{
+  "display_name": "Cooking",
+  "mode": "external",
+  "share_with_team": true,
+  "fixed_lock_actions": {
+    "items": { "pickup": false, "loot": false, "gui": false }
+  },
+  "items": [
+    "farmersdelight:cooking_pot",
+    "farmersdelight:skillet",
+    "farmersdelight:stove",
+    "farmersdelight:cutting_board"
+  ]
+}

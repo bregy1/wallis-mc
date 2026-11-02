@@ -7,6 +7,7 @@ import static wallis_ultimate.client.smoketest.ClientSmokeTest.log;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.screenshot;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.step;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -18,8 +19,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Enemy;
 import wallis_ultimate.entity.RegularZombie;
+import wallis_ultimate.registry.ModEffects;
+import wallis_ultimate.registry.ModItems;
 
 /**
  * The regular zombie in a real client (ENEMY-001, ENEMY-002, ENEMY-012). Night spawns around the player are regular
@@ -31,6 +35,8 @@ final class ZombieSmokeSteps {
             EntityType.ZOMBIE_VILLAGER);
     /** Summoned with data, so they skip the spawn rolls (Sunburn, helmets): exactly one gets Sunburn below. */
     private static final String SUMMON = "summon wallis_ultimate:zombie %s {Tags:[\"smoketest\"]}";
+
+    private static RegularZombie bleedingTarget;
 
     private ZombieSmokeSteps() {
     }
@@ -85,6 +91,29 @@ final class ZombieSmokeSteps {
                             burning + " of " + zombies.size() + " zombies burning");
                     screenshot("zombies-day");
                 }),
+                // GEAR-007: a real swing with a real weapon.
+                step("get a Nail Bat", 10, player -> {
+                    command("history individual unlock @s scavenger_weapons");
+                    command("give @s wallis_ultimate:nail_bat");
+                }),
+                await("the Nail Bat arrives", 100, player -> player.getInventory().countItem(ModItems.NAIL_BAT.get()) == 1),
+                // Selecting a weapon restarts the attack recharge, and a weak hit wouldn't get through a burning zombie's
+                // moment of immunity. A real player swings a moment later, too.
+                step("hold the Nail Bat", 30, player -> {
+                    for (int i = 0; i < 9; i++) {
+                        if (player.getInventory().getItem(i).is(ModItems.NAIL_BAT.get())) {
+                            player.getInventory().selected = i;
+                        }
+                    }
+                }),
+                step("hit a zombie with the Nail Bat", 5, player -> {
+                    bleedingTarget = zombiesNear(player).stream().filter(zombie -> !zombie.isOnFire())
+                            .min(Comparator.comparingDouble(player::distanceTo)).orElseThrow();
+                    Minecraft.getInstance().gameMode.attack(player, bleedingTarget);
+                }),
+                await("the zombie bleeds", 100, player -> bleedsOnServer(bleedingTarget)),
+                step("check the bleeding", 0, player -> check("hitting a zombie with the Nail Bat makes it bleed",
+                        bleedsOnServer(bleedingTarget), attackDetails(player))),
                 step("clean up", 10, player -> {
                     command("kill @e[type=wallis_ultimate:zombie]");
                     command("difficulty peaceful");
@@ -100,5 +129,20 @@ final class ZombieSmokeSteps {
 
     private static List<RegularZombie> zombiesNear(LocalPlayer player) {
         return player.level().getEntitiesOfClass(RegularZombie.class, player.getBoundingBox().inflate(16));
+    }
+
+    /** The client doesn't get a mob's effects, so ask the integrated server's copy of the zombie. */
+    private static boolean bleedsOnServer(RegularZombie zombie) {
+        Entity onServer = Minecraft.getInstance().getSingleplayerServer().overworld().getEntity(zombie.getUUID());
+        return onServer instanceof RegularZombie serverZombie && serverZombie.hasEffect(ModEffects.BLEEDING.get());
+    }
+
+    /** What the integrated server saw, for the failure message. */
+    private static String attackDetails(LocalPlayer player) {
+        Entity zombie = Minecraft.getInstance().getSingleplayerServer().overworld().getEntity(bleedingTarget.getUUID());
+        LivingEntity serverPlayer = Minecraft.getInstance().getSingleplayerServer().getPlayerList().getPlayer(player.getUUID());
+        return "server: player holds " + serverPlayer.getMainHandItem() + ", zombie " + zombie
+                + (zombie instanceof LivingEntity living ? ", health " + living.getHealth() + "/" + living.getMaxHealth() + ", last hurt by " + living.getLastHurtByMob() : "")
+                + ", distance " + player.distanceTo(bleedingTarget);
     }
 }

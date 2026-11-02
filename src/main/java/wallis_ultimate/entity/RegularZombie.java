@@ -3,6 +3,7 @@ package wallis_ultimate.entity;
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.DifficultyInstance;
@@ -52,6 +53,13 @@ public class RegularZombie extends Zombie {
             UUID.fromString("d09917a7-31a5-4af0-98bc-212ba2c7dc80"), "Night speed", NIGHT_SPEED / DAY_SPEED - 1.0,
             AttributeModifier.Operation.MULTIPLY_TOTAL);
 
+    /** How long a zombie keeps walking to a noise before it loses interest. */
+    private static final int NOISE_MEMORY_TICKS = 300;
+
+    @Nullable
+    private BlockPos heardNoise;
+    private int noiseTicksLeft;
+
     public RegularZombie(EntityType<? extends RegularZombie> type, Level level) {
         super(type, level);
     }
@@ -74,6 +82,21 @@ public class RegularZombie extends Zombie {
         return !level.dimensionType().hasFixedTime() && time >= NIGHT_START && time < NIGHT_END;
     }
 
+    /** The newest noise replaces any older one. Not saved: a zombie forgets when it unloads. */
+    public void hearNoise(BlockPos pos) {
+        heardNoise = pos;
+        noiseTicksLeft = NOISE_MEMORY_TICKS;
+    }
+
+    @Nullable
+    public BlockPos heardNoise() {
+        return heardNoise;
+    }
+
+    public void forgetNoise() {
+        heardNoise = null;
+    }
+
     public boolean burnsInSunlight() {
         return hasEffect(ModEffects.SUNBURN.get());
     }
@@ -85,7 +108,8 @@ public class RegularZombie extends Zombie {
 
     @Override
     protected void registerGoals() {
-        // Vanilla's goals minus the one that tramples turtle eggs.
+        // Vanilla's goals minus the one that tramples turtle eggs, plus walking to noises (ENEMY-006).
+        goalSelector.addGoal(5, new InvestigateNoiseGoal(this));
         goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         addBehaviourGoals();
@@ -94,6 +118,9 @@ public class RegularZombie extends Zombie {
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
+        if (heardNoise != null && --noiseTicksLeft <= 0) {
+            heardNoise = null;
+        }
         AttributeInstance speed = getAttribute(Attributes.MOVEMENT_SPEED);
         boolean night = isNight(level());
         if (night != speed.hasModifier(NIGHT_SPEED_BONUS)) {

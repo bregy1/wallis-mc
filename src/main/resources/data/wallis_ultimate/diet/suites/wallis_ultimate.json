@@ -7,7 +7,7 @@
       "conditions": [{ "groups": ["proteins"], "match": "all", "above": 0.7, "below": 1.0 }]
     },
     {
-      "status_effects": [{ "name": "minecraft:weakness", "power": 1 }],
+      "attributes": [{ "name": "minecraft:generic.attack_damage", "operation": "multiply_total", "amount": -0.25 }],
       "conditions": [{ "groups": ["proteins"], "match": "all", "above": 0.0, "below": 0.3 }]
     },
     {

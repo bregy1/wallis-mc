@@ -17,7 +17,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
+import wallis_ultimate.combat.WeaponEffects;
 import wallis_ultimate.item.BandageItem;
+import wallis_ultimate.item.HeavyShovelItem;
+import wallis_ultimate.item.ScavengedWeaponItem;
 import wallis_ultimate.item.TrinketItem;
 
 public final class ModItems {
@@ -38,6 +41,17 @@ public final class ModItems {
     public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe", () -> new AxeItem(COPPER, 6.5F, -3.15F, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel", () -> new ShovelItem(COPPER, 1.5F, -3.0F, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe", () -> new HoeItem(COPPER, -1, -1.5F, new Item.Properties()));
+
+    // GEAR-007: Chapter 1 melee weapons. Durability, damage, attacks per second, extra reach; starting values.
+    public static final RegistryObject<Item> NAIL_BAT = ITEMS.register("nail_bat",
+            () -> new ScavengedWeaponItem(150, 5.0, 1.4, 0.0, WeaponEffects::causeBleeding));
+    public static final RegistryObject<Item> HEAVY_SHOVEL = ITEMS.register("heavy_shovel", HeavyShovelItem::new);
+    public static final RegistryObject<Item> PITCHFORK = ITEMS.register("pitchfork",
+            () -> new ScavengedWeaponItem(180, WeaponEffects.PITCHFORK_DAMAGE, 1.2, 1.5, WeaponEffects::stabBehind));
+    /** Blocks from the offhand (WeaponEffects); in the main hand it's a weak club. */
+    public static final RegistryObject<Item> FRYING_PAN = ITEMS.register("frying_pan",
+            () -> new ScavengedWeaponItem(120, 3.0, 1.6, 0.0, (target, attacker) -> {
+            }));
 
     // CMBT-003, Chapter 1 trinkets. Their Curios slots are the item tags in datagen; numbers in Trinkets or here.
     public static final RegistryObject<Item> GRANNYS_RABBIT_FOOT = ITEMS.register("grannys_rabbit_foot", TrinketItem::new);
@@ -71,6 +85,11 @@ public final class ModItems {
             event.accept(BANDAGE);
         } else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ZOMBIE_SPAWN_EGG);
+        } else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(NAIL_BAT);
+            event.accept(HEAVY_SHOVEL);
+            event.accept(PITCHFORK);
+            event.accept(FRYING_PAN);
         } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(COPPER_PICKAXE);
             event.accept(COPPER_AXE);

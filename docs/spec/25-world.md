@@ -179,3 +179,18 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answers to Q-066, Q-107). Since every structure exists only once (WORLD-005), personal loot keeps exploring worthwhile for every team member. Candidate mod: Lootr (license still to check).
+
+### WORLD-013 — Apocalypse props
+**Status:** approved
+**Priority:** should
+
+**Description:** Our own decorative blocks for structures, for the apocalypse look no pack mod offers (answer to Q-154). Art by Claude as placeholders.
+
+**Acceptance criteria:**
+- [ ] Sandbags, barbed wire, oil drums, tarps and supply crates exist as blocks and are used in safe spots and other structures.
+- [ ] Barbed wire hurts and slows anything walking through it, including players and zombies.
+- [ ] Wrecked cars are built from several blocks, so they can be placed in any structure.
+- [ ] Players can't craft or use them unless a stage unlocks them; they're for structures first (PROG-002).
+
+**Open questions:**
+**Notes:** Your words on safe spots (Q-146): "We definitely want to use some world ending theme modpack items for that too! deko and detail is impoirtant." Which props players may build with themselves comes with the base spec.

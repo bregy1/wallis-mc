@@ -1,13 +1,17 @@
-// 1.20.1	2026-11-02T21:54:01.9698387	Item Models: wallis_ultimate
+// 1.20.1	2026-11-02T22:09:15.7568782	Item Models: wallis_ultimate
 d5f83fe9eb85a8bf0615ce28bb1aebd868ae6234 assets/wallis_ultimate/models/item/bandage.json
 d35836d52e5c06cdffa525aa0e5ff8f53675d63e assets/wallis_ultimate/models/item/brass_knuckles.json
 73a54d90737099745cb7da6df9d9e3e8eafd8385 assets/wallis_ultimate/models/item/copper_axe.json
 3d061c68a795b3c10ecc24bbff91e9dfa45771f0 assets/wallis_ultimate/models/item/copper_hoe.json
 73bd4495ddf4996664beb8a80e045b385154b804 assets/wallis_ultimate/models/item/copper_pickaxe.json
 8b46884b4fc98e07976fe3746f07abeb6070aad4 assets/wallis_ultimate/models/item/copper_shovel.json
+d62043c8e057a64e0647895d8032bc4441e8eabb assets/wallis_ultimate/models/item/frying_pan.json
 e1dc3ebca121e9f156d7cc250440f9fd4879e958 assets/wallis_ultimate/models/item/grannys_rabbit_foot.json
+5a81bcd86e9829ec52df66ee94d3c6ada0f3e1a7 assets/wallis_ultimate/models/item/heavy_shovel.json
 465407875f9bcb0c409f188cd8a2ec119ca4b1fc assets/wallis_ultimate/models/item/jogging_headband.json
 c1d6e938272aeb1974f18bf8263b37d1fcd90abd assets/wallis_ultimate/models/item/lucky_horseshoe.json
+cb8a951b2765602db7e90c7ca32c35571de5d0fd assets/wallis_ultimate/models/item/nail_bat.json
+092ded5fd8305733c391c1c4d4489a9d463239c3 assets/wallis_ultimate/models/item/pitchfork.json
 59c0250133cdd725fa01fb8c6ee3318f41d79141 assets/wallis_ultimate/models/item/spare_clip.json
 5b97e9ef7cf6e470bfa7b632f293b7a4de34fbed assets/wallis_ultimate/models/item/thick_flannel.json
 2f93b6c67c46fde87cdfc66909d7058e2b9a3f03 assets/wallis_ultimate/models/item/worn_spurs.json

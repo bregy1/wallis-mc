@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.effect.BandagedEffect;
+import wallis_ultimate.effect.BleedingEffect;
 import wallis_ultimate.effect.DietEffect;
 import wallis_ultimate.effect.SunburnEffect;
 
@@ -14,6 +15,8 @@ public final class ModEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, WallisUltimate.MOD_ID);
 
     public static final RegistryObject<MobEffect> BANDAGED = EFFECTS.register("bandaged", BandagedEffect::new);
+    /** GEAR-007, from the Nail Bat. */
+    public static final RegistryObject<MobEffect> BLEEDING = EFFECTS.register("bleeding", BleedingEffect::new);
     /** ENEMY-002. */
     public static final RegistryObject<MobEffect> SUNBURN = EFFECTS.register("sunburn", SunburnEffect::new);
     /** SURV-009, given by the diet suite; DietEffects does the work. High vegetables: faster natural healing. */

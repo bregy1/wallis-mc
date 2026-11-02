@@ -76,11 +76,21 @@ final class TrinketSmokeSteps {
                     command("give @s wallis_ultimate:lucky_horseshoe");
                     command("give @s wallis_ultimate:spare_clip");
                     command("give @s wallis_ultimate:brass_knuckles");
+                    command("give @s wallis_ultimate:nail_bat");
+                    command("give @s wallis_ultimate:heavy_shovel");
+                    command("give @s wallis_ultimate:pitchfork");
+                    command("give @s wallis_ultimate:frying_pan");
                 }),
                 step("open the inventory", 15, player -> Minecraft.getInstance().setScreen(new InventoryScreen(player))),
                 step("screenshot the new items", 0, player -> screenshot("new-items")),
                 step("close the inventory", 5, LocalPlayer::closeContainer),
 
+                // On a small platform: the walk may have ended in water, and riders get thrown off with their head under.
+                step("build a horse platform", 20, player -> {
+                    command("fill ~-3 ~4 ~-3 ~3 ~4 ~3 minecraft:smooth_stone");
+                    command("fill ~-3 ~5 ~-3 ~3 ~8 ~3 minecraft:air");
+                    command("tp @s ~ ~5 ~");
+                }),
                 step("get on a horse", 20, player -> {
                     command("summon minecraft:horse ~ ~ ~ {Tame:1b,SaddleItem:{id:\"minecraft:saddle\",Count:1b}}");
                     command("ride @s mount @e[type=minecraft:horse,limit=1,sort=nearest]");

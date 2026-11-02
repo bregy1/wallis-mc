@@ -26,6 +26,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheld(ModItems.COPPER_AXE.getId().getPath());
         handheld(ModItems.COPPER_SHOVEL.getId().getPath());
         handheld(ModItems.COPPER_HOE.getId().getPath());
+        handheld(ModItems.NAIL_BAT.getId().getPath());
+        handheld(ModItems.HEAVY_SHOVEL.getId().getPath());
+        handheld(ModItems.PITCHFORK.getId().getPath());
+        handheld(ModItems.FRYING_PAN.getId().getPath());
     }
 
     /** Held like a tool, not like a flat item. */

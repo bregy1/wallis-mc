@@ -1,0 +1,13 @@
+{
+  "display_name": "Scavenger Weapons",
+  "mode": "external",
+  "share_with_team": true,
+  "fixed_lock_actions": {
+    "items": { "pickup": false, "loot": false, "gui": false }
+  },
+  "items": [
+    "wallis_ultimate:nail_bat",
+    "wallis_ultimate:heavy_shovel",
+    "wallis_ultimate:pitchfork"
+  ]
+}

@@ -9,6 +9,7 @@ import net.bananemdnsa.historystages.api.stage.StageStates;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
+import net.minecraftforge.registries.ForgeRegistries;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.progression.LockedItems;
 import wallis_ultimate.progression.TeamUnlocks;
@@ -105,6 +107,17 @@ public final class LockGameTests {
             if (!ItemLocks.isGated(stack, nobody)) {
                 helper.fail(stack.getItem() + " should be locked (are the stage files in run/config/historystages?)");
             }
+        }
+        // Q-152: Farmer's Delight's cooking kit is locked, its crops are free.
+        if (!ItemLocks.isGated(new ItemStack(ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooking_pot"))), nobody)) {
+            helper.fail("the cooking pot should be locked");
+        }
+        if (ItemLocks.isGated(new ItemStack(ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath("farmersdelight", "tomato"))), nobody)) {
+            helper.fail("Farmer's Delight's crops should be free");
+        }
+        // GEAR-007: weapons unlock through the story.
+        if (!ItemLocks.isGated(new ItemStack(ModItems.NAIL_BAT.get()), nobody) || !ItemLocks.isGated(new ItemStack(ModItems.FRYING_PAN.get()), nobody)) {
+            helper.fail("the Chapter 1 weapons should be locked at first");
         }
         if (!ItemLocks.isActionLocked(new ItemStack(Items.IRON_PICKAXE), "recipe", nobody)) {
             helper.fail("crafting a locked item isn't blocked");

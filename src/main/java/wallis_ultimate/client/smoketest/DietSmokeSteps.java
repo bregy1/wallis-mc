@@ -30,7 +30,7 @@ final class DietSmokeSteps {
                 step("wait for the first diet update", 120, player -> {
                 }),
                 step("check the new player", 0, player -> check("a new player starts without diet penalties",
-                        player.getMaxHealth() == BASE_MAX_HEALTH && !player.hasEffect(MobEffects.WEAKNESS)
+                        player.getMaxHealth() == BASE_MAX_HEALTH && serverAttackDamage(player) == BASE_ATTACK_DAMAGE
                                 && !player.hasEffect(ModEffects.FRAIL.get()) && !player.hasEffect(MobEffects.HUNGER),
                         "max health " + player.getMaxHealth() + ", effects " + player.getActiveEffects())),
 
@@ -39,8 +39,9 @@ final class DietSmokeSteps {
                 checkGroup("high proteins give more attack damage",
                         player -> serverAttackDamage(player) > BASE_ATTACK_DAMAGE),
                 group("proteins", 0),
-                await("low proteins", EFFECT_TICKS, player -> player.hasEffect(MobEffects.WEAKNESS)),
-                checkGroup("low proteins give Weakness", player -> player.hasEffect(MobEffects.WEAKNESS)),
+                await("low proteins", EFFECT_TICKS, player -> serverAttackDamage(player) < BASE_ATTACK_DAMAGE),
+                checkGroup("low proteins give less attack damage, but never zero",
+                        player -> serverAttackDamage(player) > 0 && serverAttackDamage(player) < BASE_ATTACK_DAMAGE),
 
                 group("fruits", 1),
                 await("high fruits", EFFECT_TICKS, player -> player.getMaxHealth() > BASE_MAX_HEALTH),
