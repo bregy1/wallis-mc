@@ -1,0 +1,42 @@
+{
+  "replace": false,
+  "groups": ["fruits", "grains", "proteins", "sugars", "vegetables"],
+  "effects": [
+    {
+      "attributes": [{ "name": "minecraft:generic.attack_damage", "operation": "add", "amount": 1.0 }],
+      "conditions": [{ "groups": ["proteins"], "match": "all", "above": 0.7, "below": 1.0 }]
+    },
+    {
+      "status_effects": [{ "name": "minecraft:weakness", "power": 1 }],
+      "conditions": [{ "groups": ["proteins"], "match": "all", "above": 0.0, "below": 0.3 }]
+    },
+    {
+      "status_effects": [{ "name": "wallis_ultimate:hearty", "power": 1 }],
+      "conditions": [{ "groups": ["vegetables"], "match": "all", "above": 0.7, "below": 1.0 }]
+    },
+    {
+      "status_effects": [{ "name": "wallis_ultimate:frail", "power": 1 }],
+      "conditions": [{ "groups": ["vegetables"], "match": "all", "above": 0.0, "below": 0.3 }]
+    },
+    {
+      "attributes": [{ "name": "minecraft:generic.max_health", "operation": "add", "amount": 2.0 }],
+      "conditions": [{ "groups": ["fruits"], "match": "all", "above": 0.7, "below": 1.0 }]
+    },
+    {
+      "attributes": [{ "name": "minecraft:generic.max_health", "operation": "add", "amount": -2.0 }],
+      "conditions": [{ "groups": ["fruits"], "match": "all", "above": 0.0, "below": 0.3 }]
+    },
+    {
+      "status_effects": [{ "name": "wallis_ultimate:filling", "power": 1 }],
+      "conditions": [{ "groups": ["grains"], "match": "all", "above": 0.7, "below": 1.0 }]
+    },
+    {
+      "status_effects": [{ "name": "minecraft:hunger", "power": 1 }],
+      "conditions": [{ "groups": ["grains"], "match": "all", "above": 0.0, "below": 0.3 }]
+    },
+    {
+      "status_effects": [{ "name": "wallis_ultimate:sugar_buzz", "power": 1 }],
+      "conditions": [{ "groups": ["sugars"], "match": "all", "above": 0.7, "below": 1.0 }]
+    }
+  ]
+}

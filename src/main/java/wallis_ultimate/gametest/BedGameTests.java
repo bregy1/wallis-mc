@@ -105,7 +105,8 @@ public final class BedGameTests {
 
     @GameTest(template = PLATFORM)
     public static void onlySleepingThroughTheNightHeals(GameTestHelper helper) {
-        if (!Beds.sleptThroughTheNight(false, false, 1000L) || !Beds.sleptThroughTheNight(false, false, 24000L * 3 + 50L)) {
+        if (!Beds.sleptThroughTheNight(false, false, 1000L) || !Beds.sleptThroughTheNight(false, false, 24000L * 3 + 50L)
+                || !Beds.sleptThroughTheNight(false, false, 23900L)) {
             helper.fail("waking in the morning doesn't count");
         }
         if (Beds.sleptThroughTheNight(false, true, 1000L)) {

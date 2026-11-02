@@ -82,13 +82,13 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 
 **Acceptance criteria:**
 - [ ] A bed sets the player's respawn point, as in vanilla.
-- [x] Sleeping in a bed fully heals the player, when they wake up in the morning after sleeping through the night. Leaving the bed early gives nothing (answer to Q-123). (Verified with simulated wake-ups; to recheck once Hourglass speeds up the night, SURV-007.)
+- [x] Sleeping in a bed fully heals the player, when they wake up in the morning after sleeping through the night. Leaving the bed early gives nothing (answer to Q-123). (Verified in a real client with Hourglass, which wakes players at dawn.)
 - [x] Beds can't be crafted. (The 16 bed recipes are switched off; dyeing a bed you already have still works, see Q-123.)
 - [ ] Each player can own one bed per planet; it comes from a quest on that planet.
 - [ ] On Earth, every player receives their bed early, used to set up the team's first home (quest "create first home").
 - [ ] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
 - [ ] A player can pick up their bed and place it again, which moves their home (WORLD-012).
-- [ ] When players sleep, the night races by in a few seconds (Hourglass) instead of being skipped instantly.
+- [x] When players sleep, the night races by in a few seconds (Hourglass) instead of being skipped instantly.
 - [x] A player can't place a second bed on a planet while their own bed there stands; they pick up the old one first (answer to Q-144). (Creative players are exempt so they can build; verified by GameTests and the client smoke test.)
 
 **Open questions:**
@@ -110,56 +110,56 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** Your words: "They only would be overrun when the story tells so." Count, access and defenders decided 2026-11-01 (answer to Q-062). Placement of safe spots belongs in the world spec (WORLD). Placement and look decided 2026-11-02 (answers to Q-138, Q-146): district 1 has four safe spots placed when the world is created, about 350–600 blocks from spawn in the four directions, with Hog Daddy's farm between two of them. Each looks different: bigger ones are fortified bases built from found materials with lots of apocalypse decoration and detail; smaller ones can be a truck or a few tents.
 
 ### SURV-007 — Longer days, shorter nights
-**Status:** approved
+**Status:** implemented 2026-11-02 (Hourglass config in pack/defaultconfigs; speeds measured in a real client by the smoke test)
 **Priority:** must
 
 **Description:** A full day lasts 24 minutes: 16 minutes of day and 8 minutes of night (vanilla: about 10 minutes of day and 7 of night).
 
 **Acceptance criteria:**
-- [ ] Daytime lasts 16 real minutes.
-- [ ] Nighttime lasts 8 real minutes.
-- [ ] Sleeping still gets players through the night, by speeding it up (SURV-005).
+- [x] Daytime lasts 16 real minutes. (Measured 0.680 game ticks per tick; 0.677 is 16 minutes.)
+- [x] Nighttime lasts 8 real minutes. (Measured 1.150 game ticks per tick; 1.146 is 8 minutes.)
+- [x] Sleeping still gets players through the night, by speeding it up (SURV-005).
 
 **Open questions:**
 **Notes:** Decided 2026-11-01. Vanilla has no setting for day length; Hourglass covers it (PACK-004). Zombie behavior by time of day is in ENEMY-001 to ENEMY-003.
 
 ### SURV-008 — Food: vanilla hunger plus cooking
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: Farmer's Delight in the pack, Nourishment weakened, verified by a GameTest; balance and what's locked still open, Q-152)
 **Priority:** should
 
 **Description:** Hunger works as in vanilla. Farmer's Delight adds cooking (cooking pot, cutting board), new crops and hearty meals, in vanilla style.
 
 **Acceptance criteria:**
-- [ ] Hunger and saturation work as in vanilla.
-- [ ] Farmer's Delight is the only food mod in the pack (PACK-001).
+- [x] Hunger and saturation work as in vanilla.
+- [x] Farmer's Delight is the only food mod in the pack (PACK-001).
 - [ ] No food buff is overpowered.
-- [ ] Farmer's Delight's Nourishment buff only slows hunger drain; it never stops it.
+- [x] Farmer's Delight's Nourishment buff only slows hunger drain; it never stops it. (Half the drain still counts; verified by a GameTest.)
 
 **Open questions:**
 **Notes:** Decided 2026-11-01. Fits Chef Angus Roast's food quests (cast proposal) and Energized Power's growth chamber for food automation (TECH-003).
 
 ### SURV-009 — Diet: what you eat matters
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: our diet suite gives every group's benefit and penalty, verified in a real client by the smoke test and by GameTests; decay speed, Farmer's Delight's groups and the death penalty still open, Q-153)
 **Priority:** must
 
 **Description:** Food falls into five groups: fruits, vegetables, grains, proteins and sugars. Eating a balanced diet gives real benefits; neglecting groups gives medium penalties, so players actually have to pay attention. Penalties weaken the player but are never slowing, blinding or otherwise super annoying. This makes the early game even harder, on purpose.
 
 **Acceptance criteria:**
-- [ ] The diet system is A Balanced Diet, with five food groups (PACK-004).
-- [ ] Each group's level gives benefits when high and penalties when low. Starting values (tuned in playtesting):
+- [x] The diet system is A Balanced Diet, with five food groups (PACK-004).
+- [x] Each group's level gives benefits when high and penalties when low. Starting values (tuned in playtesting):
   - Proteins: more attack damage / Weakness
   - Vegetables: faster natural healing / slower natural healing
   - Fruits: +2 max health / -2 max health
   - Grains: more saturation / hunger drains faster
   - Sugars: a short speed boost after eating / nothing
-- [ ] Penalties only weaken (e.g. Weakness, lower max health, slower natural healing). They never include Slowness, Mining Fatigue, Blindness, Nausea, Darkness or similar.
+- [x] Penalties only weaken (e.g. Weakness, lower max health, slower natural healing). They never include Slowness, Mining Fatigue, Blindness, Nausea, Darkness or similar.
 - [ ] Benefits stay below overpowered (pillar).
 - [ ] Group levels change gradually, so benefits and penalties last a reasonable time instead of flickering on and off: a full group lasts about 2 in-game days without eating from it.
 - [ ] Farmer's Delight foods count toward the right groups.
 - [ ] Players can see food values and group levels (AppleSkin and the diet screen).
 
 **Open questions:**
-**Notes:** Values decided 2026-11-01 (answer to Q-105). Your words: "Mid tier penalties for bad diet is good! So we actually have to check for it. Makes early game even harder due to debuffs. Weakening debuffs but not slowing or blindness or something super annoying."
+**Notes:** Values decided 2026-11-01 (answer to Q-105). Your words: "Mid tier penalties for bad diet is good! So we actually have to check for it. Makes early game even harder due to debuffs. Weakening debuffs but not slowing or blindness or something super annoying." How it is built (my numbers, tuned in playtesting): groups count as high from 70% and low below 30%, and new players start at 50% so they have no penalties at first. Proteins: +1 attack damage / Weakness. Vegetables: Hearty (natural healing x1.5) / Frail (x0.5). Fruits: +2 / -2 max health. Grains: Filling (+25% saturation from meals) / the Hunger effect. Sugars: Sugar Buzz (Speed I for 5 seconds after eating). The diet mod applies these every few seconds. "Lasts about 2 in-game days" depends on how fast hunger drops, so it needs a playtest.
 
 ### SURV-010 — Healing items
 **Status:** approved (partly implemented: Bandage, verified by GameTests 2026-11-02; Medkit later)

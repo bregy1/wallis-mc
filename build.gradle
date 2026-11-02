@@ -85,8 +85,10 @@ if (project.hasProperty('smokeTest')) {
 // Pack config (History Stages stages and settings, ...) lives in pack/config and is copied into the dev run before
 // every client or server start, so pack/config is the source of truth: edits made in run/config get overwritten.
 def syncPackConfig = tasks.register('syncPackConfig', Copy) {
-    from 'pack/config'
-    into 'run/config'
+    into 'run'
+    from('pack/config') { into 'config' }
+    // Copied by Forge into every new world's serverconfig folder.
+    from('pack/defaultconfigs') { into 'defaultconfigs' }
 }
 tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
     dependsOn syncPackConfig
@@ -147,6 +149,24 @@ dependencies {
     // Item locks per team (PROG-002). History Stages requires Lootr.
     implementation fg.deobf("maven.modrinth:lootr:${lootr_version}")
     implementation fg.deobf("maven.modrinth:history-stages:${history_stages_version}")
+
+    // Pack mods we don't call from code, loaded so dev runs match the pack (PACK-004).
+    runtimeOnly fg.deobf("maven.modrinth:hourglass:${hourglass_version}") // day length (SURV-007)
+    runtimeOnly fg.deobf("maven.modrinth:farmers-delight:${farmers_delight_version}") // food (SURV-008)
+    runtimeOnly fg.deobf("maven.modrinth:a-balanced-diet:${balanced_diet_version}") // diet (SURV-009)
+    runtimeOnly fg.deobf("maven.modrinth:appleskin:${appleskin_version}") // food values on screen (SURV-009)
+    runtimeOnly fg.deobf("maven.modrinth:easy-npc-core:${easy_npc_core_version}") // NPCs (STORY-002, STORY-003)
+    runtimeOnly fg.deobf("maven.modrinth:easy-npc-config-ui:${easy_npc_config_ui_version}")
+    runtimeOnly fg.deobf("maven.modrinth:easy-npc:${easy_npc_version}")
+    runtimeOnly fg.deobf("maven.modrinth:immersivecinematics:${immersive_cinematics_version}") // cutscenes (STORY-010)
+    runtimeOnly fg.deobf("maven.modrinth:xaeros-minimap:${xaeros_minimap_version}") // maps (WORLD-003)
+    runtimeOnly fg.deobf("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}")
+    runtimeOnly fg.deobf("maven.modrinth:embeddium:${embeddium_version}") // performance (PACK-003)
+    runtimeOnly fg.deobf("maven.modrinth:modernfix:${modernfix_version}")
+    runtimeOnly fg.deobf("maven.modrinth:ferrite-core:${ferrite_core_version}")
+    runtimeOnly fg.deobf("maven.modrinth:decorative-blocks:${decorative_blocks_version}") // structure decoration (Q-148)
+    runtimeOnly fg.deobf("maven.modrinth:another-furniture:${another_furniture_version}")
+    runtimeOnly fg.deobf("maven.modrinth:just-barricades:${just_barricades_version}")
 }
 
 tasks.named('processResources', ProcessResources).configure {

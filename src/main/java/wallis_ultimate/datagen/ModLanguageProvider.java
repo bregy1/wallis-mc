@@ -27,6 +27,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.BANDAGE.get(), "Bandage");
         add(ModEffects.BANDAGED.get(), "Bandaged");
         add(ModEffects.SUNBURN.get(), "Sunburn");
+        add(ModEffects.HEARTY.get(), "Hearty");
+        add(ModEffects.FRAIL.get(), "Frail");
+        add(ModEffects.FILLING.get(), "Filling");
+        add(ModEffects.SUGAR_BUZZ.get(), "Sugar Buzz");
         add(ModEntities.ZOMBIE.get(), "Zombie");
         add(ModItems.ZOMBIE_SPAWN_EGG.get(), "Zombie Spawn Egg");
         add("key.categories." + WallisUltimate.MOD_ID, "Wallis Ultimate");

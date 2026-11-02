@@ -78,7 +78,9 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Diet | A Balanced Diet | LGPL-3.0-or-later | Unmodified; effects set in its data files (Q-105) | SURV-009 | Spice of Life Onion (variety only, LGPL) |
 | Personal loot chests | Lootr (0.7.35.94 for Forge 1.20.1) | Code MIT; assets All Rights Reserved; modpack terms not stated (check CurseForge's distribution setting or ask the author) | Unmodified; History Stages requires it anyway. Works automatically for every loot-table container, including our structures' chests | WORLD-011 | Our own per-player loot |
 | Mob animations | GeckoLib (4.8.4 for Forge 1.20.1) | MIT | Library dependency | ENEMY-012 | Vanilla's keyframe animations (as used by the Warden) |
-| Structure decoration | To be picked by Claude (answer to Q-148): 1–3 apocalypse-themed decoration mods (wrecks, barricades, junk, tents, furniture) | Must allow a monetized pack (PACK-002, PACK-007) | Unmodified | SURV-006, WORLD-005 | — |
+| Structure decoration: palisades, beams, supports, braziers, chains | Decorative Blocks (4.1.3 for Forge 1.20.1) | MIT | Unmodified; its items stay locked (Settler stage), used in structures | SURV-006, WORLD-005 | Picked by Claude (Q-148) |
+| Structure decoration: furniture for interiors | Another Furniture (3.0.4 for Forge 1.20.1) | Code MIT, assets All Rights Reserved | Unmodified; its items stay locked, used in structures | SURV-006, WORLD-005 | Picked by Claude (Q-148); Macaw's Furniture (ARR), Handcrafted (code MIT, assets ARR) |
+| Structure decoration: boarded-up windows and doors | Just Barricades (1.0.0 for Forge 1.20.1) | MIT | Unmodified; "zombies destroy barricades" switched off in its config (regular zombies never damage blocks, ENEMY-005); its items stay locked | SURV-006, ENEMY-005 | Picked by Claude (Q-148) |
 | Food values on screen | AppleSkin | The Unlicense (public domain) | Unmodified | SURV-009 | None needed |
 | Tech machines and power (generators, batteries, cables) | Energized Power | MIT; some textures credited to flashbulbs (terms unverified); pack use explicitly allowed | Unmodified or MIT fork; power trimmed to a few tiers (which: Q-096) | TECH | Mekanism, Industrial Foregoing (both lean overpowered); own power system |
 
@@ -88,7 +90,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 
 **Open questions:** Q-064, Q-091, Q-093, Q-096
 **Notes:** Picks are recommendations from the 2026-11-01 research; confirm or swap. Tech and power decided 2026-11-01: Energized Power for both, power trimmed. Its Forge Energy compatibility is unverified; Forge 1.20.1 itself provides the `IEnergyStorage` capability.
-Dev setup (2026-11-02): the mods our code works with load in the dev runs, at their latest Forge 1.20.1 releases: FTB Quests 2001.4.22, FTB Teams 2001.3.2, History Stages 6.1.1-1.20.1, Lootr 0.7.35.94, Curios API 5.14.1+1.20.1, JEI 15.74.0.229 (from 15.74.0.230 on, History Stages' JEI fluid patch fails to load and the game crashes as soon as a world loads, checked 2026-11-02). FTB Quests and Teams also need FTB Library (2001.2.13) and Architectury (9.2.14), so the pack needs those two as well; their licenses are not yet checked. Versions live in `gradle.properties`.
+Dev setup (2026-11-02): all mods above that Chapter 1 needs load in the dev runs (GeckoLib comes with ENEMY-012), at their latest Forge 1.20.1 releases. Those our code works with: FTB Quests 2001.4.22, FTB Teams 2001.3.2, History Stages 6.1.1-1.20.1, Lootr 0.7.35.94, Curios API 5.14.1+1.20.1, JEI 15.74.0.229 (from 15.74.0.230 on, History Stages' JEI fluid patch fails to load and the game crashes as soon as a world loads, checked 2026-11-02). FTB Quests and Teams also need FTB Library (2001.2.13) and Architectury (9.2.14), so the pack needs those two as well; their licenses are not yet checked. Versions live in `gradle.properties`.
 
 ### PACK-005 — Built in our own mod
 **Status:** approved

@@ -38,3 +38,11 @@ description='''${mod_description}'''
     versionRange="[6.1,)"
     ordering="NONE"
     side="BOTH"
+
+# Diet (SURV-009): loaded before us, so our changes to its group data win over its own. Optional for our code.
+[[dependencies.${mod_id}]]
+    modId="diet"
+    mandatory=false
+    versionRange="[3,)"
+    ordering="AFTER"
+    side="BOTH"

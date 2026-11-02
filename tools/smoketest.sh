@@ -8,6 +8,11 @@ LOG="build/smoketest-client.log"
 mkdir -p build
 export JAVA_HOME="$JDK"
 
+# Its window is hidden, so a client that hangs or sits at Forge's error screen has to be stopped from here.
+stop_client() {
+    powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"name like 'java%'\" | Where-Object { \$_.CommandLine -like '*wallis_ultimate.smoketest=true*' } | ForEach-Object { Stop-Process -Id \$_.ProcessId -Force }"
+}
+
 # Only the smoke test's own leftovers: its worlds and screenshots from the last run.
 rm -rf run/saves/wallis-smoketest*
 rm -f run/screenshots/smoketest-*.png
@@ -18,20 +23,29 @@ CLIENT_PID=$!
 # The client quits by itself (also after its own 5-minute limit); this only catches a hang before that.
 for _ in $(seq 1 600); do
     kill -0 "$CLIENT_PID" 2>/dev/null || break
+    if grep -qa -E "Missing or unsupported mandatory dependencies|ModLoadingException" "$LOG"; then
+        echo "Mods failed to load:"
+        grep -a -E "Mod ID:|Failure message" "$LOG" | head -20
+        break
+    fi
     sleep 1
 done
 if kill -0 "$CLIENT_PID" 2>/dev/null; then
-    echo "The client is still running after 10 minutes; see $LOG"
-    exit 100
+    stop_client
+    sleep 2
+    if ! grep -qa "\[SMOKETEST\] DONE" "$LOG"; then
+        echo "The client didn't finish and was stopped; see $LOG"
+        exit 100
+    fi
 fi
 
-grep -oE "\[SMOKETEST\] .*" "$LOG"
+grep -a -oE "\[SMOKETEST\] .*" "$LOG"
 echo "--- errors:"
-grep -E "Crash report saved|VerifyError|Exception in|/ERROR\]|/FATAL\]" "$LOG" | grep -v "Realms" | head -40
+grep -a -E "Crash report saved|VerifyError|Exception in|/ERROR\]|/FATAL\]" "$LOG" | grep -v "Realms" | head -40
 echo "--- screenshots:"
 ls run/screenshots/smoketest-*.png 2>/dev/null
-if grep -q "Crash report saved" "$LOG" || ! grep -q "\[SMOKETEST\] DONE" "$LOG"; then
+if grep -qa "Crash report saved" "$LOG" || ! grep -qa "\[SMOKETEST\] DONE" "$LOG"; then
     echo "The smoke test did not finish; see $LOG"
     exit 100
 fi
-exit "$(grep -c "\[SMOKETEST\] FAIL" "$LOG")"
+exit "$(grep -ac "\[SMOKETEST\] FAIL" "$LOG")"

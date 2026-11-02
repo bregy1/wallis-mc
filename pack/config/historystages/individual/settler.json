@@ -5,7 +5,7 @@
   "fixed_lock_actions": {
     "items": { "pickup": false, "loot": false, "gui": false }
   },
-  "mods": ["minecraft", "wallis_ultimate", "ftbquests", "lootr", "historystages"],
+  "mods": ["minecraft", "wallis_ultimate", "ftbquests", "lootr", "historystages", "decorative_blocks", "another_furniture", "just_barricades", "easy_npc"],
   "mod_exceptions": [
     "ftbquests:book",
     "minecraft:acacia_boat",

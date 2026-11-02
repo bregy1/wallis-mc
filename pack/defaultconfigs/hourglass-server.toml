@@ -1,0 +1,5 @@
+# SURV-007: 16 minutes of day, 8 minutes of night. Hourglass counts 13,000 ticks as day and 11,000 as night,
+# so daySpeed = 13000 / (16 * 60 * 20) and nightSpeed = 11000 / (8 * 60 * 20). Everything else keeps its default.
+[time]
+	daySpeed = 0.677083
+	nightSpeed = 1.145833

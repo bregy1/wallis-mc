@@ -150,6 +150,9 @@
 | Q-149 | How does Lurleen look? | STORY-003 | answered: farm-tough: red flannel shirt knotted at the waist, denim shorts, cowboy boots, trucker cap over long blond hair, freckles, a shotgun on her back |
 | Q-150 | How does Hog Daddy look? | ENEMY-011 | answered: an overall-wearing brute about 3 blocks tall: pig's head with broken tusks, torn dungarees over a huge gut, a meat hook for a hand, one rubber boot, flies around him |
 | Q-151 | How do regular zombies look? | ENEMY-012 | answered: varied rural victims: farmers in overalls, hunters in camo, flannel, work clothes; gray-green skin, torn clothes, hollow dark eyes, slightly hunched; a lurching walk and a lunge attack |
+| Q-152 | Farmer's Delight adds 188 items (cooking pot, cutting board, knives, crops, meals) and nothing says when players get them. Everything else is locked unless allowed (Q-124), but FD is not locked yet. Which FD items are free from the start, and which unlock when? | SURV-008, PROG-002 | open |
+| Q-153 | By default the diet mod wipes all food group levels on death, which applies every penalty at once. Keep that, or lose nothing, or lose part? | SURV-009 | open |
+| Q-154 | Structures need apocalypse props no pack mod offers: sandbags, barbed wire, wrecked cars, oil drums, tarps, supply crates. Build them as our own blocks (placeholder art by Claude), or make do with vanilla and the decoration mods? | SURV-006, WORLD-005 | open |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

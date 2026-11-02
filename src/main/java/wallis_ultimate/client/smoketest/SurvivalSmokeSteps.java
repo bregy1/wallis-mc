@@ -6,6 +6,7 @@ import static wallis_ultimate.client.smoketest.ClientSmokeTest.check;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.click;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.command;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.describe;
+import static wallis_ultimate.client.smoketest.ClientSmokeTest.log;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.screenshot;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.step;
 
@@ -27,13 +28,16 @@ import wallis_ultimate.block.GraveBlockEntity;
 import wallis_ultimate.block.GraveMenu;
 
 /**
- * SURV-004 and SURV-005 in a real client: a death leaves a take-only grave and says where it is (Q-122); a second
- * bed can't be placed while your first one stands (Q-144).
+ * SURV-004, SURV-005 and SURV-007 in a real client: a death leaves a take-only grave and says where it is (Q-122); a second
+ * bed can't be placed while your first one stands (Q-144); day and night run at the configured speeds; sleeping heals.
  */
 final class SurvivalSmokeSteps {
     private static BlockPos deathPos;
     private static BlockPos firstBed;
     private static BlockPos secondBed;
+    private static final int CLOCK_TICKS = 300;
+    private static final double CLOCK_TOLERANCE = 0.08;
+    private static long clockStart;
 
     private SurvivalSmokeSteps() {
     }
@@ -67,11 +71,12 @@ final class SurvivalSmokeSteps {
                     command("give @s minecraft:dirt 4");
                 }),
                 await("the dirt arrives", 100, player -> player.getInventory().countItem(Items.DIRT) == 4),
-                step("open the grave", 15, player -> {
+                step("open the grave", 5, player -> {
                     BlockPos grave = findGrave(player);
                     Minecraft.getInstance().gameMode.useItemOn(player, InteractionHand.MAIN_HAND,
                             new BlockHitResult(Vec3.atCenterOf(grave), Direction.UP, grave, false));
                 }),
+                await("the grave screen opens", 100, player -> player.containerMenu instanceof GraveMenu),
                 step("try to put dirt into the grave", 10, player -> {
                     check("the grave opens its take-only screen", player.containerMenu instanceof GraveMenu,
                             "menu " + player.containerMenu);
@@ -116,7 +121,53 @@ final class SurvivalSmokeSteps {
                     check("once the first bed is gone, a new one can be placed", isBed(secondBed),
                             "no bed at " + secondBed.toShortString());
                     screenshot("bed");
+                }),
+
+                // SURV-007: 16 minutes of day and 8 of night mean 0.677 and 1.146 game ticks per real tick (Hourglass).
+                step("make it morning", 40, player -> command("time set 1000")),
+                step("start the day clock", CLOCK_TICKS, player -> clockStart = gameTime()),
+                step("check the day speed", 0, player -> checkClock("daytime runs at 16 minutes a day", 0.677)),
+                step("make it night", 40, player -> command("time set 14000")),
+                step("start the night clock", CLOCK_TICKS, player -> clockStart = gameTime()),
+                step("check the night speed", 0, player -> checkClock("nighttime runs at 8 minutes a night", 1.146)),
+
+                // SURV-005: sleeping through the night, sped up by Hourglass, heals on waking up.
+                step("get hurt", 10, player -> {
+                    command("effect clear @s");
+                    // With natural regeneration on, a full food bar refills the hearts in those few seconds by itself.
+                    command("gamerule naturalRegeneration false");
+                    command("damage @s 10");
+                }),
+                await("the damage arrives", 100, player -> player.getHealth() <= 10.0F),
+                step("lie down in the bed", 5, player -> Minecraft.getInstance().gameMode.useItemOn(player,
+                        InteractionHand.MAIN_HAND, new BlockHitResult(Vec3.atCenterOf(secondBed), Direction.UP, secondBed, false))),
+                await("the player falls asleep", 100, LocalPlayer::isSleeping),
+                step("check sleeping", 0, player -> {
+                    check("beds work at night", player.isSleeping(), "not asleep; health " + player.getHealth());
+                    screenshot("sleeping");
+                }),
+                await("morning comes", 600, player -> !player.isSleeping()),
+                step("check waking up", 20, player -> {
+                    long time = gameTime() % 24000L;
+                    check("the night races by and the player wakes up in the morning", !player.isSleeping() && (time < 12000L || time >= 23000L),
+                            "time " + time + ", asleep " + player.isSleeping());
+                }),
+                step("check the healing", 0, player -> {
+                    check("sleeping through the night fully heals", player.getHealth() == player.getMaxHealth(),
+                            "health " + player.getHealth());
+                    command("gamerule naturalRegeneration true");
+                    command("effect give @s minecraft:resistance infinite 4 true");
                 }));
+    }
+
+    private static long gameTime() {
+        return Minecraft.getInstance().level.getDayTime();
+    }
+
+    private static void checkClock(String name, double expectedSpeed) {
+        double speed = (double) (gameTime() - clockStart) / CLOCK_TICKS;
+        log(String.format("%s: measured %.3f game ticks per tick", name, speed));
+        check(name, Math.abs(speed - expectedSpeed) < CLOCK_TOLERANCE, String.format("measured %.3f, expected %.3f", speed, expectedSpeed));
     }
 
     private static BlockPos findGrave(LocalPlayer player) {

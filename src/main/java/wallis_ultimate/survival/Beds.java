@@ -28,6 +28,8 @@ import wallis_ultimate.WallisUltimate;
 public final class Beds {
     private static final long TICKS_PER_DAY = 24000L;
     private static final long NIGHTFALL = 12000L;
+    /** Hourglass speeds up the night instead of skipping it, so players wake up at dawn, before the day's tick 0. */
+    private static final long DAWN = 23000L;
     private static final String OWNED_BEDS = WallisUltimate.MOD_ID + ":beds";
     private static final String DIMENSION = "dimension";
     private static final String POS = "pos";
@@ -40,7 +42,8 @@ public final class Beds {
      * (wakeImmediately = false, updateLevel = false). Getting out of bed yourself uses updateLevel = true.
      */
     public static boolean sleptThroughTheNight(boolean wakeImmediately, boolean updateLevel, long dayTime) {
-        return !wakeImmediately && !updateLevel && dayTime % TICKS_PER_DAY < NIGHTFALL;
+        long time = dayTime % TICKS_PER_DAY;
+        return !wakeImmediately && !updateLevel && (time < NIGHTFALL || time >= DAWN);
     }
 
     /** The planet a dimension belongs to. There's only Earth so far (the Overworld, its districts, the Nether). */

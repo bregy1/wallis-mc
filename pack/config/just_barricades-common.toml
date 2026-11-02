@@ -1,0 +1,15 @@
+
+["Config for Just Barricades"]
+	#The id of item that will be required for repairing. Leave blank for no item requirement
+	repair_item = "minecraft:stick"
+	#The chance of dropping the repair item (doesn't work if no repair item is needed)
+	#Range: 0.0 ~ 1.0
+	drop_repair_item_chance = 1.0
+	#The chance that zombie breaks one level each tick
+	#Range: 0.0 ~ 1.0
+	zombie_break_chance = 0.0
+	#If zombies leave repairable leftovers
+	repair_after_zombie = true
+	#If players can break barricades completely without leftovers
+	player_can_break_completely = true
+
