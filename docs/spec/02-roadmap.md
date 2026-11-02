@@ -44,7 +44,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - **Combat:** CMBT-001–003
 - **Gear:** GEAR-001, GEAR-003, GEAR-006 (tools for district 1's ores), GEAR-007 (tier 1 weapons)
 - **World:** WORLD-001–007, WORLD-009–012
-- **Enemies:** ENEMY-001–007, ENEMY-009 (tier 1 specials), ENEMY-011 (Hog Daddy), ENEMY-012 (scarier zombies)
+- **Enemies:** ENEMY-001–007, ENEMY-011 (Hog Daddy and his piglets), ENEMY-012 (scarier zombies). The first specials (ENEMY-009) start in tier 2 (Q-139)
 - **Transport:** TRANS-001, TRANS-002
 - **Modpack:** PACK-001–006, with only the mods Chapter 1 needs (FTB Quests and Teams, History Stages, JEI, Easy NPC, ImmersiveCinematics, Curios, Hourglass, Xaero's maps, Farmer's Delight, A Balanced Diet, AppleSkin, Lootr, performance mods)
 

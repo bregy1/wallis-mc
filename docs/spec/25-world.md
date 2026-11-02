@@ -77,7 +77,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 - [x] Vanilla structures (villages, mineshafts, dungeons, temples, strongholds…) don't generate. (Overworld; Nether structures stay until WORLD-008.)
 
 **Open questions:**
-**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work. Implementation (2026-11-02): Overworld structure tags are emptied, and dungeons, fossils, desert wells and amethyst geodes are removed. Nether structures stay vanilla until the Nether overhaul (WORLD-008), because fortresses are the only source of blaze rods for brewing (Q-118).
+**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work. Implementation (2026-11-02): Overworld structure tags are emptied, and dungeons, fossils, desert wells and amethyst geodes are removed. Nether structures stay vanilla until the Nether overhaul (WORLD-008), because fortresses are the only source of blaze rods for brewing (Q-118). Several teams (answer to Q-136, 2026-11-02): places stay single and work MMO-style. An NPC can appear in several places, and every team gets its own quests and story state there. Usually there is one team per server. Players start at the rednecks' cabin at world spawn (Q-137).
 
 ### WORLD-006 — Protected structures use unminable blocks
 **Status:** approved (partly implemented: the three blocks, verified by GameTests 2026-11-02; structures use them once structures exist)

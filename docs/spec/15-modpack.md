@@ -78,6 +78,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Diet | A Balanced Diet | LGPL-3.0-or-later | Unmodified; effects set in its data files (Q-105) | SURV-009 | Spice of Life Onion (variety only, LGPL) |
 | Personal loot chests | Lootr (0.7.35.94 for Forge 1.20.1) | Code MIT; assets All Rights Reserved; modpack terms not stated (check CurseForge's distribution setting or ask the author) | Unmodified; History Stages requires it anyway. Works automatically for every loot-table container, including our structures' chests | WORLD-011 | Our own per-player loot |
 | Mob animations | GeckoLib (4.8.4 for Forge 1.20.1) | MIT | Library dependency | ENEMY-012 | Vanilla's keyframe animations (as used by the Warden) |
+| Structure decoration | To be picked by Claude (answer to Q-148): 1–3 apocalypse-themed decoration mods (wrecks, barricades, junk, tents, furniture) | Must allow a monetized pack (PACK-002, PACK-007) | Unmodified | SURV-006, WORLD-005 | — |
 | Food values on screen | AppleSkin | The Unlicense (public domain) | Unmodified | SURV-009 | None needed |
 | Tech machines and power (generators, batteries, cables) | Energized Power | MIT; some textures credited to flashbulbs (terms unverified); pack use explicitly allowed | Unmodified or MIT fork; power trimmed to a few tiers (which: Q-096) | TECH | Mekanism, Industrial Foregoing (both lean overpowered); own power system |
 

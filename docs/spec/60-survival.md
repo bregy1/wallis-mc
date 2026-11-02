@@ -24,8 +24,8 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [x] If not revived within 90 seconds, the player dies (SURV-003, SURV-004).
 - [ ] Teammates see a marker over a downed player (visible through walls), hear a call-for-help sound, and see the remaining time on screen. (Implemented: glowing outline, an alert sound for teammates when someone goes down plus a help sound at the spot every 5 seconds, and a list of downed teammates with their time on screen; to check in-game.)
 
-**Open questions:** Q-121
-**Notes:** From dying.md, refined 2026-11-01 (answers to Q-048, Q-049, Q-050). dying.md said "like 30 seconds"; 90 seconds is the only timer (answer to Q-047). Instant-death cases decided (answer to Q-051). Solo players follow the same rules; the give-up button means they don't have to wait out the timer. The downed pistol exists only while downed, so it doesn't replace the hard-to-craft guns of tier 3.
+**Open questions:**
+**Notes:** From dying.md, refined 2026-11-01 (answers to Q-048, Q-049, Q-050). dying.md said "like 30 seconds"; 90 seconds is the only timer (answer to Q-047). Instant-death cases decided (answer to Q-051). Solo players follow the same rules; the give-up button means they don't have to wait out the timer. The downed pistol exists only while downed, so it doesn't replace the hard-to-craft guns of tier 3. The details picked during implementation (no damage while downed except void, lava and /kill; pistol 4 damage, 24 blocks, one shot per click; outline visible to everyone; give-up key G; bell alert plus hurt sound every 5 s; no jumping; plain-text HUD placeholder) were confirmed 2026-11-02 (answer to Q-121).
 
 ### SURV-002 — Reviving a teammate
 **Status:** approved (partly implemented 2026-11-02: server logic verified by GameTests; holding the use key and the progress bar to check in-game)
@@ -40,7 +40,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [x] If the reviver takes damage, the revive is cancelled and its progress is lost.
 - [x] A revived player gets back up with half health.
 
-**Open questions:** Q-121
+**Open questions:**
 **Notes:** Not chosen (2026-11-01): coming back weak, "second down is final", and hits on a downed player shortening the timer.
 
 ### SURV-003 — Respawn at your bed
@@ -68,9 +68,11 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [x] Only the player who died can take items out of their grave. (Right-click opens a chest-like screen for the owner only. Graves can't be mined, blown up or emptied by hoppers.)
 - [x] The grave is removed as soon as it's empty.
 - [x] A grave that still holds items lasts 60 minutes, then disappears together with its contents. (World time, so it only counts while the server runs.)
+- [ ] Items can only be taken out of a grave, never put in (answer to Q-122).
+- [ ] On death, a chat message tells the player where their grave is (answer to Q-122).
 
-**Open questions:** Q-122
-**Notes:** First "like 20 minutes"; changed 2026-11-01 (answer to Q-053): "make it 60 minutes but it is lost after."
+**Open questions:**
+**Notes:** First "like 20 minutes"; changed 2026-11-01 (answer to Q-053): "make it 60 minutes but it is lost after." Details decided 2026-11-02 (answer to Q-122): chest screen kept, take-only, 60 minutes of server time, a chat message with the grave's coordinates on death, placeholder look for now.
 
 ### SURV-005 — Beds are rare heal and respawn points
 **Status:** approved (partly implemented 2026-11-02: bed recipes removed, verified by GameTests)
@@ -87,9 +89,10 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [ ] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
 - [ ] A player can pick up their bed and place it again, which moves their home (WORLD-012).
 - [ ] When players sleep, the night races by in a few seconds (Hourglass) instead of being skipped instantly.
+- [ ] A player can't place a second bed on a planet while their own bed there stands; they pick up the old one first (answer to Q-144).
 
-**Open questions:** Q-107, Q-123
-**Notes:** Your words: "Beds cannot be placed everywhere and are not easy to obtain. Beds can still be used to sleep through a night." Refined 2026-11-01 (answers to Q-052): "each player to have one bed per planet + the safe spot beds. On the new planet the bed is achievable through quest always." Picking up and moving the bed follows from "home bed decides" (WORLD-012).
+**Open questions:**
+**Notes:** Your words: "Beds cannot be placed everywhere and are not easy to obtain. Beds can still be used to sleep through a night." Refined 2026-11-01 (answers to Q-052): "each player to have one bed per planet + the safe spot beds. On the new planet the bed is achievable through quest always." Picking up and moving the bed follows from "home bed decides" (WORLD-012). Dyeing kept 2026-11-02 (answer to Q-123): ownership belongs to the placed bed, so recoloring the item changes nothing. Second bed (answer to Q-144): refused while your own bed on that planet stands.
 
 ### SURV-006 — Safe spots
 **Status:** approved
@@ -104,7 +107,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [ ] No safe spot, defended or not, can be overrun by enemies or hordes, except where the story makes it fall (ENEMY-007).
 
 **Open questions:**
-**Notes:** Your words: "They only would be overrun when the story tells so." Count, access and defenders decided 2026-11-01 (answer to Q-062). Placement of safe spots belongs in the world spec (WORLD).
+**Notes:** Your words: "They only would be overrun when the story tells so." Count, access and defenders decided 2026-11-01 (answer to Q-062). Placement of safe spots belongs in the world spec (WORLD). Placement and look decided 2026-11-02 (answers to Q-138, Q-146): district 1 has four safe spots placed when the world is created, about 350–600 blocks from spawn in the four directions, with Hog Daddy's farm between two of them. Each looks different: bigger ones are fortified bases built from found materials with lots of apocalypse decoration and detail; smaller ones can be a truck or a few tents.
 
 ### SURV-007 — Longer days, shorter nights
 **Status:** approved

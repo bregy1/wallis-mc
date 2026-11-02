@@ -134,7 +134,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 - [ ] In a team, each time a reply is needed, the game randomly picks one present team member to choose it. The others see the conversation but don't choose.
 
 **Open questions:**
-**Notes:** Decided 2026-11-01 (answers to Q-033, Q-034, Q-045). Before release, check the hosting platforms' content rules on swearing.
+**Notes:** Decided 2026-11-01 (answers to Q-033, Q-034, Q-045). Before release, check the hosting platforms' content rules on swearing. Start decided 2026-11-02 (answers to Q-137, Q-147): everyone wakes up in front of the rednecks' cabin at world spawn, a run-down hunting cabin in the woods with a porch and a sagging couch, beer cans, a moonshine still out back, a rusty pickup, antlers over the door and a campfire pit.
 
 ### STORY-003 — First ally: Lurleen
 **Status:** approved
@@ -148,7 +148,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 - [ ] She moves into the team's first home, gives Chapter 1 quests, banters, and reacts to what the team does.
 
 **Open questions:**
-**Notes:**
+**Notes:** Look decided 2026-11-02 (answer to Q-149): farm-tough, with a red flannel shirt knotted at the waist, denim shorts, cowboy boots, a trucker cap over long blond hair, freckles and a shotgun on her back. MMO-style (answer to Q-136): Lurleen can appear in several places (the cabin, the team's first home), and every team gets its own quests from her.
 
 ### STORY-004 — Factions whose attitude changes
 **Status:** draft
@@ -375,7 +375,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Description:** The pack states that all characters are fictional and that any resemblance to real persons is coincidental or parody.
 
 **Acceptance criteria:**
-- [ ] The disclaimer appears in the modpack description and on the loading screen when the game starts.
+- [ ] The disclaimer appears in the modpack description and as a line on the title screen (answer to Q-145; Forge's loading screen can't show it without a mixin).
 - [ ] The text reads: "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody." (through the lang file)
 
 **Open questions:**

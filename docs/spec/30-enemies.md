@@ -62,13 +62,13 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 
 **Acceptance criteria:**
 - [ ] Each enemy type defines which effects it can spawn with, how strong, and how likely.
-- [ ] Starting rates (tuned with balancing): tier 1, 10% of enemies get one weak effect (e.g. Speed I or Strength I); tier 2, 20%, sometimes level II; tier 3, 30%, with two-effect combos at 5%; tier 4, 40%, combos at 10%.
+- [ ] Starting rates (tuned with balancing): tier 1, 10% of enemies get one weak effect (Strength I, Resistance I, Regeneration I or Fire Resistance; no Speed, Q-143); tier 2, 20%, sometimes level II; tier 3, 30%, with two-effect combos at 5%; tier 4, 40%, combos at 10%.
 - [ ] Effect strength and number of effects rise with enemy difficulty.
 - [ ] Enemies with several effects at once are rare.
 - [ ] Bosses have fixed effects, defined per boss.
 
 **Open questions:**
-**Notes:** Your words: "We stick to the potion brewing mechanic to get effects. Can always add more." Players keep getting effects through vanilla brewing (Q-025).
+**Notes:** Your words: "We stick to the potion brewing mechanic to get effects. Can always add more." Players keep getting effects through vanilla brewing (Q-025). Tier 1 pool decided 2026-11-02 (answer to Q-143): Strength I, Resistance I, Regeneration I and Fire Resistance (which also keeps a Sunburn zombie from burning); no Speed in tier 1, because it would make day zombies faster than walking (ENEMY-001). Speed effects start in tier 2.
 
 ### ENEMY-005 — Only specials break blocks
 **Status:** approved (partly implemented 2026-11-02: regular zombies break no doors and trample no farmland or turtle eggs, verified by GameTests; the Brute and hardened blocks not built yet)
@@ -129,7 +129,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Details per enemy go in the tables below once picked.
 
 ### ENEMY-009 — Special zombies with abilities and counters
-**Status:** approved (Milestone 1: the rules and the tier 1 specials Rallier, Crawler, Hound; tiers 2–3 stay draft)
+**Status:** approved (the rules and the first specials Rallier, Crawler, Hound, which start in tier 2 (Q-139), so they come after Milestone 1; tiers 2–3 stay draft)
 **Priority:** must
 
 **Description:** Special zombies each have one clear ability and a counter. They're what makes fighting hard, and they arrive gradually by tier (first specials in the Settler tier, PROG-008).
@@ -142,7 +142,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - [ ] Specials that pin a player can always be escaped alone by attacking repeatedly; a teammate frees the player instantly. This keeps them fair for solo players and any team size.
 
 **Open questions:** Q-082
-**Notes:** Inspired mostly by Left 4 Dead's special infected, redneck-flavored.
+**Notes:** Inspired mostly by Left 4 Dead's special infected, redneck-flavored. Decided 2026-11-02 (answer to Q-139): specials start in tier 2. Rallier, Crawler and Hound come first, in the Settler tier; Chapter 1 has only regular zombies, plus Hog Daddy and his piglets.
 
 ### ENEMY-010 — Enemy tracker
 **Status:** draft
@@ -184,20 +184,20 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Description:** Zombies are scarier than vanilla ones: new looks and a few new animations, while still fitting Minecraft's style (pillar "it still looks like Minecraft").
 
 **Acceptance criteria:**
-- [ ] Regular zombies have their own look, clearly different from vanilla zombies (visual design to be approved).
+- [ ] Regular zombies have their own look, clearly different from vanilla zombies (direction approved, Q-151: varied rural victims; see notes).
 - [ ] They have a few new animations that make them feel more threatening (e.g. lurching walk, lunging attack).
 - [ ] Looks and animations stay in vanilla's art style.
 - [x] Regular zombies are our own zombie type, which replaces vanilla zombies, husks, drowned and zombie villagers in natural spawns (answers to Q-131, Q-135).
 - [x] There are no baby zombies (answer to Q-133).
 
 **Open questions:**
-**Notes:** Your words: "Zombies in general have to be scarier than normal zombie. So maybe few new animations and different looks." Custom animations likely need an animation library; picking one (and checking its license) is a technical check for the modpack spec.
+**Notes:** Your words: "Zombies in general have to be scarier than normal zombie. So maybe few new animations and different looks." Custom animations likely need an animation library; picking one (and checking its license) is a technical check for the modpack spec. Look chosen 2026-11-02 (answer to Q-151): varied rural victims (farmers in overalls, hunters in camo, flannel, work clothes), gray-green skin, torn clothes, hollow dark eyes, slightly hunched; a lurching walk and a lunge attack.
 
 ## Special zombie designs (proposals)
 
 *Ten specials for version 1: the Rallier is yours, the rest are my picks and designs. Every one is a different threat that needs a different answer. Numbers are proposals, measured against a vanilla zombie (20 health, 3 damage on Normal). "Scales by" is what grows per extra player (PROG-007). All looks are in vanilla style.*
 
-### Tier 1: Scavenger
+### First specials (from tier 2, Settler; answer to Q-139)
 
 **Rallier** *(your idea)*
 - **Look:** a zombie football coach with a whistle and a torn cap.
@@ -217,7 +217,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - **Counter:** back against a wall; sword sweep attacks; shield.
 - **Numbers:** 10 health each, 2 damage. **Breaks blocks:** no. **Spawns:** open terrain, more at night. **Scales by:** pack size.
 
-### Tier 2: Settler
+### Tier 2: Settler, further specials
 
 **Bloater**
 - **Look:** a swollen, greenish hillbilly in overalls.
@@ -273,6 +273,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 
 ### Hog Daddy, Chapter 1 milestone (tier 1)
 *The rednecks' neighbor, a pig farmer who mutated into a hulking hog-man. He smashes into the cabin.*
+- **Look (answer to Q-150):** about 3 blocks tall, a pig's head with broken tusks, torn dungarees over a huge gut, a meat hook for a hand, one rubber boot, flies buzzing around him.
 - **Arena:** his farm: pig pen, barn, mud, ringed by wrecked cars and hay bales made of unminable blocks.
 - **Phase 1, the chase (minigame):** he bursts through the cabin wall and the team runs through the cornfield to the barn. Red lines on the ground show where his charges will go; dodge them, and duck under falling hay. *Inspired by: Crash Bandicoot's boulder chases, Resident Evil 4's village.*
 - **Phase 2, the pen:** he charges in straight lines (a red line telegraph, 1 second). If he slams into a fence post or the feeding trough, he's stunned for 4 seconds and his back is exposed; that's when hits really count. Zombie piglets keep coming. With three players, one baits the charges while the others clear piglets.

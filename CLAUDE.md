@@ -22,9 +22,20 @@ If any field above still says TODO, ask me before writing code that depends on i
 1. **The spec is the source of truth.** The spec lives in `docs/spec/`. Never implement anything that isn't in an approved spec section. If a task needs something the spec doesn't cover, stop and propose a spec change first. Follow the `spec-driven` skill.
 2. **Ask, don't assume.** If something is ambiguous, missing, or could reasonably go two ways, ask me before acting. Don't fill gaps with your own preferences. Follow the `ask-first` skill.
 3. **Never invent Minecraft or loader APIs.** Check the decompiled sources, the loader docs, or existing code in this repo before using any class or method you're not certain exists in *this* Minecraft version. Follow the `minecraft-modding` skill.
-4. **Design decisions are mine.** For anything affecting gameplay, balance, visuals or player experience, present options with trade-offs and let me choose. Follow the `minecraft-design` skill.
+4. **Design decisions are mine.** For anything affecting gameplay, balance, visuals or player experience, present options with trade-offs and let me choose, except what the working agreement below hands to you. Follow the `minecraft-design` skill.
 5. **Small, verified steps.** Build after every meaningful change. Don't stack untested changes.
 6. **Story content follows the `story` skill.** Plot, characters, dialogue, quests, cutscenes and lore.
+
+## Working agreement (2026-11-02)
+
+We spec a lot up front so you can build on your own:
+
+- Work through the approved spec (Milestone 1 first) without asking for every step. Commit each finished feature once it passes the build, GameTests and the client smoke test, with spec IDs in the message. Never push.
+- Test in the game yourself (`tools/smoketest.sh`, screenshots) before calling something done.
+- You may add mods from the approved PACK-004 list. Decoration mods for structures you pick yourself after checking license (monetized pack) and performance (Q-148). Any other mod needs my OK.
+- I don't design visuals. You build all art, models and structures as placeholders, marked in the spec. For looks, ask me to describe them in words.
+- Your own calls, written into the spec as proposals I can veto: balancing numbers, Chapter 1 text (story skill), small mixins when no event or API works (with the required comment, listed in your report), UI layouts.
+- Still mine: anything the spec doesn't cover, new features, and gameplay rules that could go two ways. Collect those as questions and ask them in batches.
 
 ## Workflow for every task
 

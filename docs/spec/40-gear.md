@@ -104,6 +104,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 - [ ] Moonshine Molotov: thrown, leaves a burning patch that blocks a path for a few seconds.
 - [ ] Pipe Bomb: thrown, beeps and lures zombies to it before exploding (counts as loud noise, ENEMY-006).
 - [ ] Slingshot: silent, cheap gravel ammo; a shot can make noise somewhere to distract enemies.
+- [ ] The Pipe Bomb and the Moonshine Molotov never damage blocks: no crater, and the molotov's flames never light blocks or spread (answer to Q-142).
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answer to Q-064 for tier 1). Numbers come with balancing.
@@ -140,6 +141,6 @@ Magic (the special book) comes later, on the magic planet (STORY-012).
 
 ## Trinket ideas
 
-*Trinkets come from Curios slots (CMBT-003). Ideas collected here until the trinket list is specified.*
+*Trinkets come from Curios slots (CMBT-003). Ideas collected here until the trinket list is specified. The Chapter 1 set is designed by Claude as proposals you can veto (Q-141).*
 
 - **Effect reveal** (your idea, answer to Q-134): shows the status effects enemies carry, for example which zombies have Sunburn (ENEMY-002) and will burn at sunrise. Found later in the game.

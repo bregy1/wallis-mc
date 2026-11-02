@@ -35,8 +35,8 @@ Fighting is real-time and built on vanilla Minecraft combat. On top of that, pla
 - [x] The player is immune to damage for a split second (about 0.25 seconds) during the roll. (5 ticks; void and /kill still hit.)
 - [x] A downed player (SURV-001) can't roll.
 
-**Open questions:** Q-120
-**Notes:** Decided 2026-11-01: "just a roll, going forward. Bound on T in beginning." Built in our own mod (PACK-005), no fork. No roll animation yet (presentation, later).
+**Open questions:**
+**Notes:** Decided 2026-11-01: "just a roll, going forward. Bound on T in beginning." Built in our own mod (PACK-005), no fork. No roll animation yet (presentation, later). Ground only, confirmed 2026-11-02 (answer to Q-120); a visible roll animation comes later with the presentation work.
 
 ### CMBT-003 — Trinkets add fighting abilities
 **Status:** approved
@@ -45,7 +45,7 @@ Fighting is real-time and built on vanilla Minecraft combat. On top of that, pla
 **Description:** Players have many extra equipment slots for trinkets, organised by body part, provided by an existing trinket mod. Trinkets are found throughout the world and give additional fighting abilities or powers.
 
 **Acceptance criteria:**
-- [ ] Players have about 20 trinket slots by body part, in addition to vanilla armor and offhand slots, provided by Curios (PACK-004).
+- [ ] Players have 20 trinket slots by body part, in addition to vanilla armor and offhand slots, provided by Curios (PACK-004): head 2, necklace 2, back 1, body 2, belt 2, hands 2, bracelet 2, ring 4, charm 3 (answer to Q-140).
 - [ ] Most trinkets give passive bonuses; a few rare ones have an active ability on a key, with a cooldown.
 - [ ] Trinkets are found in the world (where exactly: gear spec).
 - [ ] An equipped trinket grants its ability or power; removing it takes the ability away.
@@ -53,4 +53,4 @@ Fighting is real-time and built on vanilla Minecraft combat. On top of that, pla
 - [ ] Some trinkets can boost the downed pistol (SURV-001).
 
 **Open questions:**
-**Notes:** Your words: "Some minecraft mods have already in use a trinket mod which gives like 20 body slots." Passive vs active decided 2026-11-01 (answer to Q-056). The well-known one for Forge 1.20.1 is Curios API; check its license before deciding (minecraft-design skill). Individual trinkets belong in the gear spec.
+**Notes:** Your words: "Some minecraft mods have already in use a trinket mod which gives like 20 body slots." Passive vs active decided 2026-11-01 (answer to Q-056). The well-known one for Forge 1.20.1 is Curios API; check its license before deciding (minecraft-design skill). Individual trinkets belong in the gear spec. Chapter 1 trinkets are designed by Claude as proposals you can veto (2026-11-02, answer to Q-141); they go into the gear spec.
