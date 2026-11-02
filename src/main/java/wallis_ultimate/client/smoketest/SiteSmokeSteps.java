@@ -169,7 +169,7 @@ final class SiteSmokeSteps {
             int y = 230;
             int z = player.getBlockZ();
             command(String.format("fill %d %d %d %d %d %d minecraft:grass_block", x - 9, y - 1, z - 3, x + 9, y - 1, z + 8));
-            int[][] uuids = {{1, 1, 1, 0}, {1, 1, 1, 1}, {1, 1, 1, 2}, {1, 1, 1, 3}, {1, 1, 1, 4}};
+            int[][] uuids = {{1, 1, 1, 1}, {1, 1, 1, 0}, {1, 1, 1, 3}, {1, 1, 1, 2}, {1, 1, 1, 5}};
             for (int i = 0; i < uuids.length; i++) {
                 // A UUID's hash is the XOR of its four numbers, so these give each look once.
                 command(String.format("summon wallis_ultimate:zombie %d %d %d {NoAI:1b,UUID:[I;%d,%d,%d,%d],Rotation:[0f,0f]}", x - 6 + i * 3, y, z,
