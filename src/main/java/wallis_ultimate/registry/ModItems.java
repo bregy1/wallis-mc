@@ -1,5 +1,7 @@
 package wallis_ultimate.registry;
 
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -11,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.item.BandageItem;
+import wallis_ultimate.item.TrinketItem;
 
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, WallisUltimate.MOD_ID);
@@ -22,6 +25,18 @@ public final class ModItems {
 
     /** SURV-010: stacks to 16 (Q-119). */
     public static final RegistryObject<Item> BANDAGE = ITEMS.register("bandage", () -> new BandageItem(new Item.Properties().stacksTo(16)));
+
+    // CMBT-003, Chapter 1 trinkets. Their Curios slots are the item tags in datagen; numbers in Trinkets or here.
+    public static final RegistryObject<Item> GRANNYS_RABBIT_FOOT = ITEMS.register("grannys_rabbit_foot", TrinketItem::new);
+    public static final RegistryObject<Item> JOGGING_HEADBAND = ITEMS.register("jogging_headband",
+            () -> new TrinketItem(Attributes.MOVEMENT_SPEED, 0.10, AttributeModifier.Operation.MULTIPLY_BASE));
+    public static final RegistryObject<Item> WORN_SPURS = ITEMS.register("worn_spurs", TrinketItem::new);
+    public static final RegistryObject<Item> LUCKY_HORSESHOE = ITEMS.register("lucky_horseshoe", TrinketItem::new);
+    public static final RegistryObject<Item> SPARE_CLIP = ITEMS.register("spare_clip", TrinketItem::new);
+    public static final RegistryObject<Item> BRASS_KNUCKLES = ITEMS.register("brass_knuckles",
+            () -> new TrinketItem(Attributes.ATTACK_DAMAGE, 1.0, AttributeModifier.Operation.ADDITION));
+    public static final RegistryObject<Item> THICK_FLANNEL = ITEMS.register("thick_flannel",
+            () -> new TrinketItem(Attributes.ARMOR, 2.0, AttributeModifier.Operation.ADDITION));
 
     /** ENEMY-012, creative only. Dark green with red spots, so it doesn't look like vanilla's zombie egg. */
     public static final RegistryObject<Item> ZOMBIE_SPAWN_EGG = ITEMS.register("zombie_spawn_egg",
@@ -43,6 +58,14 @@ public final class ModItems {
             event.accept(BANDAGE);
         } else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ZOMBIE_SPAWN_EGG);
+        } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(GRANNYS_RABBIT_FOOT);
+            event.accept(JOGGING_HEADBAND);
+            event.accept(WORN_SPURS);
+            event.accept(LUCKY_HORSESHOE);
+            event.accept(SPARE_CLIP);
+            event.accept(BRASS_KNUCKLES);
+            event.accept(THICK_FLANNEL);
         }
     }
 }

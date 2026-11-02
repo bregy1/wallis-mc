@@ -10,7 +10,6 @@ import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import wallis_ultimate.WallisUltimate;
-import wallis_ultimate.survival.Downed;
 import wallis_ultimate.survival.Revive;
 
 /**
@@ -44,7 +43,7 @@ public final class DownedHud {
             int y = height / 2 + 16;
             graphics.drawCenteredString(font, Component.translatable(PREFIX + "downed.title"), centerX, y, RED);
             graphics.drawCenteredString(font, Component.translatable(PREFIX + "downed.time_left", formatTime(ClientDownedState.ticksLeft())), centerX, y + 12, WHITE);
-            graphics.drawCenteredString(font, Component.translatable(PREFIX + "downed.ammo", ClientDownedState.ammo(), Downed.PISTOL_SHOTS,
+            graphics.drawCenteredString(font, Component.translatable(PREFIX + "downed.ammo", ClientDownedState.ammo(),
                     mc.options.keyAttack.getTranslatedKeyMessage()), centerX, y + 24, WHITE);
             graphics.drawCenteredString(font, Component.translatable(PREFIX + "downed.give_up", ClientKeys.GIVE_UP.getTranslatedKeyMessage()), centerX, y + 36, GRAY);
         }

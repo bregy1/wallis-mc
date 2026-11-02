@@ -46,3 +46,11 @@ description='''${mod_description}'''
     versionRange="[3,)"
     ordering="AFTER"
     side="BOTH"
+
+# Trinkets (CMBT-003): our trinket items are Curios items.
+[[dependencies.${mod_id}]]
+    modId="curios"
+    mandatory=true
+    versionRange="[5.14,)"
+    ordering="NONE"
+    side="BOTH"

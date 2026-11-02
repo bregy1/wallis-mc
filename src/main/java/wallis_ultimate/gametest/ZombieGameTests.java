@@ -46,6 +46,7 @@ public final class ZombieGameTests {
                 helper.fail(EntityType.getKey(vanilla) + " still spawns naturally");
             }
         }
+        helper.killAllEntities();
         helper.succeed();
     }
 
@@ -76,6 +77,7 @@ public final class ZombieGameTests {
         if (zombie.isBaby()) {
             helper.fail("setBaby(true) made a baby");
         }
+        helper.killAllEntities();
         helper.succeed();
     }
 
@@ -105,6 +107,7 @@ public final class ZombieGameTests {
         if (withEffect < 31 || withEffect > 89) {
             helper.fail(withEffect + " of " + samples + " have a spawn effect, expected about 60");
         }
+        helper.killAllEntities();
         helper.succeed();
     }
 
@@ -122,6 +125,7 @@ public final class ZombieGameTests {
         if (sunburn.isVisible() || sunburn.showIcon() || !sunburn.isInfiniteDuration()) {
             helper.fail("Sunburn should be hidden and permanent: " + sunburn);
         }
+        helper.killAllEntities();
         helper.succeed();
     }
 
@@ -135,6 +139,7 @@ public final class ZombieGameTests {
         if (zombie.goalSelector.getAvailableGoals().stream().anyMatch(goal -> goal.getGoal() instanceof RemoveBlockGoal)) {
             helper.fail("still has the goal that tramples turtle eggs");
         }
+        helper.killAllEntities();
         helper.succeed();
     }
 
@@ -153,6 +158,7 @@ public final class ZombieGameTests {
         helper.runAfterDelay(40, () -> {
             helper.assertBlockPresent(Blocks.DIRT, vanilla);
             helper.assertBlockPresent(Blocks.FARMLAND, ours);
+            helper.killAllEntities();
             helper.succeed();
         });
     }
@@ -187,6 +193,7 @@ public final class ZombieGameTests {
             if (Math.abs(blocksPerTick - expected) > expected * SPEED_TOLERANCE) {
                 helper.fail(String.format("%.2f m/s, expected %.2f m/s", blocksPerTick * 20, expected * 20));
             }
+            helper.killAllEntities();
             helper.succeed();
         });
     }

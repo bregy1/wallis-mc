@@ -146,6 +146,7 @@ public final class ClientSmokeTest {
         }));
         all.addAll(walkAround());
         all.addAll(DietSmokeSteps.steps());
+        all.addAll(TrinketSmokeSteps.steps());
         all.addAll(LockSmokeSteps.steps());
         all.addAll(SurvivalSmokeSteps.steps());
         all.addAll(ZombieSmokeSteps.steps());

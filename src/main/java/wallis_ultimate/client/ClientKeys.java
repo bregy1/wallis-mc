@@ -13,12 +13,12 @@ import wallis_ultimate.network.RollRequestPacket;
 
 /**
  * Client-only key bindings. CMBT-002: the roll key defaults to T (the pack moves chat to Enter).
- * SURV-001: the give-up key (used in {@link DownedClient}) defaults to G.
+ * SURV-001: the give-up key (used in {@link DownedClient}) defaults to H, because Curios opens its screen on G.
  */
 public final class ClientKeys {
     public static final String CATEGORY = "key.categories." + WallisUltimate.MOD_ID;
     public static final KeyMapping ROLL = new KeyMapping("key." + WallisUltimate.MOD_ID + ".roll", InputConstants.KEY_T, CATEGORY);
-    public static final KeyMapping GIVE_UP = new KeyMapping("key." + WallisUltimate.MOD_ID + ".give_up", InputConstants.KEY_G, CATEGORY);
+    public static final KeyMapping GIVE_UP = new KeyMapping("key." + WallisUltimate.MOD_ID + ".give_up", InputConstants.KEY_H, CATEGORY);
 
     private ClientKeys() {
     }

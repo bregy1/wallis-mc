@@ -29,6 +29,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import wallis_ultimate.WallisUltimate;
+import wallis_ultimate.combat.Trinkets;
 
 /**
  * SURV-001: players go down instead of dying. Downed players crawl, defend themselves with a 10-shot pistol,
@@ -71,7 +72,7 @@ public final class Downed {
     public static void goDown(Player player) {
         CompoundTag data = player.getPersistentData();
         data.putInt(TICKS_LEFT, DOWNED_TICKS);
-        data.putInt(AMMO, PISTOL_SHOTS);
+        data.putInt(AMMO, PISTOL_SHOTS + Trinkets.pistolBonus(player));
         player.setHealth(1.0F);
         player.clearFire();
         player.setSprinting(false);

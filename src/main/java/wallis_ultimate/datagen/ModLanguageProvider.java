@@ -25,6 +25,13 @@ public class ModLanguageProvider extends LanguageProvider {
         add("message." + WallisUltimate.MOD_ID + ".bed.already_have", "You already have a bed on this planet, at %s, %s, %s. Pick that one up first.");
         add("menu." + WallisUltimate.MOD_ID + ".disclaimer", "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody.");
         add(ModItems.BANDAGE.get(), "Bandage");
+        add(ModItems.GRANNYS_RABBIT_FOOT.get(), "Granny's Rabbit Foot");
+        add(ModItems.JOGGING_HEADBAND.get(), "Jogging Headband");
+        add(ModItems.WORN_SPURS.get(), "Worn Spurs");
+        add(ModItems.LUCKY_HORSESHOE.get(), "Lucky Horseshoe");
+        add(ModItems.SPARE_CLIP.get(), "Spare Clip");
+        add(ModItems.BRASS_KNUCKLES.get(), "Brass Knuckles");
+        add(ModItems.THICK_FLANNEL.get(), "Thick Flannel");
         add(ModEffects.BANDAGED.get(), "Bandaged");
         add(ModEffects.SUNBURN.get(), "Sunburn");
         add(ModEffects.HEARTY.get(), "Hearty");
@@ -38,7 +45,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("key." + WallisUltimate.MOD_ID + ".give_up", "Give Up (When Downed)");
         add("hud." + WallisUltimate.MOD_ID + ".downed.title", "You're down!");
         add("hud." + WallisUltimate.MOD_ID + ".downed.time_left", "Time left: %s");
-        add("hud." + WallisUltimate.MOD_ID + ".downed.ammo", "Pistol: %s/%s shots (%s to shoot)");
+        add("hud." + WallisUltimate.MOD_ID + ".downed.ammo", "Pistol: %s shots left (%s to shoot)");
         add("hud." + WallisUltimate.MOD_ID + ".downed.give_up", "Press %s to give up");
         add("hud." + WallisUltimate.MOD_ID + ".reviving", "Reviving...");
         add("hud." + WallisUltimate.MOD_ID + ".teammate_down", "%s is down! %s left");

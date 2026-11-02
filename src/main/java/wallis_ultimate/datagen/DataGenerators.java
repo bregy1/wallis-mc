@@ -22,7 +22,8 @@ public final class DataGenerators {
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, files));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(output, files));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output));
-        generator.addProvider(event.includeServer(), new ModBlockTagsProvider(output, event.getLookupProvider(), files));
+        ModBlockTagsProvider blockTags = generator.addProvider(event.includeServer(), new ModBlockTagsProvider(output, event.getLookupProvider(), files));
+        generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, event.getLookupProvider(), blockTags.contentsGetter(), files));
         generator.addProvider(event.includeServer(), new DisabledRecipeProvider(output));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(output));
     }

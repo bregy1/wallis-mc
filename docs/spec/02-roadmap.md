@@ -37,6 +37,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - 2026-11-02: item locks (PROG-002) and team unlocks (PROG-006) built on History Stages. New client smoke test (`tools/smoketest.sh`): a real client creates a fresh world, walks around and checks the locks, 18 checks passing. JEI pinned to 15.74.0.229 because newer builds crash with History Stages when a world loads.
 - 2026-11-02: regular zombies (ENEMY-001, ENEMY-002, ENEMY-005, ENEMY-012): our own zombie type replaces vanilla zombies in natural spawns, slower than walking by day and a bit faster at night, about 15% burn in daylight (hidden Sunburn), no babies, no block damage. 52 GameTests and 21 client smoke checks passing. History Stages' join message turned off.
 - 2026-11-02: pack mods in the dev runs (Hourglass, Farmer's Delight, A Balanced Diet, AppleSkin, Easy NPC, ImmersiveCinematics, Xaero's maps, performance mods, three decoration mods). SURV-007 done (16/8 minute days); SURV-009 and SURV-008 mostly done (our diet suite, weaker Nourishment); bed heal fixed for Hourglass's dawn wake-up; 59 GameTests and 45 client smoke checks passing.
+- 2026-11-02: trinkets (CMBT-003): the 20 Curios slots and seven Chapter 1 trinkets; give-up key moved to H because Curios uses G. 64 GameTests and 50 client smoke checks passing.
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)

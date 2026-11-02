@@ -88,7 +88,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 - [ ] New ores added later (WORLD-010) come with their own tools.
 
 **Open questions:**
-**Notes:** Answer to Q-112: "Just all, scale accordingly." Your words: "We should literally add tools for every ore too! So tools get faster and faster after time. But materials also harder!"
+**Notes:** Answer to Q-112: "Just all, scale accordingly." Your words: "We should literally add tools for every ore too! So tools get faster and faster after time. But materials also harder!" District 1's order (my starting values, tuned with balancing): wood, stone, copper, iron. Copper sits between stone and iron: 180 uses, mining speed 5, attack bonus 1.5 (stone: 131, 4, 1; iron: 250, 6, 2). Iron ore needs a copper pickaxe; copper ore a stone one. Copper tools unlock with the Iron stage, together with copper itself (Q-125).
 
 ### GEAR-007 — Tier 1 weapons
 **Status:** approved
@@ -107,7 +107,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 - [ ] The Pipe Bomb and the Moonshine Molotov never damage blocks: no crater, and the molotov's flames never light blocks or spread (answer to Q-142).
 
 **Open questions:**
-**Notes:** Decided 2026-11-01 (answer to Q-064 for tier 1). Numbers come with balancing.
+**Notes:** Decided 2026-11-01 (answer to Q-064 for tier 1). Numbers come with balancing. Starting values (my proposals, tuned with balancing), against an iron sword's 6 damage and 1.6 attacks per second. Nail Bat: 5 damage, 1.4 attacks per second, Bleeding for 4 seconds (1 damage per second, doesn't stack). Shovel: 4 damage, 1.0 attacks per second, strong knockback, stuns for 1 second (Slowness IV), still digs like a stone shovel. Pitchfork: 4.5 damage, 1.2 attacks per second, reach +1.5 blocks, also hits one enemy behind the target. Frying Pan: offhand, blocks one hit every 5 seconds like a shield, with a bong that counts as noise (about 12 blocks). Moonshine Molotov: 8-block throw, a 3-block burning patch for 5 seconds, 2 damage per second plus fire; flames never light blocks. Pipe Bomb: 8-block throw, beeps for 4 seconds and draws zombies within 24 blocks, then explodes for 12 damage in 4 blocks (no block damage). Slingshot: gravel ammo, 3 damage at full draw, silent; a shot landing makes noise (about 12 blocks) that draws zombies.
 
 ## Weapon idea pool (proposals)
 
@@ -144,3 +144,17 @@ Magic (the special book) comes later, on the magic planet (STORY-012).
 *Trinkets come from Curios slots (CMBT-003). Ideas collected here until the trinket list is specified. The Chapter 1 set is designed by Claude as proposals you can veto (Q-141).*
 
 - **Effect reveal** (your idea, answer to Q-134): shows the status effects enemies carry, for example which zombies have Sunburn (ENEMY-002) and will burn at sunrise. Found later in the game.
+
+### Chapter 1 trinkets (proposals, Q-141)
+
+*My designs around what the spec already needs; veto or change anything. Numbers are starting values. They're found in loot chests or given by quests (STORY) and stay on the allow-list, since Chapter 1 has no stage that unlocks them.*
+
+| Trinket | Slot | Effect | Why |
+|---|---|---|---|
+| Granny's Rabbit Foot | Charm | At night you deal 10% more damage to enemies and take 10% less from them | The key item from ENEMY-003; a Chapter 1 quest reward |
+| Jogging Headband | Head | +10% movement speed | The speed trinket from ENEMY-001, for outrunning zombies |
+| Worn Spurs | Belt | Your horse runs 15% faster while you ride it | TRANS-002 |
+| Lucky Horseshoe | Necklace | Your horse jumps 20% higher while you ride it | TRANS-002 |
+| Spare Clip | Belt | +5 shots on the downed pistol | SURV-001 |
+| Brass Knuckles | Hands | +1 attack damage | A plain early power boost |
+| Thick Flannel | Body | +2 armor | A plain early defense boost |

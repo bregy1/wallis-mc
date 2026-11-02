@@ -30,7 +30,7 @@ Getting around grows with progression: teleporting between safe spots from the s
 **Acceptance criteria:**
 - [ ] Horses (and donkeys and mules) can be found, tamed and ridden as in vanilla.
 - [ ] Horses are the only early mount.
-- [ ] Some trinkets improve the player's horse (e.g. speed or jump).
+- [x] Some trinkets improve the player's horse (e.g. speed or jump). (Worn Spurs, Lucky Horseshoe.)
 
 **Open questions:**
 **Notes:** Your words: "something like horses" and (answer to Q-097) "horse is early mount, it can be tuned with trinkets too!"
