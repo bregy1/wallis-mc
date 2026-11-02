@@ -137,3 +137,9 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 | Rocket-Fuel Flamethrower | 4 Launch | Tech | Cone of fire, fueled by rocket fuel from the launch project | Fallout, Wolfenstein |
 
 Magic (the special book) comes later, on the magic planet (STORY-012).
+
+## Trinket ideas
+
+*Trinkets come from Curios slots (CMBT-003). Ideas collected here until the trinket list is specified.*
+
+- **Effect reveal** (your idea, answer to Q-134): shows the status effects enemies carry, for example which zombies have Sunburn (ENEMY-002) and will burn at sunrise. Found later in the game.

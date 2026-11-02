@@ -10,33 +10,34 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 ## Requirements
 
 ### ENEMY-001 — Slow by day, faster at night
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: regular zombie day and night speed, measured by GameTests; Rallier buff and per-district balancing not built yet)
 **Priority:** must
 
 **Description:** During the day, regular zombies are always slower than a walking player. At night they're slightly faster than a walking player but still slower than a sprinting one. Special zombies like the Rallier buff them, which is what makes groups really dangerous.
 
 **Acceptance criteria:**
-- [ ] By day, regular zombies are slower than a walking player.
-- [ ] At night, regular zombies are slightly faster than a walking player and slower than a sprinting one.
+- [x] By day, regular zombies are slower than a walking player.
+- [x] At night, regular zombies are slightly faster than a walking player and slower than a sprinting one.
 - [ ] While a Rallier is alive, zombies within 8 blocks move 25% faster.
 - [ ] At night, buffed zombies can outrun an early-game player's sprint. Players catch up through speed trinkets (CMBT-003) and the skill tree (PROG-012). Once a player has progressed well in a district, buffed zombies there can no longer outrun them.
 - [ ] Zombie speed is balanced per district and planet against how fast players can be at that point, and re-checked whenever districts, planets or speed sources are added.
 
 **Open questions:**
-**Notes:** Your idea: "a version which buffs zombies around it to be a bit faster. So one dude literally." Speeds decided 2026-11-01 (answer to Q-078): "slower than player running but slightly faster than player normal walking in night. Otherwise always slower as player. Important to have the special zombies to buff them!" Changed 2026-11-01 (Q-113): first "never faster than sprint", then "In the night zombies might oversprint u with buffs! So there is trinkets required or levels to get more speed. When advanced in a district zombies should not be able to get faster anymore, but early on in night they do!" Day and night lengths are in SURV-007.
+**Notes:** Your idea: "a version which buffs zombies around it to be a bit faster. So one dude literally." Speeds decided 2026-11-01 (answer to Q-078): "slower than player running but slightly faster than player normal walking in night. Otherwise always slower as player. Important to have the special zombies to buff them!" Changed 2026-11-01 (Q-113): first "never faster than sprint", then "In the night zombies might oversprint u with buffs! So there is trinkets required or levels to get more speed. When advanced in a district zombies should not be able to get faster anymore, but early on in night they do!" Day and night lengths are in SURV-007. Speeds set 2026-11-02 (answer to Q-132): 80% of a walking player's speed by day, 110% at night (walking is about 4.3 m/s, sprinting 5.6 m/s), so a Rallier-buffed zombie at night (about 137%) outruns an early sprint. How it is built: a mob's ground speed grows with the square of its speed attribute, so "+25% faster" means about +11.8% on the attribute (see RegularZombie). Night counts from when beds work until morning in clear weather; thunderstorms don't make it night for zombies.
 
 ### ENEMY-002 — Only some zombies burn in sunlight
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: Sunburn on about 15% of regular zombies, hidden; verified by GameTests and the client smoke test; the reveal trinket not built yet)
 **Priority:** must
 
 **Description:** Zombies don't burn in daylight by default. About 15% of regular zombies carry a "burns in sunlight" effect, which naturally thins them out during the day.
 
 **Acceptance criteria:**
-- [ ] About 15% of regular zombies spawn with the "burns in sunlight" effect.
-- [ ] All other zombies don't burn in daylight.
+- [x] About 15% of regular zombies spawn with the "burns in sunlight" effect.
+- [x] All other zombies don't burn in daylight.
+- [ ] Players can't see which zombies carry the effect, unless they wear the trinket that reveals enemies' effects (answer to Q-134).
 
 **Open questions:**
-**Notes:** Decided 2026-11-01.
+**Notes:** Decided 2026-11-01. The effect is called Sunburn. Hidden by default (2026-11-02, answer to Q-134), your words: "normally not, but ofcourse there is a trinket for that which we get later. The trinket reveals effect on ememies" (see the trinket ideas in 40-gear.md).
 
 ### ENEMY-003 — Early nights are deadly
 **Status:** approved
@@ -70,13 +71,13 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words: "We stick to the potion brewing mechanic to get effects. Can always add more." Players keep getting effects through vanilla brewing (Q-025).
 
 ### ENEMY-005 — Only specials break blocks
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: regular zombies break no doors and trample no farmland or turtle eggs, verified by GameTests; the Brute and hardened blocks not built yet)
 **Priority:** must
 
 **Description:** Block breaking is super rare. Regular zombies can't break blocks, and only very few specials can, and only weak blocks. Nothing can break safe spot blocks or unminable blocks. Later, players can harden blocks with an alien material so enemies can't break them. Humans never invented this material, so it only comes from the aliens, and it isn't an early-game item.
 
 **Acceptance criteria:**
-- [ ] Regular zombies can't break or damage blocks.
+- [x] Regular zombies can't break or damage blocks.
 - [ ] In version 1, the Brute is the only enemy that breaks blocks, and only wood and cobblestone (proposal).
 - [ ] No enemy can break safe spot blocks or unminable blocks (WORLD-006).
 - [ ] Hardened blocks can't be broken by enemies.
@@ -177,7 +178,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** From the Final Fantasy vs. modpack comparison: "fights have mechanics, not just more health." Approach approved in principle 2026-11-01 (answer to Q-089): "Boss fights as u suggest the 3 points." Inspiration for Minecraft boss fights: L_Ender's Cataclysm (Forge 1.20.1).
 
 ### ENEMY-012 — Scarier zombies
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: our own zombie type with vanilla's look replaces vanilla zombies in natural spawns, no babies; verified by GameTests and the client smoke test; own look and animations not built yet)
 **Priority:** must
 
 **Description:** Zombies are scarier than vanilla ones: new looks and a few new animations, while still fitting Minecraft's style (pillar "it still looks like Minecraft").
@@ -186,6 +187,8 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - [ ] Regular zombies have their own look, clearly different from vanilla zombies (visual design to be approved).
 - [ ] They have a few new animations that make them feel more threatening (e.g. lurching walk, lunging attack).
 - [ ] Looks and animations stay in vanilla's art style.
+- [x] Regular zombies are our own zombie type, which replaces vanilla zombies, husks, drowned and zombie villagers in natural spawns (answers to Q-131, Q-135).
+- [x] There are no baby zombies (answer to Q-133).
 
 **Open questions:**
 **Notes:** Your words: "Zombies in general have to be scarier than normal zombie. So maybe few new animations and different looks." Custom animations likely need an animation library; picking one (and checking its license) is a technical check for the modpack spec.

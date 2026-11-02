@@ -10,6 +10,7 @@ import wallis_ultimate.progression.TeamUnlocks;
 import wallis_ultimate.registry.ModBlockEntities;
 import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.registry.ModEffects;
+import wallis_ultimate.registry.ModEntities;
 import wallis_ultimate.registry.ModItems;
 
 @Mod(WallisUltimate.MOD_ID)
@@ -23,7 +24,10 @@ public class WallisUltimate {
         ModBlockEntities.BLOCK_ENTITY_TYPES.register(modBus);
         ModItems.ITEMS.register(modBus);
         ModEffects.EFFECTS.register(modBus);
+        ModEntities.ENTITY_TYPES.register(modBus);
         modBus.addListener(ModItems::addToCreativeTabs);
+        modBus.addListener(ModEntities::registerAttributes);
+        modBus.addListener(ModEntities::registerSpawnPlacements);
         ModNetwork.register();
         TeamUnlocks.register();
     }

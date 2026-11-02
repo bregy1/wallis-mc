@@ -6,11 +6,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.effect.BandagedEffect;
+import wallis_ultimate.effect.SunburnEffect;
 
 public final class ModEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, WallisUltimate.MOD_ID);
 
     public static final RegistryObject<MobEffect> BANDAGED = EFFECTS.register("bandaged", BandagedEffect::new);
+    /** ENEMY-002. */
+    public static final RegistryObject<MobEffect> SUNBURN = EFFECTS.register("sunburn", SunburnEffect::new);
 
     private ModEffects() {
     }

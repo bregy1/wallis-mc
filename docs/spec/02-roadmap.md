@@ -35,6 +35,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - 2026-11-02: District 1 done and checked in-game: Overworld reshaped to Y 0–320, 2,000-block border, no End, no Overworld structures, district 1 ores. WORLD-001 and WORLD-009 implemented; WORLD-002, WORLD-005, WORLD-007, WORLD-010 partly implemented.
 - 2026-11-02: automated GameTests and hot reload in the dev setup. Unminable blocks (WORLD-006), Bandage (SURV-010), dodge roll (CMBT-002), downed state and revive (SURV-001, SURV-002), graves (SURV-004) and no bed crafting (SURV-005) built; server logic verified by 33 GameTests, controls, HUD and grave screen still to check in-game.
 - 2026-11-02: item locks (PROG-002) and team unlocks (PROG-006) built on History Stages. New client smoke test (`tools/smoketest.sh`): a real client creates a fresh world, walks around and checks the locks, 18 checks passing. JEI pinned to 15.74.0.229 because newer builds crash with History Stages when a world loads.
+- 2026-11-02: regular zombies (ENEMY-001, ENEMY-002, ENEMY-005, ENEMY-012): our own zombie type replaces vanilla zombies in natural spawns, slower than walking by day and a bit faster at night, about 15% burn in daylight (hidden Sunburn), no babies, no block damage. 52 GameTests and 21 client smoke checks passing. History Stages' join message turned off.
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)

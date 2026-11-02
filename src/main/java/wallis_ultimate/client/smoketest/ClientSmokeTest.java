@@ -131,6 +131,7 @@ public final class ClientSmokeTest {
         }));
         all.addAll(walkAround());
         all.addAll(LockSmokeSteps.steps());
+        all.addAll(ZombieSmokeSteps.steps());
         all.add(step("walk again", 45, player -> walk(40, 180)));
         all.add(step("screenshot at the end", 0, player -> screenshot("end")));
         return all;

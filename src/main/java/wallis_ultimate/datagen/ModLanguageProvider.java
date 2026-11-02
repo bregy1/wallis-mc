@@ -5,6 +5,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.registry.ModEffects;
+import wallis_ultimate.registry.ModEntities;
 import wallis_ultimate.registry.ModItems;
 
 public class ModLanguageProvider extends LanguageProvider {
@@ -22,6 +23,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("message." + WallisUltimate.MOD_ID + ".grave.not_yours", "This isn't your grave.");
         add(ModItems.BANDAGE.get(), "Bandage");
         add(ModEffects.BANDAGED.get(), "Bandaged");
+        add(ModEffects.SUNBURN.get(), "Sunburn");
+        add(ModEntities.ZOMBIE.get(), "Zombie");
+        add(ModItems.ZOMBIE_SPAWN_EGG.get(), "Zombie Spawn Egg");
         add("key.categories." + WallisUltimate.MOD_ID, "Wallis Ultimate");
         add("key." + WallisUltimate.MOD_ID + ".roll", "Dodge Roll");
         add("key." + WallisUltimate.MOD_ID + ".give_up", "Give Up (When Downed)");

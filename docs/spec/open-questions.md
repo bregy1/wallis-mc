@@ -129,6 +129,11 @@
 | Q-128 | History Stages marks locked items with a lock icon and a tooltip. Is that enough, or should they also be grayed out? | PROG-002 | answered: lock icon plus a gray tint over the item |
 | Q-129 | Should the vanilla recipe book show recipes for locked items? | PROG-002 | answered: no, it hides them; JEI shows them marked as locked with what unlocks them |
 | Q-130 | Do the hotbar and main-hand rules for locked items apply in creative mode? | PROG-002 | answered: no, creative and spectator players are exempt |
+| Q-131 | Regular zombies: change vanilla zombies, or our own zombie type? | ENEMY-001, ENEMY-002, ENEMY-005, ENEMY-012 | answered: our own zombie type, replacing vanilla ones in natural spawns |
+| Q-132 | How fast are regular zombies by day and at night? | ENEMY-001 | answered: 80% of a walking player's speed by day, 110% at night |
+| Q-133 | Baby zombies? | ENEMY-001, ENEMY-012 | answered: none |
+| Q-134 | Can players see which zombies carry the sunlight-burning effect? | ENEMY-002, CMBT-003 | answered: not normally; a trinket found later reveals the effects enemies carry |
+| Q-135 | Which vanilla mobs does our zombie replace in natural spawns? | ENEMY-012 | answered: zombies, husks, drowned and zombie villagers |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

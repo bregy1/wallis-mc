@@ -56,9 +56,9 @@ src/main/java/wallis_ultimate/
   WallisUltimate.java   # common entrypoint (@Mod), MOD_ID constant, logger
   client/               # client-only code (renderers, screens, keybinds)
   client/smoketest/     # dev-only client smoke test (runs only with -PsmokeTest)
-  registry/             # (planned) all registration (blocks, items, entities, etc.)
+  registry/             # all registration (blocks, items, entities, effects)
   worldgen/DistrictBorder.java  # WORLD-002: 2,000-block border on fresh worlds
-  block/ item/ entity/ network/ datagen/   # (planned) one feature area per package
+  block/ item/ entity/ effect/ network/ datagen/ progression/ survival/ ...   # one feature area per package
 src/main/resources/
   META-INF/mods.toml    # mod metadata, filled from gradle.properties
   pack.mcmeta
