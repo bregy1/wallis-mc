@@ -10,22 +10,26 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import wallis_ultimate.WallisUltimate;
+import wallis_ultimate.team.Teams;
 
 /**
  * SURV-002: a teammate revives a downed player by holding the use key on them for 3.5 seconds while standing
- * still. Taking damage cancels the revive and loses its progress. The client reports "still holding" once per
- * tick ({@link #hold}); progress advances at most once per game tick.
+ * still. Taking damage cancels the revive and loses its progress. While the key is held, the client reports
+ * {@link #hold} every tick and {@link #cancel} on release; progress runs on the server tick.
+ * Server-side only: the session map must never be touched from the client thread.
  */
 @Mod.EventBusSubscriber(modid = WallisUltimate.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Revive {
     public static final int REVIVE_TICKS = 70;
     public static final double REVIVE_RANGE = 3.0;
-    /** Released if no "holding" report arrived for this many ticks. */
-    private static final long RELEASE_TICKS = 3;
+    /** The revive stops if the client's "still holding" reports stop for this many ticks. */
+    public static final long RELEASE_TICKS = 10;
     private static final UUID FREEZE_ID = UUID.fromString("6c1f8a52-3f0e-4c2b-9a7e-2d4b1f0c9e11");
 
     private static final Map<Player, Session> SESSIONS = new WeakHashMap<>();
@@ -34,6 +38,7 @@ public final class Revive {
         final Player target;
         int progress;
         long lastHoldTick;
+        long lastProgressTick = -1;
 
         Session(Player target) {
             this.target = target;
@@ -43,35 +48,48 @@ public final class Revive {
     private Revive() {
     }
 
-    /** Only team members can revive each other. Uses vanilla scoreboard teams until FTB Teams is in the dev setup. */
-    public static boolean sameTeam(Player a, Player b) {
-        return a != b && a.isAlliedTo(b);
+    public static boolean canRevive(Player reviver, Player target) {
+        return !Downed.isDowned(reviver) && Downed.isDowned(target) && Teams.sameTeam(reviver, target)
+                && target.isAlive() && reviver.level() == target.level() && reviver.distanceTo(target) <= REVIVE_RANGE;
     }
 
-    /** Called once per tick while the reviver holds the use key on the target. */
+    /** The reviver holds the use key on the target. Starts a revive or keeps the current one going. */
     public static void hold(Player reviver, Player target) {
-        if (Downed.isDowned(reviver) || !Downed.isDowned(target) || !sameTeam(reviver, target)
-                || reviver.distanceTo(target) > REVIVE_RANGE) {
-            cancel(reviver);
+        Session session = SESSIONS.get(reviver);
+        if (session != null && session.target == target) {
+            session.lastHoldTick = reviver.level().getGameTime();
             return;
         }
-        long now = reviver.level().getGameTime();
-        Session session = SESSIONS.get(reviver);
-        if (session == null || session.target != target) {
-            cancel(reviver);
+        cancel(reviver);
+        if (canRevive(reviver, target)) {
             session = new Session(target);
-            session.lastHoldTick = now - 1;
+            session.lastHoldTick = reviver.level().getGameTime();
             SESSIONS.put(reviver, session);
             freeze(reviver, true);
         }
-        if (session.lastHoldTick == now) {
+    }
+
+    /** One server tick of the reviver's revive, if any: at most one step of progress per game tick. */
+    public static void tickSession(Player reviver) {
+        Session session = SESSIONS.get(reviver);
+        if (session == null) {
             return;
         }
-        session.lastHoldTick = now;
+        long now = reviver.level().getGameTime();
+        if (now - session.lastHoldTick > RELEASE_TICKS || !canRevive(reviver, session.target)) {
+            cancel(reviver);
+            return;
+        }
+        if (session.lastProgressTick == now) {
+            return;
+        }
+        session.lastProgressTick = now;
         session.progress++;
         if (session.progress >= REVIVE_TICKS) {
             cancel(reviver);
-            Downed.revive(target);
+            Downed.revive(session.target);
+        } else {
+            DownedSync.sendReviveProgress(reviver, session.progress);
         }
     }
 
@@ -87,6 +105,7 @@ public final class Revive {
     public static void cancel(Player reviver) {
         if (SESSIONS.remove(reviver) != null) {
             freeze(reviver, false);
+            DownedSync.sendReviveProgress(reviver, 0);
         }
     }
 
@@ -102,35 +121,52 @@ public final class Revive {
         }
     }
 
+    private static boolean isServerReviver(Player player) {
+        return !player.level().isClientSide() && isReviving(player);
+    }
+
+    private static void cancelIfReviving(Player player, Event event) {
+        if (isServerReviver(player)) {
+            event.setCanceled(true);
+        }
+    }
+
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide()) {
-            return;
-        }
-        Session session = SESSIONS.get(event.player);
-        if (session != null && event.player.level().getGameTime() - session.lastHoldTick > RELEASE_TICKS) {
-            cancel(event.player);
+        if (event.phase == TickEvent.Phase.END && !event.player.level().isClientSide()) {
+            tickSession(event.player);
         }
     }
 
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
-        if (event.getEntity() instanceof Player player) {
+        if (event.getEntity() instanceof Player player && !player.level().isClientSide()) {
             cancel(player);
         }
     }
 
     @SubscribeEvent
+    public static void onLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
+        cancel(event.getEntity());
+    }
+
+    @SubscribeEvent
     public static void onAttackEntity(AttackEntityEvent event) {
-        if (isReviving(event.getEntity())) {
-            event.setCanceled(true);
-        }
+        cancelIfReviving(event.getEntity(), event);
     }
 
     @SubscribeEvent
     public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
-        if (isReviving(event.getEntity())) {
-            event.setCanceled(true);
-        }
+        cancelIfReviving(event.getEntity(), event);
+    }
+
+    @SubscribeEvent
+    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        cancelIfReviving(event.getEntity(), event);
+    }
+
+    @SubscribeEvent
+    public static void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
+        cancelIfReviving(event.getEntity(), event);
     }
 }

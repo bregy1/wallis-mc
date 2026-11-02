@@ -10,37 +10,37 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 ## Requirements
 
 ### SURV-001 — Downed instead of dead
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: server logic verified by GameTests; controls and a placeholder HUD built, to check in-game)
 **Priority:** must
 
 **Description:** When a player would die, they go down instead. A downed player lies on the ground, crawls slowly and defends themselves with a simple pistol, like Left 4 Dead's incapacitated state. Enemies ignore downed players. Teammates have 90 seconds to revive them, or the player can give up and respawn right away.
 
 **Acceptance criteria:**
-- [ ] Lethal damage puts the player into the downed state instead of killing them. Falling into the void, dying in lava and /kill kill instantly.
-- [ ] A downed player lies on the ground and can crawl at vanilla crawling speed.
-- [ ] While downed, the player has a simple pistol with one 10-shot magazine. Its damage is OK-ish for the early game and can be raised by trinkets or items.
-- [ ] Enemies ignore downed players and don't attack them.
-- [ ] A downed player can press a button to give up and respawn right away (SURV-003, SURV-004).
-- [ ] If not revived within 90 seconds, the player dies (SURV-003, SURV-004).
-- [ ] Teammates see a marker over a downed player (visible through walls), hear a call-for-help sound, and see the remaining time on screen.
+- [x] Lethal damage puts the player into the downed state instead of killing them. Falling into the void, dying in lava and /kill kill instantly. (Lava also kills a player who is already downed.)
+- [ ] A downed player lies on the ground and can crawl at vanilla crawling speed. (Implemented: forced crawl pose, no sprinting or jumping; to check in-game.)
+- [ ] While downed, the player has a simple pistol with one 10-shot magazine. Its damage is OK-ish for the early game and can be raised by trinkets or items. (10 shots, 4 damage, 24 blocks verified by GameTests; the attack key fires one shot per click, to check in-game; raising the damage comes with trinkets.)
+- [x] Enemies ignore downed players and don't attack them. (Enemies drop a downed target, can't pick one, and downed players take no damage except the instant-death cases.)
+- [ ] A downed player can press a button to give up and respawn right away (SURV-003, SURV-004). (Giving up verified by GameTests; the key, G by default, to check in-game.)
+- [x] If not revived within 90 seconds, the player dies (SURV-003, SURV-004).
+- [ ] Teammates see a marker over a downed player (visible through walls), hear a call-for-help sound, and see the remaining time on screen. (Implemented: glowing outline, an alert sound for teammates when someone goes down plus a help sound at the spot every 5 seconds, and a list of downed teammates with their time on screen; to check in-game.)
 
-**Open questions:**
+**Open questions:** Q-121
 **Notes:** From dying.md, refined 2026-11-01 (answers to Q-048, Q-049, Q-050). dying.md said "like 30 seconds"; 90 seconds is the only timer (answer to Q-047). Instant-death cases decided (answer to Q-051). Solo players follow the same rules; the give-up button means they don't have to wait out the timer. The downed pistol exists only while downed, so it doesn't replace the hard-to-craft guns of tier 3.
 
 ### SURV-002 — Reviving a teammate
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: server logic verified by GameTests; holding the use key and the progress bar to check in-game)
 **Priority:** must
 
 **Description:** A team member revives a downed player by holding the use key on them for 3–4 seconds while standing still. Taking damage interrupts the revive, so reviving in the middle of a big group of enemies is hard.
 
 **Acceptance criteria:**
-- [ ] Only members of the downed player's team can revive them.
-- [ ] Reviving takes 3.5 seconds of holding the use key.
-- [ ] While reviving, the reviver can't move, attack or use items.
-- [ ] If the reviver takes damage, the revive is cancelled and its progress is lost.
-- [ ] A revived player gets back up with half health.
+- [x] Only members of the downed player's team can revive them. (Vanilla scoreboard teams until FTB Teams is in the dev setup; the reviver must be up and within 3 blocks.)
+- [ ] Reviving takes 3.5 seconds of holding the use key. (70 ticks verified by GameTests; letting go stops it; holding the key to check in-game.)
+- [ ] While reviving, the reviver can't move, attack or use items. (Movement lock verified by GameTests; attack and item blocking to check in-game.)
+- [x] If the reviver takes damage, the revive is cancelled and its progress is lost.
+- [x] A revived player gets back up with half health.
 
-**Open questions:**
+**Open questions:** Q-121
 **Notes:** Not chosen (2026-11-01): coming back weak, "second down is final", and hits on a downed player shortening the timer.
 
 ### SURV-003 — Respawn at your bed
@@ -57,23 +57,23 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** Your words: "After 90 seconds he teleports to last save, which is literally a bed."
 
 ### SURV-004 — Graves keep your items
-**Status:** approved
+**Status:** approved (implemented 2026-11-02, verified by GameTests; a real death, the grave screen and the placeholder look still to check in-game)
 **Priority:** must
 
 **Description:** Death works like vanilla, except the player's items go into a grave instead of dropping on the ground. Only the player who died can open it. A grave with items lasts 60 minutes; after that it's gone, with everything in it. An empty grave is removed right away. Dying also costs some level progress (PROG-009).
 
 **Acceptance criteria:**
-- [ ] On death, the player's items go into a grave at the place they died instead of dropping.
-- [ ] If the player died in lava or the void, the grave appears at the last safe spot they stood on.
-- [ ] Only the player who died can take items out of their grave.
-- [ ] The grave is removed as soon as it's empty.
-- [ ] A grave that still holds items lasts 60 minutes, then disappears together with its contents.
+- [x] On death, the player's items go into a grave at the place they died instead of dropping. (A grave holds 54 stacks; more items get a second grave next to it. If there's no room at all, items drop as in vanilla.)
+- [x] If the player died in lava or the void, the grave appears at the last safe spot they stood on.
+- [x] Only the player who died can take items out of their grave. (Right-click opens a chest-like screen for the owner only. Graves can't be mined, blown up or emptied by hoppers.)
+- [x] The grave is removed as soon as it's empty.
+- [x] A grave that still holds items lasts 60 minutes, then disappears together with its contents. (World time, so it only counts while the server runs.)
 
-**Open questions:**
+**Open questions:** Q-122
 **Notes:** First "like 20 minutes"; changed 2026-11-01 (answer to Q-053): "make it 60 minutes but it is lost after."
 
 ### SURV-005 — Beds are rare heal and respawn points
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: bed recipes removed, verified by GameTests)
 **Priority:** must
 
 **Description:** Beds are the heal and respawn points. Each player has one bed per planet, plus the beds already placed in safe spots (SURV-006). Beds can't be crafted. On every planet the bed comes from a quest, sometimes earlier, sometimes later; on Earth it's early, for the team's first home. Sleeping fully heals you, and sleeping through the night still works as in vanilla.
@@ -81,14 +81,14 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Acceptance criteria:**
 - [ ] A bed sets the player's respawn point, as in vanilla.
 - [ ] Sleeping in a bed fully heals the player.
-- [ ] Beds can't be crafted.
+- [x] Beds can't be crafted. (The 16 bed recipes are switched off; dyeing a bed you already have still works, see Q-123.)
 - [ ] Each player can own one bed per planet; it comes from a quest on that planet.
 - [ ] On Earth, every player receives their bed early, used to set up the team's first home (quest "create first home").
 - [ ] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
 - [ ] A player can pick up their bed and place it again, which moves their home (WORLD-012).
 - [ ] When players sleep, the night races by in a few seconds (Hourglass) instead of being skipped instantly.
 
-**Open questions:** Q-107
+**Open questions:** Q-107, Q-123
 **Notes:** Your words: "Beds cannot be placed everywhere and are not easy to obtain. Beds can still be used to sleep through a night." Refined 2026-11-01 (answers to Q-052): "each player to have one bed per planet + the safe spot beds. On the new planet the bed is achievable through quest always." Picking up and moving the bed follows from "home bed decides" (WORLD-012).
 
 ### SURV-006 — Safe spots

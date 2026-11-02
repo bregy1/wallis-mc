@@ -23,5 +23,6 @@ public final class DataGenerators {
         generator.addProvider(event.includeClient(), new ModItemModelProvider(output, files));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output));
         generator.addProvider(event.includeServer(), new ModBlockTagsProvider(output, event.getLookupProvider(), files));
+        generator.addProvider(event.includeServer(), new DisabledRecipeProvider(output));
     }
 }

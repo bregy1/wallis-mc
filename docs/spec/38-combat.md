@@ -22,7 +22,7 @@ Fighting is real-time and built on vanilla Minecraft combat. On top of that, pla
 **Notes:** Your words: "Default minecraft mechanics with like an additional roll to use and dodge."
 
 ### CMBT-002 — Dodge roll
-**Status:** approved (partly implemented 2026-11-02: server logic verified by GameTests; in-game feel, chat key and downed check still open)
+**Status:** approved (partly implemented 2026-11-02: server logic verified by GameTests; in-game feel and chat key still open)
 **Priority:** must
 
 **Description:** Players can do a quick forward roll to get out of the way of attacks.
@@ -33,7 +33,7 @@ Fighting is real-time and built on vanilla Minecraft combat. On top of that, pla
 - [ ] The roll key defaults to T and can be rebound. (Implemented; to check in-game.)
 - [ ] The pack moves vanilla's "open chat" default from T to Enter, so the two don't clash. (Pack config, done when the pack is assembled.)
 - [x] The player is immune to damage for a split second (about 0.25 seconds) during the roll. (5 ticks; void and /kill still hit.)
-- [ ] A downed player (SURV-001) can't roll. (Added with SURV-001.)
+- [x] A downed player (SURV-001) can't roll.
 
 **Open questions:** Q-120
 **Notes:** Decided 2026-11-01: "just a roll, going forward. Bound on T in beginning." Built in our own mod (PACK-005), no fork. No roll animation yet (presentation, later).

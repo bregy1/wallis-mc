@@ -211,10 +211,12 @@ public final class DownedGameTests {
         PlayerTeam team = team(helper, "wu_t_revive", reviver, target);
         knockDown(helper, target);
         double speed = reviver.getAttributeValue(Attributes.MOVEMENT_SPEED);
+        // Mock players aren't ticked by the level, so the test drives the session like the player tick would.
         helper.onEachTick(() -> {
             if (Downed.isDowned(target)) {
                 Revive.hold(reviver, target);
-                Revive.hold(reviver, target); // a second report in the same tick must not count twice
+                Revive.tickSession(reviver);
+                Revive.tickSession(reviver); // a second tick call in the same game tick must not count twice
             }
         });
         helper.runAfterDelay(Revive.REVIVE_TICKS - 3, () -> {
@@ -248,6 +250,7 @@ public final class DownedGameTests {
         try {
             knockDown(helper, target);
             Revive.hold(reviver, target);
+            Revive.tickSession(reviver);
             if (!Revive.isReviving(reviver) || Revive.progress(reviver) != 1) {
                 helper.fail("revive did not start");
             }
@@ -285,6 +288,58 @@ public final class DownedGameTests {
             }
         } finally {
             removeTeam(helper, team);
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template = PLATFORM, timeoutTicks = 60)
+    public static void reviveStopsWhenTheKeyIsReleased(GameTestHelper helper) {
+        Player reviver = mockPlayer(helper, "rv_release", new BlockPos(2, 2, 2));
+        Player target = mockPlayer(helper, "rv_left", new BlockPos(3, 2, 2));
+        PlayerTeam team = team(helper, "wu_t_release", reviver, target);
+        knockDown(helper, target);
+        Revive.hold(reviver, target);
+        Revive.tickSession(reviver);
+        Revive.cancel(reviver); // the client's "released" report
+        if (Revive.isReviving(reviver) || Revive.progress(reviver) != 0) {
+            helper.fail("revive went on after release");
+        }
+        // No release report at all (e.g. lag): the server stops on its own.
+        Revive.hold(reviver, target);
+        helper.onEachTick(() -> Revive.tickSession(reviver));
+        helper.runAfterDelay(Revive.RELEASE_TICKS + 3, () -> {
+            removeTeam(helper, team);
+            if (Revive.isReviving(reviver)) {
+                helper.fail("revive went on without hold reports");
+            }
+            if (!Downed.isDowned(target)) {
+                helper.fail("target got up");
+            }
+            helper.succeed();
+        });
+    }
+
+    @GameTest(template = PLATFORM)
+    public static void lavaStillKillsADownedPlayer(GameTestHelper helper) {
+        Player player = mockPlayer(helper, "dn_lavadown", new BlockPos(2, 2, 2));
+        knockDown(helper, player);
+        player.invulnerableTime = 0; // skip vanilla's hurt cooldown from the knock-down hit
+        player.hurt(helper.getLevel().damageSources().lava(), LETHAL);
+        if (Downed.isDowned(player) || !player.isDeadOrDying()) {
+            helper.fail("lava did not kill the downed player");
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template = PLATFORM)
+    public static void noJumpingWhileDowned(GameTestHelper helper) {
+        Player player = mockPlayer(helper, "dn_nojump", new BlockPos(2, 2, 2));
+        knockDown(helper, player);
+        player.setOnGround(true);
+        player.setDeltaMovement(0.0, 0.0, 0.0);
+        player.jumpFromGround();
+        if (player.getDeltaMovement().y > 0.0) {
+            helper.fail("jumped while downed");
         }
         helper.succeed();
     }

@@ -18,6 +18,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         cubeWithItem(ModBlocks.REINFORCED_CONCRETE);
         cubeWithItem(ModBlocks.RIVETED_STEEL);
         cubeWithItem(ModBlocks.ALIEN_ALLOY);
+        simpleBlock(ModBlocks.GRAVE.get()); // no item: only deaths make graves
     }
 
     private void cubeWithItem(RegistryObject<Block> block) {

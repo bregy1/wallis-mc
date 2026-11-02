@@ -1,8 +1,10 @@
-// 1.20.1	2026-11-02T00:33:20.7668336	Block States: wallis_ultimate
+// 1.20.1	2026-11-02T01:20:35.6573516	Block States: wallis_ultimate
 284692ce9f60ff07ff5f6fd0c20861580b21a1d8 assets/wallis_ultimate/blockstates/alien_alloy.json
+165cb20c659f9ff8c090c4091fed53ff5c887a9a assets/wallis_ultimate/blockstates/grave.json
 8d7218637877c1553ac3d0bd1bccca6dc86f0355 assets/wallis_ultimate/blockstates/reinforced_concrete.json
 ebf7579b60d0fa335ff5e969aa5c6a00971081ac assets/wallis_ultimate/blockstates/riveted_steel.json
 b7810012e27643670402148dde93c348c9444148 assets/wallis_ultimate/models/block/alien_alloy.json
+e122e2cb5ad4a39c1c5a4d10295f2f7c5cd05c25 assets/wallis_ultimate/models/block/grave.json
 2830fa935bfa51ef4d417fdbd78a48135fcf28ab assets/wallis_ultimate/models/block/reinforced_concrete.json
 15e0aa251e5c008a458b71d849a5b5c07d562a6b assets/wallis_ultimate/models/block/riveted_steel.json
 62b0a884b115dd4ac2d662a6cc3b594145721a94 assets/wallis_ultimate/models/item/alien_alloy.json

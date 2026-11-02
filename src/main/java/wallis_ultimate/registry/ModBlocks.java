@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
+import wallis_ultimate.block.GraveBlock;
 
 public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, WallisUltimate.MOD_ID);
@@ -20,6 +21,10 @@ public final class ModBlocks {
             () -> new Block(unminable(MapColor.METAL, SoundType.NETHERITE_BLOCK)));
     public static final RegistryObject<Block> ALIEN_ALLOY = BLOCKS.register("alien_alloy",
             () -> new Block(unminable(MapColor.COLOR_PURPLE, SoundType.AMETHYST)));
+
+    /** SURV-004: unbreakable too, so nobody but the owner gets at the items. No block item: only deaths make graves. */
+    public static final RegistryObject<Block> GRAVE = BLOCKS.register("grave",
+            () -> new GraveBlock(unminable(MapColor.STONE, SoundType.STONE)));
 
     private ModBlocks() {
     }

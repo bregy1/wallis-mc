@@ -21,7 +21,9 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -72,6 +74,7 @@ public final class Downed {
         data.putInt(AMMO, PISTOL_SHOTS);
         player.setHealth(1.0F);
         player.clearFire();
+        player.setSprinting(false);
         player.setForcedPose(Pose.SWIMMING);
         player.addEffect(new MobEffectInstance(MobEffects.GLOWING, DOWNED_TICKS, 0, false, false));
         for (Mob mob : player.level().getEntitiesOfClass(Mob.class, player.getBoundingBox().inflate(ENEMY_FORGET_RADIUS),
@@ -79,6 +82,24 @@ public final class Downed {
             mob.setTarget(null);
         }
         DownedSync.sendState(player);
+        DownedSync.alertTeammates(player);
+    }
+
+    /**
+     * Client side: mirrors the synced state into the local player's data, so {@link #isDowned} and the event
+     * handlers below also work on the client (no predicted item use, jumping or attacking while downed).
+     */
+    public static void applySyncedState(Player player, int ticksLeft, int ammo) {
+        CompoundTag data = player.getPersistentData();
+        if (ticksLeft > 0) {
+            data.putInt(TICKS_LEFT, ticksLeft);
+            data.putInt(AMMO, ammo);
+            player.setForcedPose(Pose.SWIMMING);
+        } else {
+            data.remove(TICKS_LEFT);
+            data.remove(AMMO);
+            player.setForcedPose(null);
+        }
     }
 
     /** Ends the downed state and gets the player back up with half health (SURV-002). */
@@ -149,10 +170,35 @@ public final class Downed {
 
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void onLivingDeath(LivingDeathEvent event) {
-        if (event.getEntity() instanceof Player player && !player.level().isClientSide()
-                && !isDowned(player) && !killsInstantly(event.getSource(), player)) {
+        if (!(event.getEntity() instanceof Player player) || player.level().isClientSide()) {
+            return;
+        }
+        if (isDowned(player)) {
+            // Only instant-death sources get through to a downed player: the death is real, so end the downed state.
+            clear(player);
+            DownedSync.sendState(player);
+        } else if (!killsInstantly(event.getSource(), player)) {
             event.setCanceled(true);
             goDown(player);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        DownedSync.sendState(event.getEntity());
+    }
+
+    @SubscribeEvent
+    public static void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        DownedSync.sendState(event.getEntity());
+    }
+
+    /** A downed player lies on the ground: no jumping. Runs on both sides; the client knows through {@link #applySyncedState}. */
+    @SubscribeEvent
+    public static void onJump(LivingEvent.LivingJumpEvent event) {
+        if (event.getEntity() instanceof Player player && isDowned(player)) {
+            Vec3 motion = player.getDeltaMovement();
+            player.setDeltaMovement(motion.x, Math.min(motion.y, 0.0), motion.z);
         }
     }
 

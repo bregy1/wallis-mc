@@ -33,6 +33,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 **Progress**
 - 2026-11-01: mod skeleton builds; client and dedicated server load the mod.
 - 2026-11-02: District 1 done and checked in-game: Overworld reshaped to Y 0–320, 2,000-block border, no End, no Overworld structures, district 1 ores. WORLD-001 and WORLD-009 implemented; WORLD-002, WORLD-005, WORLD-007, WORLD-010 partly implemented.
+- 2026-11-02: automated GameTests and hot reload in the dev setup. Unminable blocks (WORLD-006), Bandage (SURV-010), dodge roll (CMBT-002), downed state and revive (SURV-001, SURV-002), graves (SURV-004) and no bed crafting (SURV-005) built; server logic verified by 33 GameTests, controls, HUD and grave screen still to check in-game.
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)

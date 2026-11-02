@@ -28,5 +28,30 @@ public final class ModNetwork {
                 .decoder(DownedStatePacket::decode)
                 .consumerMainThread(DownedStatePacket::handle)
                 .add();
+        CHANNEL.messageBuilder(TeammateDownedPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(TeammateDownedPacket::encode)
+                .decoder(TeammateDownedPacket::decode)
+                .consumerMainThread(TeammateDownedPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(ReviveProgressPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ReviveProgressPacket::encode)
+                .decoder(ReviveProgressPacket::decode)
+                .consumerMainThread(ReviveProgressPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(FirePistolPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(FirePistolPacket::encode)
+                .decoder(FirePistolPacket::decode)
+                .consumerMainThread(FirePistolPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(GiveUpPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(GiveUpPacket::encode)
+                .decoder(GiveUpPacket::decode)
+                .consumerMainThread(GiveUpPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(ReviveHoldPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(ReviveHoldPacket::encode)
+                .decoder(ReviveHoldPacket::decode)
+                .consumerMainThread(ReviveHoldPacket::handle)
+                .add();
     }
 }

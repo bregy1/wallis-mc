@@ -17,9 +17,19 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.REINFORCED_CONCRETE.get(), "Reinforced Concrete");
         add(ModBlocks.RIVETED_STEEL.get(), "Riveted Steel");
         add(ModBlocks.ALIEN_ALLOY.get(), "Alien Alloy");
+        add(ModBlocks.GRAVE.get(), "Grave");
+        add("container." + WallisUltimate.MOD_ID + ".grave", "Grave of %s");
+        add("message." + WallisUltimate.MOD_ID + ".grave.not_yours", "This isn't your grave.");
         add(ModItems.BANDAGE.get(), "Bandage");
         add(ModEffects.BANDAGED.get(), "Bandaged");
         add("key.categories." + WallisUltimate.MOD_ID, "Wallis Ultimate");
         add("key." + WallisUltimate.MOD_ID + ".roll", "Dodge Roll");
+        add("key." + WallisUltimate.MOD_ID + ".give_up", "Give Up (When Downed)");
+        add("hud." + WallisUltimate.MOD_ID + ".downed.title", "You're down!");
+        add("hud." + WallisUltimate.MOD_ID + ".downed.time_left", "Time left: %s");
+        add("hud." + WallisUltimate.MOD_ID + ".downed.ammo", "Pistol: %s/%s shots (%s to shoot)");
+        add("hud." + WallisUltimate.MOD_ID + ".downed.give_up", "Press %s to give up");
+        add("hud." + WallisUltimate.MOD_ID + ".reviving", "Reviving...");
+        add("hud." + WallisUltimate.MOD_ID + ".teammate_down", "%s is down! %s left");
     }
 }

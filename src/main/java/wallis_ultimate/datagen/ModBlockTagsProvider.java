@@ -19,5 +19,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         // WORLD-006: not even the wither or the ender dragon may break unminable blocks.
         tag(BlockTags.WITHER_IMMUNE).add(ModBlocks.REINFORCED_CONCRETE.get(), ModBlocks.RIVETED_STEEL.get(), ModBlocks.ALIEN_ALLOY.get());
         tag(BlockTags.DRAGON_IMMUNE).add(ModBlocks.REINFORCED_CONCRETE.get(), ModBlocks.RIVETED_STEEL.get(), ModBlocks.ALIEN_ALLOY.get());
+        // SURV-004: graves are just as unbreakable, so nobody but the owner gets at the items.
+        tag(BlockTags.WITHER_IMMUNE).add(ModBlocks.GRAVE.get());
+        tag(BlockTags.DRAGON_IMMUNE).add(ModBlocks.GRAVE.get());
     }
 }
