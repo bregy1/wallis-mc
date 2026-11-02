@@ -125,6 +125,10 @@
 | Q-124 | The starter set alone would lock dirt, cobblestone and planks. How should the lock list work? | PROG-002 | answered: allow-list; everything is locked except the starter set plus basic building blocks and materials (list in PROG-002, to review) |
 | Q-125 | What unlocks during Chapter 1? | PROG-002, PROG-008 | answered: an Iron stage (iron and copper materials, iron tools, sword and armor) unlocked by a Chapter 1 quest; everything else in placeholder stages per later tier |
 | Q-126 | When joining a team, what happens to unlocks the team does not have? | PROG-006 | answered: the joiner loses them, so all members always match |
+| Q-127 | Leather armor, boats, fishing rod, buttons and pressure plates: unlocked from the start, or locked until a later stage? | PROG-002 | answered: all four are unlocked from the start (wooden and stone buttons and pressure plates only) |
+| Q-128 | History Stages marks locked items with a lock icon and a tooltip. Is that enough, or should they also be grayed out? | PROG-002 | answered: lock icon plus a gray tint over the item |
+| Q-129 | Should the vanilla recipe book show recipes for locked items? | PROG-002 | answered: no, it hides them; JEI shows them marked as locked with what unlocks them |
+| Q-130 | Do the hotbar and main-hand rules for locked items apply in creative mode? | PROG-002 | answered: no, creative and spectator players are exempt |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

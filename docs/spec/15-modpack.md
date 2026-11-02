@@ -87,7 +87,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 
 **Open questions:** Q-064, Q-091, Q-093, Q-096
 **Notes:** Picks are recommendations from the 2026-11-01 research; confirm or swap. Tech and power decided 2026-11-01: Energized Power for both, power trimmed. Its Forge Energy compatibility is unverified; Forge 1.20.1 itself provides the `IEnergyStorage` capability.
-Dev setup (2026-11-02): the mods our code works with load in the dev runs, at their latest Forge 1.20.1 releases: FTB Quests 2001.4.22, FTB Teams 2001.3.2, History Stages 6.1.1-1.20.1, Lootr 0.7.35.94, Curios API 5.14.1+1.20.1, JEI 15.74.0.234. FTB Quests and Teams also need FTB Library (2001.2.13) and Architectury (9.2.14), so the pack needs those two as well; their licenses are not yet checked. Versions live in `gradle.properties`.
+Dev setup (2026-11-02): the mods our code works with load in the dev runs, at their latest Forge 1.20.1 releases: FTB Quests 2001.4.22, FTB Teams 2001.3.2, History Stages 6.1.1-1.20.1, Lootr 0.7.35.94, Curios API 5.14.1+1.20.1, JEI 15.74.0.229 (from 15.74.0.230 on, History Stages' JEI fluid patch fails to load and the game crashes as soon as a world loads, checked 2026-11-02). FTB Quests and Teams also need FTB Library (2001.2.13) and Architectury (9.2.14), so the pack needs those two as well; their licenses are not yet checked. Versions live in `gradle.properties`.
 
 ### PACK-005 — Built in our own mod
 **Status:** approved
@@ -97,7 +97,7 @@ Dev setup (2026-11-02): the mods our code works with load in the dev runs, at th
 
 | System | Spec | Why our own |
 |---|---|---|
-| Locked-item handling on top of History Stages: pickup only into the 27 main slots (stays on the ground if full), locked items in the hotbar or hands move back to the main inventory, offhand and armor refusal where History Stages doesn't cover it, grayed-out rendering, and optionally "unlocked by…" info in JEI | PROG-002 | History Stages doesn't do these (checked 2026-11-01, Q-091) and can't be forked; our code uses its API to ask whether an item is locked for a player |
+| Locked-item handling on top of History Stages: pickup only into the 27 main slots (stays on the ground if full), locked items in the hotbar or hands move back to the main inventory, grayed-out rendering, and optionally "unlocked by…" info in JEI | PROG-002 | History Stages doesn't do these (checked 2026-11-01, Q-091; it does refuse locked items in the offhand and armor slots itself, found 2026-11-02) and can't be forked; our code uses its API to ask whether an item is locked for a player |
 | Districts as dimensions, with per-district world borders | WORLD-002 | Datapack dimensions work, but vanilla only sends the Overworld's border to players (bug MC-213713), and no Forge 1.20.1 mod fixes it |
 | District map and safe spot travel | WORLD-003, WORLD-004 | Map mods are ARR and can't be extended |
 | Unminable blocks and hardening | WORLD-006, ENEMY-005 | Our own content |

@@ -25,28 +25,30 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Notes:** Matches the "planets stack" decision (open-ended planet count).
 
 ### PROG-002 — Content is locked by default
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: locks run on History Stages with the stage files in pack/config; slot rules verified by GameTests; slot rules, the locked look and tooltip, crafting, the recipe book and JEI's lock mark verified in a real client by the smoke test; quests that unlock stages not built yet)
 **Priority:** must
 
 **Description:** At the start, only a small starter set of items can be crafted and used (e.g. basic swords and bows). Everything else is locked until the team unlocks it. A locked item can be obtained and carried, but not used or crafted.
 
 **Acceptance criteria:**
 - [ ] A new team can craft and use only the starter set: wood and stone tools and weapons, bows and arrows, crafting table, furnace, torches, chests, campfire and basic food. Iron and everything beyond unlocks through the story.
-- [ ] Locked items can be picked up. They go only into the 27 main inventory slots, never the hotbar. If those slots are full, the item stays on the ground.
-- [ ] If a locked item ends up in the main hand (e.g. moved to the hotbar and selected), it moves back into the main inventory, or drops at the player's feet if that is full.
-- [ ] Offhand and armor slots don't accept locked items, and locked blocks can't be placed (right-click does nothing).
-- [ ] Locked items can't be used from the inventory either, and are shown grayed out there.
-- [ ] Recipes that produce locked items can't be crafted. They are shown grayed out with info on what unlocks them.
+- [x] Locked items can be picked up. They go only into the 27 main inventory slots, never the hotbar. If those slots are full, the item stays on the ground.
+- [x] If a locked item ends up in the main hand (e.g. moved to the hotbar and selected), it moves back into the main inventory, or drops at the player's feet if that is full.
+- [x] Offhand and armor slots don't accept locked items, and locked blocks can't be placed (right-click does nothing).
+- [ ] Locked items can't be used from the inventory either, and are shown grayed out there: a gray tint over the item plus a lock icon, and a tooltip naming the stage that unlocks it (answer to Q-128).
+- [ ] Recipes that produce locked items can't be crafted. JEI shows them marked as locked with info on what unlocks them; the vanilla recipe book hides them (answer to Q-129).
+- [x] Creative and spectator players are exempt from the hotbar and main-hand rules (answer to Q-130).
 - [ ] Locking is per team: an item unlocked by one team stays locked for members of another team.
 - [ ] Locking also applies to items from other mods in the pack, not only our own.
 - [ ] Machines (furnaces and other mods' machines included) are gated by being locked items themselves. Once placed, a machine processes its recipes without checking locks.
 - [ ] No machine available in a tier has a recipe whose output belongs to a later tier (machine recipes are curated per tier).
 
-**Unlocked from the start (allow-list, draft for your review):** everything in the pack is locked except this list (answer to Q-124).
+**Unlocked from the start (allow-list):** everything in the pack is locked except this list (answer to Q-124).
 
 | Group | Items |
 |---|---|
 | Starter set (Q-004) | Wooden and stone swords, pickaxes, axes, shovels and hoes; bow, arrow; crafting table, furnace, torch, chest, campfire |
+| Early extras (Q-127) | Leather armor, boats and chest boats (all wood types), fishing rod, wooden and stone buttons and pressure plates |
 | Basic food | Bread, apple, carrot, potato, baked potato, beetroot, melon slice, sweet berries, raw and cooked beef, pork, chicken, mutton, rabbit, cod and salmon, mushroom stew, beetroot soup, pumpkin pie, cookie, dried kelp, rotten flesh |
 | Natural blocks | Dirt, coarse dirt, gravel, sand, red sand, clay and clay balls, stone, cobblestone, mossy cobblestone, andesite, diorite, granite, sandstone, red sandstone, snowballs, snow block |
 | Wood (all wood types) | Logs, planks, slabs, stairs, fences, fence gates, doors, trapdoors, signs, saplings, leaves, sticks, ladders |
@@ -64,7 +66,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 | Gunsmith, Launch | Empty placeholders | Tiers 3 and 4 |
 
 **Open questions:**
-**Notes:** Starter set decided 2026-11-01 (answer to Q-004). Allow-list instead of a literal starter set (2026-11-02, answer to Q-124), so basic building works from day one; anything not on the list, including new mods' items, stays locked until we allow it. Not on the list yet, to decide when reviewing: leather armor, boats, fishing rod, buttons and pressure plates. Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier.
+**Notes:** Starter set decided 2026-11-01 (answer to Q-004). Allow-list instead of a literal starter set (2026-11-02, answer to Q-124), so basic building works from day one; anything not on the list, including new mods' items, stays locked until we allow it. Early extras added 2026-11-02 (answer to Q-127). How it is built: the Settler stage locks whole mods (its `mods` list) minus the allow-list, so every new pack mod that adds items must be added to that list, or its items stay unlocked. Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier. Checked in a real client on 2026-11-02 by the smoke test (`tools/smoketest.sh`): pickups, main hand, offhand and armor, gray tint with lock icon, the tooltip ("Required Individual Progress: • Iron"), crafting refused, the recipe book without the iron pickaxe, JEI's recipe view marked "Locked", unlocking and relocking the Iron stage, creative exempt. History Stages refuses the offhand and armor slots itself and puts the item into the first free inventory slot, which can be in the hotbar (the main-hand rule always uses the main inventory). Placing can't happen because a locked block can't stay in the hand. Still open in the criteria above: using locked items from the inventory, and JEI's info on what unlocks a recipe (the recipe view shows "Locked" only).
 
 ### PROG-003 — Story quests unlock content
 **Status:** approved
@@ -111,7 +113,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Notes:** Your call: "mainly story driven, with some points needed for special utility items." Decided 2026-11-01 (answers to Q-006, Q-007): all four extra sources and all four categories. Mobility and base defense extras are the categories most likely to need tier limits (Q-024).
 
 ### PROG-006 — Progression is owned by the team
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-02: unlocks only. History Stages shares them across the FTB team, including offline members, and copies them on leaving; a joiner loses unlocks the team lacks, verified by GameTests. Tier, story progress and points not built yet)
 **Priority:** must
 
 **Description:** Tier, story progress, unlocks and utility points belong to a team. A solo player is a team of one.

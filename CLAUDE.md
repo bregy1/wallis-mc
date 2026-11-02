@@ -42,6 +42,7 @@ If any field above still says TODO, ask me before writing code that depends on i
 - Run server: `./gradlew runServer`  (use this to catch client-only code leaking onto the server)
 - Data generation: `./gradlew runData` (writes to `src/generated/resources/`)
 - GameTests: `bash tools/gametest.sh` — starts the dev server, runs `/test runall` over RCON, prints `[GAMETEST] PASSED/FAILED` lines, exits with the number of failures. Tests live in `src/main/java/wallis_ultimate/gametest/` and use the `wallis_ultimate:platform` template. (Vanilla's separate GameTest server can't be used: it places tests at Y −60, below our Y 0 floor.)
+- Client smoke test: `bash tools/smoketest.sh` — starts the dev client with its window hidden and sound muted (so the computer stays usable), creates a fresh survival world, walks around, runs the steps in `src/main/java/wallis_ultimate/client/smoketest/`, saves screenshots to `run/screenshots/smoketest-*.png`, quits, prints `[SMOKETEST] PASS/FAIL` lines and errors, exits with the number of failures. Run it (and look at the screenshots) after every change that can affect the game; add steps for each new feature.
 - Hot reload: start `./gradlew runClient -PhotReload` (or `runServer -PhotReload`), edit code, then `bash tools/hotswap.sh` — changed classes (method bodies, new methods/fields/classes) are pushed into the running game over the local debug port 5005. Assets: F3+T after `./gradlew processResources`; data: `/reload`. Still needs a restart: new registry entries (blocks, items, entities), new event listeners, mixins, `mods.toml`, worldgen (also a new world). Needs JetBrains Runtime 17 at `C:/Users/Bregy/.jdks/jbrsdk-17.0.14-windows-x64-b1367.22` with `lib/hotswap/hotswap-agent.jar` (HotswapAgent 2.0.1), registered in `~/.gradle/gradle.properties` (`org.gradle.java.installations.paths`). VS Code can attach to port 5005 too.
 - Server commands: `java tools/RconClient.java "<command>" ...` while `runServer` is running. Needs `enable-rcon=true`, `rcon.password=<random>` and `server-ip=127.0.0.1` in `run/server.properties` (git-ignored; never commit it).
 - Decompiled sources: ForgeGradle sets them up when the project is imported into an IDE; run configs via `./gradlew genIntellijRuns` (or `genEclipseRuns` / `genVSCodeRuns`)
@@ -53,7 +54,8 @@ Skeleton created 2026-11-01 from the official Forge 1.20.1 MDK. Folders marked "
 ```
 src/main/java/wallis_ultimate/
   WallisUltimate.java   # common entrypoint (@Mod), MOD_ID constant, logger
-  client/               # (planned) client-only code (renderers, screens, keybinds)
+  client/               # client-only code (renderers, screens, keybinds)
+  client/smoketest/     # dev-only client smoke test (runs only with -PsmokeTest)
   registry/             # (planned) all registration (blocks, items, entities, etc.)
   worldgen/DistrictBorder.java  # WORLD-002: 2,000-block border on fresh worlds
   block/ item/ entity/ network/ datagen/   # (planned) one feature area per package

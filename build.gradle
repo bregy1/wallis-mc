@@ -74,6 +74,14 @@ if (project.hasProperty('hotReload')) {
     }
 }
 
+// Client smoke test: ./gradlew runClient -PsmokeTest (better: bash tools/smoketest.sh). The client creates a fresh
+// world, walks around, runs the steps in client/smoketest, takes screenshots and quits.
+if (project.hasProperty('smokeTest')) {
+    tasks.matching { it.name == 'runClient' }.configureEach {
+        systemProperty 'wallis_ultimate.smoketest', 'true'
+    }
+}
+
 // Pack config (History Stages stages and settings, ...) lives in pack/config and is copied into the dev run before
 // every client or server start, so pack/config is the source of truth: edits made in run/config get overwritten.
 def syncPackConfig = tasks.register('syncPackConfig', Copy) {

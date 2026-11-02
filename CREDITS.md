@@ -14,6 +14,6 @@ Every mod, library or template used, forked or borrowed from, with its author, l
 | History Stages 6.1.1-1.20.1 | Bananemdnsa | https://modrinth.com/mod/history-stages | Custom: official jar allowed in packs, no forks | Loaded in dev runs; not shipped in our jar |
 | Lootr 0.7.35.94 | noobanidus | https://modrinth.com/mod/lootr | Code MIT, assets All Rights Reserved | Loaded in dev runs (needed by History Stages); not shipped in our jar |
 | Curios API 5.14.1+1.20.1 | TheIllusiveC4 | https://github.com/TheIllusiveC4/Curios | LGPL-3.0 | Compile against its API, loaded in dev runs; not shipped in our jar |
-| JEI 15.74.0.234 | mezz | https://github.com/mezz/JustEnoughItems | MIT | Compile against its API, loaded in dev runs; not shipped in our jar |
+| JEI 15.74.0.229 | mezz | https://github.com/mezz/JustEnoughItems | MIT | Compile against its API, loaded in dev runs; not shipped in our jar |
 
 Placeholder textures (`assets/wallis_ultimate/textures/block/*.png`) were generated as stand-ins and will be replaced by real art.
