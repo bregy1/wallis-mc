@@ -1,4 +1,4 @@
-// 1.20.1	2026-11-02T23:28:36.985033	Loot Tables
+// 1.20.1	2026-11-03T23:10:19.0600737	Loot Tables
 da3e36f04a72a0a2a6b162b219ba9919931f32a0 data/wallis_ultimate/loot_tables/blocks/antlers.json
 d34c232c089cef88a7db876a6a58cba545691413 data/wallis_ultimate/loot_tables/blocks/barbed_wire.json
 b3d327710e1f97360d51e9cfd8b491b9d7d210e0 data/wallis_ultimate/loot_tables/blocks/beer_cans.json
@@ -7,6 +7,7 @@ f81b066b883609ee15a225e872ffebb95dbb503a data/wallis_ultimate/loot_tables/blocks
 317fc4492240dc35949d13567e53050b8da09138 data/wallis_ultimate/loot_tables/blocks/green_tarp.json
 619b7f51e3c22a6f0d1d8d1bb0c87a47fcfb7258 data/wallis_ultimate/loot_tables/blocks/green_tarp_slope.json
 5a5ea865eac24006fcc2834b4b96efd0159cc4fb data/wallis_ultimate/loot_tables/blocks/oil_drum.json
+aa26c2d228b4476b44d2dc05bfea8dd57240146e data/wallis_ultimate/loot_tables/blocks/old_radio.json
 c2169d124fafc62a7b07441ac872764fcae78dae data/wallis_ultimate/loot_tables/blocks/sandbags.json
 d7a251e56e0f02eba36ae9cefc99bd57683c0ef2 data/wallis_ultimate/loot_tables/blocks/sandbag_slab.json
 d8b45ca2e57dd851dbc06e79ec2a81c32a79a791 data/wallis_ultimate/loot_tables/blocks/supply_crate.json

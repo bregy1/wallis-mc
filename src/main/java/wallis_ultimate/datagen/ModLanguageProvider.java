@@ -91,5 +91,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("hud." + WallisUltimate.MOD_ID + ".downed.give_up", "Press %s to give up");
         add("hud." + WallisUltimate.MOD_ID + ".reviving", "Reviving...");
         add("hud." + WallisUltimate.MOD_ID + ".teammate_down", "%s is down! %s left");
+        add(ModBlocks.OLD_RADIO.get(), "Old Radio");
+        StoryLanguage.addAll(this::add);
     }
 }

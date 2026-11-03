@@ -103,7 +103,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 
 **Acceptance criteria:**
 - [x] The End can't be reached in survival.
-- [ ] Shulker boxes stay in the game, but are very rare: each player gets one shulker box per planet, as a quest reward.
+- [x] Shulker boxes stay in the game, but are very rare: each player gets one shulker box per planet, as a quest reward. (On Earth, from the Chapter 1 quest "Hog Daddy", because the box stays locked until the Settler stage that quest unlocks. My proposal. Verified by the client smoke test, 2026-11-03.)
 - [ ] Elytra, end crystals and chorus fruit are removed.
 
 **Open questions:**
@@ -173,7 +173,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Description:** The team builds its first home in district 1 (the "create first home" quest). After that, teams may build bases in any district they've opened. Each player's home is wherever their bed is (SURV-005).
 
 **Acceptance criteria:**
-- [ ] The first home quest takes place in district 1.
+- [x] The first home quest takes place in district 1. (Quest "Create First Home": the first bed anyone in the team places is the home. Verified by the client smoke test, 2026-11-03.)
 - [ ] Teams can build in any opened district.
 - [ ] A player's horde night (ENEMY-006) attacks the base around that player's bed. When team members are online together, it attacks the team's shared base: the bed most of them use.
 

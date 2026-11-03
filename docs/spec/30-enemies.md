@@ -48,7 +48,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Acceptance criteria:**
 - [ ] In the first districts, a player without gear can't survive a night in the open.
 - [ ] With gear, nights stay hard.
-- [ ] A key item earned from a quest (likely a trinket, CMBT-003) makes night enemies about 10% weaker for the player who has it. (Granny's Rabbit Foot does this, verified by GameTests; the quest comes with the story work.)
+- [x] A key item earned from a quest (likely a trinket, CMBT-003) makes night enemies about 10% weaker for the player who has it. (Granny's Rabbit Foot does this, verified by GameTests. It's the reward of the quest "Sleep It Off", for every player; verified by the client smoke test.)
 - [ ] Shelter (the team's first home, safe spots) and sleeping are real ways to get through an early night.
 
 **Open questions:**

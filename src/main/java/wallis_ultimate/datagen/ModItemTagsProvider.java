@@ -8,10 +8,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.registry.ModItems;
+import wallis_ultimate.story.StoryQuests;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
     public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup,
@@ -33,6 +35,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ItemTags.AXES).add(ModItems.COPPER_AXE.get());
         tag(ItemTags.SHOVELS).add(ModItems.COPPER_SHOVEL.get());
         tag(ItemTags.HOES).add(ModItems.COPPER_HOE.get());
+        // Chapter 1's "Hot Meal" quest: anything off a furnace or a campfire.
+        tag(StoryQuests.COOKED_FOOD).add(Items.COOKED_BEEF, Items.COOKED_PORKCHOP, Items.COOKED_CHICKEN, Items.COOKED_MUTTON, Items.COOKED_RABBIT,
+                Items.COOKED_COD, Items.COOKED_SALMON, Items.BAKED_POTATO, Items.DRIED_KELP);
     }
 
     private static TagKey<Item> curiosSlot(String slot) {

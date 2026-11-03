@@ -10,22 +10,22 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 ## Requirements
 
 ### PROG-001 — Ordered tiers grouped by planet
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-03: Earth's four tiers in data, verified by GameTests and the client smoke test)
 **Priority:** must
 
 **Description:** Progression is a single ordered list of tiers. Every tier belongs to exactly one planet, and a planet has one or more tiers. Adding a planet appends its tiers after the existing ones without changing earlier tiers.
 
 **Acceptance criteria:**
-- [ ] Each team has exactly one current tier at any time, starting at the first Earth tier.
-- [ ] Tiers are defined in data (not hard-coded), so a new planet's tiers can be added without changing existing tier definitions.
-- [ ] Adding new tiers to an existing world does not reset or change any team's progress.
+- [x] Each team has exactly one current tier at any time, starting at the first Earth tier.
+- [x] Tiers are defined in data (not hard-coded), so a new planet's tiers can be added without changing existing tier definitions. (`data/wallis_ultimate/wallis_tiers/*.json`.)
+- [x] Adding new tiers to an existing world does not reset or change any team's progress. (A tier isn't stored: it's the last tier whose stage the team has unlocked, so a new file changes nothing that's already there.)
 - [ ] Earlier planets stay visitable after moving on. Returning to Earth after the Moon is a special case (STORY-018).
 
 **Open questions:**
-**Notes:** Matches the "planets stack" decision (open-ended planet count).
+**Notes:** Matches the "planets stack" decision (open-ended planet count). How it's built (my call, 2026-11-03): each tier names the stage that opens it, and History Stages' team sharing already does what PROG-006 asks of joining and leaving, so no second record of the tier can drift away from the stages. `/wallis_tier` shows a team's tier.
 
 ### PROG-002 — Content is locked by default
-**Status:** approved (partly implemented 2026-11-02: locks run on History Stages with the stage files in pack/config; slot rules verified by GameTests; slot rules, the locked look and tooltip, crafting, the recipe book and JEI's lock mark verified in a real client by the smoke test; quests that unlock stages not built yet)
+**Status:** approved (partly implemented 2026-11-02: locks run on History Stages with the stage files in pack/config; slot rules verified by GameTests; slot rules, the locked look and tooltip, crafting, the recipe book and JEI's lock mark verified in a real client by the smoke test; Chapter 1's quests unlock the stages, 2026-11-03)
 **Priority:** must
 
 **Description:** At the start, only a small starter set of items can be crafted and used (e.g. basic swords and bows). Everything else is locked until the team unlocks it. A locked item can be obtained and carried, but not used or crafted.
@@ -61,39 +61,39 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 
 | Stage | Unlocks | When |
 |---|---|---|
-| Iron | Iron and copper ore, raw metal, ingots, nuggets and blocks; iron tools, sword and armor | A Chapter 1 quest (which one: the storyline) |
-| Settler | Everything else for now; split into Settler, Gunsmith and Launch when tiers 2–4 are specified | Tier 2 |
+| Iron | Iron and copper ore, raw metal, ingots, nuggets and blocks; iron tools, sword and armor | The Chapter 1 quest "Folks With Walls": finding a safe spot (my proposal) |
+| Settler | Everything else for now; split into Settler, Gunsmith and Launch when tiers 2–4 are specified | Tier 2, from the Chapter 1 quest "Hog Daddy" |
 | Gunsmith, Launch | Empty placeholders | Tiers 3 and 4 |
 
 **Open questions:**
 **Notes:** Starter set decided 2026-11-01 (answer to Q-004). Allow-list instead of a literal starter set (2026-11-02, answer to Q-124), so basic building works from day one; anything not on the list, including new mods' items, stays locked until we allow it. Early extras added 2026-11-02 (answer to Q-127). How it is built: the Settler stage locks whole mods (its `mods` list) minus the allow-list, so every new pack mod that adds items must be added to that list, or its items stay unlocked. Decided 2026-11-01 (answers to Q-003, Q-012, Q-016–019): obtain yes, use no, craft no, shown grayed with info; pickup into main inventory only; main hand bounces back to inventory; offhand/armor/placing refused; machines are gated by locking the machine, not by checking each recipe. "Lock the machine" was chosen because it works with every mod in the pack without forking; the trade-off is that machine recipes must be curated per tier. Checked in a real client on 2026-11-02 by the smoke test (`tools/smoketest.sh`): pickups, main hand, offhand and armor, gray tint with lock icon, the tooltip ("Required Individual Progress: • Iron"), crafting refused, the recipe book without the iron pickaxe, JEI's recipe view marked "Locked", unlocking and relocking the Iron stage, creative exempt. History Stages refuses the offhand and armor slots itself and puts the item into the first free inventory slot, which can be in the hotbar (the main-hand rule always uses the main inventory). Placing can't happen because a locked block can't stay in the hand. Still open in the criteria above: using locked items from the inventory, and JEI's info on what unlocks a recipe (the recipe view shows "Locked" only).
 
 ### PROG-003 — Story quests unlock content
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-03: Chapter 1's quests on FTB Quests, verified by GameTests and by playing them through in a real client with the smoke test; the quest list is in the story spec)
 **Priority:** must
 
 **Description:** Completing story quests is the main way to unlock content: recipes, items, gear and areas.
 
 **Acceptance criteria:**
-- [ ] Completing a story quest applies its listed unlocks to the whole team immediately.
-- [ ] Every non-starter item that isn't a utility-point unlock (PROG-005) is unlocked by at least one story quest.
-- [ ] Unlocks persist across logouts, server restarts and team members going offline.
+- [ ] Completing a story quest applies its listed unlocks to the whole team immediately. (Verified for one player in a real client, using History Stages' own quest reward. Its sharing with the team and offline members was checked in PROG-006's GameTests; never run with two real clients.)
+- [x] Every non-starter item that isn't a utility-point unlock (PROG-005) is unlocked by at least one story quest. (The Settler stage holds all the rest for now, PROG-002.)
+- [ ] Unlocks persist across logouts, server restarts and team members going offline. (Stored by History Stages and FTB Quests in the world; restarting not tested by us yet.)
 
 **Open questions:**
-**Notes:** Quest content and story structure live in the story spec. Quests run on FTB Quests (PACK-004).
+**Notes:** Quest content and story structure live in the story spec. Quests run on FTB Quests (PACK-004). Each player claims a stage reward themselves, automatically, instead of one claim for the team. That's on purpose, see PROG-006's notes.
 
 ### PROG-004 — Story milestones open the next tier
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-03: tier 1's milestone, the quest "Hog Daddy". The boss's death is simulated in the tests on this branch, because the boss is built on another one)
 **Priority:** must
 
 **Description:** A team advances to the next tier only by completing that tier's story milestone (for example a boss fight).
 
 **Acceptance criteria:**
-- [ ] Each tier defines exactly one milestone that advances the team to the next tier.
-- [ ] There is no way to advance a tier without the milestone (outside creative/commands).
+- [ ] Each tier defines exactly one milestone that advances the team to the next tier. (Tier 1 does, in its data file. Later tiers come with their story.)
+- [x] There is no way to advance a tier without the milestone (outside creative/commands). (A tier's stage only comes from its milestone quest; it's on nothing else's list.)
 
 **Open questions:**
-**Notes:** Earth's final milestone is the launch defense (PROG-010).
+**Notes:** Earth's final milestone is the launch defense (PROG-010). FTB Quests only counts a kill if a player lands the last hit. Hog Daddy is weak to fire and to stunning himself on obstacles, so our mod also counts his death, whatever killed him, for every team with a player within 128 blocks (my call).
 
 ### PROG-005 — Utility points buy special utility items
 **Status:** draft
@@ -113,7 +113,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 **Notes:** Your call: "mainly story driven, with some points needed for special utility items." Decided 2026-11-01 (answers to Q-006, Q-007): all four extra sources and all four categories. Mobility and base defense extras are the categories most likely to need tier limits (Q-024). Money (ECON-001) is separate: points unlock things once for the team, and money buys things one at a time (answer to Q-171).
 
 ### PROG-006 — Progression is owned by the team
-**Status:** approved (partly implemented 2026-11-02: unlocks only. History Stages shares them across the FTB team, including offline members, and copies them on leaving; a joiner loses unlocks the team lacks, verified by GameTests. Tier, story progress and points not built yet)
+**Status:** approved (partly implemented 2026-11-02: unlocks. History Stages shares them across the FTB team, including offline members, and copies them on leaving; a joiner loses unlocks the team lacks, verified by GameTests. 2026-11-03: tier and story progress too, verified with a real party in the client smoke test. Points not built yet)
 **Priority:** must
 
 **Description:** Tier, story progress, unlocks and utility points belong to a team. A solo player is a team of one.
@@ -122,11 +122,11 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] All team members see the same tier, unlocks and point balance.
 - [ ] An unlock earned by one member applies to all members, including offline ones.
 - [ ] A player who joins a team takes on the team's tier, story progress, unlocks and points. Unlocks the joiner had that the team doesn't are removed, so all members always match (answer to Q-126).
-- [ ] A player who leaves a team starts a new solo team with a copy of the team's tier, story progress and unlocks at that moment (points: Q-028).
+- [x] A player who leaves a team starts a new solo team with a copy of the team's tier, story progress and unlocks at that moment (points: Q-028). (Quests, story and tier verified with a real party in the client smoke test.)
 - [ ] A player's own level (PROG-009) stays with them when joining or leaving.
 
 **Open questions:** Q-028
-**Notes:** Inspiration: FTB Teams-style parties. Decided 2026-11-01 (answer to Q-009): "keep a copy". Known, accepted weak spot: a player can join an advanced team and leave with its unlocks.
+**Notes:** Inspiration: FTB Teams-style parties. Decided 2026-11-01 (answer to Q-009): "keep a copy". Known, accepted weak spot: a player can join an advanced team and leave with its unlocks. **Doesn't quite match Q-126 (found 2026-11-03, your call):** FTB Quests adds a joiner's finished quests to the team when they join, and can't be told not to. If the joiner's unlocks were then removed as Q-126 says, those quests would count as done, with their rewards already claimed, and nobody could ever get the unlock: a dead end in the story. So stage rewards are claimed per player: when someone joins with a quest the team hadn't done, the team's members get its unlock too, and the joiner keeps it. Quests the team hasn't touched aren't affected. For the joiner's own unlocks with no quest behind them (given by command), Q-126 still holds. Leaving works as decided: FTB Quests alone would put the leaver back on their old solo progress and let them claim every reward again, so our mod copies the team's progress over.
 
 ### PROG-007 — Difficulty comes from location and progress, not time
 **Status:** approved
@@ -160,7 +160,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 
 **Acceptance criteria:**
 - [ ] Earth defines exactly four tiers, in the order above.
-- [ ] Each tier has one milestone that opens the next (PROG-004).
+- [ ] Each tier has one milestone that opens the next (PROG-004). (Tier 1 has.)
 - [ ] A team focused on the story gets through a tier in about 4–6 hours (checked in playtesting).
 
 **Open questions:**

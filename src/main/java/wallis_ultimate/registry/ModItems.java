@@ -53,6 +53,7 @@ public final class ModItems {
     public static final RegistryObject<Item> WRECK_WHEEL = blockItem(ModBlocks.WRECK_WHEEL);
     public static final RegistryObject<Item> BEER_CANS = blockItem(ModBlocks.BEER_CANS);
     public static final RegistryObject<Item> ANTLERS = blockItem(ModBlocks.ANTLERS);
+    public static final RegistryObject<Item> OLD_RADIO = blockItem(ModBlocks.OLD_RADIO);
 
     /** SURV-010: stacks to 16 (Q-119). */
     public static final RegistryObject<Item> BANDAGE = ITEMS.register("bandage", () -> new BandageItem(new Item.Properties().stacksTo(16)));
@@ -122,6 +123,7 @@ public final class ModItems {
             event.accept(WRECK_WHEEL);
             event.accept(BEER_CANS);
             event.accept(ANTLERS);
+            event.accept(OLD_RADIO);
         } else if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(BANDAGE);
         } else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {

@@ -1,0 +1,110 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            8.0,
+            6.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            8.0,
+            6.0,
+            15.0
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            3.0,
+            0.0,
+            13.0,
+            7.0
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            3.0,
+            0.0,
+            13.0,
+            7.0
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            8.0,
+            6.0,
+            15.0
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            8.0,
+            6.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        0,
+        5
+      ],
+      "to": [
+        13,
+        7,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#aerial"
+        },
+        "east": {
+          "texture": "#aerial"
+        },
+        "north": {
+          "texture": "#aerial"
+        },
+        "south": {
+          "texture": "#aerial"
+        },
+        "up": {
+          "texture": "#aerial"
+        },
+        "west": {
+          "texture": "#aerial"
+        }
+      },
+      "from": [
+        11,
+        7,
+        7.5
+      ],
+      "to": [
+        11.5,
+        14,
+        8
+      ]
+    }
+  ],
+  "textures": {
+    "aerial": "minecraft:block/iron_block",
+    "all": "wallis_ultimate:block/old_radio",
+    "particle": "wallis_ultimate:block/old_radio"
+  }
+}

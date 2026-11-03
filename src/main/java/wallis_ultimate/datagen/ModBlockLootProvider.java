@@ -30,6 +30,7 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.WRECK_WHEEL.get());
         dropSelf(ModBlocks.BEER_CANS.get());
         dropSelf(ModBlocks.ANTLERS.get());
+        dropSelf(ModBlocks.OLD_RADIO.get());
     }
 
     @Override
