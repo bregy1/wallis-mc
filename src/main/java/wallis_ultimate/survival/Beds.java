@@ -27,9 +27,9 @@ import wallis_ultimate.WallisUltimate;
 @Mod.EventBusSubscriber(modid = WallisUltimate.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class Beds {
     private static final long TICKS_PER_DAY = 24000L;
-    private static final long NIGHTFALL = 12000L;
+    static final long NIGHTFALL = 12000L;
     /** Hourglass speeds up the night instead of skipping it, so players wake up at dawn, before the day's tick 0. */
-    private static final long DAWN = 23000L;
+    static final long DAWN = 23000L;
     private static final String OWNED_BEDS = WallisUltimate.MOD_ID + ":beds";
     private static final String DIMENSION = "dimension";
     private static final String POS = "pos";
@@ -91,9 +91,11 @@ public final class Beds {
         CompoundTag bed = new CompoundTag();
         bed.putString(DIMENSION, level.dimension().location().toString());
         bed.putLong(POS, event.getPos().asLong());
-        CompoundTag beds = player.getPersistentData().getCompound(OWNED_BEDS);
+        CompoundTag persisted = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
+        CompoundTag beds = persisted.getCompound(OWNED_BEDS);
         beds.put(planet, bed);
-        player.getPersistentData().put(OWNED_BEDS, beds);
+        persisted.put(OWNED_BEDS, beds);
+        player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
     }
 
     /** True (and tells the player) if they may not place a bed now because their bed on this planet stands. */
@@ -111,8 +113,9 @@ public final class Beds {
     }
 
     /** Where the player's bed on that planet stands, or null if they have none (or it was picked up or broken). */
-    static BlockPos standingBed(Player player, ServerLevel anyLevel, String planet) {
-        CompoundTag bed = player.getPersistentData().getCompound(OWNED_BEDS).getCompound(planet);
+    public static BlockPos standingBed(Player player, ServerLevel anyLevel, String planet) {
+        // Forge only carries this part of a player's data over when they respawn, and a bed outlives its owner's death.
+        CompoundTag bed = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getCompound(OWNED_BEDS).getCompound(planet);
         ResourceLocation dimension = ResourceLocation.tryParse(bed.getString(DIMENSION));
         if (bed.isEmpty() || dimension == null) {
             return null;

@@ -18,9 +18,10 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Acceptance criteria:**
 - [x] District terrain is generated (not hand-built), in vanilla style.
 - [x] Players can mine and place blocks as in vanilla, except for protected structures (WORLD-006).
+- [x] District 1 is land on any seed: no oceans, with rivers and ponds left in. (A GameTest checks six seeds: no ocean biome anywhere, and about 16–26% of sampled places are rivers and ponds.)
 
 **Open questions:** Q-068
-**Notes:** Your words: "I still want to keep exploring and vanilla theme... The ground can still be mined."
+**Notes:** Your words: "I still want to keep exploring and vanilla theme... The ground can still be mined." And 2026-11-03: "I only saw the redneck cabin and the rest was all just water around it." Vanilla terrain can come out nearly all sea inside just 2,000 blocks, and in your world two safe spots ended up on raised ground in the sea. So district 1 has no oceans or beaches (my proposal, veto if you want some sea back). The only change is a floor on one vanilla terrain value, continentalness, in `data/minecraft/worldgen/density_function/overworld/continents.json`. Later districts are their own dimensions and can decide for themselves.
 
 ### WORLD-002 — Districts are size-limited dimensions
 **Status:** approved (partly implemented: district 1 dimension and border, verified 2026-11-02)

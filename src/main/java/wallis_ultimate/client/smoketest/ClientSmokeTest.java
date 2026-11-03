@@ -161,6 +161,7 @@ public final class ClientSmokeTest {
         group.accept("survival", SurvivalSmokeSteps::steps);
         group.accept("props", PropSmokeSteps::steps);
         group.accept("zombies", ZombieSmokeSteps::steps);
+        group.accept("horde", HordeSmokeSteps::steps);
         all.add(step("walk again", 45, player -> walk(40, 180)));
         all.add(step("screenshot at the end", 0, player -> screenshot("end")));
         return all;

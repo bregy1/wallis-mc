@@ -79,8 +79,8 @@ src/main/resources/
   assets/wallis_ultimate/  # (planned) textures, models, blockstates, lang, sounds
   data/wallis_ultimate/    # our data: worldgen/placed_feature (district ores), forge/biome_modifier
   data/minecraft/          # vanilla overrides copied from vanilla 1.20.1 data: Overworld height Y 0–320
-                           # (dimension_type, noise_settings), world preset without the End,
-                           # world type list, emptied has_structure biome tags
+                           # (dimension_type, noise_settings), no oceans (density_function/overworld/continents),
+                           # world preset without the End, world type list, emptied has_structure biome tags
 src/generated/resources/   # datagen output (runData)
 docs/spec/              # the specification
 run/                    # dev game folder (git-ignored); run/eula.txt accepted for the dev server

@@ -91,6 +91,37 @@ public final class BedGameTests {
         helper.succeed();
     }
 
+    /** Dying doesn't make the game forget your bed, or you could place a second one by dying first. */
+    @GameTest(template = PLATFORM)
+    public static void aBedIsRememberedAfterDying(GameTestHelper helper) {
+        ServerLevel level = helper.getLevel();
+        BlockPos pos = helper.absolutePos(new BlockPos(1, 2, 1));
+        Player owner = new Player(level, pos, 0.0F, new GameProfile(UUID.randomUUID(), "bd_mortal")) {
+            @Override
+            public boolean isSpectator() {
+                return false;
+            }
+
+            @Override
+            public boolean isCreative() {
+                return false;
+            }
+        };
+        boolean refused = placeBed(level, owner, pos);
+        // What respawning keeps: ServerPlayer.restoreFrom copies only this part, and can't run on a mock (Xaero's maps hook it).
+        Player respawned = helper.makeMockPlayer();
+        respawned.getPersistentData().put(Player.PERSISTED_NBT_TAG, owner.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG));
+        boolean remembered = Beds.standingBed(respawned, level, Beds.planetOf(level.dimension())) != null;
+        level.removeBlock(pos, false);
+        if (refused) {
+            helper.fail("the bed was refused");
+        }
+        if (!remembered) {
+            helper.fail("the player's bed was forgotten when they respawned");
+        }
+        helper.succeed();
+    }
+
     /** Puts a bed block down and fires the place event like a real placement; true if it was refused. */
     private static boolean placeBed(ServerLevel level, Player player, BlockPos pos) {
         level.setBlock(pos, Blocks.RED_BED.defaultBlockState(), 3);
