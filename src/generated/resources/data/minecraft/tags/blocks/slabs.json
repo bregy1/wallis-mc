@@ -1,6 +1,9 @@
 {
   "values": [
     "wallis_ultimate:sandbag_slab",
-    "wallis_ultimate:wreck_panel"
+    "wallis_ultimate:wreck_panel",
+    "wallis_ultimate:cracked_concrete_slab",
+    "wallis_ultimate:asphalt_slab",
+    "wallis_ultimate:ev_panel"
   ]
 }

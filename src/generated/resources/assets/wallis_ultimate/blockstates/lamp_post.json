@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "wallis_ultimate:block/lamp_post",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "wallis_ultimate:block/lamp_post"
+    },
+    "axis=z": {
+      "model": "wallis_ultimate:block/lamp_post",
+      "x": 90
+    }
+  }
+}

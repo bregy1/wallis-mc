@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wallis_ultimate:block/cracked_concrete_slab"
+    },
+    "type=double": {
+      "model": "wallis_ultimate:block/cracked_concrete"
+    },
+    "type=top": {
+      "model": "wallis_ultimate:block/cracked_concrete_slab_top"
+    }
+  }
+}

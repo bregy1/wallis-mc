@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "wallis_ultimate:block/cracked_concrete"
+      },
+      {
+        "model": "wallis_ultimate:block/cracked_concrete",
+        "y": 90
+      },
+      {
+        "model": "wallis_ultimate:block/cracked_concrete",
+        "y": 180
+      },
+      {
+        "model": "wallis_ultimate:block/cracked_concrete",
+        "y": 270
+      }
+    ]
+  }
+}

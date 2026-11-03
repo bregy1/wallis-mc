@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_glass_pane_post",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "edge": "wallis_ultimate:block/chain_link_edge",
+    "pane": "wallis_ultimate:block/chain_link_fence"
+  }
+}

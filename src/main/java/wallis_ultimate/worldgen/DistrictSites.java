@@ -25,9 +25,11 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -160,20 +162,35 @@ public final class DistrictSites extends SavedData {
         return isNew;
     }
 
+    /**
+     * A new world builds everything while it's being created, because a dedicated server's watchdog only starts after
+     * that: at server start, the build can take longer than the 60 seconds it allows a tick, and it shuts the server
+     * down. The cabin sets the spawn, so vanilla's search for one gets skipped.
+     */
+    @SubscribeEvent
+    public static void onCreateSpawn(LevelEvent.CreateSpawnPosition event) {
+        if (event.getLevel() instanceof ServerLevel level && level.dimension() == Level.OVERWORLD) {
+            get(level).buildWhatsMissing(level.getServer(), level);
+            event.setCanceled(true);
+        }
+    }
+
+    /** Only for worlds created before these places existed. */
     @SubscribeEvent
     public static void onServerStarted(ServerStartedEvent event) {
-        MinecraftServer server = event.getServer();
-        ServerLevel overworld = server.overworld();
-        DistrictSites sites = get(overworld);
-        if (sites.cabin == null) {
-            sites.buildCabin(server, overworld);
-            sites.setDirty();
+        get(event.getServer().overworld()).buildWhatsMissing(event.getServer(), event.getServer().overworld());
+    }
+
+    private void buildWhatsMissing(MinecraftServer server, ServerLevel overworld) {
+        if (cabin == null) {
+            buildCabin(server, overworld);
+            setDirty();
         }
-        if (sites.spots.isEmpty()) {
+        if (spots.isEmpty()) {
             for (Site site : Site.values()) {
-                sites.buildSafeSpot(overworld, site);
+                buildSafeSpot(overworld, site);
             }
-            sites.setDirty();
+            setDirty();
         }
     }
 

@@ -1,0 +1,170 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#chrome"
+        },
+        "east": {
+          "texture": "#chrome"
+        },
+        "north": {
+          "texture": "#chrome"
+        },
+        "south": {
+          "texture": "#chrome"
+        },
+        "up": {
+          "texture": "#chrome"
+        },
+        "west": {
+          "texture": "#chrome"
+        }
+      },
+      "from": [
+        6,
+        0,
+        6
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "x",
+        "origin": [
+          8,
+          0,
+          8
+        ]
+      },
+      "to": [
+        10,
+        15,
+        10
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#chrome"
+        },
+        "east": {
+          "texture": "#chrome"
+        },
+        "north": {
+          "texture": "#chrome"
+        },
+        "south": {
+          "texture": "#chrome"
+        },
+        "up": {
+          "texture": "#chrome"
+        },
+        "west": {
+          "texture": "#chrome"
+        }
+      },
+      "from": [
+        2,
+        0,
+        7
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "z",
+        "origin": [
+          3.5,
+          0,
+          8.5
+        ]
+      },
+      "to": [
+        5,
+        11,
+        10
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#chrome"
+        },
+        "east": {
+          "texture": "#chrome"
+        },
+        "north": {
+          "texture": "#chrome"
+        },
+        "south": {
+          "texture": "#chrome"
+        },
+        "up": {
+          "texture": "#chrome"
+        },
+        "west": {
+          "texture": "#chrome"
+        }
+      },
+      "from": [
+        10,
+        0,
+        3
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "z",
+        "origin": [
+          11.5,
+          0,
+          4.5
+        ]
+      },
+      "to": [
+        13,
+        12,
+        6
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#glow"
+        },
+        "east": {
+          "texture": "#glow"
+        },
+        "north": {
+          "texture": "#glow"
+        },
+        "south": {
+          "texture": "#glow"
+        },
+        "up": {
+          "texture": "#glow"
+        },
+        "west": {
+          "texture": "#glow"
+        }
+      },
+      "forge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      },
+      "from": [
+        7,
+        0,
+        7
+      ],
+      "shade": false,
+      "to": [
+        9,
+        6,
+        12
+      ]
+    }
+  ],
+  "textures": {
+    "chrome": "wallis_ultimate:block/chrome",
+    "glow": "wallis_ultimate:block/chrome_glow",
+    "particle": "wallis_ultimate:block/chrome"
+  }
+}

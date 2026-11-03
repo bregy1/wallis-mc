@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/jersey_barrier",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/jersey_barrier"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/jersey_barrier",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/jersey_barrier",
+      "y": 270
+    }
+  }
+}

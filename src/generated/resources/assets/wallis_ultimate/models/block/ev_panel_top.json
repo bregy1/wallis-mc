@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "wallis_ultimate:block/ev_body",
+    "side": "wallis_ultimate:block/ev_body",
+    "top": "wallis_ultimate:block/ev_body"
+  }
+}

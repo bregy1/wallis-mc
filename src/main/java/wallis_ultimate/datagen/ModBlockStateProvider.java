@@ -34,7 +34,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .texture("particle", mcLoc("block/spruce_log"))
                 .texture("post", mcLoc("block/spruce_log"))
                 .texture("board", modLoc("block/travel_sign"));
-        model.element().from(7.0F, 0.0F, 7.0F).to(9.0F, 26.0F, 9.0F).textureAll("#post").end();
+        // Taller than a block, so the UVs can't be left to follow its height: they'd run off the texture.
+        model.element().from(7.0F, 0.0F, 7.0F).to(9.0F, 26.0F, 9.0F)
+                .allFaces((direction, face) -> face.texture("#post").uvs(0.0F, 0.0F, 3.0F, 16.0F))
+                .end();
         model.element().from(1.0F, 18.0F, 9.0F).to(15.0F, 22.0F, 10.0F)
                 .allFaces((direction, face) -> face.texture("#board").uvs(0.0F, 0.0F, 14.0F, 4.0F))
                 .end();

@@ -24,6 +24,7 @@ public final class DataGenerators {
         ExistingFileHelper files = event.getExistingFileHelper();
 
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, files));
+        generator.addProvider(event.includeClient(), new ModKitModelProvider(output, files));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(output, files));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output));
         ModBlockTagsProvider blockTags = generator.addProvider(event.includeServer(), new ModBlockTagsProvider(output, event.getLookupProvider(), files));

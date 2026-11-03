@@ -1,12 +1,20 @@
 package wallis_ultimate.gametest;
 
 import java.util.List;
+import java.util.function.LongFunction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -19,6 +27,7 @@ import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.worldgen.Blueprint;
 import wallis_ultimate.worldgen.CabinBuild;
 import wallis_ultimate.worldgen.DistrictSites;
+import wallis_ultimate.worldgen.RuinBuilds;
 import wallis_ultimate.worldgen.SafeSpotBuilds;
 
 /** Checks for WORLD-005 and STORY-002: the hand-made places get built once, and players start at the cabin. */
@@ -26,6 +35,9 @@ import wallis_ultimate.worldgen.SafeSpotBuilds;
 @PrefixGameTestTemplate(false)
 public final class SiteGameTests {
     private static final String PLATFORM = "platform";
+    private static final int RUIN_SEEDS = 8;
+    /** A feature may write into the chunks right next to its own, and its middle can be anywhere in its chunk. */
+    private static final int MOST_RUIN_REACH = 15;
 
     private SiteGameTests() {
     }
@@ -40,6 +52,67 @@ public final class SiteGameTests {
             if (blueprint.mark("travel") == null || blueprint.mark("bed1") == null) {
                 helper.fail("every safe spot needs a signpost and a bed");
             }
+        }
+        helper.succeed();
+    }
+
+    /** WORLD-014: every look parses, whatever its seed, and fits where a feature may write: one chunk around its middle. */
+    @GameTest(template = PLATFORM)
+    public static void ruinsFitInsideTheirChunks(GameTestHelper helper) {
+        for (LongFunction<Blueprint> look : RuinBuilds.allLooks()) {
+            for (long seed = 0; seed < RUIN_SEEDS; seed++) {
+                Blueprint ruin = look.apply(seed);
+                int halfX = ruin.sizeX() / 2;
+                int halfZ = ruin.sizeZ() / 2;
+                ruin.blocks().keySet().forEach(pos -> {
+                    if (Math.abs(pos.getX() - halfX) > MOST_RUIN_REACH || Math.abs(pos.getZ() - halfZ) > MOST_RUIN_REACH) {
+                        helper.fail("a ruin reaches too far: " + pos + " in a look " + ruin.sizeX() + " by " + ruin.sizeZ());
+                    }
+                });
+            }
+        }
+        helper.succeed();
+    }
+
+    /** WORLD-014: it's in the worldgen data, and on land only. */
+    @GameTest(template = PLATFORM)
+    public static void ruinsGenerateOnLandOnly(GameTestHelper helper) {
+        RegistryAccess registries = helper.getLevel().registryAccess();
+        PlacedFeature ruin = registries.registryOrThrow(Registries.PLACED_FEATURE).get(ResourceLocation.fromNamespaceAndPath(WallisUltimate.MOD_ID, "ruin"));
+        if (ruin == null) {
+            helper.fail("the ruin's placed feature is missing");
+        }
+        Registry<Biome> biomes = registries.registryOrThrow(Registries.BIOME);
+        if (!biomes.getOrThrow(Biomes.PLAINS).getGenerationSettings().hasFeature(ruin)
+                || !biomes.getOrThrow(Biomes.DESERT).getGenerationSettings().hasFeature(ruin)) {
+            helper.fail("ruins should generate in plains and deserts");
+        }
+        if (biomes.getOrThrow(Biomes.OCEAN).getGenerationSettings().hasFeature(ruin) || biomes.getOrThrow(Biomes.RIVER).getGenerationSettings().hasFeature(ruin)) {
+            helper.fail("ruins shouldn't generate in oceans and rivers");
+        }
+        helper.succeed();
+    }
+
+    /** SURV-011: guard posts and NPC spots have room to stand, and something to stand on. */
+    @GameTest(template = PLATFORM)
+    public static void guardPostsHaveRoomToStand(GameTestHelper helper) {
+        for (Blueprint blueprint : List.of(SafeSpotBuilds.earlsSalvage(), SafeSpotBuilds.gasNGuns(), SafeSpotBuilds.campTarp(), SafeSpotBuilds.strandedHauler())) {
+            if (blueprint.mark("guard1") == null || blueprint.mark("npc1") == null) {
+                helper.fail("every safe spot needs guard posts and a place for a named NPC");
+            }
+            blueprint.marks().forEach((name, pos) -> {
+                if (!name.startsWith("guard") && !name.startsWith("npc")) {
+                    return;
+                }
+                BlockState feet = blueprint.blocks().get(pos);
+                BlockState floor = blueprint.blocks().get(pos.below());
+                if (feet != null && !feet.isAir()) {
+                    helper.fail(name + " at " + pos + " is inside " + feet);
+                }
+                if (pos.getY() > 0 && (floor == null || floor.isAir())) {
+                    helper.fail(name + " at " + pos + " has nothing to stand on");
+                }
+            });
         }
         helper.succeed();
     }

@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_features",
+  "biomes": {
+    "type": "forge:and",
+    "values": [
+      "#minecraft:is_overworld",
+      { "type": "forge:not", "value": "#minecraft:is_ocean" },
+      { "type": "forge:not", "value": "#minecraft:is_river" }
+    ]
+  },
+  "features": "wallis_ultimate:ruin",
+  "step": "surface_structures"
+}

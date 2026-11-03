@@ -7,6 +7,7 @@ import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.registry.ModEffects;
 import wallis_ultimate.registry.ModEntities;
 import wallis_ultimate.registry.ModItems;
+import wallis_ultimate.registry.ModKit;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput output) {
@@ -20,6 +21,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.ALIEN_ALLOY.get(), "Alien Alloy");
         add(ModBlocks.GRAVE.get(), "Grave");
         add(ModBlocks.TRAVEL_SIGNPOST.get(), "Travel Signpost");
+        ModKit.names().forEach((block, name) -> add(block.get(), name));
         add("safe_spot." + WallisUltimate.MOD_ID + ".earls_salvage", "Earl's Salvage");
         add("safe_spot." + WallisUltimate.MOD_ID + ".gas_n_guns", "Gas-N-Guns");
         add("safe_spot." + WallisUltimate.MOD_ID + ".camp_tarp", "Camp Tarp");

@@ -1,6 +1,11 @@
 {
   "values": [
     "wallis_ultimate:sandbags",
-    "wallis_ultimate:sandbag_slab"
+    "wallis_ultimate:sandbag_slab",
+    "wallis_ultimate:rubble_pile",
+    "wallis_ultimate:gabion_barrier",
+    "wallis_ultimate:blood_decal",
+    "wallis_ultimate:rubble_decal",
+    "wallis_ultimate:scorch_decal"
   ]
 }

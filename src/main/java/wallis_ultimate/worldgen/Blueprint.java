@@ -4,13 +4,16 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.commands.arguments.blocks.BlockStateParser;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import wallis_ultimate.WallisUltimate;
@@ -23,7 +26,8 @@ import wallis_ultimate.WallisUltimate;
 public final class Blueprint {
     /** Don't tell the neighbours while building: half a structure would make torches and doors pop off. */
     private static final int QUIET = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
-    private static final Map<String, BlockState> PARSED = new HashMap<>();
+    /** Worldgen builds ruins on many threads at once. */
+    private static final Map<String, BlockState> PARSED = new ConcurrentHashMap<>();
 
     private final Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
     private final Map<String, BlockPos> marks = new HashMap<>();
@@ -71,6 +75,35 @@ public final class Blueprint {
             for (int y = fromY; y <= toY; y++) {
                 for (int z = fromZ; z <= toZ; z++) {
                     set(x, y, z, random.nextFloat() < chance ? other : block);
+                }
+            }
+        }
+        return this;
+    }
+
+    /** Changes blocks at one height with the given chance, whatever was set there. For a second kind of wear on a surface. */
+    public Blueprint speckle(int fromX, int y, int fromZ, int toX, int toZ, String block, float chance) {
+        for (int x = fromX; x <= toX; x++) {
+            for (int z = fromZ; z <= toZ; z++) {
+                if (random.nextFloat() < chance) {
+                    set(x, y, z, block);
+                }
+            }
+        }
+        return this;
+    }
+
+    /** True with the given chance, for choices that make one copy of a build differ from the next. */
+    public boolean roll(float chance) {
+        return random.nextFloat() < chance;
+    }
+
+    /** Puts the block here and there inside the area at one height, only where nothing has been set yet. So: last. */
+    public Blueprint scatter(int fromX, int y, int fromZ, int toX, int toZ, String block, float chance) {
+        for (int x = fromX; x <= toX; x++) {
+            for (int z = fromZ; z <= toZ; z++) {
+                if (!blocks.containsKey(new BlockPos(x, y, z)) && random.nextFloat() < chance) {
+                    set(x, y, z, block);
                 }
             }
         }
@@ -129,6 +162,22 @@ public final class Blueprint {
         lootTables.forEach((pos, table) -> {
             if (level.getBlockEntity(origin.offset(pos)) instanceof RandomizableContainerBlockEntity chest) {
                 chest.setLootTable(table, random.nextLong());
+            }
+        });
+    }
+
+    /**
+     * For worldgen, where the world is still being generated around it and blocks can't look far: places it around the
+     * given middle, turned. No loot chests: ruins are decoration.
+     */
+    public void placeTurned(WorldGenLevel level, BlockPos middle, Rotation rotation) {
+        BlockPos center = new BlockPos(sizeX() / 2, 0, sizeZ() / 2);
+        blocks.forEach((pos, state) -> level.setBlock(middle.offset(pos.subtract(center).rotate(rotation)), state.rotate(rotation), QUIET));
+        blocks.forEach((pos, state) -> {
+            BlockPos at = middle.offset(pos.subtract(center).rotate(rotation));
+            BlockState connected = Block.updateFromNeighbourShapes(level.getBlockState(at), level, at);
+            if (connected != level.getBlockState(at) && !connected.isAir()) {
+                level.setBlock(at, connected, QUIET);
             }
         });
     }

@@ -153,7 +153,10 @@ public final class ClientSmokeTest {
                 all.addAll(steps.get());
             }
         };
+        // Sites first: it checks where and how the player woke up.
         group.accept("sites", SiteSmokeSteps::steps);
+        group.accept("kit", KitSmokeSteps::steps);
+        group.accept("ruins", RuinSmokeSteps::steps);
         group.accept("walk", ClientSmokeTest::walkAround);
         group.accept("diet", DietSmokeSteps::steps);
         group.accept("trinkets", TrinketSmokeSteps::steps);

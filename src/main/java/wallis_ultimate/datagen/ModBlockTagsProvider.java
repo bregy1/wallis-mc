@@ -9,6 +9,7 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.registry.ModBlocks;
+import wallis_ultimate.registry.ModKit;
 import wallis_ultimate.registry.ModTiers;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
@@ -33,5 +34,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.BARBED_WIRE.get(), ModBlocks.OIL_DRUM.get(), ModBlocks.WRECK_BODY.get(), ModBlocks.WRECK_PANEL.get());
         tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.SUPPLY_CRATE.get(), ModBlocks.ANTLERS.get());
         tag(BlockTags.SLABS).add(ModBlocks.SANDBAG_SLAB.get(), ModBlocks.WRECK_PANEL.get());
+        ModKit.pickaxeBlocks().forEach(block -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block.get()));
+        ModKit.axeBlocks().forEach(block -> tag(BlockTags.MINEABLE_WITH_AXE).add(block.get()));
+        ModKit.shovelBlocks().forEach(block -> tag(BlockTags.MINEABLE_WITH_SHOVEL).add(block.get()));
+        tag(BlockTags.SLABS).add(ModKit.CRACKED_CONCRETE_SLAB.get(), ModKit.ASPHALT_SLAB.get(), ModKit.EV_PANEL.get());
+        tag(BlockTags.STAIRS).add(ModKit.CRACKED_CONCRETE_STAIRS.get());
+        // Walls and panes only connect to what they know.
+        tag(BlockTags.WALLS).add(ModKit.CRACKED_CONCRETE_WALL.get());
     }
 }

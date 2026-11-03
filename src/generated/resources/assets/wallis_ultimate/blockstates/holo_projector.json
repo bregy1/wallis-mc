@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/holo_projector",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/holo_projector"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/holo_projector",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/holo_projector",
+      "y": 270
+    }
+  }
+}
