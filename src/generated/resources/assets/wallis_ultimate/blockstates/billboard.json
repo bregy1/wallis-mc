@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "facing=east,tile=0": {
+      "model": "wallis_ultimate:block/billboard_0",
+      "y": 90
+    },
+    "facing=east,tile=1": {
+      "model": "wallis_ultimate:block/billboard_1",
+      "y": 90
+    },
+    "facing=east,tile=2": {
+      "model": "wallis_ultimate:block/billboard_2",
+      "y": 90
+    },
+    "facing=east,tile=3": {
+      "model": "wallis_ultimate:block/billboard_3",
+      "y": 90
+    },
+    "facing=east,tile=4": {
+      "model": "wallis_ultimate:block/billboard_4",
+      "y": 90
+    },
+    "facing=east,tile=5": {
+      "model": "wallis_ultimate:block/billboard_5",
+      "y": 90
+    },
+    "facing=north,tile=0": {
+      "model": "wallis_ultimate:block/billboard_0"
+    },
+    "facing=north,tile=1": {
+      "model": "wallis_ultimate:block/billboard_1"
+    },
+    "facing=north,tile=2": {
+      "model": "wallis_ultimate:block/billboard_2"
+    },
+    "facing=north,tile=3": {
+      "model": "wallis_ultimate:block/billboard_3"
+    },
+    "facing=north,tile=4": {
+      "model": "wallis_ultimate:block/billboard_4"
+    },
+    "facing=north,tile=5": {
+      "model": "wallis_ultimate:block/billboard_5"
+    },
+    "facing=south,tile=0": {
+      "model": "wallis_ultimate:block/billboard_0",
+      "y": 180
+    },
+    "facing=south,tile=1": {
+      "model": "wallis_ultimate:block/billboard_1",
+      "y": 180
+    },
+    "facing=south,tile=2": {
+      "model": "wallis_ultimate:block/billboard_2",
+      "y": 180
+    },
+    "facing=south,tile=3": {
+      "model": "wallis_ultimate:block/billboard_3",
+      "y": 180
+    },
+    "facing=south,tile=4": {
+      "model": "wallis_ultimate:block/billboard_4",
+      "y": 180
+    },
+    "facing=south,tile=5": {
+      "model": "wallis_ultimate:block/billboard_5",
+      "y": 180
+    },
+    "facing=west,tile=0": {
+      "model": "wallis_ultimate:block/billboard_0",
+      "y": 270
+    },
+    "facing=west,tile=1": {
+      "model": "wallis_ultimate:block/billboard_1",
+      "y": 270
+    },
+    "facing=west,tile=2": {
+      "model": "wallis_ultimate:block/billboard_2",
+      "y": 270
+    },
+    "facing=west,tile=3": {
+      "model": "wallis_ultimate:block/billboard_3",
+      "y": 270
+    },
+    "facing=west,tile=4": {
+      "model": "wallis_ultimate:block/billboard_4",
+      "y": 270
+    },
+    "facing=west,tile=5": {
+      "model": "wallis_ultimate:block/billboard_5",
+      "y": 270
+    }
+  }
+}

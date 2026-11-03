@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/traffic_cone",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/traffic_cone"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/traffic_cone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/traffic_cone",
+      "y": 270
+    }
+  }
+}

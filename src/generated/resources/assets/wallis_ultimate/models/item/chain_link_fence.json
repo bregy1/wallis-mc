@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "wallis_ultimate:block/chain_link_fence"
+  }
+}

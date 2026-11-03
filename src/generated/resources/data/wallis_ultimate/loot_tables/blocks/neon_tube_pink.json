@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "wallis_ultimate:neon_tube_pink"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "wallis_ultimate:blocks/neon_tube_pink"
+}

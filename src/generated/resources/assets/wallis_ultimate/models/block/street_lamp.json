@@ -1,0 +1,108 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#post"
+        },
+        "east": {
+          "texture": "#post"
+        },
+        "north": {
+          "texture": "#post"
+        },
+        "south": {
+          "texture": "#post"
+        },
+        "up": {
+          "texture": "#post"
+        },
+        "west": {
+          "texture": "#post"
+        }
+      },
+      "from": [
+        7,
+        8,
+        0
+      ],
+      "to": [
+        9,
+        10,
+        8
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#head"
+        },
+        "east": {
+          "texture": "#head"
+        },
+        "north": {
+          "texture": "#head"
+        },
+        "south": {
+          "texture": "#head"
+        },
+        "up": {
+          "texture": "#head"
+        },
+        "west": {
+          "texture": "#head"
+        }
+      },
+      "from": [
+        4,
+        7,
+        8
+      ],
+      "to": [
+        12,
+        11,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#glass"
+        },
+        "east": {
+          "texture": "#glass"
+        },
+        "north": {
+          "texture": "#glass"
+        },
+        "south": {
+          "texture": "#glass"
+        },
+        "up": {
+          "texture": "#glass"
+        },
+        "west": {
+          "texture": "#glass"
+        }
+      },
+      "from": [
+        5,
+        6.5,
+        9
+      ],
+      "shade": false,
+      "to": [
+        11,
+        7,
+        15
+      ]
+    }
+  ],
+  "textures": {
+    "glass": "wallis_ultimate:block/lamp_glass_off",
+    "head": "wallis_ultimate:block/lamp_head",
+    "particle": "wallis_ultimate:block/lamp_head",
+    "post": "wallis_ultimate:block/lamp_post"
+  }
+}

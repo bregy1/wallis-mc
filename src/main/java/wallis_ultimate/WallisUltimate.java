@@ -11,8 +11,10 @@ import wallis_ultimate.registry.ModBlockEntities;
 import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.registry.ModEffects;
 import wallis_ultimate.registry.ModEntities;
+import wallis_ultimate.registry.ModFeatures;
 import wallis_ultimate.registry.ModMenus;
 import wallis_ultimate.registry.ModItems;
+import wallis_ultimate.registry.ModKit;
 
 @Mod(WallisUltimate.MOD_ID)
 public class WallisUltimate {
@@ -24,10 +26,14 @@ public class WallisUltimate {
         ModBlocks.BLOCKS.register(modBus);
         ModBlockEntities.BLOCK_ENTITY_TYPES.register(modBus);
         ModItems.ITEMS.register(modBus);
+        ModKit.BLOCKS.register(modBus);
+        ModKit.ITEMS.register(modBus);
+        ModFeatures.FEATURES.register(modBus);
         ModEffects.EFFECTS.register(modBus);
         ModEntities.ENTITY_TYPES.register(modBus);
         ModMenus.MENUS.register(modBus);
         modBus.addListener(ModItems::addToCreativeTabs);
+        modBus.addListener(ModKit::addToCreativeTabs);
         modBus.addListener(ModEntities::registerAttributes);
         modBus.addListener(ModEntities::registerSpawnPlacements);
         ModNetwork.register();

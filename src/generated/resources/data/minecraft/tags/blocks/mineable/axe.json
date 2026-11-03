@@ -1,6 +1,11 @@
 {
   "values": [
     "wallis_ultimate:supply_crate",
-    "wallis_ultimate:antlers"
+    "wallis_ultimate:antlers",
+    "wallis_ultimate:sign_keep_out",
+    "wallis_ultimate:sign_safe_zone",
+    "wallis_ultimate:sign_shot_on_site",
+    "wallis_ultimate:traffic_cone",
+    "wallis_ultimate:tire_stack"
   ]
 }

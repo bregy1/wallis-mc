@@ -1,4 +1,4 @@
-// 1.20.1	2026-11-02T23:18:27.620436	Block States: wallis_ultimate
+// 1.20.1	2026-11-03T01:01:02.4447492	Block States: wallis_ultimate
 284692ce9f60ff07ff5f6fd0c20861580b21a1d8 assets/wallis_ultimate/blockstates/alien_alloy.json
 a4343b69ee78a54ebe31bb0fe5480acc24c0dd32 assets/wallis_ultimate/blockstates/antlers.json
 e298e2d8ae87bc25a63b52f7d9c2d76dfd0ef398 assets/wallis_ultimate/blockstates/barbed_wire.json
@@ -36,7 +36,7 @@ e122e2cb5ad4a39c1c5a4d10295f2f7c5cd05c25 assets/wallis_ultimate/models/block/gra
 bbb06d4ebca53cb312d25ab98290622a566cf8e1 assets/wallis_ultimate/models/block/sandbag_slab.json
 a03ef833de6ff2e9c44db6e51dcf573c426796ba assets/wallis_ultimate/models/block/sandbag_slab_top.json
 bee985e5396eb14ea5bb477a06c6b7e00acf87db assets/wallis_ultimate/models/block/supply_crate.json
-1f9782b3c4c47da2afda03c0f060b69038aa0eb5 assets/wallis_ultimate/models/block/travel_signpost.json
+1a7ac386af63d5a15c3870f1953f1998762ab1dd assets/wallis_ultimate/models/block/travel_signpost.json
 d8a9134b027dcce9057ea7b2fabcae809c51e1aa assets/wallis_ultimate/models/block/wreck_body.json
 4524b325126931807a79285f3cc7eb71a861bf7b assets/wallis_ultimate/models/block/wreck_panel.json
 beb975b0d4c6ef852cad170986fb1e9576094970 assets/wallis_ultimate/models/block/wreck_panel_top.json

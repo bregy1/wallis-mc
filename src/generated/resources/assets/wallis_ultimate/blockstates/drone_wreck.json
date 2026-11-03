@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/drone_wreck",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/drone_wreck"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/drone_wreck",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/drone_wreck",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "wallis_ultimate:block/rubble_decal"
+      },
+      {
+        "model": "wallis_ultimate:block/rubble_decal",
+        "y": 90
+      },
+      {
+        "model": "wallis_ultimate:block/rubble_decal",
+        "y": 180
+      },
+      {
+        "model": "wallis_ultimate:block/rubble_decal",
+        "y": 270
+      }
+    ]
+  }
+}

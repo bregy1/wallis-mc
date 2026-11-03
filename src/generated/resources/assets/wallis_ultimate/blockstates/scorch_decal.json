@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "wallis_ultimate:block/scorch_decal"
+      },
+      {
+        "model": "wallis_ultimate:block/scorch_decal",
+        "y": 90
+      },
+      {
+        "model": "wallis_ultimate:block/scorch_decal",
+        "y": 180
+      },
+      {
+        "model": "wallis_ultimate:block/scorch_decal",
+        "y": 270
+      }
+    ]
+  }
+}

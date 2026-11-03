@@ -1,6 +1,7 @@
 package wallis_ultimate.gametest;
 
 import com.mojang.authlib.GameProfile;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import net.bananemdnsa.historystages.api.lock.ItemLocks;
@@ -26,6 +27,7 @@ import wallis_ultimate.entity.RegularZombie;
 import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.registry.ModEntities;
 import wallis_ultimate.registry.ModItems;
+import wallis_ultimate.registry.ModKit;
 
 /** Checks for WORLD-013: barbed wire works on everyone; props are locked, uncraftable and drop themselves. */
 @GameTestHolder(WallisUltimate.MOD_ID)
@@ -37,10 +39,12 @@ public final class PropGameTests {
     }
 
     private static List<Item> propItems() {
-        return List.of(ModItems.SANDBAGS.get(), ModItems.SANDBAG_SLAB.get(), ModItems.BARBED_WIRE.get(), ModItems.OIL_DRUM.get(),
+        List<Item> items = new ArrayList<>(List.of(ModItems.SANDBAGS.get(), ModItems.SANDBAG_SLAB.get(), ModItems.BARBED_WIRE.get(), ModItems.OIL_DRUM.get(),
                 ModItems.GREEN_TARP.get(), ModItems.BLUE_TARP.get(), ModItems.GREEN_TARP_SLOPE.get(), ModItems.BLUE_TARP_SLOPE.get(),
                 ModItems.SUPPLY_CRATE.get(), ModItems.WRECK_BODY.get(), ModItems.WRECK_PANEL.get(), ModItems.WRECK_WINDOW.get(),
-                ModItems.WRECK_WHEEL.get(), ModItems.BEER_CANS.get(), ModItems.ANTLERS.get());
+                ModItems.WRECK_WHEEL.get(), ModItems.BEER_CANS.get(), ModItems.ANTLERS.get()));
+        ModKit.items().forEach(item -> items.add(item.get()));
+        return items;
     }
 
     /** Two zombies walk the same way, one through wire: it ends up behind and hurt, the other stays unharmed. */

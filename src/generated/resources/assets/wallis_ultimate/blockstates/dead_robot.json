@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/dead_robot",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/dead_robot"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/dead_robot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/dead_robot",
+      "y": 270
+    }
+  }
+}

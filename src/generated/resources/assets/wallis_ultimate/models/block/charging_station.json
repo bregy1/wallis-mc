@@ -1,0 +1,282 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            11.0
+          ]
+        },
+        "east": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            11.0
+          ]
+        },
+        "north": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            11.0
+          ]
+        },
+        "south": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            11.0
+          ]
+        },
+        "west": {
+          "texture": "#all",
+          "uv": [
+            0.0,
+            9.0,
+            2.0,
+            11.0
+          ]
+        }
+      },
+      "from": [
+        4,
+        0,
+        6
+      ],
+      "to": [
+        12,
+        24,
+        10
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        },
+        "east": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        },
+        "west": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        12,
+        10,
+        7
+      ],
+      "to": [
+        13,
+        20,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cable",
+          "uv": [
+            2.0,
+            2.0,
+            6.0,
+            6.0
+          ]
+        },
+        "east": {
+          "texture": "#cable",
+          "uv": [
+            2.0,
+            2.0,
+            6.0,
+            6.0
+          ]
+        },
+        "north": {
+          "texture": "#cable",
+          "uv": [
+            2.0,
+            2.0,
+            6.0,
+            6.0
+          ]
+        },
+        "south": {
+          "texture": "#cable",
+          "uv": [
+            2.0,
+            2.0,
+            6.0,
+            6.0
+          ]
+        },
+        "up": {
+          "texture": "#cable",
+          "uv": [
+            2.0,
+            2.0,
+            6.0,
+            6.0
+          ]
+        },
+        "west": {
+          "texture": "#cable",
+          "uv": [
+            2.0,
+            2.0,
+            6.0,
+            6.0
+          ]
+        }
+      },
+      "from": [
+        12,
+        8,
+        6
+      ],
+      "to": [
+        15,
+        11,
+        10
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ]
+        },
+        "east": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ]
+        },
+        "west": {
+          "texture": "#cable",
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        0,
+        5
+      ],
+      "to": [
+        13,
+        1,
+        11
+      ]
+    }
+  ],
+  "textures": {
+    "all": "wallis_ultimate:block/charging_station",
+    "cable": "wallis_ultimate:block/lamp_post",
+    "particle": "wallis_ultimate:block/charging_station"
+  }
+}

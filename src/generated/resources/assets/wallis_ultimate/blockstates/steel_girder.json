@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "wallis_ultimate:block/steel_girder",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "wallis_ultimate:block/steel_girder"
+    },
+    "axis=z": {
+      "model": "wallis_ultimate:block/steel_girder",
+      "x": 90
+    }
+  }
+}

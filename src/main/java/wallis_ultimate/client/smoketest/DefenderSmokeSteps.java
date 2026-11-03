@@ -37,6 +37,7 @@ final class DefenderSmokeSteps {
     private static final int SPOT_GUARDS = 10;
     private static final int ZOMBIES = 14;
     private static final int ZOMBIE_DISTANCE = 10;
+    private static final int FIGHT_TICKS = 2400;
     private static final int LOST_GUARDS = 4;
     private static final int FAST_REINFORCEMENT_TICKS = 100;
 
@@ -88,10 +89,14 @@ final class DefenderSmokeSteps {
                     check("defenders shoot the zombies coming at them", zombiesHurtOrDead() >= 3, zombiesHurtOrDead() + " zombies hit or dead");
                     check("zombies go for the defenders", zombies().stream().anyMatch(zombie -> zombie.getTarget() instanceof Defender) || zombies().isEmpty(), "");
                 }),
-                await("the fight is over", 700, player -> zombies().size() <= 2),
+                // Guards spread along the walls, so only a few can see any one spot: this takes about a minute.
+                await("the fight is over", FIGHT_TICKS, player -> zombies().size() <= 2),
                 step("check who won, and lose some guards", 10, player -> {
                     check("a safe spot holds against a group of zombies", zombies().size() <= 2, zombies().size() + " of " + zombiesAtStart + " zombies left");
                     log("guards left after the fight: " + guards().size());
+                    // If a fight ever stalls, this says where: a zombie nobody can reach shows up here.
+                    BlockPos center = spot().center();
+                    zombies().forEach(zombie -> log("zombie left at " + zombie.blockPosition().subtract(center) + " from the center, target " + zombie.getTarget()));
                     command("kill @e[type=wallis_ultimate:zombie,distance=..200]");
                     command("kill @e[type=wallis_ultimate:defender,limit=" + LOST_GUARDS + ",sort=random,distance=..200]");
                 }),
