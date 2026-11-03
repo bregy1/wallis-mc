@@ -50,7 +50,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Description:** A player who isn't revived within 90 seconds dies and respawns at their bed, their "last save".
 
 **Acceptance criteria:**
-- [ ] A player who isn't revived within 90 seconds respawns at their bed.
+- [x] A player who isn't revived within 90 seconds respawns at their bed. (The 90 seconds are checked by a GameTest; dying and coming back at the bed in a real client by the smoke test, 2026-11-03.)
 - [ ] A player without a valid bed respawns at world spawn, as in vanilla.
 
 **Open questions:**
