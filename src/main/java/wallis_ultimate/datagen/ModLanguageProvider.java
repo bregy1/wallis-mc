@@ -25,7 +25,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("safe_spot." + WallisUltimate.MOD_ID + ".camp_tarp", "Camp Tarp");
         add("safe_spot." + WallisUltimate.MOD_ID + ".stranded_hauler", "The Stranded Hauler");
         add("message." + WallisUltimate.MOD_ID + ".safe_spot.found", "You found a safe spot: %s. Its signpost connects it to the others you know.");
-        add("message." + WallisUltimate.MOD_ID + ".safe_spot.protected", "Best leave this place the way it is.");
+        add("message." + WallisUltimate.MOD_ID + ".safe_spot.angry", "\"Hey! You break it, you die!\"");
+        add(ModEntities.DEFENDER.get(), "Defender");
+        add(ModEntities.DROPSHIP.get(), "Dropship");
+        add(ModItems.DEFENDER_RIFLE.get(), "Salvaged Rifle");
         add("message." + WallisUltimate.MOD_ID + ".travel.in_combat", "Not in the middle of a fight!");
         add("screen." + WallisUltimate.MOD_ID + ".travel.title", "Where to?");
         add("screen." + WallisUltimate.MOD_ID + ".travel.here", "You're at %s");

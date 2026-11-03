@@ -53,8 +53,8 @@ public final class ClientSmokeTest {
     static final boolean ENABLED = !FMLEnvironment.production && Boolean.getBoolean("wallis_ultimate.smoketest");
     private static final String WORLD_NAME = "wallis-smoketest";
     private static final String PREFIX = "[SMOKETEST] ";
-    /** Gives up after 5 minutes of game ticks, so a stuck step can't keep the game open. */
-    private static final int MAX_TICKS = 20 * 60 * 5;
+    /** Gives up after 15 minutes of game ticks, so a stuck step can't keep the game open. */
+    private static final int MAX_TICKS = 20 * 60 * 15;
     /** Lets chunks, the HUD and JEI settle after the world opens. */
     private static final int SETTLE_TICKS = 60;
 
@@ -154,6 +154,7 @@ public final class ClientSmokeTest {
             }
         };
         group.accept("sites", SiteSmokeSteps::steps);
+        group.accept("defenders", DefenderSmokeSteps::steps);
         group.accept("walk", ClientSmokeTest::walkAround);
         group.accept("diet", DietSmokeSteps::steps);
         group.accept("trinkets", TrinketSmokeSteps::steps);

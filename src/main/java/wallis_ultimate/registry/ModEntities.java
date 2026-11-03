@@ -12,6 +12,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.entity.BurningPatch;
+import wallis_ultimate.entity.Defender;
+import wallis_ultimate.entity.Dropship;
 import wallis_ultimate.entity.GravelShot;
 import wallis_ultimate.entity.MolotovProjectile;
 import wallis_ultimate.entity.PipeBomb;
@@ -26,6 +28,18 @@ public final class ModEntities {
                     .sized(0.6F, 1.95F)
                     .clientTrackingRange(8)
                     .build(WallisUltimate.MOD_ID + ":zombie"));
+
+    /** SURV-011: safe spot guards, and the aircraft that brings new ones. It tracks far, so it can be seen coming. */
+    public static final RegistryObject<EntityType<Defender>> DEFENDER = ENTITY_TYPES.register("defender",
+            () -> EntityType.Builder.<Defender>of(Defender::new, MobCategory.MISC)
+                    .sized(0.6F, 1.95F)
+                    .clientTrackingRange(10)
+                    .build(WallisUltimate.MOD_ID + ":defender"));
+    public static final RegistryObject<EntityType<Dropship>> DROPSHIP = ENTITY_TYPES.register("dropship",
+            () -> EntityType.Builder.<Dropship>of(Dropship::new, MobCategory.MISC)
+                    .sized(8.0F, 3.0F)
+                    .clientTrackingRange(16).updateInterval(1).fireImmune().noSummon()
+                    .build(WallisUltimate.MOD_ID + ":dropship"));
 
     // GEAR-007: thrown and fired weapons, plus the flames a molotov leaves behind.
     public static final RegistryObject<EntityType<MolotovProjectile>> MOONSHINE_MOLOTOV = ENTITY_TYPES.register("moonshine_molotov",
@@ -50,6 +64,7 @@ public final class ModEntities {
 
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ZOMBIE.get(), RegularZombie.createAttributes().build());
+        event.put(DEFENDER.get(), Defender.createAttributes().build());
     }
 
     /** Same spawn rules as vanilla zombies: on the ground, in the dark. */
