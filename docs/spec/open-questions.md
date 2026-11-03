@@ -173,6 +173,7 @@
 | Q-172 | Do workers keep working while players are away? | WORK-003 | answered: they only run while someone is nearby, and catch up on return, up to about a day's worth |
 | Q-173 | If the team takes the trafficker down, where do new workers come from? Proposal: the people he held stay around and can still join, for a fee or through quests | ECON-003, WORK-001 | open |
 | Q-174 | What is the money called? Proposal: Scrip (or Caps, Chits) | ECON-001 | open |
+| Q-162 | You said you don't really plan to upload the pack, just share it with friends. Does that replace publishing on CurseForge (PACK-007)? If so: no Rewards Program, so the monetized-pack license rule goes away; no separate public and uncut versions, so one pack with the parody names (STORY-019). | PACK-007, STORY-019, PACK-004 | open |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

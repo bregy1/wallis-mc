@@ -11,6 +11,7 @@ This is a large modpack which brings a new experience after years of playing mod
 The apocalypse hit a very advanced civilisation, at least as advanced as ours today, in places beyond it. What's left of it shows: smashed electric cars and drones, dead screens and solar arrays, broken robots, and destroyed futuristic art. The rednecks in their cabin are the odd ones out in that world, not a picture of it. Your words (2026-11-02): "we assume that the apocalypse happened in a very advanced civilisation, at least the same as now, say there is futuristic arts which was destroyed for example."
 
 ## Pillars
+- The game is funny and very rough, with rough words and crude jokes. South Park gives the taste. Your words (2026-11-03): "the game should be funny and very rough, with rough words etc. [...] i like southpark, to get a taste of the roughness and jokes which would be nice."
 - Every planet follows a theme, looks good, has its own vibe, and is taken care of in detail. Your words: "Every planet should follow a theme and be good looking, getting a vibe and be taken care of in detail."
 - We dont want lag
 - We dont want anything completely overpowered.
