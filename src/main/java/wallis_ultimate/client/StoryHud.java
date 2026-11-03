@@ -49,11 +49,14 @@ public final class StoryHud {
         int width = mc.getWindow().getGuiScaledWidth();
         int height = mc.getWindow().getGuiScaledHeight();
         ConversationPacket conversation = ClientConversation.current();
-        if (conversation != null && !(mc.screen instanceof ConversationScreen)) {
-            Component hint = conversation.replyKeys().isEmpty() ? null
-                    : Component.translatable("story." + WallisUltimate.MOD_ID + ".conversation.choosing", conversation.chooserName());
-            drawPanel(graphics, mc.font, width, height, Component.translatable(conversation.speakerKey()), conversation.speakerColor(),
-                    Component.translatable(conversation.textKey()), hint, 0);
+        if (conversation != null) {
+            // With the screen open, it draws the panel itself. A radio line waits behind a conversation either way.
+            if (!(mc.screen instanceof ConversationScreen)) {
+                Component hint = conversation.replyKeys().isEmpty() ? null
+                        : Component.translatable("story." + WallisUltimate.MOD_ID + ".conversation.choosing", conversation.chooserName());
+                drawPanel(graphics, mc.font, width, height, Component.translatable(conversation.speakerKey()), conversation.speakerColor(),
+                        Component.translatable(conversation.textKey()), hint, 0);
+            }
             return;
         }
         CaptionPacket caption = ClientConversation.caption();

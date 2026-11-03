@@ -71,7 +71,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 |---|---|---|---|---|
 | 1 | Mornin', Sunshine | The opening | Hear Lurleen out | A bed (SURV-005) and 4 bread, each |
 | 2 | Somethin' to Swing | 1 | Make a stone sword | Scavenger Weapons stage |
-| 3 | Create First Home (WORLD-012) | 1 | Place a bed. The first bed anyone in the team places is the home, and Lurleen moves in | |
+| 3 | Create First Home (WORLD-012) | 1 | Place a bed. The first bed anyone in the team places after meeting Lurleen is the home, and she moves in | |
 | 4 | Hot Meal | 3 | Have cooked food on you | Cooking stage (SURV-008, Q-152) |
 | 5 | Darryl's Friends | 2 | Put down 5 zombies | 3 bandages each |
 | 6 | Sleep It Off | 3 | Sleep in a bed | Granny's Rabbit Foot, each (ENEMY-003, CMBT-003) |
@@ -84,7 +84,9 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 
 **Conversations (STORY-002),** my numbers: "present" means online, in the same dimension and within 32 blocks of where the talk started; people who come closer join in. Only one conversation per team at a time. Each time a reply is needed, one present member is picked at random. They get a screen with the replies; everyone else keeps moving and reads along on the HUD, with "Name is choosing...". Whoever is picked has 45 seconds; then the choice passes to someone else who is there, if there is anyone (nobody is ever timed out alone). Lines without a reply run by themselves, at about 10 characters a second and at least 2.5 seconds; whoever started the talk can click Next to go faster. Esc walks you out of a talk. It goes on for the others; alone, it ends, and the NPC starts it over.
 
-**How Lurleen reacts (STORY-003).** What she says depends on the team's quests: the next thing on the list once per quest, then "read the list", then banter that also remembers whether you believed Carl. Over the radio, once per team: when dusk comes and you still have no home, when you find your first safe spot, when you settle down, and after your first death, to remind you of the grave. She stands at the cabin across from the fire. A second Lurleen appears by the team's first bed, unless that bed is within 24 blocks of the cabin (Q-136's "several places").
+**How Lurleen reacts (STORY-003).** What she says depends on the team's quests: the next thing on the list once per quest, then "read the list", then banter that also remembers whether you believed Carl. Over the radio, once per team: when dusk comes and you still have no home, when you find your first safe spot, when you settle down, and after your first death, to remind you of the grave. She stands at the cabin across from the fire. A second Lurleen appears by the team's first bed, unless that bed is within 24 blocks of the cabin (Q-136's "several places"). Her radio line for a horde night is written and ready: horde nights only have to call `Transmissions.hordeStarting(player)` (ENEMY-006).
+
+**The boss's side of it (ENEMY-011).** The last quest waits for a kill of `wallis_ultimate:hog_daddy`, and the quest before it runs `/wallis_boss hog_daddy start` when the team says it's ready at the cabin. If the fight goes badly, Lurleen at the cabin offers another go, which runs the same command again (my call, so a lost fight can't be a dead end). Neither needs the boss to exist: on a branch without it, the command fails quietly and the quest waits.
 
 **Replies with lasting effects:** one so far. Whether you believe Carl changes what Lurleen says about it later. Nothing else depends on it (STORY-005 is still draft).
 
