@@ -84,7 +84,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [ ] A bed sets the player's respawn point, as in vanilla.
 - [x] Sleeping in a bed fully heals the player, when they wake up in the morning after sleeping through the night. Leaving the bed early gives nothing (answer to Q-123). (Verified in a real client with Hourglass, which wakes players at dawn.)
 - [x] Beds can't be crafted. (The 16 bed recipes are switched off; dyeing a bed you already have still works, see Q-123.)
-- [ ] Each player can own one bed per planet; it comes from a quest on that planet.
+- [ ] Each player can own one bed per planet; it comes from a quest on that planet. (The limit used to be forgotten on death, so dying let you place a second bed; fixed 2026-11-03 and checked by a GameTest. The quests come with the story work.)
 - [ ] On Earth, every player receives their bed early, used to set up the team's first home (quest "create first home").
 - [x] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
 - [ ] A player can pick up their bed and place it again, which moves their home (WORLD-012).

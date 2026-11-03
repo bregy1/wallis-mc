@@ -87,7 +87,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words: "make sure to not add too much block breaking!! it has to be super rare." Base fortification details belong in the base spec (BASE).
 
 ### ENEMY-006 — Hordes
-**Status:** approved (partly implemented 2026-11-02: noise pulls regular zombies toward it, verified by a GameTest; horde nights and story hordes not built yet)
+**Status:** approved (partly implemented: noise pulls regular zombies toward it, verified by a GameTest 2026-11-02; horde nights, verified by GameTests and in a real client by the smoke test 2026-11-03; story hordes not built yet)
 **Priority:** must
 
 **Description:** Hordes come from three sources: noise attracts nearby zombies, the story sends hordes at key moments, and horde nights send big attacks at bases. There are no randomly wandering hordes.
@@ -95,16 +95,16 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Acceptance criteria:**
 - [ ] Only loud actions pull zombies toward the noise: gunshots (about 32 blocks), explosions (about 48), chainsaws (about 24), breaking glass and doors (about 12). Walking, sprinting and mining are quiet.
 - [ ] Scripted story hordes happen at key moments (e.g. the launch defense, PROG-010).
-- [ ] Every 7th in-game night is a horde night, sending a big attack at a player's base (which base: WORLD-012). If nobody is at the base, the horde spawns around the player, wherever they are (answer to Q-157). In a safe spot, that means a big fight there (SURV-011).
-- [ ] Players get warned: 2 minutes before, "You get a really uneasy feeling"; 1 minute before, "The feeling gets worse, something is about to happen"; and when the horde starts, a message in chat or something transmitted from Lurleen. There's a little time to get to a good fighting spot (answer to Q-157).
-- [ ] A horde night can't be slept through: beds refuse that night (answer to Q-158). A later item may allow it (see notes).
-- [ ] The horde night counter runs per player and only counts in-game days while that player is online.
-- [ ] When team members play together, the counter closest to its horde night decides. When that horde night hits, the counters of everyone present reset.
-- [ ] In a given district, a horde night is equally strong each time (PROG-007).
-- [ ] A horde of regular zombies alone is a fair fight; its elites (the special zombies in it) are what make it very challenging. Each tier sets which elites come along. Chapter 1 has no specials yet (Q-139), so its hordes are regular zombies only.
+- [x] Every 7th in-game night is a horde night, sending a big attack at a player's base (which base: WORLD-012). If nobody is at the base, the horde spawns around the player, wherever they are (answer to Q-157). In a safe spot, that means a big fight there (SURV-011). (Built: waves spawn outside a safe spot's area and come in; the defenders come with SURV-011.)
+- [x] Players get warned: 2 minutes before, "You get a really uneasy feeling"; 1 minute before, "The feeling gets worse, something is about to happen"; and when the horde starts, a message in chat or something transmitted from Lurleen. There's a little time to get to a good fighting spot (answer to Q-157). (Timed in real minutes, with Hourglass's day speed. For now Lurleen's line is a chat message with a horn sound.)
+- [x] A horde night can't be slept through: beds refuse that night (answer to Q-158). A later item may allow it (see notes).
+- [x] The horde night counter runs per player and only counts in-game days while that player is online. (It counts nightfalls while online, and survives dying. A /time command doesn't count as a night going by.)
+- [x] When team members play together, the counter closest to its horde night decides. When that horde night hits, the counters of everyone present reset. (Rules checked by GameTests; not yet played with several real players.)
+- [x] In a given district, a horde night is equally strong each time (PROG-007). (Proposal: 3 waves a minute apart, each 6 zombies plus 4 per extra player in the fight.)
+- [x] A horde of regular zombies alone is a fair fight; its elites (the special zombies in it) are what make it very challenging. Each tier sets which elites come along. Chapter 1 has no specials yet (Q-139), so its hordes are regular zombies only. (Fair is still to be judged by playing it.)
 
 **Open questions:**
-**Notes:** Your words on elites: "So a horde without elites is kinda weak, but the elites make it very challenging." Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. Decided 2026-11-02: praying costs a super rare item, which can be gathered on the Moon, so it comes into play when returning to clear Earth (STORY-018). Your words: "The praying, i would just go with super rare item. On the moon it is actually possible to gather this item then, so later when returning to clear the earth, this item can be used."
+**Notes:** Your words on elites: "So a horde without elites is kinda weak, but the elites make it very challenging." Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. Decided 2026-11-02: praying costs a super rare item, which can be gathered on the Moon, so it comes into play when returning to clear Earth (STORY-018). Your words: "The praying, i would just go with super rare item. On the moon it is actually possible to gather this item then, so later when returning to clear the earth, this item can be used." Horde nights run in `survival/HordeNights`. My proposals, veto any: the wave numbers above; "home" means within 64 blocks of the bed; waves spawn 24–36 blocks out, as near the fight's height as possible, so one can reach you in a cave; Lurleen's line. Known limit: hordes only come in the Overworld for now, so a team in the Nether at nightfall on the 7th night misses it; to settle when the Nether is built (WORLD-008).
 
 ### ENEMY-007 — Safe spots hold
 **Status:** approved (changed 2026-11-02, answer to Q-156; built through SURV-011)

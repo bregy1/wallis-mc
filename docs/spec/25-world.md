@@ -176,7 +176,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Acceptance criteria:**
 - [ ] The first home quest takes place in district 1.
 - [ ] Teams can build in any opened district.
-- [ ] A player's horde night (ENEMY-006) attacks the base around that player's bed. When team members are online together, it attacks the team's shared base: the bed most of them use.
+- [x] A player's horde night (ENEMY-006) attacks the base around that player's bed. When team members are online together, it attacks the team's shared base: the bed most of them use. (Rule checked by GameTests; a player who has no bed of their own counts wherever they last slept, which may be a safe spot.)
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answers to Q-066, Q-107). Since every structure exists only once (WORLD-005), personal loot keeps exploring worthwhile for every team member. Candidate mod: Lootr (license still to check).
