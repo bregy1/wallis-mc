@@ -1,0 +1,76 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "north": {
+          "texture": "#ad",
+          "uv": [
+            5.3333335,
+            8.0,
+            10.666667,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#ad",
+          "uv": [
+            5.3333335,
+            8.0,
+            10.666667,
+            16.0
+          ]
+        }
+      },
+      "forge_data": {
+        "block_light": 11,
+        "sky_light": 11
+      },
+      "from": [
+        0,
+        0,
+        1
+      ],
+      "to": [
+        16,
+        16,
+        2
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#back"
+        },
+        "east": {
+          "texture": "#back"
+        },
+        "north": {
+          "texture": "#back"
+        },
+        "up": {
+          "texture": "#back"
+        },
+        "west": {
+          "texture": "#back"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        1
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "ad": "wallis_ultimate:block/billboard",
+    "back": "wallis_ultimate:block/lamp_post",
+    "particle": "wallis_ultimate:block/lamp_post"
+  }
+}

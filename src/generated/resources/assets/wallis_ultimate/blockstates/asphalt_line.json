@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "wallis_ultimate:block/asphalt_line",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "wallis_ultimate:block/asphalt_line"
+    },
+    "facing=south": {
+      "model": "wallis_ultimate:block/asphalt_line",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wallis_ultimate:block/asphalt_line",
+      "y": 270
+    }
+  }
+}

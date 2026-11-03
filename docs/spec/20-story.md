@@ -223,7 +223,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Status:** draft
 **Priority:** should
 
-**Description:** The mix of humor and seriousness changes by planet and by district (area within a planet). Overall the game is a good mix of both.
+**Description:** The mix of humor and seriousness changes by planet and by district (area within a planet). Overall the game is a good mix of both, and the humor is rough: crude jokes, rough words and satire, in the taste of South Park (your note, 2026-11-03).
 
 **Acceptance criteria:**
 - [ ] Each planet and district has a defined tone in its spec (e.g. comedic, grim, mixed).

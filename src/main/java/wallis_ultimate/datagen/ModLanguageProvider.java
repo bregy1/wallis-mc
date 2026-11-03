@@ -7,6 +7,7 @@ import wallis_ultimate.registry.ModBlocks;
 import wallis_ultimate.registry.ModEffects;
 import wallis_ultimate.registry.ModEntities;
 import wallis_ultimate.registry.ModItems;
+import wallis_ultimate.registry.ModKit;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput output) {
@@ -20,12 +21,16 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.ALIEN_ALLOY.get(), "Alien Alloy");
         add(ModBlocks.GRAVE.get(), "Grave");
         add(ModBlocks.TRAVEL_SIGNPOST.get(), "Travel Signpost");
+        ModKit.names().forEach((block, name) -> add(block.get(), name));
         add("safe_spot." + WallisUltimate.MOD_ID + ".earls_salvage", "Earl's Salvage");
         add("safe_spot." + WallisUltimate.MOD_ID + ".gas_n_guns", "Gas-N-Guns");
         add("safe_spot." + WallisUltimate.MOD_ID + ".camp_tarp", "Camp Tarp");
         add("safe_spot." + WallisUltimate.MOD_ID + ".stranded_hauler", "The Stranded Hauler");
         add("message." + WallisUltimate.MOD_ID + ".safe_spot.found", "You found a safe spot: %s. Its signpost connects it to the others you know.");
-        add("message." + WallisUltimate.MOD_ID + ".safe_spot.protected", "Best leave this place the way it is.");
+        add("message." + WallisUltimate.MOD_ID + ".safe_spot.angry", "\"Hey! You break it, you die!\"");
+        add(ModEntities.DEFENDER.get(), "Defender");
+        add(ModEntities.DROPSHIP.get(), "Dropship");
+        add(ModItems.DEFENDER_RIFLE.get(), "Salvaged Rifle");
         add("message." + WallisUltimate.MOD_ID + ".travel.in_combat", "Not in the middle of a fight!");
         add("screen." + WallisUltimate.MOD_ID + ".travel.title", "Where to?");
         add("screen." + WallisUltimate.MOD_ID + ".travel.here", "You're at %s");

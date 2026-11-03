@@ -17,6 +17,8 @@ public final class ModEntityRenderers {
     @SubscribeEvent
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.ZOMBIE.get(), RegularZombieRenderer::new);
+        event.registerEntityRenderer(ModEntities.DEFENDER.get(), DefenderRenderer::new);
+        event.registerEntityRenderer(ModEntities.DROPSHIP.get(), DropshipRenderer::new);
         // GEAR-007: projectiles look like their items; the burning patch is only particles.
         event.registerEntityRenderer(ModEntities.MOONSHINE_MOLOTOV.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.PIPE_BOMB.get(), ThrownItemRenderer::new);
@@ -27,5 +29,8 @@ public final class ModEntityRenderers {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(RegularZombieModel.LAYER, RegularZombieModel::createBodyLayer);
+        event.registerLayerDefinition(DefenderModel.LAYER, DefenderModel::createBodyLayer);
+        event.registerLayerDefinition(DefenderRenderer.PARACHUTE_LAYER, DefenderRenderer::createParachuteLayer);
+        event.registerLayerDefinition(DropshipModel.LAYER, DropshipModel::createBodyLayer);
     }
 }

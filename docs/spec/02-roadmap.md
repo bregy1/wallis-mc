@@ -45,6 +45,8 @@ The first thing we build: the Scavenger tier in the first district, from the red
 
 - 2026-11-02: district 1's places (WORLD-005, WORLD-013, SURV-006, ENEMY-007, WORLD-004, WORLD-011): our own prop blocks, the rednecks' cabin at spawn, four different safe spots with beds, safe from enemies, travel by signpost between the ones a team has found, personal loot chests with six of the trinkets.
 - 2026-11-03: district 1 is land on any seed (WORLD-001), and horde nights are in (ENEMY-006, WORLD-012): two warnings, three waves, beds that refuse. The one-bed limit now survives death (SURV-005). 99 GameTests and 79 client smoke checks passing.
+- 2026-11-03: safe spot defenders (SURV-011, ENEMY-007): armed guards, dropship reinforcements, repairs, stuck NPCs teleport.
+- 2026-11-03: apocalypse kit, themed safe spots with walls, small random ruins on Earth (WORLD-013, WORLD-014, SURV-011).
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)

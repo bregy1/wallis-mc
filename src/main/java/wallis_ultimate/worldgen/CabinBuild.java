@@ -113,6 +113,10 @@ public final class CabinBuild {
         b.set(17, 1, 12, ID + "oil_drum");
         b.set(13, 4, 12, ID + "antlers[facing=south]");
         b.set(12, 3, 12, "minecraft:wall_torch[facing=north]");
+        // The rest of the world got here too, and this is what they think of it: a home help robot used for target
+        // practice, a delivery drone shot down onto the roof.
+        b.set(14, 1, 12, ID + "dead_robot[facing=north]");
+        b.set(10, 8, 14, ID + "drone_wreck[facing=east]");
     }
 
     private static void inside(Blueprint b) {

@@ -107,13 +107,13 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words on elites: "So a horde without elites is kinda weak, but the elites make it very challenging." Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. Decided 2026-11-02: praying costs a super rare item, which can be gathered on the Moon, so it comes into play when returning to clear Earth (STORY-018). Your words: "The praying, i would just go with super rare item. On the moon it is actually possible to gather this item then, so later when returning to clear the earth, this item can be used." Horde nights run in `survival/HordeNights`. My proposals, veto any: the wave numbers above; "home" means within 64 blocks of the bed; waves spawn 24–36 blocks out, as near the fight's height as possible, so one can reach you in a cave; Lurleen's line. Known limit: hordes only come in the Overworld for now, so a team in the Nether at nightfall on the 7th night misses it; to settle when the Nether is built (WORLD-008).
 
 ### ENEMY-007 — Safe spots hold
-**Status:** approved (changed 2026-11-02, answer to Q-156; built through SURV-011)
+**Status:** implemented 2026-11-03 through SURV-011 (verified with 14 zombies in a real client; story falls come with the story that needs them)
 **Priority:** must
 
 **Description:** Safe spots hold against any enemy or horde, except when the story makes one fall. Not because enemies can't get there: their defenders fight, with real losses and real reinforcements (SURV-011).
 
 **Acceptance criteria:**
-- [ ] No enemy or horde can overrun a safe spot, except in a story event (SURV-006). Players there can get caught up in the fight.
+- [x] No enemy or horde can overrun a safe spot, except in a story event (SURV-006). Players there can get caught up in the fight.
 
 **Open questions:**
 **Notes:** Your words: "a safe place doesnt have any issues dealing with hordes. They are literally safe." Changed 2026-11-02 (answer to Q-156): instead of an invisible line that keeps enemies out, fights really happen (SURV-011).

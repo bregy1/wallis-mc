@@ -1,0 +1,214 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#top",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "north": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "south": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        5,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#top",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "north": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "south": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        5,
+        1
+      ],
+      "to": [
+        15,
+        10,
+        13
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#top",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "north": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "south": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#tread",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            5.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        10,
+        3
+      ],
+      "to": [
+        14,
+        15,
+        15
+      ]
+    }
+  ],
+  "textures": {
+    "particle": "wallis_ultimate:block/wreck_tread",
+    "top": "wallis_ultimate:block/tire_top",
+    "tread": "wallis_ultimate:block/wreck_tread"
+  }
+}

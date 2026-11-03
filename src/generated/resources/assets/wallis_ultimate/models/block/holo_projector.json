@@ -1,0 +1,135 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#base"
+        },
+        "east": {
+          "texture": "#base"
+        },
+        "north": {
+          "texture": "#base"
+        },
+        "south": {
+          "texture": "#base"
+        },
+        "up": {
+          "texture": "#base"
+        },
+        "west": {
+          "texture": "#base"
+        }
+      },
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        2,
+        12
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#figure",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#figure",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "forge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      },
+      "from": [
+        0,
+        2,
+        8
+      ],
+      "rotation": {
+        "angle": 45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ]
+      },
+      "shade": false,
+      "to": [
+        16,
+        32,
+        8
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#figure",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#figure",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "forge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      },
+      "from": [
+        0,
+        2,
+        8
+      ],
+      "rotation": {
+        "angle": -45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ]
+      },
+      "shade": false,
+      "to": [
+        16,
+        32,
+        8
+      ]
+    }
+  ],
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "base": "wallis_ultimate:block/lamp_head",
+    "figure": "wallis_ultimate:block/holo_figure",
+    "particle": "wallis_ultimate:block/lamp_head"
+  }
+}

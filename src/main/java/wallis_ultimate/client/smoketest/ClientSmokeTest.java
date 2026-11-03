@@ -53,8 +53,8 @@ public final class ClientSmokeTest {
     static final boolean ENABLED = !FMLEnvironment.production && Boolean.getBoolean("wallis_ultimate.smoketest");
     private static final String WORLD_NAME = "wallis-smoketest";
     private static final String PREFIX = "[SMOKETEST] ";
-    /** Gives up after 5 minutes of game ticks, so a stuck step can't keep the game open. */
-    private static final int MAX_TICKS = 20 * 60 * 5;
+    /** Gives up after 15 minutes of game ticks, so a stuck step can't keep the game open. */
+    private static final int MAX_TICKS = 20 * 60 * 15;
     /** Lets chunks, the HUD and JEI settle after the world opens. */
     private static final int SETTLE_TICKS = 60;
 
@@ -153,7 +153,11 @@ public final class ClientSmokeTest {
                 all.addAll(steps.get());
             }
         };
+        // Sites first: it checks where and how the player woke up.
         group.accept("sites", SiteSmokeSteps::steps);
+        group.accept("defenders", DefenderSmokeSteps::steps);
+        group.accept("kit", KitSmokeSteps::steps);
+        group.accept("ruins", RuinSmokeSteps::steps);
         group.accept("walk", ClientSmokeTest::walkAround);
         group.accept("diet", DietSmokeSteps::steps);
         group.accept("trinkets", TrinketSmokeSteps::steps);
@@ -162,6 +166,10 @@ public final class ClientSmokeTest {
         group.accept("props", PropSmokeSteps::steps);
         group.accept("zombies", ZombieSmokeSteps::steps);
         group.accept("horde", HordeSmokeSteps::steps);
+        // Takes about five minutes, so only when asked for by name.
+        if (only.contains("horde-spot")) {
+            all.addAll(HordeSmokeSteps.atASafeSpot());
+        }
         all.add(step("walk again", 45, player -> walk(40, 180)));
         all.add(step("screenshot at the end", 0, player -> screenshot("end")));
         return all;

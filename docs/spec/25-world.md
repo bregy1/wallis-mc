@@ -182,19 +182,21 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Notes:** Decided 2026-11-01 (answers to Q-066, Q-107). Since every structure exists only once (WORLD-005), personal loot keeps exploring worthwhile for every team member. Candidate mod: Lootr (license still to check).
 
 ### WORLD-014 — Small themed ruins on every planet
-**Status:** approved 2026-11-02 (your words; which ruins and how many are my proposals)
+**Status:** approved 2026-11-02 (your words; which ruins and how many are my proposals). Earth implemented 2026-11-03, verified by GameTests and in a real client by the smoke test
 **Priority:** must
 
 **Description:** Every planet follows a theme and has a vibe. Between its hand-made places, small random structures that match that theme spawn across the landscape, so walking anywhere feels like being on that planet. On Earth they show the ruins of an advanced civilisation (see World view in the overview).
 
 **Acceptance criteria:**
-- [ ] Small structures matching the theme spawn randomly across the terrain as it generates, on every planet.
-- [ ] Earth's show the wreck of a modern and futuristic world: crashed cars and drones, broken screens and solar arrays, dead robots, destroyed futuristic art, road pieces.
-- [ ] They have several different looks, sit properly on the ground, and don't spawn in water, in safe spots or in other hand-made places.
-- [ ] They're common enough to set the mood, and don't cost noticeable loading time (PACK-003).
+- [ ] Small structures matching the theme spawn randomly across the terrain as it generates, on every planet. (Earth so far; other planets when they exist.)
+- [x] Earth's show the wreck of a modern and futuristic world: crashed cars and drones, broken screens and solar arrays, dead robots, destroyed futuristic art, road pieces.
+- [x] They have several different looks, sit properly on the ground, and don't spawn in water, in safe spots or in other hand-made places.
+- [x] They're common enough to set the mood, and don't cost noticeable loading time (PACK-003).
 
 **Open questions:**
 **Notes:** Your words: "Also we want smaller random structures, matching to the theme to spawn. That is a thing we want on every planet anyways. Every planet should follow a theme and be good looking, getting a vibe and be taken care of in detail."
+
+Built 2026-11-03, my proposals to veto: 14 looks on Earth, each drawn a little differently every time and turned at random: a car pile-up on a piece of road, a drone crash, charging posts with a car still plugged in, a billboard, the corner of a white high-tech building, a torn-open chrome ring (public art), a smashed solar array, a street corner, a cracked-open data center, a hologram kiosk that still flickers at night, a place full of dead robots, somebody's last stand, spilled shipping containers, and the rare stump of a tower. One is tried about every 14 chunks on land, and it's dropped if the ground there is too uneven or wet. They're decoration: no loot yet. A site clears any ruin when it flattens its ground. The billboards advertise Halcyon, a made-up tech company whose name is on Earth's charging stations too; a name to give the world some texture, not a story element yet.
 
 ### WORLD-013 — Apocalypse props
 **Status:** implemented 2026-11-02 (placeholder art by Claude; GameTests, and seen and walked through in a real client by the smoke test)
@@ -207,7 +209,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 - [x] Barbed wire hurts and slows anything walking through it, including players and zombies.
 - [x] Wrecked cars are built from several blocks, so they can be placed in any structure.
 - [x] Players can't craft or use them unless a stage unlocks them; they're for structures first (PROG-002).
-- [ ] There's a full kit of blocks in the look of a ruined advanced world, enough to give structures a clear theme (see World view in the overview). Your words: "please design them better themed. We might have to first get apocalypse blocks to give it a theme."
+- [x] There's a full kit of blocks in the look of a ruined advanced world, enough to give structures a clear theme (see World view in the overview). Your words: "please design them better themed. We might have to first get apocalypse blocks to give it a theme."
 
 **Open questions:**
-**Notes:** Your words on safe spots (Q-146): "We definitely want to use some world ending theme modpack items for that too! deko and detail is impoirtant." Which props players may build with themselves comes with the base spec. Built (2026-11-02), my proposals to veto: sandbags and sandbag slabs; barbed wire (half a heart per hit while moving through it, about 40% speed; zombies walk right into it instead of around); oil drums, also as lit burn barrels that serve as lights; green and blue tarps, flat or sloped for tent roofs; supply crates; wreck body, panel, window and wheel blocks; for the cabin, beer cans and antlers. All can be mined and drop themselves, and stay locked for players. No ready-made block set fits: the mods that have apocalypse blocks (Apocalypse Now, Chovy's Apocalypse) are All Rights Reserved, so they can't go into a monetized pack, and Q-154 already chose our own blocks.
+**Notes:** Your words on safe spots (Q-146): "We definitely want to use some world ending theme modpack items for that too! deko and detail is impoirtant." Which props players may build with themselves comes with the base spec. Built (2026-11-02), my proposals to veto: sandbags and sandbag slabs; barbed wire (half a heart per hit while moving through it, about 40% speed; zombies walk right into it instead of around); oil drums, also as lit burn barrels that serve as lights; green and blue tarps, flat or sloped for tent roofs; supply crates; wreck body, panel, window and wheel blocks; for the cabin, beer cans and antlers. All can be mined and drop themselves, and stay locked for players. No ready-made block set fits: the mods that have apocalypse blocks (Apocalypse Now, Chovy's Apocalypse) are All Rights Reserved, so they can't go into a monetized pack, and Q-154 already chose our own blocks. The kit, built 2026-11-03 (`registry/ModKit`, placeholders by Claude): cracked concrete with slab, stairs and wall; asphalt with slab and road markings; rubble and rebar; corrugated metal; shipping containers; scrap; chain-link fence; jersey and gabion barriers; hazard plates; steel girders; hand-painted signs; white composite building panels with light strips; shattered glass; broken solar panels; dead and flickering screens; a billboard; server racks; charging stations; drone and robot wrecks; electric car parts; neon tubes; street lamps and floodlights; a hologram projector; chrome sculpture pieces with glowing cracks; traffic cones, tires; blood, rubble and scorch marks. Text painted on signs and screens is part of the art, so it isn't translated.

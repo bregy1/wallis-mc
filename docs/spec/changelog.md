@@ -59,6 +59,9 @@
 | 2026-11-02 | WORLD-004, WORLD-005, WORLD-011, WORLD-013, SURV-005, SURV-006, ENEMY-007, CMBT-003, 40-gear.md, STORY-002, Q-155, Q-156 | Props, cabin and safe spots built; criteria ticked after GameTests and the client smoke test; proposed names, numbers and where each trinket is | Built in this session |
 | 2026-11-02 | 30-enemies.md | New ultra rare special, the Necromancer; my numbers | Your idea |
 | 2026-11-02 | PROG-014 (new, draft), Q-160, roadmap | A fame bar on every planet: quests and bosses raise it, killing NPCs lowers it, negative fame makes safe spots unsafe, killing zombies earns some back; high fame and a finished planet unlock leader abilities with a play-time cooldown. For later | Your idea |
+| 2026-11-03 | WORLD-013, WORLD-014, SURV-011 | Apocalypse block kit, four rebuilt themed safe spots with walls, 14 small ruin looks; sites build during world creation, so a dedicated server's watchdog can't kill it | Your notes |
+| 2026-11-03 | SURV-011, ENEMY-007 | Defenders built: fights, losses, dropship reinforcements, repairs, angry guards, stuck NPCs teleport; my numbers | Built |
+| 2026-11-03 | Overview (new pillar), STORY-009, story skill, Q-175 | The game is funny and very rough, in the taste of South Park; new question on whether sharing with friends replaces publishing on CurseForge | Your note |
 | 2026-11-03 | PRES-001, PRES-002, Q-161 | Music comes from open, free, already made tracks whose licenses allow a monetized pack | Your answer |
 | 2026-11-03 | PRES-001, PRES-002 (new, draft), Q-161, roadmap | New presentation spec: themed background music, and the own menu and loading screen moved here from the parked ideas. For later | Your idea |
 | 2026-11-02 | PROG-014, Q-160 | Fame belongs to each player; with negative fame defenders attack on sight; being killed by NPCs raises fame a bit; it stays a fame system, with no separate wanted level | Your answers |

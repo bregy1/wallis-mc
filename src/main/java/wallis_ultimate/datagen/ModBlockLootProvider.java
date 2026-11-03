@@ -1,11 +1,14 @@
 package wallis_ultimate.datagen;
 
 import java.util.Set;
+import java.util.stream.Stream;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.registry.ModBlocks;
+import wallis_ultimate.registry.ModKit;
 
 public class ModBlockLootProvider extends BlockLootSubProvider {
     public ModBlockLootProvider() {
@@ -30,10 +33,18 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.WRECK_WHEEL.get());
         dropSelf(ModBlocks.BEER_CANS.get());
         dropSelf(ModBlocks.ANTLERS.get());
+        ModKit.BLOCKS.getEntries().forEach(entry -> {
+            Block block = entry.get();
+            if (block instanceof SlabBlock) {
+                add(block, createSlabItemTable(block));
+            } else {
+                dropSelf(block);
+            }
+        });
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).map(block -> (Block) block).toList();
+        return Stream.concat(ModBlocks.BLOCKS.getEntries().stream(), ModKit.BLOCKS.getEntries().stream()).map(RegistryObject::get).map(block -> (Block) block).toList();
     }
 }

@@ -110,24 +110,34 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** Your words: "They only would be overrun when the story tells so." Count, access and defenders decided 2026-11-01 (answer to Q-062). Placement of safe spots belongs in the world spec (WORLD). Placement and look decided 2026-11-02 (answers to Q-138, Q-146): district 1 has four safe spots placed when the world is created, about 350–600 blocks from spawn in the four directions, with Hog Daddy's farm between two of them. Each looks different: bigger ones are fortified bases built from found materials with lots of apocalypse decoration and detail; smaller ones can be a truck or a few tents. Built (2026-11-02), placeholders by Claude, names are my proposals: Earl's Salvage to the north (a junkyard fort with a palisade, stacked wrecks, two lookout towers), Gas-N-Guns to the west (a fortified gas station), Camp Tarp to the east (three tents around a fire), The Stranded Hauler to the south (a broken-down semi to sleep in). Rules inside a safe spot: SURV-011 (answers to Q-155, Q-156).
 
 ### SURV-011 — Safe spot defenders
-**Status:** approved 2026-11-02 (your answers to Q-155, Q-156; the numbers and looks are my proposals)
+**Status:** approved 2026-11-02 (your answers to Q-155, Q-156; the numbers and looks are my proposals). Implemented 2026-11-03; verified by GameTests and in a real client by the smoke test, against 14 zombies so far, not yet a full horde
 **Priority:** must
 
 **Description:** Safe spots aren't protected by magic. They have real walls or barricades and armed NPCs, and anything that gets in starts a fight. When a horde reaches one, a big battle breaks out: many defenders die, reinforcements fly in by aircraft and land in visible drop-offs, and the place is patched up afterwards.
 
 **Acceptance criteria:**
-- [ ] Every safe spot is closed in by some kind of wall or barricade, with a way in, and has a clear theme of its own (your words: "please design them better themed").
-- [ ] Ordinary defenders are armed with weapons that are okay-ish, and fight any enemy that comes near or gets in.
-- [ ] Ordinary defenders can die. Main NPCs (the named ones who give quests) can't.
-- [ ] When a horde reaches a safe spot, a big fight breaks out around it, without the players having to do anything.
-- [ ] Lost defenders are replaced by supporting troops, who fly in by aircraft with a visible drop-off.
-- [ ] Blocks can be destroyed. Defenders slowly repair everything back to how it was.
-- [ ] Players can mine there, but defenders then turn on that player and try to kill them.
-- [ ] An NPC that gets stuck teleports to the closest free spot; no NPC stays trapped in a hole. This goes for all NPCs, not only defenders.
-- [ ] Enemies never spawn inside a safe spot's area: a fight there always comes from outside. (Built 2026-11-02, verified by a GameTest.)
+- [x] Every safe spot is closed in by some kind of wall or barricade, with a way in, and has a clear theme of its own (your words: "please design them better themed"). Themes, my proposals: Earl's Salvage is a fort of shipping containers around a junkyard of electric cars and drones, with a crane still holding one up. Gas-N-Guns is a futuristic charging station behind barriers. Camp Tarp is a failed government evacuation camp with gabion walls, smashed solar panels and a hologram still directing people to the queue. The Stranded Hauler is a driverless semi on a broken highway, walled in by the pile-up behind it.
+- [x] Ordinary defenders are armed with weapons that are okay-ish, and fight any enemy that comes near or gets in.
+- [x] Ordinary defenders can die. Main NPCs (the named ones who give quests) can't.
+- [x] When a horde reaches a safe spot, a big fight breaks out around it, without the players having to do anything. (Monsters hunt defenders like they hunt players. Seen with 14 zombies; horde nights themselves are ENEMY-006.)
+- [x] Lost defenders are replaced by supporting troops, who fly in by aircraft with a visible drop-off.
+- [x] Blocks can be destroyed. Defenders slowly repair everything back to how it was.
+- [x] Players can mine there, but defenders then turn on that player and try to kill them.
+- [x] An NPC that gets stuck teleports to the closest free spot; no NPC stays trapped in a hole. This goes for all NPCs, not only defenders. (`entity/NpcUnstuck`, for any NPC to use.)
+- [x] Enemies never spawn inside a safe spot's area: a fight there always comes from outside. (Built 2026-11-02, verified by a GameTest.)
 
 **Open questions:**
-**Notes:** Your words: "I like if a player breaks stuff the npcs start killing them, so mining is fine, but the npcs slowly fix it up anyways. In general, if npcs get stuck, they should teleport to the closest spot, i dont want npcs to be trapped in holes and stuff." And: "There should be some sort of barricade or wall or whatever. Everything which intrudes still will actually trigger a fight. The weapons they have should be still okayish. If a horde arrives to a safe spot a big fight should break out. So basically lot of npcs die, but there is also supporting troops flying in by the aircraft with a visual mechanic like drop offs. So safe spots npcs (if not the main ones) actually can die and fights happen around them for fun. Stuff can be destroyed, but is slowly patched up by the builders which are basically the npcs."
+**Notes:** The safe spot builds mark where guards stand (guard1, guard2...) and where named NPCs stand (npc1...). Your words: "I like if a player breaks stuff the npcs start killing them, so mining is fine, but the npcs slowly fix it up anyways. In general, if npcs get stuck, they should teleport to the closest spot, i dont want npcs to be trapped in holes and stuff." And: "There should be some sort of barricade or wall or whatever. Everything which intrudes still will actually trigger a fight. The weapons they have should be still okayish. If a horde arrives to a safe spot a big fight should break out. So basically lot of npcs die, but there is also supporting troops flying in by the aircraft with a visual mechanic like drop offs. So safe spots npcs (if not the main ones) actually can die and fights happen around them for fun. Stuff can be destroyed, but is slowly patched up by the builders which are basically the npcs."
+
+Built 2026-11-03, all of it my proposals to veto, looks are placeholders by Claude:
+- **Who:** four looks in the world's style: a trucker in flannel and a denim vest, militia in camo with a chest rig, a techie with a cracked visor and glowing strips on a carbon jacket, a ranger in a poncho and gas mask.
+- **How many:** Earl's Salvage 10, Gas-N-Guns 8, Camp Tarp 4, The Stranded Hauler 3. They're there when anyone first arrives. A build's marks named guard1, guard2 and so on say where they stand; without marks, they stand around the signpost.
+- **Weapons:** a salvaged rifle: 4 damage, 20 blocks, one shot every 1.5 to 2 seconds, hits 85% of the time, stopped by walls, and loud (it counts as a gunshot for ENEMY-006, so a fight pulls in more zombies). Close up, a 4-damage hit. They have 20 health and 2 armor, so a big fight costs lives, as you wanted. Players can't get the rifle: it's only what guards carry, and they don't drop it.
+- **Reinforcements:** 45 seconds after a safe spot runs short, a tilt-rotor dropship flies in and hovers about 30 blocks up while up to 6 troops jump out under parachutes and steer to their posts. With no player within 96 blocks, nobody sees it, so the count just fills up.
+- **Repairs:** one block every 3 seconds per safe spot: a guard walks over and puts it back, or does it anyway after 10 seconds if there's no way through. Loot chests aren't put back, because a new chest would refill (WORLD-011). What players build on empty spots stays; repairs only replace what's missing.
+- **Trouble:** mining a block of the build, or hitting a guard, makes a player wanted at that safe spot for 3 minutes or until they die. Trees and ground around the build don't count. Guards ignore downed players (SURV-001), and creative players are exempt. The player hears: "Hey! You break it, you die!"
+- **Stuck:** after 5 seconds inside a block, in a pit it can't climb out of, or trying to walk without getting anywhere, an NPC teleports to the closest free place up to 16 blocks away.
+- **Main NPCs:** a flag on the defender, for whoever needs it; they can't be hurt and don't count toward the guards.
 
 ### SURV-007 — Longer days, shorter nights
 **Status:** implemented 2026-11-02 (Hourglass config in pack/defaultconfigs; speeds measured in a real client by the smoke test)

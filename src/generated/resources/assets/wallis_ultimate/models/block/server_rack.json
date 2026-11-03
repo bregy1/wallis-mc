@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "wallis_ultimate:block/server_rack_side",
+    "east": "wallis_ultimate:block/server_rack_side",
+    "north": "wallis_ultimate:block/server_rack_side",
+    "particle": "wallis_ultimate:block/server_rack_side",
+    "south": "wallis_ultimate:block/server_rack_front",
+    "up": "wallis_ultimate:block/server_rack_side",
+    "west": "wallis_ultimate:block/server_rack_side"
+  }
+}

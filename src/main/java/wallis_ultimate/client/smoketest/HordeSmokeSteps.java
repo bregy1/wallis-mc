@@ -4,6 +4,7 @@ import static wallis_ultimate.client.smoketest.ClientSmokeTest.await;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.chatContains;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.check;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.command;
+import static wallis_ultimate.client.smoketest.ClientSmokeTest.log;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.screenshot;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.step;
 
@@ -14,14 +15,19 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import wallis_ultimate.entity.Defender;
 import wallis_ultimate.entity.RegularZombie;
 import wallis_ultimate.survival.HordeNights;
+import wallis_ultimate.worldgen.DistrictSites;
+import wallis_ultimate.worldgen.SafeSpot;
 
 /**
  * A horde night in a real client (ENEMY-006): the two warnings, the start, the first two waves coming for the player,
@@ -32,9 +38,12 @@ final class HordeSmokeSteps {
     /** The warnings are at these times of day, or nightfall. Hourglass needs about 22 ticks for the last 15 of them. */
     private static final int LEAD_IN = 15;
     private static final int PAST_IT_TICKS = 40;
+    private static final String HORDE_SPOT = "earls_salvage";
+    private static final double SPOT_REACH = 100.0;
 
     private static BlockPos bed;
     private static int firstWave;
+    private static int guardsAtStart;
 
     private HordeSmokeSteps() {
     }
@@ -123,6 +132,68 @@ final class HordeSmokeSteps {
                     command("gamerule doMobSpawning true");
                     command("time set day");
                 }));
+    }
+
+    /**
+     * A real horde night at a safe spot (ENEMY-006, ENEMY-007, SURV-011). About five minutes, so it only runs when asked
+     * for: bash tools/testsnapshot.sh look horde-spot. Prints how the guards did.
+     */
+    static List<ClientSmokeTest.Step> atASafeSpot() {
+        return List.of(
+                step("go to a safe spot for a horde night", 40, player -> {
+                    command("difficulty normal");
+                    command("gamerule doMobSpawning false");
+                    command("kill @e[type=wallis_ultimate:zombie]");
+                    command("effect give @s minecraft:resistance infinite 4 true");
+                    command("time set 9000");
+                    BlockPos arrival = spot().arrival();
+                    command(String.format("tp @s %.2f %d %.2f 180 0", arrival.getX() + 0.5, arrival.getY(), arrival.getZ() + 0.5));
+                    onServer(server -> HordeNights.setNightsCounted(serverPlayer(server, player), HordeNights.NIGHTS_PER_HORDE - 1));
+                }),
+                await("the guards take their posts", 400, player -> !guards().isEmpty()),
+                step("wait until nightfall", 20, player -> {
+                    guardsAtStart = guards().size();
+                    log("guards before the horde: " + guardsAtStart);
+                    command("time set " + (12000 - LEAD_IN));
+                }),
+                await("the horde arrives", 200, player -> spotZombies().size() >= 4),
+                step("check where it starts", 0, player -> {
+                    long inside = spotZombies().stream().filter(zombie -> spot().contains(zombie.getX(), zombie.getZ())).count();
+                    check("at a safe spot, the horde starts outside its area", inside == 0, inside + " of " + spotZombies().size() + " inside");
+                    check("the first wave is there", spotZombies().size() >= 4, spotZombies().size() + " zombies");
+                    screenshot("horde-spot-start");
+                }),
+                // The other two waves come a minute apart.
+                step("let all three waves come", 2460, player -> {
+                }),
+                step("picture of the fight", 0, player -> {
+                    log("zombies at the safe spot after all three waves: " + spotZombies().size() + ", guards " + guards().size());
+                    screenshot("horde-spot-fight");
+                }),
+                await("the fight is over", 3000, player -> spotZombies().size() <= 2),
+                step("check who won", 0, player -> {
+                    check("a safe spot holds against a horde night", spotZombies().size() <= 2, spotZombies().size() + " zombies left");
+                    log("guards after the horde: " + guards().size() + " of " + guardsAtStart);
+                    screenshot("horde-spot-after");
+                    command("gamerule doMobSpawning true");
+                    command("time set day");
+                }));
+    }
+
+    private static SafeSpot spot() {
+        return DistrictSites.get(overworld()).spot(HORDE_SPOT).orElseThrow();
+    }
+
+    private static List<Defender> guards() {
+        return overworld().getEntitiesOfClass(Defender.class, new AABB(spot().center()).inflate(SPOT_REACH));
+    }
+
+    private static List<RegularZombie> spotZombies() {
+        return overworld().getEntitiesOfClass(RegularZombie.class, new AABB(spot().center()).inflate(SPOT_REACH));
+    }
+
+    private static ServerLevel overworld() {
+        return Minecraft.getInstance().getSingleplayerServer().overworld();
     }
 
     private static int zombies(LocalPlayer player) {

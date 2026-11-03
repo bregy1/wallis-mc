@@ -1,0 +1,84 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#post"
+        },
+        "east": {
+          "texture": "#post"
+        },
+        "north": {
+          "texture": "#post"
+        },
+        "south": {
+          "texture": "#post"
+        },
+        "up": {
+          "texture": "#post"
+        },
+        "west": {
+          "texture": "#post"
+        }
+      },
+      "from": [
+        7,
+        0,
+        7
+      ],
+      "to": [
+        9,
+        7,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#panel"
+        },
+        "east": {
+          "texture": "#panel"
+        },
+        "north": {
+          "texture": "#panel"
+        },
+        "south": {
+          "texture": "#panel"
+        },
+        "up": {
+          "texture": "#panel"
+        },
+        "west": {
+          "texture": "#panel"
+        }
+      },
+      "from": [
+        0,
+        7,
+        0
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "x",
+        "origin": [
+          8,
+          7.5,
+          8
+        ]
+      },
+      "to": [
+        16,
+        8,
+        16
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "panel": "wallis_ultimate:block/broken_solar_panel",
+    "particle": "wallis_ultimate:block/broken_solar_panel",
+    "post": "wallis_ultimate:block/lamp_post"
+  }
+}

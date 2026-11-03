@@ -22,12 +22,12 @@ fi
 TOTAL=$("$JDK/bin/java" tools/RconClient.java "test runall" | grep -oE "Running all [0-9]+ tests" | grep -oE "[0-9]+")
 TOTAL=${TOTAL:-0}
 if [ "$TOTAL" -eq 0 ]; then
-    echo "The server never said how many tests it runs, so nothing was tested; see $LOG"
+    echo "The server did not start any tests; see $LOG"
     "$JDK/bin/java" tools/RconClient.java "stop" > /dev/null
     wait "$SERVER_PID"
     exit 100
 fi
-for _ in $(seq 1 120); do
+for _ in $(seq 1 300); do
     [ "$(grep -c "\[GAMETEST\]" "$LOG")" -ge "$TOTAL" ] && break
     sleep 1
 done

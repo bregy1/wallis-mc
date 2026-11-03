@@ -79,6 +79,9 @@ public final class ModItems {
     public static final RegistryObject<Item> PIPE_BOMB = ITEMS.register("pipe_bomb", () -> new ThrownWeaponItem(PipeBomb::new));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot", SlingshotItem::new);
 
+    /** SURV-011: what defenders carry. For show: only they can fire it, and they don't drop it. */
+    public static final RegistryObject<Item> DEFENDER_RIFLE = ITEMS.register("defender_rifle", () -> new Item(new Item.Properties().stacksTo(1)));
+
     // CMBT-003, Chapter 1 trinkets. Their Curios slots are the item tags in datagen; numbers in Trinkets or here.
     public static final RegistryObject<Item> GRANNYS_RABBIT_FOOT = ITEMS.register("grannys_rabbit_foot", TrinketItem::new);
     public static final RegistryObject<Item> JOGGING_HEADBAND = ITEMS.register("jogging_headband",

@@ -30,7 +30,7 @@ public class RconClient {
         int port = Integer.parseInt(props.getProperty("rcon.port", "25575"));
 
         try (Socket socket = new Socket(host, port)) {
-            // A fresh world's first start builds the sites on the server thread, and commands wait for that.
+            // Long: on a new world's first start, the server is busy building its structures before it answers.
             socket.setSoTimeout(180_000);
             DataInputStream in = new DataInputStream(socket.getInputStream());
             OutputStream out = socket.getOutputStream();
