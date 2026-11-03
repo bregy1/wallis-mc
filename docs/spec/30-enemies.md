@@ -106,13 +106,13 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. My proposal for the cost, which you asked for: a one-use Prayer Candle made from a boss's trophy, which every boss drops once per player, so a team only ever has a few; lighting it also costs the whole team 20% of every food group, like dying does (SURV-009). The next horde night just comes 7 nights later.
 
 ### ENEMY-007 — Safe spots hold
-**Status:** approved (changed 2026-11-02, answer to Q-156; built through SURV-011)
+**Status:** implemented 2026-11-03 through SURV-011 (verified with 14 zombies in a real client; story falls come with the story that needs them)
 **Priority:** must
 
 **Description:** Safe spots hold against any enemy or horde, except when the story makes one fall. Not because enemies can't get there: their defenders fight, with real losses and real reinforcements (SURV-011).
 
 **Acceptance criteria:**
-- [ ] No enemy or horde can overrun a safe spot, except in a story event (SURV-006). Players there can get caught up in the fight.
+- [x] No enemy or horde can overrun a safe spot, except in a story event (SURV-006). Players there can get caught up in the fight.
 
 **Open questions:**
 **Notes:** Your words: "a safe place doesnt have any issues dealing with hordes. They are literally safe." Changed 2026-11-02 (answer to Q-156): instead of an invisible line that keeps enemies out, fights really happen (SURV-011).

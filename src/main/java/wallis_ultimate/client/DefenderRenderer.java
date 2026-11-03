@@ -50,7 +50,7 @@ public class DefenderRenderer extends HumanoidMobRenderer<Defender, DefenderMode
             float x = cords[i][0];
             float z = cords[i][1];
             root.addOrReplaceChild("cord" + i, CubeListBuilder.create().texOffs(0, 72).addBox(-0.25F, 0.0F, -0.25F, 0.5F, 44.0F, 0.5F),
-                    PartPose.offsetAndRotation(x, -39.0F, z, z > 0 ? 0.33F : -0.33F, 0.0F, x > 0 ? 0.33F : -0.33F));
+                    PartPose.offsetAndRotation(x, -39.0F, z, z > 0 ? -0.33F : 0.33F, 0.0F, x > 0 ? 0.33F : -0.33F));
         }
         return LayerDefinition.create(mesh, 160, 80);
     }
