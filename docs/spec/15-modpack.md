@@ -63,7 +63,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 | Teams | FTB Teams | No license file; treat as unmodified only | Unmodified | PROG-006 | Open Parties and Claims (LGPL, no shared progression) |
 | Item locking per team | History Stages (6.1.1 for Forge 1.20.1; requires Lootr) | Custom: official jar allowed in packs; no forks or modified copies | Unmodified, configured: individual stages shared with the FTB team; pickup allowed for every locked entry; machines lock only "place", never their GUI; loot and container access allowed; loot replacement off. Our mod adds the rest (PACK-005) | PROG-002 | AStages (ARR, no team scope); Game Stages + Item Stages (drops held items, clashes with PROG-002) |
 | Recipe viewer | JEI | MIT | Unmodified | PROG-002 | EMI (MIT) |
-| NPCs with dialogue and reply choices | Easy NPC | MIT | Unmodified or fork | STORY-002, STORY-003 | interactEntity (MIT, small project) |
+| NPCs with dialogue, reply choices and trading | Easy NPC | MIT | Unmodified or fork | STORY-002, STORY-003, ECON-002 | interactEntity (MIT, small project) |
 | Cutscenes | ImmersiveCinematics | MIT | Unmodified, plus our glue for team-wide playback | STORY-010 | CMDCam (LGPL-2.1, more manual) |
 | Trinket slots | Curios API | LGPL-3.0 | Library dependency | CMBT-003 | None serious |
 | Guns | TaCZ | Code GPL-3.0; assets CC BY-NC-ND 4.0 (non-commercial) | Unmodified, with our own small gun pack using only our own art (Q-116) | GEAR-004 | Scorched Guns 2 (GPL-3.0) |
@@ -114,6 +114,8 @@ Dev setup (2026-11-02): all mods above that Chapter 1 needs load in the dev runs
 | Our invented weapons and the downed pistol | GEAR, SURV-001 | Our own content |
 | Garages: store vehicles and hand them out at safe spots | TRANS-004 | Our own building; it has to save and restore Immersive Aircraft vehicles |
 | Generators, batteries, wire, pipes and machines | TECH-005, TECH-007 | The tech mods we may legally use bring far more than a few machines, and the closest match can't go in a pack that earns money (research in TECH-005, answer to Q-159) |
+| Workers and job tables | WORK-001–003 | Villager Workers is All Rights Reserved and needs Recruits; MineColonies is a whole town-builder |
+| Coins | ECON-001 | Just one plain item; Lightman's Currency brings wallets, ATMs and banks we don't need |
 | The rocket (built as a structure) and the Moon dimension with low gravity | PROG-010, STORY-017, PLANET | Northstar needs Create; Ad Astra's rocket is likely a crafted item and its assets can't be changed. Decided 2026-11-01 |
 
 **Acceptance criteria:**
@@ -154,6 +156,8 @@ Dev setup (2026-11-02): all mods above that Chapter 1 needs load in the dev runs
 | Ad Astra | Not chosen: we build our own rocket and Moon |
 | Mekanism, Industrial Foregoing | Lean overpowered |
 | Energized Power | Dropped 2026-11-03 (answer to Q-159): far too much to trim. MIT, so its code can still be reused with credit |
+| Villager Workers, Recruits, MineColonies | Ideas for workers only: the first two are All Rights Reserved, and MineColonies is a whole town-builder |
+| Lightman's Currency | Far more than a coin and a merchant |
 | Applied Energistics 2, Refined Storage | Storage picked: Tom's Simple Storage (simpler, can't snowball) |
 | Sophisticated Storage, Ultimate Car Mod | All Rights Reserved; the car mod isn't electric |
 | Diet (original), Spice of Life variants | Diet is stale since 2023 (A Balanced Diet continues it); Spice of Life rewards variety only; Carrot Edition is ARR |

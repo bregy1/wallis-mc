@@ -165,8 +165,14 @@
 | Q-164 | What does "different generators for different things" mean? | TECH-007 | answered: each generator has its own trade-off in strength, fuel, noise or where it works; pool in 55-tech.md |
 | Q-165 | Rockets stay on fuel: when does a trip burn fuel? | PLANET-002 | answered: every trip needs a set amount of fuel to start, and fuel can be acquired on every planet |
 | Q-166 | Besides generators, does anything else stop burning on the Moon (furnaces, torches, campfires, Molotovs, the flamethrower)? | PLANET-001, TECH-007 | open |
-| Q-167 | What automates food, now that Energized Power's growth chamber is gone? | TECH-003, SURV-008 | open; for later |
+| Q-167 | What automates food, now that Energized Power's growth chamber is gone? | TECH-003, SURV-008, WORK-002 | answered: workers do it, with a cook at a Food Maker Table and a farmer at a Farmer's Post |
 | Q-168 | Fuel must be available on every planet, but WORLD-008 says a fuel material comes only from the Nether. How do they fit? And how do players get fuel on the Moon: made there, or found in the alien base? | PLANET-002, WORLD-008 | answered: every planet has its own local way to get fuel, and the Nether rule only covers Earth's fuel. On the Moon it's a refilling alien fuel depot in the base, and getting fuel there is always dangerous (PLANET-003) |
+| Q-169 | How does buying people work in the story? | ECON-003, WORK-001 | answered: the trafficker stays a real scumbag and players pay to get people out; they work in return for food and a safe bed |
+| Q-170 | What happens to workers when enemies reach the base? | WORK-003 | answered: they get knocked out and go back to work the next morning; they never die for good |
+| Q-171 | Does money replace utility points? | ECON-001, PROG-005 | answered: no, both exist. Points unlock things once for the team; money buys things one at a time |
+| Q-172 | Do workers keep working while players are away? | WORK-003 | answered: they only run while someone is nearby, and catch up on return, up to about a day's worth |
+| Q-173 | If the team takes the trafficker down, where do new workers come from? Proposal: the people he held stay around and can still join, for a fee or through quests | ECON-003, WORK-001 | open |
+| Q-174 | What is the money called? Proposal: Scrip (or Caps, Chits) | ECON-001 | open |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

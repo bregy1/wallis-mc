@@ -15,8 +15,10 @@ All spec areas we expect to need, so we can see what's left before going deep on
 | `38-combat.md` | Combat | CMBT | Vanilla combat as the base, dodge roll, trinket slots | Q-055, Q-056 | draft |
 | `40-gear.md` | Weapons, guns, armor, tools and trinkets | GEAR | Vanilla tools, curated weapon mods, every item earns its slot, guns in tier 3; weapon idea pool; individual trinkets | Q-064 | draft |
 | `45-utility.md` | Utility items | UTIL | Point unlocks: quality of life (backpacks, one at a time), mobility, scouting and info, base defense extras | Q-024, Q-026 | draft |
+| `47-economy.md` | Money and merchants | ECON | Money mostly from quests, merchants who buy and sell, the trafficker | Q-173, Q-174 | draft |
 | `50-base.md` | Base and raids | BASE | Fortification, base attacks, how raids scale | Q-030 | not started |
-| `55-tech.md` | Tech and automation | TECH | Our own generators and power, a few machines dropped in along the way, story machines, small purposeful automation, slow-scaling storage (Tom's Simple Storage) | Q-100, Q-101, Q-167 | draft |
+| `52-workers.md` | Workers | WORK | NPC workers placed around the bed, job tables, knocked out instead of dead, catching up on return | Q-173 | draft |
+| `55-tech.md` | Tech and automation | TECH | Our own generators and power, a few machines dropped in along the way, story machines, small purposeful automation, slow-scaling storage (Tom's Simple Storage) | Q-100, Q-101 | draft |
 | `60-survival.md` | Survival systems | SURV | Which vanilla systems stay unchanged (hunger confirmed); downed state and revive, graves, beds as rare heal and respawn points, safe spots, 16/8-minute day, food (Farmer's Delight), diet (A Balanced Diet) | Q-025, Q-047–054, Q-062, Q-103, Q-105 | draft |
 | `65-planets.md` | Planets and travel | PLANET | Rocket built as a structure and our own Moon dimension with low gravity (PACK-005), the Moon as an alien mini base at the end of version 1, air on the Moon, rocket fuel, later planets including the magic planet, travel rules, going back to earlier planets | Q-014, Q-023, Q-070, Q-166 | draft (only air and rocket fuel so far) |
 | `68-transport.md` | Transport | TRANS | Safe spot teleport, horses early, electric flying vehicles later on Earth (Immersive Aircraft, trimmed), garages at safe spots | Q-097, Q-098, Q-102, Q-104 | draft |

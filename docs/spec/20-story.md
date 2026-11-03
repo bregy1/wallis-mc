@@ -102,6 +102,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 | Mall Santa | Never stopped being Santa. Hands out random gifts |
 | Zombie Larry | Believes he's a zombie and walks among them |
 | Sister Velvet | The cult's charismatic recruiter (adult). Seductive and dangerous, and later revealed to be a disguised chicken alien |
+| The trafficker (name to come) | Buys captives from raiders and sells them on. A real scumbag; players pay him to get people out (ECON-003) |
 
 ## Requirements
 

@@ -156,7 +156,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [x] Farmer's Delight's Nourishment buff only slows hunger drain; it never stops it. (Half the drain still counts; verified by a GameTest.)
 
 **Open questions:**
-**Notes:** Decided 2026-11-01. Fits Chef Angus Roast's food quests (cast proposal). Food automation (TECH-003) no longer has Energized Power's growth chamber (Q-167). What's free (2026-11-02, answer to Q-152): crops, simple foods and hand-made meals from the start; the cooking pot, skillet, stove and cutting board unlock through the Cooking stage, from an early Chapter 1 quest by Lurleen.
+**Notes:** Decided 2026-11-01. Fits Chef Angus Roast's food quests (cast proposal). Food automation (TECH-003) comes from workers (WORK-002). What's free (2026-11-02, answer to Q-152): crops, simple foods and hand-made meals from the start; the cooking pot, skillet, stove and cutting board unlock through the Cooking stage, from an early Chapter 1 quest by Lurleen.
 
 ### SURV-009 — Diet: what you eat matters
 **Status:** approved (partly implemented 2026-11-02: our diet suite gives every group's benefit and penalty, verified in a real client by the smoke test and by GameTests; decay speed and Farmer's Delight's groups still to check)

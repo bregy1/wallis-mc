@@ -46,7 +46,7 @@ Tech runs on electricity, and power is its biggest part: different generators, e
 - [ ] Every renewable resource source is listed in this spec on purpose.
 
 **Open questions:**
-**Notes:** Your words: "no crazy create pipelines creating the same item x times."
+**Notes:** Your words: "no crazy create pipelines creating the same item x times." Food is automated by workers rather than machines (WORK-002).
 
 ### TECH-004 — Storage scales slowly
 **Status:** draft
@@ -60,7 +60,7 @@ Tech runs on electricity, and power is its biggest part: different generators, e
 - [ ] The storage network doesn't autocraft.
 
 **Open questions:** Q-101
-**Notes:** Your words: "a storage mod, not something broken, it has to be scaled slowly." With Energized Power dropped (Q-159) the pack has no autocrafting; if a machine for it is ever dropped in, it's locked by tier as well.
+**Notes:** Your words: "a storage mod, not something broken, it has to be scaled slowly." With Energized Power dropped (Q-159), the only autocrafting left is the Crafter worker (WORK-002), who only makes what the team has unlocked.
 
 ### TECH-005 — A few machines, dropped in along the way
 **Status:** draft (your idea, 2026-11-02; changed 2026-11-03 by your answers to Q-159)
@@ -110,7 +110,7 @@ Also checked: no Forge 1.20.1 files for [Modern Industrialization](https://modri
 - **Lag (proposal):** only machines tick, and they sleep when there's nothing to do. The pipe is a plain block with no block entity. A machine with output walks the connected pipes (cached until a pipe changes) and pushes into whatever accepts it, so recipes act as the filter. The cost: no items visibly moving through pipes. Machines only speak Forge's standard handlers, so Fast Pipes could replace our pipe later without changing a machine.
 - **Later planets (proposal):** new recipes first, and a new machine only when a need calls for it. We write every recipe, so TECH-003's no-duplication check is a list we can read.
 - **Early electricity (the second half of Q-159):** it changes, and the first generator arrives early (TECH-007).
-- **What changed with this:** TECH-001 and Q-096 are closed. The pool below, the notes in TECH-004 and SURV-008, PACK-004, PACK-005, PACK-006, the transport summary and the roadmap row are updated. Food automation lost the growth chamber (Q-167). Energized Power wasn't in the dev build or `CREDITS.md`, so nothing had to be removed.
+- **What changed with this:** TECH-001 and Q-096 are closed. The pool below, the notes in TECH-004 and SURV-008, PACK-004, PACK-005, PACK-006, the transport summary and the roadmap row are updated. Food automation moved from the growth chamber to workers (Q-167, WORK-002). Energized Power wasn't in the dev build or `CREDITS.md`, so nothing had to be removed.
 - **Effort is an estimate.** What I compared against, on Energized Power's 1.20.1 branch: Crusher 26 KB, Coal Engine 29 KB, fluid pipe 36 KB, shared machine classes 103 KB, the whole mod 3 MB. Whole pipe mods: Pipez 313 KB, Refined Pipes 332 KB, Fast Pipes 625 KB, all with tiers, filters and upgrades we wouldn't build.
 
 ### TECH-006 — Turrets and base defense

@@ -110,7 +110,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] Points and point unlocks are shared by the team.
 
 **Open questions:** Q-006 (name), Q-024, Q-026, Q-027
-**Notes:** Your call: "mainly story driven, with some points needed for special utility items." Decided 2026-11-01 (answers to Q-006, Q-007): all four extra sources and all four categories. Mobility and base defense extras are the categories most likely to need tier limits (Q-024).
+**Notes:** Your call: "mainly story driven, with some points needed for special utility items." Decided 2026-11-01 (answers to Q-006, Q-007): all four extra sources and all four categories. Mobility and base defense extras are the categories most likely to need tier limits (Q-024). Money (ECON-001) is separate: points unlock things once for the team, and money buys things one at a time (answer to Q-171).
 
 ### PROG-006 — Progression is owned by the team
 **Status:** approved (partly implemented 2026-11-02: unlocks only. History Stages shares them across the FTB team, including offline members, and copies them on leaving; a joiner loses unlocks the team lacks, verified by GameTests. Tier, story progress and points not built yet)
