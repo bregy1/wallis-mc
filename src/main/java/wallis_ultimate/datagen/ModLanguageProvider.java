@@ -45,6 +45,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.WRECK_WHEEL.get(), "Wreck Wheel");
         add(ModBlocks.BEER_CANS.get(), "Beer Cans");
         add(ModBlocks.ANTLERS.get(), "Antlers");
+        hogDaddy();
         add("container." + WallisUltimate.MOD_ID + ".grave", "Grave of %s");
         add("message." + WallisUltimate.MOD_ID + ".grave.not_yours", "This isn't your grave.");
         add("message." + WallisUltimate.MOD_ID + ".grave.location", "Your things are in your grave at %s, %s, %s. It lasts 60 minutes.");
@@ -91,5 +92,32 @@ public class ModLanguageProvider extends LanguageProvider {
         add("hud." + WallisUltimate.MOD_ID + ".downed.give_up", "Press %s to give up");
         add("hud." + WallisUltimate.MOD_ID + ".reviving", "Reviving...");
         add("hud." + WallisUltimate.MOD_ID + ".teammate_down", "%s is down! %s left");
+    }
+
+    /** ENEMY-011. The words are proposals (working agreement: Chapter 1 text). */
+    private void hogDaddy() {
+        add(ModEntities.HOG_DADDY.get(), "Hog Daddy");
+        add(ModEntities.ZOMBIE_PIGLET.get(), "Zombie Piglet");
+        add(ModEntities.GROUND_MARK.get(), "Ground Mark");
+        add(ModEntities.MUD_RING.get(), "Mud Ring");
+        add(ModBlocks.STRAPPED_HAY.get(), "Strapped Hay");
+        add(ModBlocks.CRUSHED_WRECK.get(), "Crushed Wreck");
+        add(ModBlocks.PEN_POST.get(), "Pen Post");
+        add(ModBlocks.FEEDING_TROUGH.get(), "Feeding Trough");
+        add(ModBlocks.CORN.get(), "Corn");
+        String message = "message." + WallisUltimate.MOD_ID + ".hog_daddy.";
+        add(message + "snorting", "Something huge is snorting and farting behind that wall. Smells like a dead sow's ass in July.");
+        add(message + "run", "RUN, DUMBASSES! Through the corn, to the barn!");
+        add(message + "pen", "Get the fat bastard to ram a post or the trough, then beat his ass!");
+        add(message + "stunned", "He knocked himself stupid! Kick him in the ass!");
+        add(message + "enraged", "He just shit himself with rage! Every post only holds once now!");
+        add(message + "beaten", "Hog Daddy's dead. Half a ton of bacon, and every bite of it will kill you.");
+        add(message + "wiped", "Hog Daddy got bored of your corpses and went back to his slop. Ring the bell at his gate for round two.");
+        add(message + "busy", "Hog Daddy's busy eating somebody else's face. Ring the bell at his gate when he's had his fill.");
+        add(message + "already_fighting", "You're already fighting him, genius. He's the big one with the hook.");
+        add(message + "already_beaten", "He's dead. You killed him. Leave the poor bastard's carcass alone, you sick freak.");
+        add(message + "nobody_standing", "Your whole team's face down in the dirt. Nobody's fighting shit.");
+        add(message + "no_farm", "Hog Daddy's farm isn't in this world. Lucky you.");
+        add(message + "protected", "Hands off the farm. Go dig in your own shit.");
     }
 }

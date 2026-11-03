@@ -1,6 +1,7 @@
 package wallis_ultimate.registry;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -70,6 +71,22 @@ public final class ModBlocks {
             () -> new FacingPropBlock(prop(MapColor.METAL, SoundType.CHAIN, 0.1F).noCollission().noOcclusion(), 2.0, 0.0, 2.0, 14.0, 5.0, 14.0));
     public static final RegistryObject<Block> ANTLERS = BLOCKS.register("antlers",
             () -> new FacingPropBlock(prop(MapColor.WOOD, SoundType.BONE_BLOCK, 0.5F).noCollission().noOcclusion(), 0.0, 2.0, 0.0, 16.0, 14.0, 3.0));
+
+    // ENEMY-011: Hog Daddy's farm, placeholder art. No block items: only the farm has these.
+    /** The ring around the farm: hay bales and crushed cars that can't be broken (WORLD-006). */
+    public static final RegistryObject<Block> STRAPPED_HAY = BLOCKS.register("strapped_hay",
+            () -> new Block(unminable(MapColor.COLOR_YELLOW, SoundType.GRASS)));
+    public static final RegistryObject<Block> CRUSHED_WRECK = BLOCKS.register("crushed_wreck",
+            () -> new Block(unminable(MapColor.COLOR_RED, SoundType.NETHERITE_BLOCK)));
+    /** Slamming into one of these two stuns him. They only go away when he breaks them, and come back with the farm. */
+    public static final RegistryObject<Block> PEN_POST = BLOCKS.register("pen_post",
+            () -> new FacingPropBlock(unminable(MapColor.WOOD, SoundType.WOOD).noOcclusion(), 4.0, 0.0, 4.0, 12.0, 16.0, 12.0));
+    public static final RegistryObject<Block> FEEDING_TROUGH = BLOCKS.register("feeding_trough",
+            () -> new FacingPropBlock(unminable(MapColor.WOOD, SoundType.WOOD).noOcclusion(), 0.0, 0.0, 2.0, 16.0, 8.0, 14.0));
+    /** Two blocks tall, and he tramples it. Nobody can walk off with it: nothing can be mined on the farm anyway. */
+    public static final RegistryObject<Block> CORN = BLOCKS.register("corn",
+            () -> new DoublePlantBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP)
+                    .offsetType(BlockBehaviour.OffsetType.XZ).noLootTable().pushReaction(PushReaction.DESTROY)));
 
     private ModBlocks() {
     }

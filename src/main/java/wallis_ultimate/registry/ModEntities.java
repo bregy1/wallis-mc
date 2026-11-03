@@ -13,9 +13,13 @@ import net.minecraftforge.registries.RegistryObject;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.entity.BurningPatch;
 import wallis_ultimate.entity.GravelShot;
+import wallis_ultimate.entity.GroundMark;
+import wallis_ultimate.entity.HogDaddy;
 import wallis_ultimate.entity.MolotovProjectile;
+import wallis_ultimate.entity.MudRing;
 import wallis_ultimate.entity.PipeBomb;
 import wallis_ultimate.entity.RegularZombie;
+import wallis_ultimate.entity.ZombiePiglet;
 
 public final class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, WallisUltimate.MOD_ID);
@@ -45,11 +49,32 @@ public final class ModEntities {
                     .sized(3.0F, 0.5F).clientTrackingRange(8).fireImmune()
                     .build(WallisUltimate.MOD_ID + ":burning_patch"));
 
+    // ENEMY-011: Hog Daddy, the Chapter 1 boss, and what comes with him. A fight doesn't survive a restart, so none are saved.
+    public static final RegistryObject<EntityType<HogDaddy>> HOG_DADDY = ENTITY_TYPES.register("hog_daddy",
+            () -> EntityType.Builder.<HogDaddy>of(HogDaddy::new, MobCategory.MONSTER)
+                    .sized(1.7F, 3.0F).clientTrackingRange(10).noSave()
+                    .build(WallisUltimate.MOD_ID + ":hog_daddy"));
+    public static final RegistryObject<EntityType<ZombiePiglet>> ZOMBIE_PIGLET = ENTITY_TYPES.register("zombie_piglet",
+            () -> EntityType.Builder.<ZombiePiglet>of(ZombiePiglet::new, MobCategory.MONSTER)
+                    .sized(0.6F, 0.6F).clientTrackingRange(10).noSave()
+                    .build(WallisUltimate.MOD_ID + ":zombie_piglet"));
+    /** The red marks on the ground that say where his attacks will land. */
+    public static final RegistryObject<EntityType<GroundMark>> GROUND_MARK = ENTITY_TYPES.register("ground_mark",
+            () -> EntityType.Builder.<GroundMark>of(GroundMark::new, MobCategory.MISC)
+                    .sized(0.5F, 0.1F).clientTrackingRange(10).updateInterval(20).noSave().noSummon().fireImmune()
+                    .build(WallisUltimate.MOD_ID + ":ground_mark"));
+    public static final RegistryObject<EntityType<MudRing>> MUD_RING = ENTITY_TYPES.register("mud_ring",
+            () -> EntityType.Builder.<MudRing>of(MudRing::new, MobCategory.MISC)
+                    .sized(0.5F, 0.1F).clientTrackingRange(10).updateInterval(20).noSave().noSummon().fireImmune()
+                    .build(WallisUltimate.MOD_ID + ":mud_ring"));
+
     private ModEntities() {
     }
 
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ZOMBIE.get(), RegularZombie.createAttributes().build());
+        event.put(HOG_DADDY.get(), HogDaddy.createAttributes().build());
+        event.put(ZOMBIE_PIGLET.get(), ZombiePiglet.createAttributes().build());
     }
 
     /** Same spawn rules as vanilla zombies: on the ground, in the dark. */

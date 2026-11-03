@@ -83,8 +83,14 @@ public final class DistrictSites extends SavedData {
         }
     }
 
+    /** Q-138: Hog Daddy's farm sits between two safe spots. It takes the flattest ground around one of the four midpoints. */
+    private static final int FARM_SEARCH_RADIUS = 64;
+    private static final int FARM_SEARCH_STEP = 32;
+    private static final int FARM_GROUND_MARGIN = 12;
+
     private BlockPos cabin;
     private BlockPos spawn;
+    private BlockPos hogFarm;
     private final List<SafeSpot> spots = new ArrayList<>();
     private final Map<String, Set<String>> discovered = new HashMap<>();
 
@@ -101,6 +107,9 @@ public final class DistrictSites extends SavedData {
             sites.cabin = NbtUtils.readBlockPos(tag.getCompound("Cabin"));
             sites.spawn = NbtUtils.readBlockPos(tag.getCompound("Spawn"));
         }
+        if (tag.contains("HogFarm")) {
+            sites.hogFarm = NbtUtils.readBlockPos(tag.getCompound("HogFarm"));
+        }
         tag.getList("Spots", Tag.TAG_COMPOUND).forEach(spot -> sites.spots.add(SafeSpot.load((CompoundTag) spot)));
         CompoundTag teams = tag.getCompound("Discovered");
         for (String team : teams.getAllKeys()) {
@@ -116,6 +125,9 @@ public final class DistrictSites extends SavedData {
         if (cabin != null) {
             tag.put("Cabin", NbtUtils.writeBlockPos(cabin));
             tag.put("Spawn", NbtUtils.writeBlockPos(spawn));
+        }
+        if (hogFarm != null) {
+            tag.put("HogFarm", NbtUtils.writeBlockPos(hogFarm));
         }
         ListTag spotTags = new ListTag();
         spots.forEach(spot -> spotTags.add(spot.save()));
@@ -137,6 +149,11 @@ public final class DistrictSites extends SavedData {
 
     public BlockPos spawn() {
         return spawn;
+    }
+
+    /** Where the corner of Hog Daddy's farm is, or null until it's built. */
+    public BlockPos hogFarm() {
+        return hogFarm;
     }
 
     public List<SafeSpot> spots() {
@@ -175,6 +192,47 @@ public final class DistrictSites extends SavedData {
             }
             sites.setDirty();
         }
+        if (sites.hogFarm == null) {
+            sites.buildHogFarm(overworld);
+            sites.setDirty();
+        }
+    }
+
+    /** ENEMY-011, Q-138. Neighbouring safe spots lie in directions that differ on both axes, so never north and south. */
+    private void buildHogFarm(ServerLevel level) {
+        int limit = (int) (DistrictBorder.DISTRICT_SIZE / 2) - BORDER_MARGIN - Math.max(HogFarmBuild.SIZE_X, HogFarmBuild.SIZE_Z);
+        int bestX = 0;
+        int bestZ = 0;
+        int bestBadness = Integer.MAX_VALUE;
+        for (Site first : Site.values()) {
+            for (Site second : Site.values()) {
+                if (first.ordinal() >= second.ordinal() || first.directionX == second.directionX || first.directionZ == second.directionZ) {
+                    continue;
+                }
+                BlockPos a = spot(first.id).orElseThrow().center();
+                BlockPos b = spot(second.id).orElseThrow().center();
+                int middleX = (a.getX() + b.getX()) / 2 - HogFarmBuild.SIZE_X / 2;
+                int middleZ = (a.getZ() + b.getZ()) / 2 - HogFarmBuild.SIZE_Z / 2;
+                for (int x = middleX - FARM_SEARCH_RADIUS; x <= middleX + FARM_SEARCH_RADIUS; x += FARM_SEARCH_STEP) {
+                    for (int z = middleZ - FARM_SEARCH_RADIUS; z <= middleZ + FARM_SEARCH_RADIUS; z += FARM_SEARCH_STEP) {
+                        if (Math.abs(x) > limit || Math.abs(z) > limit) {
+                            continue;
+                        }
+                        int badness = SiteGround.badness(level, x, z, HogFarmBuild.SIZE_X, HogFarmBuild.SIZE_Z, biome -> true);
+                        if (badness < bestBadness) {
+                            bestBadness = badness;
+                            bestX = x;
+                            bestZ = z;
+                        }
+                    }
+                }
+            }
+        }
+        int groundY = SiteGround.buildHeight(level, bestX, bestZ, HogFarmBuild.SIZE_X, HogFarmBuild.SIZE_Z);
+        SiteGround.flatten(level, bestX, bestZ, HogFarmBuild.SIZE_X, HogFarmBuild.SIZE_Z, groundY, FARM_GROUND_MARGIN);
+        hogFarm = new BlockPos(bestX, groundY + 1, bestZ);
+        HogFarmBuild.blueprint().place(level, hogFarm);
+        WallisUltimate.LOGGER.info("Built Hog Daddy's farm at {} (ground unevenness {})", hogFarm, bestBadness);
     }
 
     private void buildCabin(MinecraftServer server, ServerLevel level) {
