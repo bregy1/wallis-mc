@@ -19,7 +19,7 @@ How the game sounds and looks around the gameplay: music, the main menu and the 
 - [ ] Each planet has background music matching its theme.
 - [ ] It stays in the background: quiet, not constant, and it never gets in the way of hearing the game.
 - [ ] The music is open, free and already made, not made for us (answer to Q-161).
-- [ ] Every track's license allows use in a monetized pack, for example CC0 or CC BY; "non-commercial" and "no derivatives" licenses are out. Each track and its author are listed in CREDITS.md.
+- [ ] Every track's license allows use in a pack shared with friends that earns nothing (PACK-007). So CC0 and CC BY are fine, and so is "non-commercial" and, if the track stays unchanged, "no derivatives". Each track and its author are listed in CREDITS.md.
 
 **Open questions:**
 **Notes:** Your words: "also, overall we want also music for the themings, nothing too crazy but some background music is nice." And on the source: "yeah for music we want open and free already built ideally." On Earth it could share its style with the menu music in PRES-002: redneck, but still apocalyptic.
