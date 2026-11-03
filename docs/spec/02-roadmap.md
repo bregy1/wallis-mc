@@ -56,7 +56,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - **Transport:** TRANS-001, TRANS-002
 - **Modpack:** PACK-001–006, with only the mods Chapter 1 needs (FTB Quests and Teams, History Stages, JEI, Easy NPC, ImmersiveCinematics, Curios, Hourglass, Xaero's maps, Farmer's Delight, A Balanced Diet, AppleSkin, Lootr, performance mods)
 
-**Later milestones:** utility points and leveling (PROG-005, PROG-009), the skill tree and specialist sub-trees (PROG-011, PROG-012), factions and raiders, the enemy tracker, guns, tech and storage, the Nether, rocket, Moon, aircraft and garages.
+**Later milestones:** utility points and leveling (PROG-005, PROG-009), the skill tree and specialist sub-trees (PROG-011, PROG-012), factions and raiders, the enemy tracker, guns, tech and storage, workers, money and merchants, the Nether, rocket, Moon, aircraft and garages.
 
 **Open questions blocking Milestone 1, in batches**
 1. ~~Foundations: Q-004 starter set, Q-065 districts per tier, Q-066 home base, Q-082/Q-084 tier 1 enemies and Hog Daddy~~ done

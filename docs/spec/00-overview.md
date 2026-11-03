@@ -50,7 +50,10 @@ Optimised for three-player teams, while supporting any reasonable team size (sol
 - Guns (not easy to craft), melee/ranged weapons, armor — limited count, each meaningful
 - Enemies with abilities, perks and counters, plus an in-game enemy tracker (see `30-enemies.md`)
 - Base fortification; enemies can attack bases in a balanced way
-- Tech/automation that is not overpowered, all electric (see `55-tech.md`)
+- Tech/automation that is not overpowered, built in our own mod: electric, with power as its biggest part and generators that each have a trade-off, plus a few machines dropped in along the way (see `55-tech.md`). Rockets stay on fuel (see `65-planets.md`)
+- Workers: NPCs placed around the bed who do jobs in the base, including making food (see `52-workers.md`)
+- Money, mostly from quests, and merchants who buy and sell (see `47-economy.md`)
+- Air on the Moon: players wear a breathing trinket (see `65-planets.md`)
 - Transport: safe spot teleport, horses, electric aircraft later (see `68-transport.md`)
 - Slow-scaling storage and vanilla-style cooking
 - Backpacks (details: Q-026)
