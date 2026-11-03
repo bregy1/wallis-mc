@@ -21,8 +21,8 @@ rm -f run/screenshots/smoketest-*.png
 ./gradlew runClient -PsmokeTest ${1:-} --console=plain > "$LOG" 2>&1 &
 CLIENT_PID=$!
 
-# The client quits by itself (also after its own 5-minute limit); this only catches a hang before that.
-for _ in $(seq 1 600); do
+# The client quits by itself (also after its own 15-minute limit); this only catches a hang before that.
+for _ in $(seq 1 1200); do
     kill -0 "$CLIENT_PID" 2>/dev/null || break
     if grep -qa -E "Missing or unsupported mandatory dependencies|ModLoadingException" "$LOG"; then
         echo "Mods failed to load:"

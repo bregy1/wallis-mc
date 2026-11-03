@@ -87,8 +87,19 @@ public final class DistrictSites extends SavedData {
     private BlockPos spawn;
     private final List<SafeSpot> spots = new ArrayList<>();
     private final Map<String, Set<String>> discovered = new HashMap<>();
+    private final Set<String> garrisoned = new HashSet<>();
 
     private DistrictSites() {
+    }
+
+    /** The plan a safe spot was built from, or null if it isn't one of ours. Building a plan isn't free: keep it. */
+    public static Blueprint blueprintOf(String spotId) {
+        for (Site site : Site.values()) {
+            if (site.id.equals(spotId)) {
+                return site.blueprint.get();
+            }
+        }
+        return null;
     }
 
     public static DistrictSites get(ServerLevel overworld) {
@@ -108,6 +119,7 @@ public final class DistrictSites extends SavedData {
             teams.getList(team, Tag.TAG_STRING).forEach(id -> found.add(id.getAsString()));
             sites.discovered.put(team, found);
         }
+        tag.getList("Garrisoned", Tag.TAG_STRING).forEach(id -> sites.garrisoned.add(id.getAsString()));
         return sites;
     }
 
@@ -127,6 +139,9 @@ public final class DistrictSites extends SavedData {
             teams.put(team, ids);
         });
         tag.put("Discovered", teams);
+        ListTag garrisonedTags = new ListTag();
+        garrisoned.forEach(id -> garrisonedTags.add(StringTag.valueOf(id)));
+        tag.put("Garrisoned", garrisonedTags);
         return tag;
     }
 
@@ -158,6 +173,17 @@ public final class DistrictSites extends SavedData {
             setDirty();
         }
         return isNew;
+    }
+
+    /** SURV-011: whether this safe spot has had its first guards. After that, new ones come as reinforcements. */
+    public boolean hasBeenGarrisoned(String spotId) {
+        return garrisoned.contains(spotId);
+    }
+
+    public void markGarrisoned(String spotId) {
+        if (garrisoned.add(spotId)) {
+            setDirty();
+        }
     }
 
     @SubscribeEvent
@@ -271,7 +297,7 @@ public final class DistrictSites extends SavedData {
                 .map(mark -> origin.offset(mark.getValue()))
                 .toList();
         int radius = Math.max(sizeX, sizeZ) / 2 + SPOT_AREA_MARGIN;
-        SafeSpot spot = new SafeSpot(site.id, origin.offset(sizeX / 2, 0, sizeZ / 2), radius, origin.offset(blueprint.mark(SafeSpotBuilds.TRAVEL)), beds);
+        SafeSpot spot = new SafeSpot(site.id, origin.offset(sizeX / 2, 0, sizeZ / 2), radius, origin.offset(blueprint.mark(SafeSpotBuilds.TRAVEL)), beds, origin);
         spots.add(spot);
         WallisUltimate.LOGGER.info("Built safe spot {} at {} (ground unevenness {})", site.id, spot.center(), bestBadness);
     }

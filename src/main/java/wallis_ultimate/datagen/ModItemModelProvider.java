@@ -41,6 +41,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.MOONSHINE_MOLOTOV.get());
         basicItem(ModItems.PIPE_BOMB.get());
         handheld(ModItems.SLINGSHOT.getId().getPath());
+        handheld(ModItems.DEFENDER_RIFLE.getId().getPath());
     }
 
     /** Held like a tool, not like a flat item. */
