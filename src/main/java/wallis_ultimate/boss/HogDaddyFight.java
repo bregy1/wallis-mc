@@ -1,6 +1,7 @@
 package wallis_ultimate.boss;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.ChatFormatting;
@@ -8,10 +9,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.TicketType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -75,6 +78,12 @@ public final class HogDaddyFight {
     private Stage stage = Stage.INTRO;
     private int ticks;
     private int nobodyStandingTicks;
+    /** Keeps the farm loaded while a fight runs. Not saved, so a crash can't leave it on. */
+    private static final TicketType<ChunkPos> FARM_TICKET = TicketType.create(WallisUltimate.MOD_ID + ":hog_farm", Comparator.comparingLong(ChunkPos::toLong));
+    /** Half the farm's long side in chunks, plus what a ticket loses on the way to letting entities run. */
+    private static final int FARM_TICKET_RADIUS = HogFarmBuild.SIZE_Z / 2 / 16 + 3;
+    @Nullable
+    private final ChunkPos farmTicket;
     private int restoreTicks = -1;
     private boolean won;
 
@@ -83,9 +92,13 @@ public final class HogDaddyFight {
         this.farm = farm;
         this.team = team;
         this.test = test;
+        // Nobody may be anywhere near the farm yet, and a mob put into a chunk nothing keeps loaded is gone a moment later.
+        farmTicket = test ? null : new ChunkPos(farm.origin().offset(HogFarmBuild.SIZE_X / 2, 0, HogFarmBuild.SIZE_Z / 2));
+        if (farmTicket != null) {
+            level.getChunkSource().addRegionTicket(FARM_TICKET, farmTicket, FARM_TICKET_RADIUS, farmTicket);
+        }
         boss = ModEntities.HOG_DADDY.get().create(level);
         Vec3 start = farm.standingAt(HogFarmBuild.BOSS_START);
-        // Nobody may be anywhere near the farm yet.
         level.getChunkAt(BlockPos.containing(start));
         // Facing the wall he's about to come through.
         boss.moveTo(start.x, start.y, start.z, 90.0F, 0.0F);
@@ -218,6 +231,9 @@ public final class HogDaddyFight {
             if (--restoreTicks == 0) {
                 restoreFarm(level, farm);
                 TEST_FIGHTS.remove(this);
+                if (farmTicket != null) {
+                    level.getChunkSource().removeRegionTicket(FARM_TICKET, farmTicket, FARM_TICKET_RADIUS, farmTicket);
+                }
                 if (this == real) {
                     real = null;
                 }
@@ -225,6 +241,7 @@ public final class HogDaddyFight {
             return;
         }
         if (boss.isRemoved() || !boss.isAlive() && !won) {
+            WallisUltimate.LOGGER.warn("Hog Daddy vanished from his fight: {}", boss.getRemovalReason());
             finish(false);
             return;
         }

@@ -454,13 +454,14 @@ final class StorySmokeSteps {
             check("the team's choice fires the boss quest", StoryQuests.completed(serverPlayer(), StoryQuests.QUEST_READY), "");
             check("the Hog Daddy quest opens and waits for the kill", StoryQuests.open(serverPlayer(), StoryQuests.QUEST_HOG), "");
             check("the quest runs the boss's command once, with permission level 2", BOSS_COMMANDS.size() == 1, BOSS_COMMANDS.toString());
-            check("the quest really starts Hog Daddy's fight", HogDaddyFight.current() != null, "no fight running");
             check("the boss command runs without complaint", !chatContains("Unknown or incomplete command"), "");
             check("the team is still in tier 1", Tiers.current(serverPlayer()).order() == 1, String.valueOf(Tiers.current(serverPlayer())));
             command("ftbquests open_book 5A11000000000C00");
         }));
         steps.add(await("the book opens at Hog Daddy", 100, player -> Minecraft.getInstance().screen != null));
         steps.add(step("picture of the Hog Daddy quest", 10, player -> {
+            // A moment later, because the quest counts as done just before its reward runs. It fired far from the farm, with nothing there loaded.
+            check("the quest really starts Hog Daddy's fight, and he's there", HogDaddyFight.current() != null && HogDaddyFight.current().boss().isAlive(), "");
             screenshot("story-quests-hog");
             log("hog quest open in the book");
         }));
