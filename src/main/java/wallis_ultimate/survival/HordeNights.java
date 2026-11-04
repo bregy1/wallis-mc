@@ -58,7 +58,8 @@ public final class HordeNights {
     private static final int RING_DISTANCE = 24;
     private static final int RING_WIDTH = 12;
     private static final int RING_ZONE_MARGIN = 4;
-    private static final int SPOT_TRIES = 16;
+    private static final int SPOT_TRIES = 24;
+    private static final int RING_GROWTH = 4;
     private static final int HEIGHT_REACH = 8;
 
     private static final long TICKS_PER_DAY = 24000L;
@@ -309,7 +310,8 @@ public final class HordeNights {
     private static BlockPos findSpot(ServerLevel level, BlockPos around, int distance) {
         for (int i = 0; i < SPOT_TRIES; i++) {
             double angle = level.random.nextDouble() * Math.PI * 2.0;
-            double reach = distance + level.random.nextDouble() * RING_WIDTH;
+            // Each miss looks further out: someone in the middle of a lake gets a horde from the nearest shore, not none at all.
+            double reach = distance + level.random.nextDouble() * (RING_WIDTH + i * RING_GROWTH);
             int x = around.getX() + (int) (Math.cos(angle) * reach);
             int z = around.getZ() + (int) (Math.sin(angle) * reach);
             if (SafeZones.spotAt(level, x, z) == null) {
