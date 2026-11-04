@@ -1,9 +1,9 @@
 package wallis_ultimate.story;
 
 import static wallis_ultimate.story.Speaker.CARL;
-import static wallis_ultimate.story.Speaker.DUSTY;
 import static wallis_ultimate.story.Speaker.LURLEEN;
 import static wallis_ultimate.story.Speaker.RADIO;
+import static wallis_ultimate.story.Speaker.RADIO_HOST;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.Map;
 public final class ChapterOneTalks {
     public static final String INTRO = "lurleen_intro";
     public static final String BANTER = "lurleen_banter";
-    public static final String RADIO_FIRST = "radio_holler";
+    public static final String RADIO_FIRST = "radio_show";
     public static final String RADIO_LATER = "radio_later";
     public static final String CARL_FIRST = "carl_first";
     public static final String CARL_AGAIN = "carl_again";
@@ -183,15 +183,15 @@ public final class ChapterOneTalks {
                 .build();
     }
 
-    /** Dusty Holler's podcast, from his bunker. Radio voices begins; the next broadcast has the first hint about the Moon. */
+    /** The podcast from the bunker. Radio voices begins; the next broadcast has the first hint about the Moon. */
     private static Talk radio() {
         return Talk.of(RADIO_FIRST)
                 .line("static", RADIO, "...kssshh... ...kssshhhhhh...")
-                .line("back", DUSTY, "...and we're back. This is The Holler Hour, comin' to you live from my bunker, day eleven of whatever the fuck this is. No guests today. My guests all got eaten. One of 'em during the ad read.")
-                .line("tank", DUSTY, "I got a year of elk jerky down here, I got a sensory deprivation tank, and I got questions, man. Have you ever really looked at a zombie? Like, really looked? I did. It shit itself and kept walkin'. That's discipline, bro.")
-                .line("places", DUSTY, "Anyway. People are out there. I'm gettin' calls. Earl's Salvage, up north. Gas-N-Guns out west. Some tents they call Camp Tarp, out east. A busted rig down south. I'm told it smells like a dead trucker, 'cause it's got one.")
-                .line("alone", DUSTY, "If you can hear this, you ain't alone, bro. Get to one of those. They got walls. They got beds. They got a guy named Earl. Nobody's said anything good about Earl.")
-                .line("sponsor", DUSTY, "This episode is brought to you by nobody, 'cause they're all dead. Use code DEAD for nothin' off. Stay hydrated, you beautiful pieces of meat.")
+                .line("back", RADIO_HOST, "...and we're back. This is The Bunker Experience, comin' to you live from my bunker, day eleven of whatever the fuck this is. No guests today. My guests all got eaten. One of 'em during the ad read.")
+                .line("tank", RADIO_HOST, "I got a year of elk jerky down here, I got a sensory deprivation tank, I got a crate of hair foam that ain't done shit, and I got questions, man. Have you ever really looked at a zombie? Like, really looked? I did. It shit itself and kept walkin'. That's discipline, bro.")
+                .line("places", RADIO_HOST, "Anyway. People are out there. I'm gettin' calls. Earl's Salvage, up north. Gas-N-Guns out west. Some tents they call Camp Tarp, out east. A busted rig down south. I'm told it smells like a dead trucker, 'cause it's got one.")
+                .line("alone", RADIO_HOST, "If you can hear this, you ain't alone, bro. Get to one of those. They got walls. They got beds. They got a guy named Earl. Nobody's said anything good about Earl.")
+                .line("sponsor", RADIO_HOST, "This episode is brought to you by nobody, 'cause they're all dead. Use code DEAD for nothin' off. Stay hydrated, you beautiful pieces of meat.")
                 .does(StoryEffects.flag(HEARD_RADIO))
                 .end()
                 .build();
@@ -199,7 +199,7 @@ public final class ChapterOneTalks {
 
     private static Talk radioLater() {
         return Talk.of(RADIO_LATER)
-                .line("moon", DUSTY, "...think about it, man. We went to the Moon, what, six times? Then we just fuckin' stopped. Why'd we stop? Somebody told us to stop. I'm just askin' questions. Hold on, I think I shit in the tank.")
+                .line("moon", RADIO_HOST, "...think about it, man. We went to the Moon, what, six times? Then we just fuckin' stopped. Why'd we stop? Somebody told us to stop. I'm just askin' questions. Hold on, I think I shit in the tank.")
                 .line("static", RADIO, "...kssshhhhhh...")
                 .end()
                 .build();
@@ -260,7 +260,7 @@ public final class ChapterOneTalks {
                 .reply("Did he leave any bacon?", "bacon")
                 .line("carl", LURLEEN, "Carl thinks his toaster's listenin'. Carl once tried to arrest a goose. Now shut your damn mouth, radio's goin'.").then("radio")
                 .line("bacon", LURLEEN, "...I hate that I checked. There ain't. Now shut your damn mouth, radio's goin'.").then("radio")
-                .line("radio", DUSTY, "...anybody out there? It's Holler. Bad news, bros. Raiders up on the highway, takin' whatever's left and whoever's left. And I got folks callin' in about people in robes, out by the reservoir. Fencin' it off. Nobody knows what the fuck they want.")
+                .line("radio", RADIO_HOST, "...anybody out there? It's your boy in the bunker. Bad news, bros. Raiders up on the highway, takin' whatever's left and whoever's left. And I got folks callin' in about people in robes, out by the reservoir. Fencin' it off. Nobody knows what the fuck they want.")
                 .line("robes", LURLEEN, "...Robes.")
                 .reply("You know somethin'?", "know")
                 .line("know", LURLEEN, "No. Get some real walls up, and do it quick. Whatever that was, it was just the fuckin' neighbors. This ain't our land no more.")

@@ -122,7 +122,7 @@ public final class CabinBuild {
         b.set(13, 2, 16, ID + "beer_cans[facing=north]");
         b.box(15, 1, 18, 17, 1, 18, "another_furniture:spruce_drawer[facing=north,open=false]");
         b.set(16, 2, 18, ID + "beer_cans[facing=south]");
-        b.set(15, 2, 18, ID + "old_radio[facing=north]"); // Chapter 1: Dusty Holler's voice
+        b.set(15, 2, 18, ID + "old_radio[facing=north]"); // Chapter 1: the podcast from the bunker
         b.set(9, 1, 18, "minecraft:furnace[facing=east,lit=false]");
         b.set(9, 1, 14, "minecraft:crafting_table");
         b.box(9, 3, 18, 10, 3, 18, "another_furniture:spruce_shelf[facing=north,horizontal=single]");

@@ -63,7 +63,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 
 **Who's new (proposal):** Darryl, who is never seen alive and whose radio the rednecks still have. Old Man Hogg, the neighbor who became Hog Daddy. Dale, Lurleen's brother, who she mentions early and who is the missing brother of Chapter 2. Granny, Lurleen's, dead last week. The Hendersons, dead, previous owners of everyone's beds. Earl of Earl's Salvage, who owes Lurleen for still parts. "Cletus", what Lurleen calls whichever player she's talking to, because she never learned their names.
 
-**Clues, on purpose (STORY-016):** the Army lab as the cover story. Carl: it's aliens, somebody brings a clipboard to the reservoir at night, don't look a chicken in the eye. Dusty Holler: why did we stop going to the Moon? Lurleen's Dale. The chapter's last talk: robes at the reservoir, and "a bite don't do that".
+**Clues, on purpose (STORY-016):** the Army lab as the cover story. Carl: it's aliens, somebody brings a clipboard to the reservoir at night, don't look a chicken in the eye. Joe Rogaine on the radio: why did we stop going to the Moon? Lurleen's Dale. The chapter's last talk: robes at the reservoir, and "a bite don't do that".
 
 **The quests,** in FTB Quests (`pack/config/ftbquests/quests/chapters/scavenger.snbt`, text in the lang file). A quest shows up once what it needs is done. Rewards go to every member unless marked; every stage is unlocked for the whole team.
 
@@ -75,7 +75,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 | 4 | Hot Meal | 3 | Have cooked food on you | Cooking stage (SURV-008, Q-152) |
 | 5 | Darryl's Friends | 2 | Put down 5 zombies | 3 bandages each |
 | 6 | Sleep It Off | 3 | Sleep in a bed | Granny's Rabbit Foot, each (ENEMY-003, CMBT-003) |
-| 7 | The Holler Hour | 5 | Listen to the radio in the cabin (Dusty Holler) | |
+| 7 | The Bunker Experience | 5 | Listen to the radio in the cabin (Joe Rogaine's podcast) | |
 | 8 | Folks With Walls | 7 | Find any safe spot | Iron stage (PROG-002) |
 | 9 | Eight Bars | 8 | Have 8 iron ingots | A frying pan each |
 | 10 | Turn It Down, Carl | 7 | Talk to Conspiracy Carl at Camp Tarp | |
@@ -92,7 +92,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 
 **Tiers (PROG-001).** Defined in `data/wallis_ultimate/wallis_tiers/*.json`. A team's tier isn't stored: it's the last tier whose stage the team has unlocked, so History Stages' sharing already takes care of joining and leaving. `/wallis_tier` shows it.
 
-**Why not Easy NPC's own dialogs:** they only ever talk to the player who clicked, so they can't show a team conversation or pick a random member. Lurleen and Carl are Easy NPC entities with our skins; their right-click opens our conversation instead. Text in the lang file, so the uncut add-on (STORY-019) can override it.
+**Why not Easy NPC's own dialogs:** they only ever talk to the player who clicked, so they can't show a team conversation or pick a random member. Lurleen and Carl are Easy NPC entities with our skins; their right-click opens our conversation instead. All text is in the lang file. A parody's name is in one entry only, the speaker's, and no line says it, so a name can change in one place (Q-175; a GameTest checks this).
 
 ## Plot idea pool (proposals)
 

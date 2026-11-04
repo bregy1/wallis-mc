@@ -25,7 +25,8 @@ final class StoryLanguage {
         add.accept(Speaker.NARRATOR.nameKey(), "Narrator");
         add.accept(Speaker.LURLEEN.nameKey(), "Lurleen");
         add.accept(Speaker.CARL.nameKey(), "Conspiracy Carl");
-        add.accept(Speaker.DUSTY.nameKey(), "Dusty Holler");
+        // Q-175: the one place this parody's name is written. No other text says it, so it can change right here.
+        add.accept(Speaker.RADIO_HOST.nameKey(), "Joe Rogaine");
         add.accept(Speaker.RADIO.nameKey(), "Radio");
         add.accept(STORY + "npc.lurleen", "Lurleen");
         add.accept(STORY + "npc.conspiracy_carl", "Conspiracy Carl");
@@ -82,12 +83,12 @@ final class StoryLanguage {
                 "Lurleen: \"You ain't made it through a night yet, not sober. Sleep one off in your own bed. Come mornin', I got somethin' for you, and it ain't what you're hopin', Cletus.\"",
                 "It's Granny's Rabbit Foot, one for each of you. Wear it as a charm. At night it makes things a little fairer. It also smells like a pickle jar, because it's been in one since before you were born.",
                 "Sleep in a bed");
-        quest(add, "radio", "The Holler Hour", "There's a smug asshole on Darryl's radio.",
+        quest(add, "radio", "The Bunker Experience", "There's a smug asshole on Darryl's radio.",
                 "Lurleen: \"Darryl's old radio's still sittin' in the cabin. Go see if there's anybody left to talk to who ain't you.\"",
                 "It's on the drawers at the back of the cabin. Right-click to listen. You'll wish you hadn't.",
                 "Listen to the radio");
         quest(add, "safe", "Folks With Walls", "Earl's Salvage, Gas-N-Guns, Camp Tarp, the Stranded Hauler.",
-                "Dusty Holler says there are safe spots out there: north, west, east and south of the cabin. They've got walls, they've got beds, and they know how to work metal. They don't know you yet, so you've got a shot.",
+                "That smug asshole on the radio says there are safe spots out there: north, west, east and south of the cabin. They've got walls, they've got beds, and they know how to work metal. They don't know you yet, so you've got a shot.",
                 "Find any one of them. Whatever they teach you about smelting, you'll keep. A safe spot's signpost connects it to the others you've found.",
                 "Find a safe spot");
         quest(add, "scrap", "Eight Bars", "Copper first, then iron, you lump.",

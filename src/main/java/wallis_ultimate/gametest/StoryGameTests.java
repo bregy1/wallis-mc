@@ -191,6 +191,7 @@ public final class StoryGameTests {
                 });
             }
         }
+        int parodyName = 0;
         for (String key : lang.keySet()) {
             if (key.startsWith("story." + WallisUltimate.MOD_ID)) {
                 String cleaned = SwearFilter.clean(lang.get(key).getAsString());
@@ -198,7 +199,12 @@ public final class StoryGameTests {
                 if (left.find()) {
                     helper.fail("the filter misses '" + left.group() + "' in " + key);
                 }
+                parodyName += lang.get(key).getAsString().contains("Rogaine") ? 1 : 0;
             }
+        }
+        // Q-175: a parody's name lives in one lang entry, so it can change without touching anything else.
+        if (parodyName != 1) {
+            helper.fail("the radio host's name is in " + parodyName + " lang entries");
         }
         String quests = Files.readString(Path.of("config/ftbquests/quests/chapters/scavenger.snbt"));
         Matcher keys = TRANSLATE_KEY.matcher(quests);

@@ -7,7 +7,8 @@ public enum Speaker {
     NARRATOR("narrator", 0xB0B0B0),
     LURLEEN("lurleen", 0xFF7A5C),
     CARL("carl", 0x8FD3FF),
-    DUSTY("dusty", 0xFFD36B),
+    /** The podcast host on the radio. His name is only in the lang file, in this speaker's entry: no other text says it. */
+    RADIO_HOST("radio_host", 0xFFD36B),
     RADIO("radio", 0xA8C8A0);
 
     private final String id;

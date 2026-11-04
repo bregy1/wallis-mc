@@ -139,7 +139,7 @@ public final class StoryEvents {
         }
     }
 
-    /** Chapter 1's "Radio voices": Dusty Holler's podcast the first time, then whatever he's rambling about by now. */
+    /** Chapter 1's "Radio voices": the podcast from the bunker the first time, then whatever he's rambling about by now. */
     public static void listenToRadio(ServerPlayer player) {
         boolean heard = StoryState.get(player.server).hasFlag(Teams.teamKey(player), ChapterOneTalks.HEARD_RADIO);
         Conversations.start(player, ChapterOneTalks.talk(heard ? ChapterOneTalks.RADIO_LATER : ChapterOneTalks.RADIO_FIRST));

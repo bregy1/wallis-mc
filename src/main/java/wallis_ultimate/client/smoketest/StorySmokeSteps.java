@@ -359,13 +359,16 @@ final class StorySmokeSteps {
         }));
         steps.add(await("the radio crackles", 60, player -> ClientConversation.current() != null));
         steps.add(step("listen to the radio", 2, player -> {
-            check("the radio plays Dusty Holler", ClientConversation.current() != null && ClientConversation.current().textKey().contains("radio_holler"), String.valueOf(ClientConversation.current()));
+            check("the radio plays the podcast", ClientConversation.current() != null && ClientConversation.current().textKey().contains(ChapterOneTalks.RADIO_FIRST), String.valueOf(ClientConversation.current()));
             ClientConversation.next();
         }));
-        steps.add(await("Dusty talks", 60, player -> ClientConversation.current() != null && ClientConversation.current().textKey().contains(".back")));
-        steps.add(step("picture of Dusty on the radio", 0, player -> screenshot("story-radio")));
+        steps.add(await("the host talks", 60, player -> ClientConversation.current() != null && ClientConversation.current().textKey().contains(".back")));
+        steps.add(step("picture of the host on the radio", 0, player -> {
+            check("the radio's voice goes by his parody name", Component.translatable(ClientConversation.current().speakerKey()).getString().equals("Joe Rogaine"), ClientConversation.current().speakerKey());
+            screenshot("story-radio");
+        }));
         steps.add(drive("the broadcast", 0));
-        steps.add(await("The Holler Hour finishes", 100, player -> StoryQuests.completed(serverPlayer(), StoryQuests.QUEST_RADIO)));
+        steps.add(await("The Bunker Experience finishes", 100, player -> StoryQuests.completed(serverPlayer(), StoryQuests.QUEST_RADIO)));
         steps.add(step("go to Camp Tarp", 60, player -> {
             check("listening finishes the radio quest", StoryQuests.completed(serverPlayer(), StoryQuests.QUEST_RADIO), "");
             BlockPos arrival = campTarp().arrival();
