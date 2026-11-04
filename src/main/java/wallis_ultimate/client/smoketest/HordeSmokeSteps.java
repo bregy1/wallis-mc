@@ -186,11 +186,11 @@ final class HordeSmokeSteps {
     }
 
     private static List<Defender> guards() {
-        return overworld().getEntitiesOfClass(Defender.class, new AABB(spot().center()).inflate(SPOT_REACH));
+        return ClientSmokeTest.onServerThread(() -> overworld().getEntitiesOfClass(Defender.class, new AABB(spot().center()).inflate(SPOT_REACH)));
     }
 
     private static List<RegularZombie> spotZombies() {
-        return overworld().getEntitiesOfClass(RegularZombie.class, new AABB(spot().center()).inflate(SPOT_REACH));
+        return ClientSmokeTest.onServerThread(() -> overworld().getEntitiesOfClass(RegularZombie.class, new AABB(spot().center()).inflate(SPOT_REACH)));
     }
 
     private static ServerLevel overworld() {

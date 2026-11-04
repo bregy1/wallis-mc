@@ -289,6 +289,11 @@ public final class ClientSmokeTest {
 
     // Helpers for the step lists.
 
+    /** Asks on the server's own thread and waits: reading its entity lists from the render thread can crash the game. */
+    static <T> T onServerThread(Supplier<T> query) {
+        return Minecraft.getInstance().getSingleplayerServer().submit(query).join();
+    }
+
     static boolean chatContains(String text) {
         return chat.stream().anyMatch(message -> message.contains(text));
     }

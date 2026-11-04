@@ -168,11 +168,11 @@ final class DefenderSmokeSteps {
 
     /** From the integrated server: the client isn't told about targets or health. */
     private static List<Defender> guards() {
-        return server().getEntitiesOfClass(Defender.class, area(), guard -> SPOT.equals(guard.spotId()));
+        return ClientSmokeTest.onServerThread(() -> server().getEntitiesOfClass(Defender.class, area(), guard -> SPOT.equals(guard.spotId())));
     }
 
     private static List<RegularZombie> zombies() {
-        return server().getEntitiesOfClass(RegularZombie.class, area(), zombie -> zombie.getTags().contains("smoketest"));
+        return ClientSmokeTest.onServerThread(() -> server().getEntitiesOfClass(RegularZombie.class, area(), zombie -> zombie.getTags().contains("smoketest")));
     }
 
     private static int zombiesHurtOrDead() {
