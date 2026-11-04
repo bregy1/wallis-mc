@@ -49,6 +49,9 @@ public class Defender extends PathfinderMob {
     public static final double SHOT_NOISE = 32.0;
     private static final float SHOT_HIT_CHANCE = 0.85F;
     private static final double TRACER_STEP = 1.5;
+    /** How far above and how close to a target a guard can fire down at it, over a wall's parapet. */
+    private static final double FIRE_DOWN_HEIGHT = 2.0;
+    private static final double FIRE_DOWN_REACH = 10.0;
     public static final double WALK_BLOCKS_PER_TICK = 1.1 * RegularZombie.PLAYER_WALK_BLOCKS_PER_TICK;
     /** How far from its post it still picks fights. */
     private static final int GUARD_RADIUS = 32;
@@ -101,7 +104,8 @@ public class Defender extends PathfinderMob {
         targetSelector.addGoal(1, new HurtByTargetGoal(this, Defender.class));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false,
                 player -> Garrisons.isWantedBy(this, (Player) player)));
-        targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Mob.class, 5, true, false, mob -> mob instanceof Enemy));
+        // Not only what it can see: enemies behind a wall would otherwise besiege the place for good, unanswered.
+        targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Mob.class, 5, false, false, mob -> mob instanceof Enemy));
     }
 
     /** Which of the looks this one has. From its UUID, which the client knows and never changes. */
@@ -142,7 +146,12 @@ public class Defender extends PathfinderMob {
         entityData.set(PARACHUTING, parachuting);
     }
 
-    /** One rifle shot at the target, right away: a straight line, stopped by blocks. Returns whether it hit. */
+    /** One rifle shot at the target, right away: a straight line, stopped by blocks unless it fires down over a wall. Returns whether it hit. */
+    /** Up on a wall, with enemies right below: the parapet is in the way of a straight line, not of leaning over it. */
+    public boolean canFireDownAt(LivingEntity target) {
+        return getY() - target.getY() >= FIRE_DOWN_HEIGHT && position().subtract(target.position()).horizontalDistance() <= FIRE_DOWN_REACH;
+    }
+
     public boolean shoot(LivingEntity target) {
         if (!(level() instanceof ServerLevel server)) {
             return false;
@@ -151,7 +160,8 @@ public class Defender extends PathfinderMob {
         Vec3 from = getEyePosition();
         Vec3 aim = target.getEyePosition().subtract(0.0, 0.3, 0.0);
         BlockHitResult wall = server.clip(new ClipContext(from, aim, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
-        Vec3 end = wall.getType() == HitResult.Type.MISS ? aim : wall.getLocation();
+        boolean blocked = wall.getType() != HitResult.Type.MISS && !canFireDownAt(target);
+        Vec3 end = blocked ? wall.getLocation() : aim;
         server.playSound(null, getX(), getY(), getZ(), SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE, 0.7F, 1.9F);
         Noise.make(server, position(), SHOT_NOISE);
         server.sendParticles(ParticleTypes.SMOKE, from.x, from.y, from.z, 3, 0.05, 0.05, 0.05, 0.01);
@@ -161,7 +171,7 @@ public class Defender extends PathfinderMob {
             Vec3 at = from.add(direction.scale(along / length));
             server.sendParticles(ParticleTypes.CRIT, at.x, at.y, at.z, 1, 0.0, 0.0, 0.0, 0.0);
         }
-        if (wall.getType() != HitResult.Type.MISS || getRandom().nextFloat() >= SHOT_HIT_CHANCE) {
+        if (blocked || getRandom().nextFloat() >= SHOT_HIT_CHANCE) {
             return false;
         }
         // Bullets don't care about the moment of protection after a hit, so several guards firing at once all count.
