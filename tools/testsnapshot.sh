@@ -65,6 +65,8 @@ for file in eula.txt server.properties options.txt; do
 done
 
 cd "$COPY"
+# A fresh world each time: tests leave things behind, and the next run's tests can land on them.
+rm -rf run/world
 if [ "${1:-}" = "look" ]; then
     bash tools/smoketest.sh "-PsmokeOnly=${2:-sites}" | grep -a -E "FAIL|DONE|gave up|Crash report|did not|stopped|Mods failed|Mod ID|Blueprint|/ERROR"
     exit "${PIPESTATUS[0]}"

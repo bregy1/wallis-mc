@@ -208,6 +208,25 @@ public final class DefenderGameTests {
         });
     }
 
+    /** SURV-011: a guard doesn't stand and snipe from its post. It walks up to the enemy, which is what gets it hurt. */
+    @GameTest(template = PLATFORM, batch = BATCH, timeoutTicks = 100)
+    public static void guardsWalkUpToTheEnemy(GameTestHelper helper) {
+        SafeSpot zone = zoneHere(helper, 0, null);
+        Defender guard = defenderAt(helper, zone, 0.5, 0.5);
+        RegularZombie zombie = helper.spawnWithNoFreeWill(ModEntities.ZOMBIE.get(), new Vec3(7.5, 2.0, 7.5));
+        zombie.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(1024.0);
+        zombie.setHealth(1024.0F);
+        Vec3 start = guard.position();
+        guard.setTarget(zombie);
+        helper.runAfterDelay(40, () -> {
+            // Its own position: its shots can knock the zombie off this small platform.
+            if (guard.position().distanceTo(start) < 2.0) {
+                helper.fail("the guard should have walked up to the zombie, but stayed at " + guard.position());
+            }
+            finish(helper, zone);
+        });
+    }
+
     /** Mining doesn't wait for the slow scan: guards know about it at once. */
     @GameTest(template = PLATFORM, batch = BATCH)
     public static void minedBlocksAreNoticedRightAway(GameTestHelper helper) {
