@@ -115,6 +115,7 @@ final class StorySmokeSteps {
             if (!StoryEvents.openingPlaysOnJoin()) {
                 // After the other groups: back where a new player starts, and without the bed the survival group left standing.
                 serverPlayer().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).remove(WallisUltimate.MOD_ID + ":beds");
+                BOSS_COMMANDS.clear();
                 ClientSmokeTest.onServerThread(() -> {
                     HogDaddyProgress.get(server().overworld()).forgetForTests(Teams.teamKey(serverPlayer()));
                     return null;
@@ -390,6 +391,7 @@ final class StorySmokeSteps {
             command("give @s minecraft:iron_ingot 8");
         }));
         steps.add(await("Eight Bars finishes", 100, player -> StoryQuests.completed(serverPlayer(), StoryQuests.QUEST_SCRAP)));
+        steps.add(await("the pan arrives", 100, player -> player.getInventory().contains(new ItemStack(ModItems.FRYING_PAN.get()))));
         steps.add(step("check the frying pan", 5, player -> check("eight iron bars earn the frying pan", player.getInventory().contains(new ItemStack(ModItems.FRYING_PAN.get())), describe(player))));
     }
 
@@ -463,6 +465,12 @@ final class StorySmokeSteps {
             log("hog quest open in the book");
         }));
         steps.add(step("close the book for the last time", 5, player -> Minecraft.getInstance().setScreen(null)));
+        // The quest took the player to the farm, far from her, so she has to load again first.
+        steps.add(step("back to the cabin", 20, player -> {
+            Entity lurleen = lurleen(true);
+            command(String.format("tp @s %.2f %.2f %.2f 0 0", lurleen.getX(), lurleen.getY(), lurleen.getZ() - 2.0));
+        }));
+        steps.add(await("she loads", 200, player -> clientEntity(lurleen(true)) != null));
         steps.add(talkTo("Lurleen after a failed try", () -> lurleen(true)));
         steps.add(await("she offers another go", 60, player -> ClientConversation.current() != null));
         steps.add(step("check another go", 2, player -> check("while the boss lives, Lurleen offers another go", ClientConversation.current() != null && ClientConversation.current().textKey().contains("lurleen_again"), String.valueOf(ClientConversation.current()))));
