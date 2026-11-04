@@ -48,7 +48,10 @@ public class DefenderRepairGoal extends Goal {
     @Override
     public void stop() {
         defender.getNavigation().stop();
-        broken = null;
+        if (broken != null) {
+            Garrisons.repairLater(defender, broken);
+            broken = null;
+        }
     }
 
     @Override

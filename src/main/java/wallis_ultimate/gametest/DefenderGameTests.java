@@ -7,6 +7,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
@@ -203,6 +205,47 @@ public final class DefenderGameTests {
             SafeZones.removeTestZone(zone);
             Garrisons.removeTestGarrison(zone);
             helper.killAllEntities();
+        });
+    }
+
+    /** Mining doesn't wait for the slow scan: guards know about it at once. */
+    @GameTest(template = PLATFORM, batch = BATCH)
+    public static void minedBlocksAreNoticedRightAway(GameTestHelper helper) {
+        Blueprint blueprint = new Blueprint(3).set(0, 0, 0, "minecraft:oak_planks");
+        SafeSpot zone = zoneHere(helper, 0, blueprint);
+        BlockPos center = zone.center();
+        blueprint.place(helper.getLevel(), center);
+        Player miner = mockPlayer(helper, false);
+        MinecraftForge.EVENT_BUS.post(new BlockEvent.BreakEvent(helper.getLevel(), center, helper.getLevel().getBlockState(center), miner));
+        if (!Garrisons.isWaitingForRepair(helper.getLevel(), zone, center)) {
+            helper.fail("a mined block should be on the repair list straight away");
+        }
+        Garrisons.forgive(miner);
+        finish(helper, zone);
+    }
+
+    /** Someone standing in the way only delays a repair: the block stays on the list and comes back afterwards. */
+    @GameTest(template = PLATFORM, batch = BATCH, timeoutTicks = 60)
+    public static void aBlockedRepairIsTriedAgain(GameTestHelper helper) {
+        Blueprint blueprint = new Blueprint(4).set(0, 0, 0, "minecraft:oak_planks");
+        SafeSpot zone = zoneHere(helper, 0, blueprint);
+        BlockPos center = zone.center();
+        Defender guard = defenderAt(helper, zone, 4.5, 4.5);
+        Pig inTheWay = helper.spawnWithNoFreeWill(EntityType.PIG, new Vec3(3.5, 2.0, 3.5));
+        Garrisons.repair(guard, center);
+        if (helper.getLevel().getBlockState(center).is(Blocks.OAK_PLANKS)) {
+            helper.fail("the block shouldn't appear inside someone standing there");
+        }
+        if (!Garrisons.isWaitingForRepair(helper.getLevel(), zone, center)) {
+            helper.fail("a repair that was in the way should stay on the list");
+        }
+        inTheWay.discard();
+        helper.runAfterDelay(1, () -> {
+            Garrisons.repair(guard, center);
+            if (!helper.getLevel().getBlockState(center).is(Blocks.OAK_PLANKS)) {
+                helper.fail("the block should come back once the way is clear");
+            }
+            finish(helper, zone);
         });
     }
 
