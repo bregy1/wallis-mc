@@ -16,6 +16,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        hogDaddy();
         add(ModBlocks.REINFORCED_CONCRETE.get(), "Reinforced Concrete");
         add(ModBlocks.RIVETED_STEEL.get(), "Riveted Steel");
         add(ModBlocks.ALIEN_ALLOY.get(), "Alien Alloy");
@@ -55,7 +56,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("message." + WallisUltimate.MOD_ID + ".grave.location", "Your things are in your grave at %s, %s, %s. It lasts 60 minutes.");
         add("message." + WallisUltimate.MOD_ID + ".bed.already_have", "You already have a bed on this planet, at %s, %s, %s. Pick that one up first.");
         add("message." + WallisUltimate.MOD_ID + ".horde.uneasy", "You get a really uneasy feeling.");
-        add("message." + WallisUltimate.MOD_ID + ".horde.worse", "The feeling gets worse, something is about to happen.");        add("message." + WallisUltimate.MOD_ID + ".horde.no_sleep", "Nobody's sleeping through this. Not with that lot out there.");
+        add("message." + WallisUltimate.MOD_ID + ".horde.worse", "The feeling gets worse, something is about to happen.");        add("message." + WallisUltimate.MOD_ID + ".horde.no_sleep", "Nobody's sleeping through this. Not with that lot out there.");
         add("menu." + WallisUltimate.MOD_ID + ".disclaimer", "Wallis Ultimate is a work of fiction. All characters, names and events are fictional. Any resemblance to real persons, living or dead, is coincidental or intended as parody.");
         add(ModItems.BANDAGE.get(), "Bandage");
         add(ModItems.COPPER_PICKAXE.get(), "Copper Pickaxe");
@@ -100,5 +101,32 @@ public class ModLanguageProvider extends LanguageProvider {
         add("hud." + WallisUltimate.MOD_ID + ".teammate_down", "%s is down! %s left");
         add(ModBlocks.OLD_RADIO.get(), "Old Radio");
         StoryLanguage.addAll(this::add);
+    }
+
+    /** ENEMY-011. The words are proposals (working agreement: Chapter 1 text). Under story., so the clean-language option covers them. */
+    private void hogDaddy() {
+        add(ModEntities.HOG_DADDY.get(), "Hog Daddy");
+        add(ModEntities.ZOMBIE_PIGLET.get(), "Zombie Piglet");
+        add(ModEntities.GROUND_MARK.get(), "Ground Mark");
+        add(ModEntities.MUD_RING.get(), "Mud Ring");
+        add(ModBlocks.STRAPPED_HAY.get(), "Strapped Hay");
+        add(ModBlocks.CRUSHED_WRECK.get(), "Crushed Wreck");
+        add(ModBlocks.PEN_POST.get(), "Pen Post");
+        add(ModBlocks.FEEDING_TROUGH.get(), "Feeding Trough");
+        add(ModBlocks.CORN.get(), "Corn");
+        String message = "story." + WallisUltimate.MOD_ID + ".hog_daddy.";
+        add(message + "snorting", "Something huge is snorting and farting behind that wall. Smells like a dead sow's ass in July.");
+        add(message + "run", "RUN, DUMBASSES! Through the corn, to the barn!");
+        add(message + "pen", "Get the fat bastard to ram a post or the trough, then beat his ass!");
+        add(message + "stunned", "He knocked himself stupid! Kick him in the ass!");
+        add(message + "enraged", "He just shit himself with rage! Every post only holds once now!");
+        add(message + "beaten", "Hog Daddy's dead. Half a ton of bacon, and every bite of it will kill you.");
+        add(message + "wiped", "Hog Daddy got bored of your corpses and went back to his slop. Ring the bell at his gate for round two.");
+        add(message + "busy", "Hog Daddy's busy eating somebody else's face. Ring the bell at his gate when he's had his fill.");
+        add(message + "already_fighting", "You're already fighting him, genius. He's the big one with the hook.");
+        add(message + "already_beaten", "He's dead. You killed him. Leave the poor bastard's carcass alone, you sick freak.");
+        add(message + "nobody_standing", "Your whole team's face down in the dirt. Nobody's fighting shit.");
+        add(message + "no_farm", "Hog Daddy's farm isn't in this world. Lucky you.");
+        add(message + "protected", "Hands off the farm. Go dig in your own shit.");
     }
 }

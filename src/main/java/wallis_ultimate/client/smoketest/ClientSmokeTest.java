@@ -171,6 +171,7 @@ public final class ClientSmokeTest {
         if (only.contains("horde-spot")) {
             all.addAll(HordeSmokeSteps.atASafeSpot());
         }
+        group.accept("boss", BossSmokeSteps::steps);
         // Last: it plays Chapter 1 to its end, which unlocks what the groups above check is locked.
         group.accept("story", StorySmokeSteps::steps);
         all.add(step("walk again", 45, player -> walk(40, 180)));

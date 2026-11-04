@@ -1,10 +1,10 @@
-// 1.20.1	2026-11-03T00:03:49.7009538	Tags for minecraft:block mod id wallis_ultimate
-4003c909f9d85a95eff3e553923aafafc0e8ba0a data/minecraft/tags/blocks/dragon_immune.json
+// 1.20.1	2026-11-04T10:27:39.7264077	Tags for minecraft:block mod id wallis_ultimate
+8db655469e465defecae8d04c399e482cad1f326 data/minecraft/tags/blocks/dragon_immune.json
 d8b82b0294b66d42242c5e539b5764c17102c07e data/minecraft/tags/blocks/mineable/axe.json
 633bccfb9513aaecda851da46e6339152df4b575 data/minecraft/tags/blocks/mineable/pickaxe.json
 d304edcd2841412b4d26bf6823b6418f64ec5ef0 data/minecraft/tags/blocks/mineable/shovel.json
 183f34b0a5840b4570fd46b3f46882571ef7c769 data/minecraft/tags/blocks/slabs.json
 0ec42dca5d74efffed4a6d1be1a89e59123cce62 data/minecraft/tags/blocks/stairs.json
 17e30530fa8f1f661b175685e22f589f60b213ec data/minecraft/tags/blocks/walls.json
-4003c909f9d85a95eff3e553923aafafc0e8ba0a data/minecraft/tags/blocks/wither_immune.json
+8db655469e465defecae8d04c399e482cad1f326 data/minecraft/tags/blocks/wither_immune.json
 b76d95bca371efda20b7d956d2c78eb4b6f41775 data/wallis_ultimate/tags/blocks/needs_copper_tool.json

@@ -32,6 +32,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -41,9 +42,12 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CommandEvent;
 import wallis_ultimate.WallisUltimate;
+import wallis_ultimate.boss.HogDaddyFight;
+import wallis_ultimate.boss.HogDaddyProgress;
 import wallis_ultimate.client.CleanLanguage;
 import wallis_ultimate.client.ClientConversation;
 import wallis_ultimate.client.ConversationScreen;
+import wallis_ultimate.entity.HogDaddy;
 import wallis_ultimate.network.ConversationPacket;
 import wallis_ultimate.progression.Tiers;
 import wallis_ultimate.registry.ModItems;
@@ -110,7 +114,11 @@ final class StorySmokeSteps {
             command("weather clear");
             if (!StoryEvents.openingPlaysOnJoin()) {
                 // After the other groups: back where a new player starts, and without the bed the survival group left standing.
-                serverPlayer().getPersistentData().remove(WallisUltimate.MOD_ID + ":beds");
+                serverPlayer().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).remove(WallisUltimate.MOD_ID + ":beds");
+                ClientSmokeTest.onServerThread(() -> {
+                    HogDaddyProgress.get(server().overworld()).forgetForTests(Teams.teamKey(serverPlayer()));
+                    return null;
+                });
                 BlockPos spawn = sites().spawn();
                 command(String.format("tp @s %.2f %d %.2f 0 0", spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5));
             }
@@ -444,12 +452,13 @@ final class StorySmokeSteps {
             check("the team's choice fires the boss quest", StoryQuests.completed(serverPlayer(), StoryQuests.QUEST_READY), "");
             check("the Hog Daddy quest opens and waits for the kill", StoryQuests.open(serverPlayer(), StoryQuests.QUEST_HOG), "");
             check("the quest runs the boss's command once, with permission level 2", BOSS_COMMANDS.size() == 1, BOSS_COMMANDS.toString());
-            check("a boss command that doesn't exist yet stays silent", !chatContains("Unknown or incomplete command") && !chatContains("wallis_boss"), "");
+            check("the quest really starts Hog Daddy's fight", HogDaddyFight.current() != null, "no fight running");
+            check("the boss command runs without complaint", !chatContains("Unknown or incomplete command"), "");
             check("the team is still in tier 1", Tiers.current(serverPlayer()).order() == 1, String.valueOf(Tiers.current(serverPlayer())));
             command("ftbquests open_book 5A11000000000C00");
         }));
         steps.add(await("the book opens at Hog Daddy", 100, player -> Minecraft.getInstance().screen != null));
-        steps.add(step("picture of the Hog Daddy quest, on an entity that doesn't exist here", 10, player -> {
+        steps.add(step("picture of the Hog Daddy quest", 10, player -> {
             screenshot("story-quests-hog");
             log("hog quest open in the book");
         }));
@@ -458,8 +467,14 @@ final class StorySmokeSteps {
         steps.add(await("she offers another go", 60, player -> ClientConversation.current() != null));
         steps.add(step("check another go", 2, player -> check("while the boss lives, Lurleen offers another go", ClientConversation.current() != null && ClientConversation.current().textKey().contains("lurleen_again"), String.valueOf(ClientConversation.current()))));
         steps.add(drive("another go", 0));
-        // The boss's own branch isn't here, so its death is the part that's simulated. Everything after it is real.
-        steps.add(step("Hog Daddy dies", 5, player -> StoryEvents.bossDied(serverPlayer().serverLevel(), serverPlayer())));
+        // A real fight and a real death through the real quest. Only the killing blow is a shortcut, and the boss group plays the fight itself.
+        steps.add(step("back to the fight", 100, player -> command("wallis_boss hog_daddy start")));
+        steps.add(await("he's there", 300, player -> HogDaddyFight.current() != null));
+        steps.add(step("get close and kill him", 5, player -> {
+            HogDaddy boss = HogDaddyFight.current().boss();
+            command(String.format("tp @s %.2f %.2f %.2f", boss.getX(), boss.getY(), boss.getZ() + 4.0));
+            command("kill @e[type=wallis_ultimate:hog_daddy]");
+        }));
         steps.add(await("the last quest finishes", 100, player -> StoryQuests.completed(serverPlayer(), StoryQuests.QUEST_HOG)));
         steps.add(await("the chapter's last talk starts", 60, player -> ClientConversation.current() != null));
         steps.add(step("check the milestone", 0, player -> {
