@@ -191,7 +191,7 @@ public final class ZombieGameTests {
             double blocksPerTick = zombie.position().subtract(start[0]).horizontalDistance() / 20.0;
             double expected = shareOfWalking * RegularZombie.PLAYER_WALK_BLOCKS_PER_TICK;
             if (Math.abs(blocksPerTick - expected) > expected * SPEED_TOLERANCE) {
-                helper.fail(String.format("%.2f m/s, expected %.2f m/s", blocksPerTick * 20, expected * 20));
+                helper.fail(String.format("%.2f m/s, expected %.2f m/s; from %s to %s, wants %s, collision %s, ground %s, speed %.3f, near %s", blocksPerTick * 20, expected * 20, start[0], zombie.position(), target, zombie.horizontalCollision, zombie.onGround(), zombie.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED), zombie.level().getEntities(zombie, zombie.getBoundingBox().inflate(6.0)).stream().map(e -> e.getType().toShortString() + "@" + e.blockPosition().toShortString()).toList()));
             }
             helper.killAllEntities();
             helper.succeed();

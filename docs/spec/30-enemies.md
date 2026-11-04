@@ -48,7 +48,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Acceptance criteria:**
 - [ ] In the first districts, a player without gear can't survive a night in the open.
 - [ ] With gear, nights stay hard.
-- [ ] A key item earned from a quest (likely a trinket, CMBT-003) makes night enemies about 10% weaker for the player who has it. (Granny's Rabbit Foot does this, verified by GameTests; the quest comes with the story work.)
+- [x] A key item earned from a quest (likely a trinket, CMBT-003) makes night enemies about 10% weaker for the player who has it. (Granny's Rabbit Foot does this, verified by GameTests. It's the reward of the quest "Sleep It Off", for every player; verified by the client smoke test.)
 - [ ] Shelter (the team's first home, safe spots) and sleeping are real ways to get through an early night.
 
 **Open questions:**
@@ -87,7 +87,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** Your words: "make sure to not add too much block breaking!! it has to be super rare." Base fortification details belong in the base spec (BASE).
 
 ### ENEMY-006 — Hordes
-**Status:** approved (partly implemented 2026-11-02: noise pulls regular zombies toward it, verified by a GameTest; horde nights and story hordes not built yet)
+**Status:** approved (partly implemented: noise pulls regular zombies toward it, verified by a GameTest 2026-11-02; horde nights, verified by GameTests and in a real client by the smoke test 2026-11-03; story hordes not built yet)
 **Priority:** must
 
 **Description:** Hordes come from three sources: noise attracts nearby zombies, the story sends hordes at key moments, and horde nights send big attacks at bases. There are no randomly wandering hordes.
@@ -95,16 +95,16 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Acceptance criteria:**
 - [ ] Only loud actions pull zombies toward the noise: gunshots (about 32 blocks), explosions (about 48), chainsaws (about 24), breaking glass and doors (about 12). Walking, sprinting and mining are quiet.
 - [ ] Scripted story hordes happen at key moments (e.g. the launch defense, PROG-010).
-- [ ] Every 7th in-game night is a horde night, sending a big attack at a player's base (which base: WORLD-012). If nobody is at the base, the horde spawns around the player, wherever they are (answer to Q-157). In a safe spot, that means a big fight there (SURV-011).
-- [ ] Players get warned: 2 minutes before, "You get a really uneasy feeling"; 1 minute before, "The feeling gets worse, something is about to happen"; and when the horde starts, a message in chat or something transmitted from Lurleen. There's a little time to get to a good fighting spot (answer to Q-157).
-- [ ] A horde night can't be slept through: beds refuse that night (answer to Q-158). A later item may allow it (see notes).
-- [ ] The horde night counter runs per player and only counts in-game days while that player is online.
-- [ ] When team members play together, the counter closest to its horde night decides. When that horde night hits, the counters of everyone present reset.
-- [ ] In a given district, a horde night is equally strong each time (PROG-007).
-- [ ] A horde of regular zombies alone is a fair fight; its elites (the special zombies in it) are what make it very challenging. Each tier sets which elites come along. Chapter 1 has no specials yet (Q-139), so its hordes are regular zombies only.
+- [x] Every 7th in-game night is a horde night, sending a big attack at a player's base (which base: WORLD-012). If nobody is at the base, the horde spawns around the player, wherever they are (answer to Q-157). In a safe spot, that means a big fight there (SURV-011). (Built: waves spawn outside a safe spot's area and come in; the defenders come with SURV-011.)
+- [x] Players get warned: 2 minutes before, "You get a really uneasy feeling"; 1 minute before, "The feeling gets worse, something is about to happen"; and when the horde starts, a message in chat or something transmitted from Lurleen. There's a little time to get to a good fighting spot (answer to Q-157). (Timed in real minutes, with Hourglass's day speed. Lurleen's line comes over the radio, with a horn sound.)
+- [x] A horde night can't be slept through: beds refuse that night (answer to Q-158). A later item may allow it (see notes).
+- [x] The horde night counter runs per player and only counts in-game days while that player is online. (It counts nightfalls while online, and survives dying. A /time command doesn't count as a night going by.)
+- [x] When team members play together, the counter closest to its horde night decides. When that horde night hits, the counters of everyone present reset. (Rules checked by GameTests; not yet played with several real players.)
+- [x] In a given district, a horde night is equally strong each time (PROG-007). (Proposal: 3 waves a minute apart, each 6 zombies plus 4 per extra player in the fight.)
+- [x] A horde of regular zombies alone is a fair fight; its elites (the special zombies in it) are what make it very challenging. Each tier sets which elites come along. Chapter 1 has no specials yet (Q-139), so its hordes are regular zombies only. (Fair is still to be judged by playing it.)
 
 **Open questions:**
-**Notes:** Your words on elites: "So a horde without elites is kinda weak, but the elites make it very challenging." Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. Decided 2026-11-02: praying costs a super rare item, which can be gathered on the Moon, so it comes into play when returning to clear Earth (STORY-018). Your words: "The praying, i would just go with super rare item. On the moon it is actually possible to gather this item then, so later when returning to clear the earth, this item can be used."
+**Notes:** Your words on elites: "So a horde without elites is kinda weak, but the elites make it very challenging." Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. Decided 2026-11-02: praying costs a super rare item, which can be gathered on the Moon, so it comes into play when returning to clear Earth (STORY-018). Your words: "The praying, i would just go with super rare item. On the moon it is actually possible to gather this item then, so later when returning to clear the earth, this item can be used." Horde nights run in `survival/HordeNights`. My proposals, veto any: the wave numbers above; "home" means within 64 blocks of the bed; waves spawn 24–36 blocks out, as near the fight's height as possible, so one can reach you in a cave, and further out if there's no ground, so standing in a lake doesn't dodge a horde; Lurleen's line. Known limit: hordes only come in the Overworld for now, so a team in the Nether at nightfall on the 7th night misses it; to settle when the Nether is built (WORLD-008).
 
 ### ENEMY-007 — Safe spots hold
 **Status:** implemented 2026-11-03 through SURV-011 (verified with 14 zombies in a real client; story falls come with the story that needs them)
@@ -163,22 +163,22 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 **Notes:** From features.md: "Need a system like a tracker or smth where enemies can be looked up and counter mechanics can be seen." Story hooks if picked: the deserter chicken and Morris Byte's scanner add details.
 
 ### ENEMY-011 — Bosses have mechanics
-**Status:** approved (Milestone 1: the rules and Hog Daddy; other bosses stay draft)
+**Status:** approved (Milestone 1: the rules and Hog Daddy; other bosses stay draft). Partly implemented 2026-11-03: Hog Daddy and his piglets, on a placeholder farm with placeholder art; the ticks below hold for him, the only boss so far; his section further down lists what needs your decision
 **Priority:** must
 
 **Description:** Bosses are fights with mechanics, not just enemies with more health. Minecraft isn't a boss-fight game, so every boss is built on three layers: a sealed arena, attacks telegraphed on the ground, and one signature twist. For some bosses the twist is a minigame-style phase. Normal hitting still matters, but the mechanics decide the fight.
 
 **Acceptance criteria:**
-- [ ] Every boss fight happens in a sealed arena built from unminable blocks (WORLD-006); players can't pillar up or dig out.
-- [ ] Every boss's big attacks are telegraphed on the ground (markers show where they'll land) and can be dodged, including with the dodge roll (CMBT-002).
-- [ ] Every boss has one signature twist; some use a minigame-style phase (chase, dodging, tower defense, stealth).
-- [ ] Every boss has at least two phases and at least one weakness players can exploit.
-- [ ] Team mechanics are designed for three players and adjust for other team sizes (e.g. longer timing windows for fewer players).
-- [ ] Boss strength scales per player as defined for that boss (PROG-007).
-- [ ] Downed players are ignored by bosses too (SURV-001).
+- [x] Every boss fight happens in a sealed arena built from unminable blocks (WORLD-006); players can't pillar up or dig out. (GameTests: the ring closes all the way round, mining and placing are refused on the whole footprint, also under it. Smoke test: the gate shuts. Water buckets are refused too, not tested.)
+- [x] Every boss's big attacks are telegraphed on the ground (markers show where they'll land) and can be dodged, including with the dodge roll (CMBT-002). (GameTest: a line for exactly a second, during which he neither moves nor turns. Smoke test: a real roll out of the line takes no hit, and staying on it does. Jumping over a ring: GameTest, with a player placed in the air. Rolling through a ring rests on the roll's own immunity; not tried in a client.)
+- [x] Every boss has one signature twist; some use a minigame-style phase (chase, dodging, tower defense, stealth). (The chase; run through in a real client.)
+- [x] Every boss has at least two phases and at least one weakness players can exploit. (Three phases, stuns and fire: GameTests measure the damage; a real swing on his stunned back in the smoke test. A real molotov on him not tried in a client.)
+- [ ] Team mechanics are designed for three players and adjust for other team sizes (e.g. longer timing windows for fewer players). (Built, with longer stuns; verified by GameTests with mock players. Never played by more than one real player, and the balance needs real playtesting.)
+- [x] Boss strength scales per player as defined for that boss (PROG-007). (GameTests.)
+- [x] Downed players are ignored by bosses too (SURV-001). (GameTests; in a real client he drops a player who goes down, and the fight ends when nobody is left standing.)
 
 **Open questions:** Q-084
-**Notes:** From the Final Fantasy vs. modpack comparison: "fights have mechanics, not just more health." Approach approved in principle 2026-11-01 (answer to Q-089): "Boss fights as u suggest the 3 points." Inspiration for Minecraft boss fights: L_Ender's Cataclysm (Forge 1.20.1).
+**Notes:** From the Final Fantasy vs. modpack comparison: "fights have mechanics, not just more health." Approach approved in principle 2026-11-01 (answer to Q-089): "Boss fights as u suggest the 3 points." Inspiration for Minecraft boss fights: L_Ender's Cataclysm (Forge 1.20.1). The look: plain vanilla model parts with worked-out poses, like the regular zombie (ENEMY-012 didn't end up using GeckoLib either), so no animation library is needed yet. How the story starts him: the last quest's command reward runs `/wallis_boss hog_daddy start` (permission level 2) as the player who claims it, so the reward needs FTB Quests' "elevate perms" on; a kill task on `wallis_ultimate:hog_daddy` counts his death.
 
 ### ENEMY-012 — Scarier zombies
 **Status:** approved (partly implemented 2026-11-02: our own zombie type with vanilla's look replaces vanilla zombies in natural spawns, no babies; verified by GameTests and the client smoke test; own look and animations not built yet)
@@ -294,6 +294,27 @@ Your words: "We also can take the spitter and charger from left 4 dead, so charg
 - **Phase 3, enraged (half health):** belly flops send mud shockwave rings across the pen; roll or jump over them. Each stun post breaks after one hit, so the team has to plan which ones to use. *Inspired by: Cuphead's ring attacks.*
 - **Weakness:** stuns from obstacles; fire burns his bristles.
 - **Scales by:** health, plus one extra piglet per player.
+
+**Built 2026-11-03. Art and buildings are placeholders by Claude; everything below is my proposal to veto.**
+
+- **Numbers:** 400 health per player in the arena, so about the same number of stuns at any team size. How it's built: Minecraft caps max health at 1024, which three players would already pass, so his health stays at 400 and hits do that much less per player. It comes to the same thing, and he keeps his share of health when the count changes. A charge does 8 damage and throws you aside, the meat hook 5, a belly flop's landing 6, a mud ring 4, a falling bale 3, a piglet 2 (all on Normal, easier or harder with the difficulty setting). Charges go up to 24 blocks at about twice a sprint, a bit faster enraged. He walks a little slower than a sprint in the chase, slower than a walk in the pen, and at walking pace enraged.
+- **Damage he takes:** none in the chase. In the pen, 25% of a normal hit; 100% while he's stunned; 200% from behind while he's stunned. Fire does 3 times its damage, and while he burns normal hits do 50% instead of 25%. Every hit from every player counts: vanilla's moment of immunity after a hit is off for player hits, or a team's hits would be swallowed. Whoever hurt him last gets the kill if the fire finishes him, because FTB Quests' kill task only counts a kill by a player.
+- **Stun:** 4 seconds at three or more players, half a second more per missing player (4.5 for two, 5 solo), as ENEMY-011 asks. Slamming into the ring or a wall just stops him for a moment. Eight posts and one trough; in phase 3 the post or the whole trough breaks when he hits it. They all come back after the fight.
+- **Belly flops (phase 3):** alternate with charges. A red circle shows where he comes down, a second before he jumps. Each flop sends two rings, a second apart, out to 16 blocks. Feet more than half a block off the ground are safe; a dodge roll also works, since it makes you immune for the moment the ring passes.
+- **Piglets:** a wave every 10 seconds in the pen, one more than there are players (2 solo, 4 for three), and at most twice a wave alive at once. 8 health, walking speed. They come out of three hutches along the pen's north side and don't drop anything.
+- **The farm:** 64 by 100 blocks between two neighbouring safe spots (Q-138), built when the world is created. The pen in the north, a red barn as the only way through, and a cornfield in the south that a wall of hay splits into a U, about 110 blocks of running (20 seconds at a sprint). The ring is 6 to 8 blocks high, of two new unminable blocks, Strapped Hay and Crushed Wreck, with a gate that shuts during a fight. Nothing can be mined or placed anywhere on the footprint, at any height, in or out of a fight, and buckets don't work there; that's what stops digging under or pillaring over the ring. Monsters don't spawn there.
+- **The look of an attack:** the red marks are drawn flat on the ground and always fully lit, so they read at night and with particles turned off. A faint shape shows where it lands, and a stronger one fills it while it's coming, so you can read the timing. Also a vanilla boss bar, and a line of text on the action bar at each turn of the fight.
+- **Text (working agreement, Chapter 1 text):** the lines are in the language file under `message.wallis_ultimate.hog_daddy`, crude and gross on purpose, in the rough tone you asked for. There is no clean-language version yet: the toggle from STORY-002 isn't built, so these will need one when it is.
+
+**Needs your decision. I took the smallest option I could undo, and marked it here:**
+
+1. **Whose cabin?** The design says he bursts through *the cabin* wall and the team runs through the cornfield to the barn. But the rednecks' cabin is at spawn and the farm sits between two safe spots (Q-138), 250 to 400 blocks away, and ENEMY-011 wants the whole fight in a sealed arena. Those three can't all hold. Built: a little cabin of his own at the far end of the cornfield, inside the ring. The command brings the team there and he comes through its wall. Other ways: move the farm next to the rednecks' cabin (changes Q-138, and the ring has to stay open until the barn); or really start at the rednecks' cabin and run those hundreds of blocks over open ground, with the ring closing behind them (phase 1 isn't sealed, and the terrain is different in every world). A cutscene (STORY-010) could bridge the jump.
+2. **Trying again after losing.** The quest starts the fight only once, so without something else a lost fight would be a dead end. Built: a bell at the farm's gate. Only a team that has already called him can ring it, and it restarts the fight from phase 1 for everyone on the team who is online and on their feet, wherever they are, bringing them to the little cabin. Other ways: walking through the gate restarts it (no bell, but returning for your grave starts a fight); it restarts at the pen, skipping the chase; or only team members near the farm get brought in.
+3. **"Duck under falling hay."** Ducking can't dodge something that falls on you, so I read it as getting out of the way: a bale comes down ahead of a runner, marked by a red circle while it falls, and stays there as an obstacle until he tramples it. If you meant real ducking, I'd need to know what that looks like.
+4. **What he drops.** Nothing yet, and the usual small bit of experience. The spec doesn't say.
+5. **Fixed effects.** ENEMY-004 says every boss has fixed effects, defined per boss; none are defined for him, so he has none.
+6. **Every post gone in phase 3.** He can't be stunned anymore. The fight can still be won with normal hits and fire, only slowly. Should posts grow back, or is that the punishment for planning badly? As built, they don't.
+7. **Several teams (Q-136).** One fight at a time. A second team gets told he's busy, and can ring the bell when he's done. Anyone inside the ring when a fight starts is in it, whichever team they're on.
 
 ### The Raider King, Chapter 2, optional
 *A monster-truck champion turned warlord. He runs his junkyard like a wrestling show.*

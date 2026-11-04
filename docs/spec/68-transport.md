@@ -16,7 +16,7 @@ Getting around grows with progression: teleporting between safe spots from the s
 **Description:** Players can teleport between safe spots. Defined in WORLD-004; listed here so all transport is in one place.
 
 **Acceptance criteria:**
-- [ ] See WORLD-004.
+- [x] See WORLD-004.
 
 **Open questions:** Q-067
 **Notes:**

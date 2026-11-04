@@ -63,5 +63,20 @@ public final class ModNetwork {
                 .decoder(TravelRequestPacket::decode)
                 .consumerMainThread(TravelRequestPacket::handle)
                 .add();
+        CHANNEL.messageBuilder(ConversationPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ConversationPacket::encode)
+                .decoder(ConversationPacket::decode)
+                .consumerMainThread(ConversationPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(ConversationActionPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(ConversationActionPacket::encode)
+                .decoder(ConversationActionPacket::decode)
+                .consumerMainThread(ConversationActionPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(CaptionPacket.class, id++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(CaptionPacket::encode)
+                .decoder(CaptionPacket::decode)
+                .consumerMainThread(CaptionPacket::handle)
+                .add();
     }
 }

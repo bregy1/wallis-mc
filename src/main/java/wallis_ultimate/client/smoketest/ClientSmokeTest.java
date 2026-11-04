@@ -19,6 +19,7 @@ import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.player.Inventory;
@@ -165,6 +166,14 @@ public final class ClientSmokeTest {
         group.accept("survival", SurvivalSmokeSteps::steps);
         group.accept("props", PropSmokeSteps::steps);
         group.accept("zombies", ZombieSmokeSteps::steps);
+        group.accept("horde", HordeSmokeSteps::steps);
+        // Takes about five minutes, so only when asked for by name.
+        if (only.contains("horde-spot")) {
+            all.addAll(HordeSmokeSteps.atASafeSpot());
+        }
+        group.accept("boss", BossSmokeSteps::steps);
+        // Last: it plays Chapter 1 to its end, which unlocks what the groups above check is locked.
+        group.accept("story", StorySmokeSteps::steps);
         all.add(step("walk again", 45, player -> walk(40, 180)));
         all.add(step("screenshot at the end", 0, player -> screenshot("end")));
         return all;
@@ -281,6 +290,13 @@ public final class ClientSmokeTest {
     }
 
     // Helpers for the step lists.
+
+    /** Asks on the server's own thread and waits: reading its entity lists from the render thread can crash the game. */
+    static <T> T onServerThread(Supplier<T> query) {
+        MinecraftServer server = Minecraft.getInstance().getSingleplayerServer();
+        // Already there: waiting for a task this thread itself has to run would wait forever.
+        return server.isSameThread() ? query.get() : server.submit(query).join();
+    }
 
     static boolean chatContains(String text) {
         return chat.stream().anyMatch(message -> message.contains(text));

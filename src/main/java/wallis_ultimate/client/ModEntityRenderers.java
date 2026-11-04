@@ -24,6 +24,10 @@ public final class ModEntityRenderers {
         event.registerEntityRenderer(ModEntities.PIPE_BOMB.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.GRAVEL_SHOT.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(ModEntities.BURNING_PATCH.get(), NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.HOG_DADDY.get(), HogDaddyRenderer::new);
+        event.registerEntityRenderer(ModEntities.ZOMBIE_PIGLET.get(), ZombiePigletRenderer::new);
+        event.registerEntityRenderer(ModEntities.GROUND_MARK.get(), GroundMarkRenderer::new);
+        event.registerEntityRenderer(ModEntities.MUD_RING.get(), MudRingRenderer::new);
     }
 
     @SubscribeEvent
@@ -32,5 +36,6 @@ public final class ModEntityRenderers {
         event.registerLayerDefinition(DefenderModel.LAYER, DefenderModel::createBodyLayer);
         event.registerLayerDefinition(DefenderRenderer.PARACHUTE_LAYER, DefenderRenderer::createParachuteLayer);
         event.registerLayerDefinition(DropshipModel.LAYER, DropshipModel::createBodyLayer);
+        event.registerLayerDefinition(HogDaddyModel.LAYER, HogDaddyModel::createBodyLayer);
     }
 }

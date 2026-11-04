@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "wallis_ultimate:block/corn_lower"
+    },
+    "half=upper": {
+      "model": "wallis_ultimate:block/corn_upper"
+    }
+  }
+}

@@ -41,6 +41,7 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
                 dropSelf(block);
             }
         });
+        dropSelf(ModBlocks.OLD_RADIO.get());
     }
 
     @Override

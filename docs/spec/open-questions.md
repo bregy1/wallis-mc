@@ -174,6 +174,15 @@
 | Q-173 | If the team takes the trafficker down, where do new workers come from? Proposal: the people he held stay around and can still join, for a fee or through quests | ECON-003, WORK-001 | open |
 | Q-174 | What is the money called? Proposal: Scrip (or Caps, Chits) | ECON-001 | open |
 | Q-175 | You said you don't really plan to upload the pack, just share it with friends. Does that replace publishing on CurseForge (PACK-007)? | PACK-007, STORY-019, PACK-004 | answered: friends only. No Rewards Program, so the monetized-pack license rule is gone; one pack with the parody names |
+| Q-176 | Hog Daddy "bursts through the cabin wall", but his farm is 250 to 400 blocks from the rednecks' cabin (Q-138) and the arena has to be sealed. Whose cabin is it? | ENEMY-011 | open. Built for now: a small cabin of his own at the far end of the cornfield, and the fight takes the team there |
+| Q-177 | How do you try again after losing to Hog Daddy? | ENEMY-011, STORY-003 | open. Built for now, both: a bell at his gate, and Lurleen offering another go at the cabin |
+| Q-178 | Hog Daddy's chase says "duck under falling hay". What should that look like? | ENEMY-011 | open. Built for now: stepping aside from a bale whose landing spot is marked |
+| Q-179 | What does Hog Daddy drop? | ENEMY-011 | open. For now nothing but a bit of experience |
+| Q-180 | Should Hog Daddy carry fixed status effects (ENEMY-004)? | ENEMY-011, ENEMY-004 | open. None for now |
+| Q-181 | Enraged, Hog Daddy breaks every post he hits. Once they're all gone he can't be stunned, and the fight is only winnable slowly. Should posts grow back? | ENEMY-011 | open. They don't for now |
+| Q-182 | With several teams in one world (Q-136), who fights Hog Daddy? | ENEMY-011, Q-136 | open. For now one fight at a time, and anyone inside the ring is in it |
+| Q-183 | FTB Quests adds a joiner's finished quests to their new team and can't be told not to, while Q-126 says unlocks the team doesn't have are removed. Removing them would leave quests done with nobody holding the unlock. Keep that, or build a strict reset? | PROG-006, Q-126 | open. Built for now: the team gains them |
+| Q-184 | First home: any bed counts, roof or not, and Lurleen doesn't follow if the bed moves. Should either change? | WORLD-012, STORY-003 | open |
 | Q-110 | Skill tree and specialisations? | PROG-012, PROG-011 | answered: four specialist sub-trees inside the skill tree, two per player via quests, solo-friendly |
 | Q-103 | Farmer's Delight's Nourishment buff? | SURV-008 | answered: weakened, so it only slows hunger drain |
 | Q-090 | Hardening material: its name, which blocks can be hardened, how hardening works, and when players first get it from the aliens? (to discuss later) | ENEMY-005, BASE | open |

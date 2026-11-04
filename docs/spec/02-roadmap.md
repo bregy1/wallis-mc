@@ -44,8 +44,12 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - 2026-11-02: all seven Chapter 1 weapons (GEAR-007) and noise (ENEMY-006); zombies walk to noises. Cooking stage for Farmer's Delight's kit; WORLD-013 props approved. 75 GameTests and 54 client smoke checks passing.
 
 - 2026-11-02: district 1's places (WORLD-005, WORLD-013, SURV-006, ENEMY-007, WORLD-004, WORLD-011): our own prop blocks, the rednecks' cabin at spawn, four different safe spots with beds, safe from enemies, travel by signpost between the ones a team has found, personal loot chests with six of the trinkets.
+- 2026-11-03: district 1 is land on any seed (WORLD-001), and horde nights are in (ENEMY-006, WORLD-012): two warnings, three waves, beds that refuse. The one-bed limit now survives death (SURV-005). 99 GameTests and 79 client smoke checks passing.
 - 2026-11-03: safe spot defenders (SURV-011, ENEMY-007): armed guards, dropship reinforcements, repairs, stuck NPCs teleport.
 - 2026-11-03: apocalypse kit, themed safe spots with walls, small random ruins on Earth (WORLD-013, WORLD-014, SURV-011).
+- 2026-11-03: Chapter 1's story and quests (STORY-002, STORY-003, STORY-010, PROG-003, PROG-004): the opening cutscene, Lurleen and Conspiracy Carl, team conversations with a random chooser and a clean-language option, Joe Rogaine's radio, 12 quests from the first bed to the Hog Daddy quest, and tiers in data. Not tried with two real clients yet.
+- 2026-11-03: Hog Daddy (ENEMY-011): his farm between two safe spots, sealed by a ring of unminable hay and wrecks; the chase, the pen, enraged belly flops; stuns, fire, per-player scaling, downed players ignored.
+- 2026-11-04: all of this tested together for the first time. Chapter 1 now plays from the opening through the real quest and the real fight to tier 2. Not yet played by a person or with two real clients; Hog Daddy's balance and the team rules are untested.
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)

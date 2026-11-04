@@ -18,9 +18,10 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Acceptance criteria:**
 - [x] District terrain is generated (not hand-built), in vanilla style.
 - [x] Players can mine and place blocks as in vanilla, except for protected structures (WORLD-006).
+- [x] District 1 is land on any seed: no oceans, with rivers and ponds left in. (A GameTest checks six seeds: no ocean biome anywhere, and about 16–26% of sampled places are rivers and ponds.)
 
 **Open questions:** Q-068
-**Notes:** Your words: "I still want to keep exploring and vanilla theme... The ground can still be mined."
+**Notes:** Your words: "I still want to keep exploring and vanilla theme... The ground can still be mined." And 2026-11-03: "I only saw the redneck cabin and the rest was all just water around it." Vanilla terrain can come out nearly all sea inside just 2,000 blocks, and in your world two safe spots ended up on raised ground in the sea. So district 1 has no oceans or beaches (my proposal, veto if you want some sea back). The only change is a floor on one vanilla terrain value, continentalness, in `data/minecraft/worldgen/density_function/overworld/continents.json`. Later districts are their own dimensions and can decide for themselves.
 
 ### WORLD-002 — Districts are size-limited dimensions
 **Status:** approved (partly implemented: district 1 dimension and border, verified 2026-11-02)
@@ -72,12 +73,12 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Description:** Every place in a district, meaning anything you'd give a name, is placed on purpose, exactly once. Small ruins scattered between them are random and do repeat (WORLD-014). Changed 2026-11-02, your words: "we want smaller random structures, matching to the theme to spawn."
 
 **Acceptance criteria:**
-- [ ] Each place exists exactly once, at a defined place in a defined district. (So far: the cabin and four safe spots.)
+- [ ] Each place exists exactly once, at a defined place in a defined district. (So far: the cabin, four safe spots and Hog Daddy's farm.)
 - [x] No place is generated randomly or more than once.
 - [x] Vanilla structures (villages, mineshafts, dungeons, temples, strongholds…) don't generate. (Overworld; Nether structures stay until WORLD-008.)
 
 **Open questions:**
-**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work. Implementation (2026-11-02): Overworld structure tags are emptied, and dungeons, fossils, desert wells and amethyst geodes are removed. Nether structures stay vanilla until the Nether overhaul (WORLD-008), because fortresses are the only source of blaze rods for brewing (Q-118). Several teams (answer to Q-136, 2026-11-02): places stay single and work MMO-style. An NPC can appear in several places, and every team gets its own quests and story state there. Usually there is one team per server. Players start at the rednecks' cabin at world spawn (Q-137). Implementation (2026-11-02): each structure is written down block by block in code (`worldgen/CabinBuild`, `SafeSpotBuilds`), and built once when a world is first started, before anyone joins. The spot depends on the seed: the ground gets flattened there, and the terrain around it slopes back to what it was. The cabin looks for the forest closest to the map's middle, and the flattest place in it that's off the shore; safe spots take the flattest place in their direction. This adds about 20 seconds to creating a new world, a point for the optimisation pass.
+**Notes:** Decided 2026-11-01: "Everything unique." Chosen for the strongest sense of place; it means a lot of build work. Implementation (2026-11-02): Overworld structure tags are emptied, and dungeons, fossils, desert wells and amethyst geodes are removed. Nether structures stay vanilla until the Nether overhaul (WORLD-008), because fortresses are the only source of blaze rods for brewing (Q-118). Several teams (answer to Q-136, 2026-11-02): places stay single and work MMO-style. An NPC can appear in several places, and every team gets its own quests and story state there. Usually there is one team per server. Players start at the rednecks' cabin at world spawn (Q-137). Implementation (2026-11-02): each structure is written down block by block in code (`worldgen/CabinBuild`, `SafeSpotBuilds`), and built once when a world is first started, before anyone joins. The spot depends on the seed: the ground gets flattened there, and the terrain around it slopes back to what it was. The cabin looks for the forest closest to the map's middle, and the flattest place in it that's off the shore; safe spots take the flattest place in their direction. This adds about 20 seconds to creating a new world, a point for the optimisation pass. Hog Daddy's farm (ENEMY-011) is built the same way, on the flattest ground around the middle between two neighbouring safe spots, and worlds that already exist get it at their next start.
 
 ### WORLD-006 — Protected structures use unminable blocks
 **Status:** approved (partly implemented: the three blocks, verified by GameTests 2026-11-02; structures use them once structures exist)
@@ -93,7 +94,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 - [ ] Key structures use them; ordinary structures and terrain don't.
 
 **Open questions:**
-**Notes:** Your words: "add several unminable materials for the player which connect to proper structures so it is visible." Implementation (2026-11-02): blocks `wallis_ultimate:reinforced_concrete`, `riveted_steel`, `alien_alloy`; GameTests `cannotbeminedorlooted`, `survivestnt`, `norecipemakesthem` pass.
+**Notes:** Your words: "add several unminable materials for the player which connect to proper structures so it is visible." Implementation (2026-11-02): blocks `wallis_ultimate:reinforced_concrete`, `riveted_steel`, `alien_alloy`; GameTests `cannotbeminedorlooted`, `survivestnt`, `norecipemakesthem` pass. Added 2026-11-03 (proposal, ENEMY-011): Hog Daddy's ring is "wrecked cars and hay bales made of unminable blocks", which none of the three can look like, so there are two more for it: `strapped_hay` and `crushed_wreck` (placeholder art; no block items, only the farm has them). His fence posts and feeding trough can't be mined either; only he can break them. The ring's riveted steel gate is the first use of the original three in a structure.
 
 ### WORLD-007 — No End
 **Status:** approved (partly implemented: no End dimension, verified 2026-11-02)
@@ -103,7 +104,7 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 
 **Acceptance criteria:**
 - [x] The End can't be reached in survival.
-- [ ] Shulker boxes stay in the game, but are very rare: each player gets one shulker box per planet, as a quest reward.
+- [x] Shulker boxes stay in the game, but are very rare: each player gets one shulker box per planet, as a quest reward. (On Earth, from the Chapter 1 quest "Hog Daddy", because the box stays locked until the Settler stage that quest unlocks. My proposal. Verified by the client smoke test, 2026-11-03.)
 - [ ] Elytra, end crystals and chorus fruit are removed.
 
 **Open questions:**
@@ -173,9 +174,9 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 **Description:** The team builds its first home in district 1 (the "create first home" quest). After that, teams may build bases in any district they've opened. Each player's home is wherever their bed is (SURV-005).
 
 **Acceptance criteria:**
-- [ ] The first home quest takes place in district 1.
+- [x] The first home quest takes place in district 1. (Quest "Create First Home": the first bed anyone in the team places is the home. Verified by the client smoke test, 2026-11-03.)
 - [ ] Teams can build in any opened district.
-- [ ] A player's horde night (ENEMY-006) attacks the base around that player's bed. When team members are online together, it attacks the team's shared base: the bed most of them use.
+- [x] A player's horde night (ENEMY-006) attacks the base around that player's bed. When team members are online together, it attacks the team's shared base: the bed most of them use. (Rule checked by GameTests; a player who has no bed of their own counts wherever they last slept, which may be a safe spot.)
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answers to Q-066, Q-107). Since every structure exists only once (WORLD-005), personal loot keeps exploring worthwhile for every team member. Candidate mod: Lootr (license still to check).

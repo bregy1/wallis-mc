@@ -3,7 +3,9 @@ package wallis_ultimate.datagen;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -26,6 +28,36 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.GRAVE.get()); // no item: only deaths make graves
         signpost();
         props();
+        hogFarm();
+    }
+
+    /** ENEMY-011: placeholders, like all our art. Only the farm has these, so they need no items. */
+    private void hogFarm() {
+        simpleBlock(ModBlocks.STRAPPED_HAY.get());
+        simpleBlock(ModBlocks.CRUSHED_WRECK.get());
+        BlockModelBuilder post = models().withExistingParent("pen_post", mcLoc("block/block"))
+                .texture("particle", mcLoc("block/stripped_spruce_log"))
+                .texture("side", mcLoc("block/stripped_spruce_log"))
+                .texture("top", mcLoc("block/stripped_spruce_log_top"));
+        post.element().from(4.0F, 0.0F, 4.0F).to(12.0F, 16.0F, 12.0F)
+                .allFaces((direction, face) -> face.texture(direction.getAxis() == Direction.Axis.Y ? "#top" : "#side"))
+                .end();
+        horizontalBlock(ModBlocks.PEN_POST.get(), post);
+        // Open at the top, with the slop inside.
+        BlockModelBuilder trough = models().withExistingParent("feeding_trough", mcLoc("block/block"))
+                .texture("particle", mcLoc("block/spruce_planks"))
+                .texture("wood", mcLoc("block/spruce_planks"))
+                .texture("slop", mcLoc("block/mud"));
+        trough.element().from(0.0F, 0.0F, 2.0F).to(16.0F, 2.0F, 14.0F).textureAll("#wood").end();
+        trough.element().from(0.0F, 2.0F, 2.0F).to(16.0F, 8.0F, 4.0F).textureAll("#wood").end();
+        trough.element().from(0.0F, 2.0F, 12.0F).to(16.0F, 8.0F, 14.0F).textureAll("#wood").end();
+        trough.element().from(0.0F, 2.0F, 4.0F).to(16.0F, 6.0F, 12.0F).textureAll("#slop").end();
+        horizontalBlock(ModBlocks.FEEDING_TROUGH.get(), trough);
+        getVariantBuilder(ModBlocks.CORN.get())
+                .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
+                .modelForState().modelFile(models().cross("corn_lower", modLoc("block/corn_lower")).renderType("cutout")).addModel()
+                .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
+                .modelForState().modelFile(models().cross("corn_upper", modLoc("block/corn_upper")).renderType("cutout")).addModel();
     }
 
     /** A pole with two painted boards pointing different ways. */
@@ -64,6 +96,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wheel();
         beerCans();
         antlers();
+        oldRadio();
     }
 
     private void cubeWithItem(RegistryObject<Block> block) {
@@ -183,5 +216,25 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .face(Direction.NORTH).texture("#rack").uvs(0.0F, 0.0F, 16.0F, 16.0F).end()
                 .end();
         horizontalBlock(ModBlocks.ANTLERS.get(), model);
+    }
+
+    /** A boxy old radio with a bent aerial. The texture's front is on the north face, like every prop here. */
+    private void oldRadio() {
+        BlockModelBuilder model = models().withExistingParent("old_radio", mcLoc("block/block"))
+                .texture("particle", modLoc("block/old_radio"))
+                .texture("all", modLoc("block/old_radio"))
+                .texture("aerial", mcLoc("block/iron_block"));
+        model.element().from(3.0F, 0.0F, 5.0F).to(13.0F, 7.0F, 11.0F)
+                .allFaces((direction, face) -> {
+                    if (direction == Direction.NORTH || direction == Direction.SOUTH) {
+                        face.texture("#all").uvs(3.0F, 0.0F, 13.0F, 7.0F);
+                    } else {
+                        face.texture("#all").uvs(0.0F, 8.0F, 6.0F, 15.0F);
+                    }
+                })
+                .end();
+        model.element().from(11.0F, 7.0F, 7.5F).to(11.5F, 14.0F, 8.0F).textureAll("#aerial").end();
+        horizontalBlock(ModBlocks.OLD_RADIO.get(), model);
+        simpleBlockItem(ModBlocks.OLD_RADIO.get(), model);
     }
 }

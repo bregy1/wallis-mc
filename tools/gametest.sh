@@ -39,5 +39,8 @@ grep -oE "\[GAMETEST\] .*" "$LOG"
 DONE=$(grep -c "\[GAMETEST\]" "$LOG")
 FAILED=$(grep -c "\[GAMETEST\] FAILED" "$LOG")
 echo "$DONE/$TOTAL tests reported, $FAILED failed"
-[ "$DONE" -lt "$TOTAL" ] && echo "Some tests did not report in time; see $LOG"
+if [ "$DONE" -lt "$TOTAL" ]; then
+    echo "Some tests did not report in time; see $LOG"
+    exit 100
+fi
 exit "$FAILED"

@@ -37,6 +37,7 @@ final class SurvivalSmokeSteps {
     private static BlockPos secondBed;
     private static final int CLOCK_TICKS = 300;
     private static final double CLOCK_TOLERANCE = 0.08;
+    private static final int RESPAWN_NEAR_BED = 4;
     private static long clockStart;
 
     private SurvivalSmokeSteps() {
@@ -157,6 +158,27 @@ final class SurvivalSmokeSteps {
                             "health " + player.getHealth());
                     command("gamerule naturalRegeneration true");
                     command("effect give @s minecraft:resistance infinite 4 true");
+                }),
+
+                // SURV-003: having slept there, the player comes back at the bed after dying.
+                step("die after sleeping", 10, player -> command("kill @s")),
+                step("make sure the player is dead again", 30, player -> {
+                    if (!(Minecraft.getInstance().screen instanceof DeathScreen)) {
+                        command("kill @s");
+                    }
+                }),
+                await("the death screen again", 100, player -> Minecraft.getInstance().screen instanceof DeathScreen),
+                step("respawn at the bed", 40, player -> {
+                    player.respawn();
+                    Minecraft.getInstance().setScreen(null);
+                }),
+                step("check the respawn", 0, player -> {
+                    LocalPlayer respawned = Minecraft.getInstance().player;
+                    check("a player who dies respawns at their bed", respawned.blockPosition().closerThan(secondBed, RESPAWN_NEAR_BED),
+                            "at " + respawned.blockPosition().toShortString() + ", bed at " + secondBed.toShortString());
+                    command("effect give @s minecraft:resistance infinite 4 true");
+                    // A bed stays the player's through death, and the story's first home needs them to have none.
+                    command(String.format("setblock %d %d %d minecraft:air", secondBed.getX(), secondBed.getY(), secondBed.getZ()));
                 }));
     }
 
