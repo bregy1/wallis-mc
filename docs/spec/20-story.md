@@ -116,7 +116,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 
 **Famous faces** (the rich survived in their bunkers)
 
-| Public name | Uncut add-on name | Inspired by | Role |
+| Older name in this spec | Name in the game | Inspired by | Role |
 |---|---|---|---|
 | Dexter Vane | Elon Tusk | Elon Musk | Decided: tricked into helping make the virus, then leads the Vane group (STORY-013) |
 | Barton Shipley | Jeff Bozos | Jeff Bezos | Rival billionaire in a fortified mega-warehouse. Sells supplies at absurd prices with "two-day drone delivery", even now. Races Vane to launch a rocket first |
@@ -125,7 +125,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 | Chef Angus Roast | Gordon Damsay | Gordon Ramsay | Furious celebrity chef running the kitchen at a redneck safe spot. Food quests, nonstop insults |
 | General Rocco Ironhart | Arnold Schwarzenschnitzel | Arnold Schwarzenegger | Ex-action-star general leading a military unit. One-liners only |
 
-*Public names decided 2026-11-01 (Q-117). The public pack only ever uses the public names; the uncut add-on swaps in the other column (STORY-019).*
+*The game uses the parody names (STORY-019, answer to Q-175). The older names were for a public pack that no longer exists.*
 
 **Army characters who love it**
 
@@ -326,7 +326,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Status:** draft
 **Priority:** should
 
-**Description:** Dexter Vane is a fictional tech billionaire with his own rocket company. In the local uncut add-on he becomes the parody Elon Tusk (STORY-019). The aliens tricked him into helping create the virus. When he learns the truth, he turns against them, leads the Vane group (STORY-015), and helps the survivors a lot.
+**Description:** Dexter Vane is a fictional tech billionaire with his own rocket company. In the game he's the parody Elon Tusk (STORY-019). The aliens tricked him into helping create the virus. When he learns the truth, he turns against them, leads the Vane group (STORY-015), and helps the survivors a lot.
 
 **Acceptance criteria:**
 - [ ] Vane appears in person in the story, as a leader in some places.
@@ -340,7 +340,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Status:** draft
 **Priority:** should
 
-**Description:** A faction led by Dexter Vane: rednecks and rich people fighting side by side. It has real impact on the story and helps the team a lot. (Uncut add-on name: the Tusk group.)
+**Description:** A faction led by Dexter Vane: rednecks and rich people fighting side by side. It has real impact on the story and helps the team a lot. (In the game: the Tusk group.)
 
 **Acceptance criteria:**
 - [ ] The Vane group is a faction (STORY-004) whose members are rednecks and rich people.
@@ -394,21 +394,21 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Open questions:** Q-114
 **Notes:** Your words: "the first time we come back to earth, we have to go as team... we have to finish the moon first to get a special magic weapon to actually start clearing earth... But that is for later!" Planned for after version 1. **Conflict:** STORY-012 says magic only works on the aliens' home planet, and STORY-017 says no magic works on the Moon. A magic weapon that works on Earth needs an explanation (Q-114).
 
-### STORY-019 — Public pack and local "uncut" add-on
-**Status:** draft
+### STORY-019 — One pack, with the parody names
+**Status:** approved 2026-11-04 (answer to Q-175)
 **Priority:** must
 
-**Description:** The pack exists in two flavors. The public CurseForge pack uses fully fictional characters and has no nudity. A separate add-on jar, used only on your own computer and never uploaded, swaps in the real-person parody names and adds the spicier moments.
+**Description:** There's one pack, shared with friends (PACK-007). The famous-person characters use their parody names, and the spicier moments are part of it. The separate public version and uncut add-on are gone (answer to Q-175, 2026-11-04).
 
 **Acceptance criteria:**
-- [ ] The public pack contains no nudity and no names, looks or descriptions tied to real people.
-- [ ] Every famous-person character has a fictional public name and look, plus an "uncut" parody name (mapping: Q-117).
-- [ ] The uncut add-on is a separate jar that only overrides content (names, lines, textures, scenes); the public pack works fully without it.
-- [ ] The uncut add-on is never uploaded to CurseForge or anywhere else.
-- [ ] Even in the uncut add-on, sexy moments never involve the real-person parodies (story skill guardrail).
+- [ ] Every famous-person character uses the parody name in the cast table, set in one place (the lang file), so a name can change without touching anything else.
+- [ ] Nudity stays mild, brief and rare, and nothing is pornographic (story skill).
+- [ ] Sexy moments only involve clearly adult, fictional characters, never the real-person parodies (story skill guardrail).
+- [ ] The fiction disclaimer stays on the title screen (STORY-014).
+- [ ] If the pack is ever uploaded after all, the parody names and nudity come out first (PACK-007).
 
 **Open questions:** Q-117
-**Notes:** Your words: "We remove what we have to, but we keep a separate jar file mod which i dont publish on curseforge but may use local on my computer. Meaning the sexy part and the real person thing." Decided 2026-11-01 together with "fully fictional names" for the public pack. The spec uses the public names; the uncut names are only in the cast table (Q-117).
+**Notes:** Replaces the earlier plan of a public pack with fictional names plus a local uncut add-on (Q-115, Q-117). Your words then: "We remove what we have to, but we keep a separate jar file mod which i dont publish on curseforge but may use local on my computer." Older text in this spec may still use the fictional names as shorthand; the cast table says who is who, and the game uses the parody names.
 
 ### STORY-014 — Fiction disclaimer
 **Status:** approved (partly implemented 2026-11-02: the title screen line, checked by screenshot in the client smoke test; the modpack description comes with the release)

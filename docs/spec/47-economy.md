@@ -57,8 +57,8 @@ Players get money mostly from quests and spend it at merchants. Selling items br
 **Acceptance criteria:**
 - [ ] The trafficker is in a hidden place players have to find, not in a safe spot. (Proposal: a raider-held place, arriving in Chapter 3.)
 - [ ] Paying him gives one worker item (WORK-001). (Proposal: about 100 coins, roughly what ten quests of that chapter pay.)
-- [ ] In-game text treats this as getting people out, never as owning them, and the pack's public page never advertises buying people (PACK-007).
-- [ ] Workers are adults and are never part of sexy moments, in either version of the pack (STORY-019).
+- [ ] In-game text treats this as getting people out, never as owning them.
+- [ ] Workers are adults and are never part of sexy moments (STORY-019).
 - [ ] A later quest lets the team take him down. (Proposal.)
 
 **Open questions:** Q-173

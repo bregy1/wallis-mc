@@ -32,7 +32,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 - [ ] Every mod in the pack has its license (code and assets) recorded in the table below.
 - [ ] Mods marked "unmodified only" are never forked or changed.
 - [ ] Our own mod `wallis_ultimate` is licensed MIT. No GPL or LGPL code is ever copied into it; forks of GPL/LGPL mods keep their license and ship as separate jars.
-- [ ] Our mod and every fork are their own CurseForge projects, never jars bundled into the pack. Forks credit and link the original and say what changed; GPL/LGPL forks publish their source.
+- [ ] Our mod and every fork are shared as their own jars. Forks credit and link the original and say what changed; GPL/LGPL forks make their source available (PACK-007).
 - [ ] `CREDITS.md` lists every mod used, forked or borrowed from, with author, URL and license.
 
 **Open questions:**
@@ -45,7 +45,7 @@ Wallis Ultimate is a modpack plus our own mod, `wallis_ultimate`. Each system in
 **Description:** The pack ships with a performance base and avoids mods known to cause lag over time.
 
 **Acceptance criteria:**
-- [ ] Embeddium, ModernFix and FerriteCore are in the pack. Entity Culling isn't: its license forbids earning money with it, and the pack joins CurseForge's Rewards Program (PACK-007).
+- [ ] Embeddium, ModernFix and FerriteCore are in the pack. Entity Culling isn't yet: it was dropped only because its license forbids earning money with it, which no longer applies (PACK-007), so it can come back if you say so.
 - [ ] Every new mod is checked for known performance problems before it's added.
 
 **Open questions:**
@@ -125,21 +125,21 @@ How Chapter 1 uses them (2026-11-03): FTB Quests holds the quest file in `pack/c
 **Open questions:**
 **Notes:**
 
-### PACK-007 — Publishable on CurseForge
-**Status:** draft
+### PACK-007 — Shared with friends, not published
+**Status:** approved 2026-11-04 (answer to Q-175)
 **Priority:** must
 
-**Description:** The pack will be published on CurseForge. Every mod, fork and piece of content in it has to be allowed there.
+**Description:** The pack is only shared with friends. It isn't uploaded anywhere and earns no money. Decided 2026-11-04 (answer to Q-175); before that the plan was to publish on CurseForge and join its Rewards Program.
 
 **Acceptance criteria:**
-- [ ] Every mod in the pack is on CurseForge and is referenced through the pack's manifest, never bundled. A mod that isn't on CurseForge may only be included if it's on CurseForge's approved non-CurseForge list.
-- [ ] Our own mod and every fork we ship are uploaded as their own CurseForge projects; GPL and LGPL forks publish their source (PACK-002).
-- [ ] The public pack has no nudity and no real-person names or likenesses; the project page, description and screenshots stay clean (STORY-019, story skill).
-- [ ] The local "uncut" add-on (STORY-019) is never uploaded.
-- [ ] The pack joins CurseForge's Rewards Program. Every mod's license must therefore allow use in a pack that earns money (Entity Culling dropped; TaCZ checked in Q-116).
+- [ ] Friends get the pack as a list of mods from their official download pages (for example a launcher profile or a manifest), plus our own mod. A mod whose license doesn't allow passing on its files is never passed on directly.
+- [ ] Anyone who gets a GPL or LGPL fork from us can also get its source (PACK-002).
+- [ ] There's one pack, with the parody names (STORY-019).
+- [ ] Licenses only need to allow private use: the rule that every mod must allow a pack that earns money is gone. Credits stay in CREDITS.md.
+- [ ] If the pack is ever uploaded after all, this has to be checked again first: the parody names, nudity and every mod's license (see Notes).
 
-**Open questions:** Q-116
-**Notes:** Your words: "we want to later on publish the pack on curseforge." Checked 2026-11-01: all 24 picked mods are on CurseForge with Forge 1.20.1 files. Decisions 2026-11-01 (answers to Q-115): no nudity and fully fictional names in the public pack, a local uncut add-on, join the Rewards Program.
+**Open questions:**
+**Notes:** Your words (2026-11-03): "I dont really plan on loading it up somewhere, but just sharing with my friends." Answered "Friends only" on 2026-11-04 (Q-175). Older notes on licenses in this file were written for a pack that earns money; those reasons no longer apply, though the decisions they led to stand until someone changes them. The earlier plan (answers to Q-115) was no nudity and fictional names in a public pack, a local uncut add-on, and the Rewards Program.
 
 ### PACK-006 — Inspiration only
 **Status:** approved

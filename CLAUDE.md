@@ -32,7 +32,7 @@ We spec a lot up front so you can build on your own:
 
 - Work through the approved spec (Milestone 1 first) without asking for every step. Commit each finished feature once it passes the build, GameTests and the client smoke test, with spec IDs in the message. Never push.
 - Test in the game yourself (`tools/smoketest.sh`, screenshots) before calling something done.
-- You may add mods from the approved PACK-004 list. Decoration mods for structures you pick yourself after checking license (monetized pack) and performance (Q-148). Any other mod needs my OK.
+- You may add mods from the approved PACK-004 list. Decoration mods for structures you pick yourself after checking license (shared with friends, earns no money, PACK-007) and performance (Q-148). Any other mod needs my OK.
 - I don't design visuals. You build all art, models and structures as placeholders, marked in the spec. For looks, ask me to describe them in words.
 - Your own calls, written into the spec as proposals I can veto: balancing numbers, Chapter 1 text (story skill), small mixins when no event or API works (with the required comment, listed in your report), UI layouts.
 - Still mine: anything the spec doesn't cover, new features, and gameplay rules that could go two ways. Collect those as questions and ask them in batches.

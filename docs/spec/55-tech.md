@@ -83,7 +83,7 @@ Tech runs on electricity, and power is its biggest part: different generators, e
 
 *My research for Q-159, checked 2026-11-03, kept as the reasons behind the choice. Nothing was run in-game or profiled: lag evidence comes from issue trackers and from reading the code. File dates match on Modrinth and CurseForge, except Pipez (Modrinth only). Re-check licenses before reusing any of these.*
 
-**The mods.** The pack joins CurseForge's Rewards Program, so a license must allow a pack that earns money (PACK-007).
+**The mods.** Written when the pack was going to earn money through CurseForge. It's now only shared with friends (PACK-007), so "Out" below no longer holds for mods that only rule out earning money, such as Immersive Engineering. Your choice of our own machines stands unless you change it.
 
 | Mod | License; pack that earns money? | Last Forge 1.20.1 file | Pipes | Down to 3–4 machines? | Lag evidence | Verdict |
 |---|---|---|---|---|---|---|
