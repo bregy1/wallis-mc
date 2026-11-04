@@ -10,6 +10,7 @@ import static wallis_ultimate.client.smoketest.ClientSmokeTest.step;
 import static wallis_ultimate.client.smoketest.ClientSmokeTest.walk;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.StreamSupport;
@@ -51,13 +52,14 @@ import wallis_ultimate.worldgen.HogFarmBuild;
  * set directly; every hit that decides something is a real swing.
  */
 final class BossSmokeSteps {
-    /** Two posts with nothing between them, relative to the farm's corner (HogFarmBuild.POSTS). */
-    private static final BlockPos FIRST_POST = new BlockPos(23, 0, 27);
-    private static final BlockPos SECOND_POST = new BlockPos(11, 0, 27);
-    private static final int BAIT_EVERY_TICKS = 5;
+    /** He walks about 10 blocks before he charges. From further than this he's still 4 blocks off by then, and his line is nearly straight. */
+    private static final double BAIT_MIN_DISTANCE = 16.0;
+    /** His width plus a bit, each way from the middle of the line. */
+    private static final double CHARGE_CLEARANCE = 2.0;
+    private static final int TROUGH_LENGTH = 8;
 
     private static float healthBeforeHit;
-    private static int baitTicks;
+    private static HogDaddy.Action lastBaitAction;
 
     private BossSmokeSteps() {
     }
@@ -211,8 +213,9 @@ final class BossSmokeSteps {
         }));
         steps.add(await("a bale comes down", HogDaddyFight.PIGLET_WAVE_TICKS, player -> marks(false) > 0));
         steps.add(step("check the bale", 3, player -> {
-            check("hay falls during the chase, with a red circle where it lands", marks(false) > 0
-                    && !level().getEntitiesOfClass(FallingBlockEntity.class, serverPlayer(player).getBoundingBox().inflate(32.0)).isEmpty(), "marks: " + marks(false));
+            // In the air or already down: the client can see the circle late, and a bale only falls for a second.
+            boolean bale = !level().getEntitiesOfClass(FallingBlockEntity.class, serverPlayer(player).getBoundingBox().inflate(32.0)).isEmpty() || hayOnTheField();
+            check("hay falls during the chase, with a red circle where it lands", marks(false) > 0 && bale, "marks: " + marks(false) + ", bale: " + bale);
             command("tp @s ~ ~ ~ facing entity @e[type=wallis_ultimate:ground_mark,limit=1,sort=nearest] feet");
         }));
         steps.add(step("picture of the bale", 2, player -> screenshot("hog-hay")));
@@ -224,24 +227,47 @@ final class BossSmokeSteps {
         steps.add(step("check the end of the chase", 10, player -> {
             check("reaching the barn ends the chase", fight().stage() == HogDaddyFight.Stage.PEN && fight().boss().phase() == HogDaddy.Phase.PEN, String.valueOf(fight().stage()));
             check("he comes over the roof", fight().boss().action() == HogDaddy.Action.LEAP, String.valueOf(fight().boss().action()));
+            // Far off with a clear view, so there's time for a roll even on a client with a slow frame.
             Vec3 at = farm().standingAt(HogFarmBuild.PEN_LANDING);
-            command(String.format(Locale.ROOT, "tp @s %.2f %.2f %.2f facing %.2f %.2f %.2f", at.x - 8.0, at.y, at.z - 12.0, at.x, at.y + 3.0, at.z));
+            command(String.format(Locale.ROOT, "tp @s %.2f %.2f %.2f facing %.2f %.2f %.2f", at.x - 18.0, at.y, at.z - 16.0, at.x, at.y + 3.0, at.z));
         }));
         steps.add(step("picture of the leap", 0, player -> screenshot("hog-leap")));
         steps.add(await("he lands in the pen", 80, player -> fight().boss().action() == HogDaddy.Action.STALK));
         // ENEMY-011, CMBT-002: a real roll, sideways out of the red line. He's looking along it, so a quarter turn from there.
         steps.add(await("he winds up his first charge in the pen", 200, player -> fight().boss().action() == HogDaddy.Action.WIND_UP));
-        steps.add(step("look down the line", 3, player -> command("tp @s ~ ~ ~ facing entity @e[type=wallis_ultimate:hog_daddy,limit=1] feet")));
-        steps.add(step("picture of the line in the pen", 1, player -> screenshot("hog-pen-line")));
-        steps.add(step("turn sideways to the line", 3, player -> player.setYRot(fight().boss().getYRot() + 90.0F)));
-        steps.add(step("roll out of the way", 2, player -> ModNetwork.CHANNEL.sendToServer(new RollRequestPacket())));
+        Vec3[] rollStart = new Vec3[1];
+        // No teleport or picture before this: a picture stalls the client for up to a second, and the charge doesn't wait.
+        steps.add(step("turn sideways to the line", 2, player -> {
+            rollStart[0] = player.position();
+            player.setYRot(fight().boss().getYRot() + 90.0F);
+        }));
+        // Like a player hitting the key until it works: the server refuses a roll unless it knows the player is on the ground.
+        steps.add(await("the roll takes the player out of the way", 18, player -> {
+            if (player.onGround()) {
+                ModNetwork.CHANNEL.sendToServer(new RollRequestPacket());
+            }
+            return player.position().distanceTo(rollStart[0]) > 1.5;
+        }));
         steps.add(await("the charge is over", 80, player -> fight().boss().action() != HogDaddy.Action.WIND_UP && fight().boss().action() != HogDaddy.Action.CHARGE));
         steps.add(step("check the roll", 2, player -> {
-            check("a dodge roll gets the player out of the way of a charge", !fight().boss().chargeCaught(serverPlayer(player)), "caught at " + player.position());
-            baitTicks = 0;
+            check("a dodge roll gets the player out of the way of a charge", !fight().boss().chargeCaught(serverPlayer(player)),
+                    "caught at " + player.position() + ", " + player.position().distanceTo(rollStart[0]) + " blocks from where the roll started");
         }));
+        // On the next one nobody has to dodge: the line along the ground, then from above, in the open, ending at whatever will stop him.
+        steps.add(await("he winds up another charge", 200, player -> fight().boss().action() == HogDaddy.Action.WIND_UP));
+        steps.add(step("look down the line", 2, player -> command("tp @s ~ ~ ~ facing entity @e[type=wallis_ultimate:hog_daddy,limit=1] feet")));
+        steps.add(step("picture of the line in the pen", 1, player -> screenshot("hog-pen-line")));
+        steps.add(step("up above the line", 4, player -> {
+            HogDaddy boss = fight().boss();
+            Vec3 along = boss.position().add(Vec3.directionFromRotation(0.0F, boss.getYRot()).scale(6.0));
+            command(String.format(Locale.ROOT, "tp @s %.2f %.2f %.2f facing %.2f %.2f %.2f", along.x, boss.getY() + 16.0, along.z - 4.0, along.x, boss.getY(), along.z));
+        }));
+        steps.add(step("picture of the line from above", 2, player -> screenshot("hog-line-above")));
+        // Or the next step would take this same wind-up for a new one, with the player still in the air.
+        steps.add(await("that charge is over too", 80, player -> fight().boss().action() != HogDaddy.Action.WIND_UP && fight().boss().action() != HogDaddy.Action.CHARGE));
+        steps.add(step("back down to the pen", 2, player -> lastBaitAction = null));
         steps.add(await("he winds up a charge at the player in front of a post", 200, player -> {
-            bait(player, FIRST_POST);
+            bait(player);
             return fight().boss().action() == HogDaddy.Action.WIND_UP;
         }));
         steps.add(step("check the red line in the pen", 2, player -> check("in the pen too, a charge is announced by a red line", marks(true) > 0, String.valueOf(fight().boss().action()))));
@@ -249,8 +275,7 @@ final class BossSmokeSteps {
         steps.add(step("check the slam", 0, player -> {
             check("slamming into a post stuns him", fight().boss().action() == HogDaddy.Action.STUNNED, String.valueOf(fight().boss().action()));
             check("staying on the line gets you hit", fight().boss().chargeCaught(serverPlayer(player)), "not caught at " + player.position());
-            check("in phase 2 the post holds", level().getBlockState(farm().origin().offset(FIRST_POST)).is(ModBlocks.PEN_POST.get()),
-                    String.valueOf(level().getBlockState(farm().origin().offset(FIRST_POST))));
+            check("in phase 2 the post holds", stunBlocksLeft() == stunBlocksOnTheFarm(), stunBlocksLeft() + " of " + stunBlocksOnTheFarm() + " left");
             standBehindHim();
         }));
         steps.add(await("the player gets behind him", 20, player -> player.distanceTo(fight().boss()) < 5.5F));
@@ -276,10 +301,10 @@ final class BossSmokeSteps {
         steps.add(step("check the enrage", 4, player -> {
             check("half health enrages him", fight().boss().phase() == HogDaddy.Phase.ENRAGED, "health " + fight().boss().getHealth());
             screenshot("hog-enraged");
-            baitTicks = 0;
+            lastBaitAction = null;
         }));
         steps.add(await("a belly flop sends a mud ring", 500, player -> {
-            bait(player, SECOND_POST);
+            bait(player);
             return rings() > 0;
         }));
         steps.add(step("check the ring", 12, player -> {
@@ -288,7 +313,7 @@ final class BossSmokeSteps {
         }));
         steps.add(step("picture of the mud ring", 2, player -> screenshot("hog-mud-ring")));
         steps.add(await("the piglets come", HogDaddyFight.PIGLET_WAVE_TICKS + 40, player -> {
-            bait(player, SECOND_POST);
+            bait(player);
             return !fight().piglets().isEmpty();
         }));
         steps.add(step("check the piglets", 0, player -> {
@@ -296,7 +321,7 @@ final class BossSmokeSteps {
             log("piglets: " + fight().piglets().size());
         }));
         steps.add(await("he slams into a post, enraged", 500, player -> {
-            bait(player, SECOND_POST);
+            bait(player);
             return fight().boss().action() == HogDaddy.Action.STUNNED;
         }));
         steps.add(step("check the broken post", 0, player -> {
@@ -336,20 +361,58 @@ final class BossSmokeSteps {
         }));
     }
 
-    /** Keeps the player between him and the post, so his charge goes through them and ends at the post. */
-    private static void bait(LocalPlayer player, BlockPos post) {
-        if (baitTicks++ % BAIT_EVERY_TICKS != 0 || HogDaddyFight.current() == null) {
+    /**
+     * Puts the player between him and a post whenever he starts walking at someone, so his charge goes through them and
+     * ends at the post. Only then: he walks straight at someone who stands still, so they stay on the line. Moving them
+     * again could land after he has locked in his line, on a slow client, and take them off it.
+     */
+    private static void bait(LocalPlayer player) {
+        if (HogDaddyFight.current() == null) {
             return;
         }
         HogDaddy.Action action = fight().boss().action();
-        if (action == HogDaddy.Action.WIND_UP || action == HogDaddy.Action.CHARGE || action == HogDaddy.Action.STUNNED) {
+        boolean startedWalking = action == HogDaddy.Action.STALK && lastBaitAction != HogDaddy.Action.STALK;
+        lastBaitAction = action;
+        if (!startedWalking) {
             return;
         }
-        Vec3 at = Vec3.atBottomCenterOf(farm().origin().offset(post));
+        Vec3 at = Vec3.atBottomCenterOf(baitTarget());
         Vec3 toHim = fight().boss().position().subtract(at).multiply(1.0, 0.0, 1.0);
         Vec3 spot = toHim.lengthSqr() < 1.0E-4 ? at : at.add(toHim.normalize().scale(2.5));
         // Looking at his feet, which also shows the red line.
         command(String.format(Locale.ROOT, "tp @s %.2f %.2f %.2f facing entity @e[type=wallis_ultimate:hog_daddy,limit=1] feet", spot.x, at.y, spot.z));
+    }
+
+    /**
+     * The nearest fence post or trough that's far enough for a charge and has nothing else on the way to it. Anything on
+     * the line stops him, so the charge would end before it gets to the player otherwise.
+     */
+    private static BlockPos baitTarget() {
+        Vec3 him = fight().boss().position();
+        List<BlockPos> standing = farm().blueprint().blocks().entrySet().stream()
+                .filter(block -> block.getKey().getY() == 0 && HogDaddy.isStunObject(block.getValue()))
+                .map(block -> farm().origin().offset(block.getKey()))
+                .filter(pos -> HogDaddy.isStunObject(level().getBlockState(pos)))
+                .sorted(Comparator.comparingDouble(pos -> Vec3.atBottomCenterOf(pos).distanceToSqr(him))).toList();
+        return standing.stream().filter(pos -> Vec3.atBottomCenterOf(pos).distanceTo(him) >= BAIT_MIN_DISTANCE && clearRun(him, pos, standing))
+                .findFirst().orElse(standing.get(standing.size() - 1));
+    }
+
+    private static boolean clearRun(Vec3 him, BlockPos target, List<BlockPos> others) {
+        Vec3 to = Vec3.atBottomCenterOf(target).subtract(him).multiply(1.0, 0.0, 1.0);
+        double length = to.length();
+        Vec3 along = to.normalize();
+        for (BlockPos other : others) {
+            // The rest of the trough is the same thing he's aiming at.
+            if (other.distManhattan(target) > TROUGH_LENGTH) {
+                Vec3 toOther = Vec3.atBottomCenterOf(other).subtract(him).multiply(1.0, 0.0, 1.0);
+                double ahead = toOther.dot(along);
+                if (ahead > 0.0 && ahead < length && toOther.subtract(along.scale(ahead)).length() < CHARGE_CLEARANCE) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /** Behind him, close enough to hit him and far enough to see all of him. */
@@ -372,6 +435,20 @@ final class BossSmokeSteps {
         if (onClient != null) {
             Minecraft.getInstance().gameMode.attack(player, onClient);
         }
+    }
+
+    /** Any hay on the ground that the farm's own blueprint didn't put there. */
+    private static boolean hayOnTheField() {
+        HogFarm farm = farm();
+        for (int x = 0; x < HogFarmBuild.SIZE_X; x++) {
+            for (int z = 0; z < HogFarmBuild.SIZE_Z; z++) {
+                BlockPos relative = new BlockPos(x, 0, z);
+                if (level().getBlockState(farm.origin().offset(relative)).is(Blocks.HAY_BLOCK) && !farm.blueprint().blocks().containsKey(relative)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private static long stunBlocksOnTheFarm() {
