@@ -476,16 +476,9 @@ final class StorySmokeSteps {
         steps.add(step("check another go", 2, player -> check("while the boss lives, Lurleen offers another go", ClientConversation.current() != null && ClientConversation.current().textKey().contains("lurleen_again"), String.valueOf(ClientConversation.current()))));
         steps.add(drive("another go", 0));
         // A real fight and a real death through the real quest. Only the killing blow is a shortcut, and the boss group plays the fight itself.
-        // Leaving the farm lost the first try, and until it has been cleaned up, the command says a fight is still on.
-        steps.add(await("the fight is on again", 600, player -> {
-            HogDaddyFight fight = HogDaddyFight.current();
-            if (fight == null && player.tickCount % 40 == 0) {
-                command("wallis_boss hog_daddy start");
-            }
-            return fight != null && fight.boss().isAlive();
-        }));
-        steps.add(step("let him get going", 100, player -> {
-        }));
+        // Leaving the farm loses the first try, and until that has been cleaned up, the command says a fight is still on.
+        steps.add(await("the first try is over", 800, player -> HogDaddyFight.current() == null));
+        steps.add(step("back to the fight", 100, player -> command("wallis_boss hog_daddy start")));
         steps.add(step("get close and kill him", 5, player -> {
             HogDaddy boss = HogDaddyFight.current().boss();
             command(String.format("tp @s %.2f %.2f %.2f", boss.getX(), boss.getY(), boss.getZ() + 4.0));
