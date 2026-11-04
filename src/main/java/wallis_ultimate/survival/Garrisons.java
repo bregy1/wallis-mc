@@ -213,7 +213,7 @@ public final class Garrisons {
         }
     }
 
-    /** A few blocks each tick, in turn, so a big safe spot never costs much at once. */
+    /** A few blocks each tick, in turn, so a big safe spot never costs much at once. Finds what blasts and the like broke. */
     private static void scanForDamage(ServerLevel level, Garrison garrison) {
         if (garrison.toCheck.isEmpty()) {
             return;
@@ -361,7 +361,23 @@ public final class Garrisons {
         return next;
     }
 
-    /** Puts the planned block back, unless someone's standing in the way; the next scan notices it again then. */
+    /** A guard had to drop this repair, for a fight or the like. It stays on the list for the next guard. */
+    public static void repairLater(Defender guard, BlockPos pos) {
+        if (guard.level() instanceof ServerLevel level) {
+            Garrison garrison = garrison(level, guard.spotId());
+            if (garrison != null) {
+                garrison.broken.add(pos);
+            }
+        }
+    }
+
+    /** GameTests only. */
+    public static boolean isWaitingForRepair(ServerLevel level, SafeSpot spot, BlockPos pos) {
+        Garrison garrison = garrison(level, spot.id());
+        return garrison != null && garrison.broken.contains(pos);
+    }
+
+    /** Puts the planned block back. If someone's standing in the way, it goes back on the list to try again. */
     public static void repair(Defender guard, BlockPos pos) {
         if (!(guard.level() instanceof ServerLevel level)) {
             return;
@@ -371,7 +387,11 @@ public final class Garrisons {
             return;
         }
         BlockState planned = garrison.blueprint.blocks().get(pos.subtract(garrison.origin));
-        if (planned == null || isSameBlock(level.getBlockState(pos), planned) || !level.isUnobstructed(planned, pos, CollisionContext.empty())) {
+        if (planned == null || isSameBlock(level.getBlockState(pos), planned)) {
+            return;
+        }
+        if (!level.isUnobstructed(planned, pos, CollisionContext.empty())) {
+            garrison.broken.add(pos);
             return;
         }
         level.setBlock(pos, planned, Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE);
@@ -403,6 +423,8 @@ public final class Garrisons {
         Garrison garrison = garrison(level, spot.id());
         if (garrison != null && garrison.isBuilt(event.getPos())) {
             markWanted(level, garrison, event.getPlayer());
+            // Right away: a full scan of a big safe spot takes a minute or two, and that's for what breaks without an event.
+            garrison.broken.add(event.getPos().immutable());
         }
     }
 
