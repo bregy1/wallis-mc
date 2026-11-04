@@ -37,6 +37,8 @@ import wallis_ultimate.worldgen.SafeSpot;
 public final class DefenderGameTests {
     private static final String PLATFORM = "platform";
     private static final String BATCH = "defenders";
+    /** Guards go after enemies they can't see, so tests with enemies in them would pull in the guards of every test beside them. */
+    private static final String FIGHTS = "defender_fights";
     /** The dropship hovers at least 20 blocks over whatever is below it, which takes a while at parachute speed. */
     private static final int MIN_PARACHUTE_TICKS = 60;
 
@@ -82,7 +84,7 @@ public final class DefenderGameTests {
     }
 
     /** A real shot at a real zombie, across the platform. Hit chance isn't 100%, so a few of them. */
-    @GameTest(template = PLATFORM, batch = BATCH, timeoutTicks = 100)
+    @GameTest(template = PLATFORM, batch = FIGHTS, timeoutTicks = 100)
     public static void shotsHurtZombies(GameTestHelper helper) {
         Defender defender = helper.spawnWithNoFreeWill(ModEntities.DEFENDER.get(), new Vec3(1.5, 2.0, 1.5));
         RegularZombie zombie = helper.spawnWithNoFreeWill(ModEntities.ZOMBIE.get(), new Vec3(6.5, 2.0, 6.5));
@@ -99,7 +101,7 @@ public final class DefenderGameTests {
     }
 
     /** The whole thing: a free defender notices the zombie by itself, and it comes out badly for the zombie. */
-    @GameTest(template = PLATFORM, batch = BATCH, timeoutTicks = 200)
+    @GameTest(template = PLATFORM, batch = FIGHTS, timeoutTicks = 200)
     public static void defendersPickFightsWithEnemiesThemselves(GameTestHelper helper) {
         Defender defender = helper.spawn(ModEntities.DEFENDER.get(), new Vec3(1.5, 2.0, 1.5));
         RegularZombie zombie = helper.spawnWithNoFreeWill(ModEntities.ZOMBIE.get(), new Vec3(6.5, 2.0, 6.5));
@@ -112,7 +114,7 @@ public final class DefenderGameTests {
     }
 
     /** Monsters hunt defenders like they hunt players, so a horde at a safe spot means a fight. */
-    @GameTest(template = PLATFORM, batch = BATCH, timeoutTicks = 200)
+    @GameTest(template = PLATFORM, batch = FIGHTS, timeoutTicks = 200)
     public static void zombiesHuntDefenders(GameTestHelper helper) {
         helper.spawnWithNoFreeWill(ModEntities.DEFENDER.get(), new Vec3(1.5, 2.0, 1.5));
         RegularZombie zombie = helper.spawn(ModEntities.ZOMBIE.get(), new Vec3(6.5, 2.0, 6.5));
@@ -209,13 +211,15 @@ public final class DefenderGameTests {
     }
 
     /** SURV-011: a guard doesn't stand and snipe from its post. It walks up to the enemy, which is what gets it hurt. */
-    @GameTest(template = PLATFORM, batch = BATCH, timeoutTicks = 100)
+    @GameTest(template = PLATFORM, batch = FIGHTS, timeoutTicks = 100)
     public static void guardsWalkUpToTheEnemy(GameTestHelper helper) {
         SafeSpot zone = zoneHere(helper, 0, null);
         Defender guard = defenderAt(helper, zone, 0.5, 0.5);
         RegularZombie zombie = helper.spawnWithNoFreeWill(ModEntities.ZOMBIE.get(), new Vec3(7.5, 2.0, 7.5));
         zombie.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(1024.0);
         zombie.setHealth(1024.0F);
+        // A shot that knocks it off this small platform leaves no way there, and then a guard rightly stays and keeps shooting.
+        zombie.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0);
         Vec3 start = guard.position();
         guard.setTarget(zombie);
         helper.runAfterDelay(40, () -> {
