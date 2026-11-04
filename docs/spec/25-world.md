@@ -177,9 +177,27 @@ The world keeps the vanilla feel: generated terrain you can explore, mine and bu
 - [x] The first home quest takes place in district 1. (Quest "Create First Home": the first bed anyone in the team places is the home. Verified by the client smoke test, 2026-11-03.)
 - [ ] Teams can build in any opened district.
 - [x] A player's horde night (ENEMY-006) attacks the base around that player's bed. When team members are online together, it attacks the team's shared base: the bed most of them use. (Rule checked by GameTests; a player who has no bed of their own counts wherever they last slept, which may be a safe spot.)
+- [ ] A bed placed in creative mode counts for the first home quest too, so the quest can't get stuck. (Found in your first play, 2026-11-04: "I placed my bed but the quest was not finished then. SO stuck now". Your world was in creative mode, and creative beds were left out on purpose.)
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answers to Q-066, Q-107). Since every structure exists only once (WORLD-005), personal loot keeps exploring worthwhile for every team member. Candidate mod: Lootr (license still to check).
+
+### WORLD-015 — The land looks like the end of the world
+**Status:** approved 2026-11-04 (your words; how it looks is my proposal, for you to veto)
+**Priority:** must
+
+**Description:** Earth's landscape looks properly like the end of the world, not like normal Minecraft. An advanced civilisation died here a short while ago (see World view in the overview): dead and burned land, ruined things everywhere, and a sky that tells you something went very wrong.
+
+**Acceptance criteria:**
+- [ ] Standing anywhere on Earth's surface, it's obvious at a glance that this isn't normal Minecraft.
+- [ ] Grass, leaves, water and sky have dead, burned, dirty colors, and different areas still look different from each other.
+- [ ] Healthy green forests and flower fields are gone: dead and burned trees, ash and scorched ground take their place.
+- [ ] The land itself carries scars: craters and wrecks of the old world, not only recolored vanilla terrain.
+- [ ] You can still find what Chapter 1 needs: wood, food, stone, ores, and animals to hunt or farm.
+- [ ] It doesn't add lag or make world creation noticeably slower (PACK-003).
+
+**Open questions:**
+**Notes:** Your words: "I think we have to tweak world generation, it looks still a lot like minecraft, but i like the whole landscape to be properly end of world. Is that super hard?" It isn't: colors, plants and scars are doable, and only a completely different terrain shape would be a big job.
 
 ### WORLD-014 — Small themed ruins on every planet
 **Status:** approved 2026-11-02 (your words; which ruins and how many are my proposals). Earth implemented 2026-11-03, verified by GameTests and in a real client by the smoke test

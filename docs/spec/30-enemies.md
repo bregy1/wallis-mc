@@ -102,6 +102,7 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 - [x] When team members play together, the counter closest to its horde night decides. When that horde night hits, the counters of everyone present reset. (Rules checked by GameTests; not yet played with several real players.)
 - [x] In a given district, a horde night is equally strong each time (PROG-007). (Proposal: 3 waves a minute apart, each 6 zombies plus 4 per extra player in the fight.)
 - [x] A horde of regular zombies alone is a fair fight; its elites (the special zombies in it) are what make it very challenging. Each tier sets which elites come along. Chapter 1 has no specials yet (Q-139), so its hordes are regular zombies only. (Fair is still to be judged by playing it.)
+- [ ] The command `/call-horde` starts a horde around whoever uses it, right away. It's for testing and for fun, and it's available to everyone, always, with or without cheats. (Your words: "For testing, and fun, i would liek a command \"/call-horde\" available to everyone always, just in case".)
 
 **Open questions:**
 **Notes:** Your words on elites: "So a horde without elites is kinda weak, but the elites make it very challenging." Matches gear traits like the loud chainsaw and the pipe bomb lure (40-gear.md). Your words (Q-158): "Cannot skip it. We might have an item later in the game, which allows skipping a night by praying, the praying costs a lot." Not in Milestone 1. Decided 2026-11-02: praying costs a super rare item, which can be gathered on the Moon, so it comes into play when returning to clear Earth (STORY-018). Your words: "The praying, i would just go with super rare item. On the moon it is actually possible to gather this item then, so later when returning to clear the earth, this item can be used." Horde nights run in `survival/HordeNights`. My proposals, veto any: the wave numbers above; "home" means within 64 blocks of the bed; waves spawn 24–36 blocks out, as near the fight's height as possible, so one can reach you in a cave, and further out if there's no ground, so standing in a lake doesn't dodge a horde; Lurleen's line. Known limit: hordes only come in the Overworld for now, so a team in the Nether at nightfall on the 7th night misses it; to settle when the Nether is built (WORLD-008).
@@ -195,6 +196,36 @@ Zombies are slow by day and faster at night, and early nights are deadly. Only s
 
 **Open questions:**
 **Notes:** Your words: "Zombies in general have to be scarier than normal zombie. So maybe few new animations and different looks." Custom animations likely need an animation library; picking one (and checking its license) is a technical check for the modpack spec. Look chosen 2026-11-02 (answer to Q-151): varied rural victims (farmers in overalls, hunters in camo, flannel, work clothes), gray-green skin, torn clothes, hollow dark eyes, slightly hunched; a lurching walk and a lunge attack.
+
+### ENEMY-013 — Zombies sound like zombies
+**Status:** approved 2026-11-04 (your words; the sounds are my pick, for you to veto)
+**Priority:** should
+
+**Description:** Regular zombies have their own sounds instead of vanilla's, inspired by the zombies in Call of Duty: Black Ops: raspy breathing, guttural growls, and a nasty shriek when they attack. Not too loud: they stay balanced against the rest of the game.
+
+**Acceptance criteria:**
+- [ ] Regular zombies have their own idle, hurt, death and attack sounds, and none of vanilla's zombie sounds play.
+- [ ] A group sounds like a group, not one sound repeating: each sound has several variations.
+- [ ] They're no louder than vanilla's zombie sounds, measured, and a horde doesn't drown out everything else.
+- [ ] None of it is taken from Black Ops, only inspired by it. Sources have licenses that fit PACK-007 and are listed in CREDITS.md.
+
+**Open questions:**
+**Notes:** Your words: "Then zombies should have custom sounds, not these boring standard soinds. Get inspired by blackops zombies, not too loud tough, needs to be somewhat balanced." Claude can't hear the result, so you judge it by ear.
+
+### ENEMY-014 — A few zombies by day
+**Status:** approved 2026-11-04 (your words; the numbers are my proposals)
+**Priority:** must
+
+**Description:** Zombies also spawn during the day, a few at a time, so the world keeps its feel. They always come in small groups, never alone.
+
+**Acceptance criteria:**
+- [ ] During the day, a few regular zombies spawn outdoors around players, in daylight.
+- [ ] Each group is at least 2 to 3 zombies.
+- [ ] There are clearly fewer than at night. Days stay the time to get things done (ENEMY-001, SURV-007).
+- [ ] They don't spawn inside safe spots (SURV-006).
+
+**Open questions:**
+**Notes:** Your words: "During the day, i would still like a few mobs to spawn. Just to keep the feel. We could make them spawn always in atleast 2-3 zombies".
 
 ## Special zombie designs (proposals)
 

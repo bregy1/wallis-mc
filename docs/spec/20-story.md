@@ -121,6 +121,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 | Dexter Vane | Elon Tusk | Elon Musk | Decided: tricked into helping make the virus, then leads the Vane group (STORY-013) |
 | Barton Shipley | Jeff Bozos | Jeff Bezos | Rival billionaire in a fortified mega-warehouse. Sells supplies at absurd prices with "two-day drone delivery", even now. Races Vane to launch a rocket first |
 | Morris Byte | Mark Zuckerbot | Mark Zuckerberg | Hides in his island bunker, talks like a robot, tracks everyone. Sells scanner tech that feeds the enemy tracker |
+| - | Donald Rump | Donald Trump | Proposal, your idea (STORY-020) |
 | Dusty Holler | Joe Rogaine | Joe Rogan | Podcast host broadcasting from his bunker; the voice behind "Radio voices". Confirmed for Chapter 1 |
 | Chef Angus Roast | Gordon Damsay | Gordon Ramsay | Furious celebrity chef running the kitchen at a redneck safe spot. Food quests, nonstop insults |
 | General Rocco Ironhart | Arnold Schwarzenschnitzel | Arnold Schwarzenegger | Ex-action-star general leading a military unit. One-liners only |
@@ -174,6 +175,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 - [x] Player characters are members of the redneck group and look like normal Minecraft characters (their own skin).
 - [x] In conversations, players pick from short replies: some are just for fun, some make story choices (STORY-005).
 - [ ] In a team, each time a reply is needed, the game randomly picks one present team member to choose it. The others see the conversation but don't choose. (The rule is verified by GameTests with three members. A real client was only ever alone in it: only one game fits on this machine.)
+- [ ] During a conversation the camera looks at whoever is talking, not at the floor. (Your words: "For answering, I am juust looking on the floor, please fix the camera then!")
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answers to Q-033, Q-034, Q-045). Before release, check the hosting platforms' content rules on swearing. Start decided 2026-11-02 (answers to Q-137, Q-147): everyone wakes up in front of the rednecks' cabin at world spawn, a run-down hunting cabin in the woods with a porch and a sagging couch, beer cans, a moonshine still out back, a rusty pickup, antlers over the door and a campfire pit. Built 2026-11-02 as a placeholder by Claude, plus an outhouse and a woodpile; players appear north of the fire, looking south at the cabin.
@@ -409,6 +411,23 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 
 **Open questions:** Q-117
 **Notes:** Replaces the earlier plan of a public pack with fictional names plus a local uncut add-on (Q-115, Q-117). Your words then: "We remove what we have to, but we keep a separate jar file mod which i dont publish on curseforge but may use local on my computer." Older text in this spec may still use the fictional names as shorthand; the cast table says who is who, and the game uses the parody names.
+
+### STORY-020 — Famous people, funny stories
+**Status:** approved 2026-11-04 (your words; who, where and all text are my proposals)
+**Priority:** should
+
+**Description:** Now that the pack is only for friends (PACK-007), the famous people turn up in Chapter 1, with parody names and skins that clearly look like them: Elon Tusk, a parody of Trump, and others from the cast. Each comes with a funny story of their own. The rich survived, and it hasn't made them any less ridiculous.
+
+**Acceptance criteria:**
+- [ ] Players can meet at least Elon Tusk and the Trump parody in Chapter 1, plus a few others from the cast.
+- [ ] Each has a skin that's clearly recognizable as who it parodies, painted in Minecraft's style.
+- [ ] Each has at least one funny anecdote, in the game's rough tone (story skill).
+- [ ] It's side content: nobody has to meet them to finish Chapter 1, and they can't die (SURV-011).
+- [ ] They don't give away what Chapter 1 keeps secret (STORY-016), such as the aliens or Tusk's part in the virus (STORY-013).
+- [ ] The story skill's guardrails hold: parody of the public persona, no real-world conspiracy theories, no sexy moments, no real slurs. The fiction disclaimer stays (STORY-014).
+
+**Open questions:**
+**Notes:** Your words: "since we dropped the whole curseforge thing, would be nice to introduce the elon tusk, and other famous people. Get inspired. They should be funny aaneqdotes. Can also be trump for example. They shouild have matching skins ofc."
 
 ### STORY-014 — Fiction disclaimer
 **Status:** approved (partly implemented 2026-11-02: the title screen line, checked by screenshot in the client smoke test; the modpack description comes with the release)

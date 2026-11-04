@@ -51,6 +51,8 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - 2026-11-03: Hog Daddy (ENEMY-011): his farm between two safe spots, sealed by a ring of unminable hay and wrecks; the chase, the pen, enraged belly flops; stuns, fire, per-player scaling, downed players ignored.
 - 2026-11-04: all of this tested together for the first time. Chapter 1 now plays from the opening through the real quest and the real fight to tier 2. Not yet played by a person or with two real clients; Hog Daddy's balance and the team rules are untested.
 
+- 2026-11-04: first play by you. Your notes are now in the spec: voices (PRES-003), music (PRES-001), a texture pack (PRES-004), zombie sounds (ENEMY-013), the end-of-world landscape (WORLD-015), zombies by day (ENEMY-014), `/call-horde` (ENEMY-006), famous people (STORY-020), and fixes for the conversation camera (STORY-002), creative mode (PROG-002) and the first home quest in creative (WORLD-012).
+
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)
 - **Story:** STORY-002, STORY-003, STORY-010, STORY-014, STORY-016, Chapter 1 of the storyline
@@ -85,7 +87,6 @@ Ideas you want to keep in mind but not build yet.
 - **Earth cleanup storyline.** Return to Earth after the Moon with a special weapon and clear it section by section (STORY-018).
 - **A violet alien planet where shulkers drop shulker shells.** Later in the game (WORLD-007).
 - **An item that allows magic outside the magic planet.** Very late game, after version 1 (STORY-012).
-- **Themed background music.** Some music for every theme, nothing too crazy (PRES-001).
 - **Fame and leader abilities.** A fame bar on every planet, and leader abilities like NPC drop-offs and evacuation once a planet is finished (PROG-014).
 - **Optimisation pass.** Once there's a working version: a faster loading screen and no lag in-game (PACK-003). Bring it up when no other tasks are left.
 - **Own loading screen and main menu.** A later task. Darker, grayer colors, and slow fight music in a redneck style that's still apocalyptic. A nice title image: a group of rednecks sitting around a fire (PRES-002).

@@ -42,6 +42,7 @@ Progression is the backbone of Wallis Ultimate. It is mainly story-driven: compl
 - [ ] Locking also applies to items from other mods in the pack, not only our own.
 - [ ] Machines (furnaces and other mods' machines included) are gated by being locked items themselves. Once placed, a machine processes its recipes without checking locks.
 - [ ] No machine available in a tier has a recipe whose output belongs to a later tier (machine recipes are curated per tier).
+- [ ] In creative mode, every item can be found, taken and used, and every block placed, whatever the team has unlocked. (Your words: "In creative mode, i should be able to use and get any item still!!")
 
 **Unlocked from the start (allow-list):** everything in the pack is locked except this list (answer to Q-124).
 
