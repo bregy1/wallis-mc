@@ -2,7 +2,9 @@ package wallis_ultimate;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import wallis_ultimate.network.ModNetwork;
@@ -15,6 +17,9 @@ import wallis_ultimate.registry.ModFeatures;
 import wallis_ultimate.registry.ModMenus;
 import wallis_ultimate.registry.ModItems;
 import wallis_ultimate.registry.ModKit;
+import wallis_ultimate.story.StoryOptions;
+import wallis_ultimate.story.StoryQuests;
+import wallis_ultimate.story.StoryTeams;
 
 @Mod(WallisUltimate.MOD_ID)
 public class WallisUltimate {
@@ -38,5 +43,8 @@ public class WallisUltimate {
         modBus.addListener(ModEntities::registerSpawnPlacements);
         ModNetwork.register();
         TeamUnlocks.register();
+        StoryTeams.register();
+        StoryQuests.register();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, StoryOptions.SPEC);
     }
 }

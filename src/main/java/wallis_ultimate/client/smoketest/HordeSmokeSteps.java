@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import wallis_ultimate.client.ClientConversation;
 import wallis_ultimate.entity.Defender;
 import wallis_ultimate.entity.RegularZombie;
 import wallis_ultimate.survival.HordeNights;
@@ -77,7 +78,7 @@ final class HordeSmokeSteps {
                 await("the first wave arrives", 200, player -> zombies(player) >= 4),
                 step("check the first wave", 20, player -> {
                     firstWave = zombies(player);
-                    check("the horde starts at nightfall, with word from Lurleen", chatContains("Lurleen, on the radio"), "no message");
+                    check("the horde starts at nightfall, with word from Lurleen", ClientConversation.caption() != null && ClientConversation.caption().textKey().endsWith("transmission.horde_starting"), String.valueOf(ClientConversation.caption()));
                     check("a wave of zombies comes for the player", firstWave >= 4, firstWave + " zombies");
                     onServer(server -> check("the counter starts over", HordeNights.nightsCounted(serverPlayer(server, player)) == 0,
                             "counted " + HordeNights.nightsCounted(serverPlayer(server, player))));

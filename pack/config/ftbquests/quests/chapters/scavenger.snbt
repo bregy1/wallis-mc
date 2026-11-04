@@ -1,0 +1,335 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "scavenger"
+	group: ""
+	hide_quest_until_deps_complete: true
+	icon: "minecraft:campfire"
+	id: "5A11000000000001"
+	order_index: 0
+	quest_links: [ ]
+	subtitle: ["{\"translate\":\"story.wallis_ultimate.quest.chapter_sub\"}"]
+	title: "{\"translate\":\"story.wallis_ultimate.quest.chapter\"}"
+	quests: [
+		{
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.intro.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.intro.text2\"}"
+			]
+			icon: "minecraft:campfire"
+			id: "5A11000000000100"
+			rewards: [
+				{
+					id: "5A11000000000181"
+					item: "minecraft:red_bed"
+					count: 1
+					type: "item"
+				}
+				{
+					id: "5A11000000000182"
+					item: "minecraft:bread"
+					count: 4
+					type: "item"
+				}
+			]
+			shape: "gear"
+			size: 1.5d
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.intro.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000101"
+				tags: ["wu_flag:heard_intro"]
+				title: "{\"translate\":\"story.wallis_ultimate.quest.intro.task\"}"
+				type: "custom"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.intro.title\"}"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5A11000000000100"]
+			description: ["{\"translate\":\"story.wallis_ultimate.quest.swing.text1\"}"]
+			icon: "wallis_ultimate:nail_bat"
+			id: "5A11000000000200"
+			rewards: [{
+				id: "5A11000000000281"
+				individual: true
+				stage: "scavenger_weapons"
+				type: "historystages:history_stage"
+			}]
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.swing.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000201"
+				item: "minecraft:stone_sword"
+				title: "{\"translate\":\"story.wallis_ultimate.quest.swing.task\"}"
+				type: "item"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.swing.title\"}"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5A11000000000100"]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.home.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.home.text2\"}"
+			]
+			icon: "minecraft:red_bed"
+			id: "5A11000000000300"
+			shape: "square"
+			size: 1.5d
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.home.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000301"
+				tags: ["wu_check:home"]
+				title: "{\"translate\":\"story.wallis_ultimate.quest.home.task\"}"
+				type: "custom"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.home.title\"}"
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["5A11000000000300"]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.dinner.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.dinner.text2\"}"
+			]
+			icon: "farmersdelight:cooking_pot"
+			id: "5A11000000000400"
+			rewards: [{
+				id: "5A11000000000481"
+				individual: true
+				stage: "cooking"
+				type: "historystages:history_stage"
+			}]
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.dinner.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000401"
+				tags: ["wu_check:cooked_food"]
+				title: "{\"translate\":\"story.wallis_ultimate.quest.dinner.task\"}"
+				type: "custom"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.dinner.title\"}"
+			x: 4.0d
+			y: 3.5d
+		}
+		{
+			dependencies: ["5A11000000000200"]
+			description: ["{\"translate\":\"story.wallis_ultimate.quest.zombies.text1\"}"]
+			icon: "wallis_ultimate:bandage"
+			id: "5A11000000000500"
+			rewards: [{
+				id: "5A11000000000581"
+				item: "wallis_ultimate:bandage"
+				count: 3
+				type: "item"
+			}]
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.zombies.subtitle\"}"
+			tasks: [{
+				entity: "wallis_ultimate:zombie"
+				id: "5A11000000000501"
+				title: "{\"translate\":\"story.wallis_ultimate.quest.zombies.task\"}"
+				type: "kill"
+				value: 5L
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.zombies.title\"}"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5A11000000000300"]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.night.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.night.text2\"}"
+			]
+			icon: "wallis_ultimate:grannys_rabbit_foot"
+			id: "5A11000000000600"
+			rewards: [{
+				id: "5A11000000000681"
+				item: "wallis_ultimate:grannys_rabbit_foot"
+				count: 1
+				type: "item"
+			}]
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.night.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000601"
+				stat: "minecraft:sleep_in_bed"
+				title: "{\"translate\":\"story.wallis_ultimate.quest.night.task\"}"
+				type: "stat"
+				value: 1
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.night.title\"}"
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["5A11000000000500"]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.radio.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.radio.text2\"}"
+			]
+			icon: "wallis_ultimate:old_radio"
+			id: "5A11000000000700"
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.radio.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000701"
+				tags: ["wu_flag:heard_radio"]
+				title: "{\"translate\":\"story.wallis_ultimate.quest.radio.task\"}"
+				type: "custom"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.radio.title\"}"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5A11000000000700"]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.safe.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.safe.text2\"}"
+			]
+			icon: "minecraft:iron_ingot"
+			id: "5A11000000000800"
+			rewards: [{
+				id: "5A11000000000881"
+				individual: true
+				stage: "iron"
+				type: "historystages:history_stage"
+			}]
+			shape: "square"
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.safe.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000801"
+				tags: ["wu_check:safe_spot"]
+				title: "{\"translate\":\"story.wallis_ultimate.quest.safe.task\"}"
+				type: "custom"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.safe.title\"}"
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5A11000000000800"]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.scrap.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.scrap.text2\"}"
+			]
+			icon: "wallis_ultimate:frying_pan"
+			id: "5A11000000000900"
+			rewards: [{
+				id: "5A11000000000981"
+				item: "wallis_ultimate:frying_pan"
+				count: 1
+				type: "item"
+			}]
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.scrap.subtitle\"}"
+			tasks: [{
+				count: 8L
+				id: "5A11000000000901"
+				item: "minecraft:iron_ingot"
+				title: "{\"translate\":\"story.wallis_ultimate.quest.scrap.task\"}"
+				type: "item"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.scrap.title\"}"
+			x: 10.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5A11000000000700"]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.carl.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.carl.text2\"}"
+			]
+			icon: "minecraft:chicken"
+			id: "5A11000000000A00"
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.carl.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000A01"
+				tags: ["wu_flag:talked_carl"]
+				title: "{\"translate\":\"story.wallis_ultimate.quest.carl.task\"}"
+				type: "custom"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.carl.title\"}"
+			x: 8.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"5A11000000000900"
+				"5A11000000000A00"
+				"5A11000000000400"
+				"5A11000000000600"
+			]
+			description: [
+				"{\"translate\":\"story.wallis_ultimate.quest.ready.text1\"}"
+				"{\"translate\":\"story.wallis_ultimate.quest.ready.text2\"}"
+			]
+			icon: "minecraft:porkchop"
+			id: "5A11000000000B00"
+			rewards: [{
+				auto: "invisible"
+				command: "/wallis_boss hog_daddy start"
+				elevate_perms: true
+				exclude_from_claim_all: true
+				id: "5A11000000000B81"
+				silent: true
+				team_reward: true
+				type: "command"
+			}]
+			shape: "diamond"
+			size: 1.5d
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.ready.subtitle\"}"
+			tasks: [{
+				id: "5A11000000000B01"
+				tags: ["wu_flag:hog_ready"]
+				title: "{\"translate\":\"story.wallis_ultimate.quest.ready.task\"}"
+				type: "custom"
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.ready.title\"}"
+			x: 12.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["5A11000000000B00"]
+			description: ["{\"translate\":\"story.wallis_ultimate.quest.hog.text1\"}"]
+			icon: "minecraft:cooked_porkchop"
+			id: "5A11000000000C00"
+			rewards: [
+				{
+					id: "5A11000000000C81"
+					individual: true
+					stage: "settler"
+					type: "historystages:history_stage"
+				}
+				{
+					id: "5A11000000000C83"
+					item: "minecraft:shulker_box"
+					count: 1
+					type: "item"
+				}
+				{
+					auto: "invisible"
+					command: "/wallis_story talk lurleen_ending"
+					elevate_perms: true
+					exclude_from_claim_all: true
+					id: "5A11000000000C82"
+					silent: true
+					team_reward: true
+					type: "command"
+				}
+			]
+			shape: "hexagon"
+			size: 2.0d
+			subtitle: "{\"translate\":\"story.wallis_ultimate.quest.hog.subtitle\"}"
+			tasks: [{
+				entity: "wallis_ultimate:hog_daddy"
+				id: "5A11000000000C01"
+				title: "{\"translate\":\"story.wallis_ultimate.quest.hog.task\"}"
+				type: "kill"
+				value: 1L
+			}]
+			title: "{\"translate\":\"story.wallis_ultimate.quest.hog.title\"}"
+			x: 15.0d
+			y: 1.0d
+		}
+	]
+}

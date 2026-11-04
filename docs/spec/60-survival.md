@@ -75,7 +75,7 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 **Notes:** First "like 20 minutes"; changed 2026-11-01 (answer to Q-053): "make it 60 minutes but it is lost after." Details decided 2026-11-02 (answer to Q-122): chest screen kept, take-only, 60 minutes of server time, a chat message with the grave's coordinates on death, placeholder look for now.
 
 ### SURV-005 — Beds are rare heal and respawn points
-**Status:** approved (partly implemented 2026-11-02: bed recipes removed and one placed bed per planet, verified by GameTests and the client smoke test; beds from quests, safe spot beds and the Hourglass night not built yet)
+**Status:** approved (partly implemented 2026-11-02: bed recipes removed and one placed bed per planet, verified by GameTests and the client smoke test; safe spot beds and the Hourglass night not built yet. 2026-11-03: beds from the quest "Mornin', Sunshine", verified by the client smoke test)
 **Priority:** must
 
 **Description:** Beds are the heal and respawn points. Each player has one bed per planet, plus the beds already placed in safe spots (SURV-006). Beds can't be crafted. On every planet the bed comes from a quest, sometimes earlier, sometimes later; on Earth it's early, for the team's first home. Sleeping fully heals you, and sleeping through the night still works as in vanilla.
@@ -84,8 +84,8 @@ Vanilla survival systems stay as they are unless this file says otherwise (pilla
 - [ ] A bed sets the player's respawn point, as in vanilla.
 - [x] Sleeping in a bed fully heals the player, when they wake up in the morning after sleeping through the night. Leaving the bed early gives nothing (answer to Q-123). (Verified in a real client with Hourglass, which wakes players at dawn.)
 - [x] Beds can't be crafted. (The 16 bed recipes are switched off; dyeing a bed you already have still works, see Q-123.)
-- [ ] Each player can own one bed per planet; it comes from a quest on that planet. (The limit used to be forgotten on death, so dying let you place a second bed; fixed 2026-11-03 and checked by a GameTest. The quests come with the story work.)
-- [ ] On Earth, every player receives their bed early, used to set up the team's first home (quest "create first home").
+- [x] Each player can own one bed per planet; it comes from a quest on that planet. (On Earth so far. The limit used to be forgotten on death, so dying let you place a second bed; fixed 2026-11-03 and checked by a GameTest.)
+- [x] On Earth, every player receives their bed early, used to set up the team's first home (quest "create first home"). (From the first quest, in the first conversation. A player who joins the team later should get theirs when they join: that's how FTB Quests' rewards work per player, read in its code, not tried with two clients.)
 - [x] Safe spots have beds already placed (SURV-006); they don't count toward the one-bed limit.
 - [ ] A player can pick up their bed and place it again, which moves their home (WORLD-012).
 - [x] When players sleep, the night races by in a few seconds (Hourglass) instead of being skipped instantly.
@@ -154,7 +154,7 @@ Built 2026-11-03, all of it my proposals to veto, looks are placeholders by Clau
 **Notes:** Decided 2026-11-01. Vanilla has no setting for day length; Hourglass covers it (PACK-004). Zombie behavior by time of day is in ENEMY-001 to ENEMY-003.
 
 ### SURV-008 — Food: vanilla hunger plus cooking
-**Status:** approved (partly implemented 2026-11-02: Farmer's Delight in the pack, Nourishment weakened, verified by a GameTest; balance still to check; the Cooking stage is in place, its quest comes with the story)
+**Status:** approved (partly implemented 2026-11-02: Farmer's Delight in the pack, Nourishment weakened, verified by a GameTest; balance still to check; the Cooking stage comes from Lurleen's quest "Hot Meal", 2026-11-03)
 **Priority:** should
 
 **Description:** Hunger works as in vanilla. Farmer's Delight adds cooking (cooking pot, cutting board), new crops and hearty meals, in vanilla style.

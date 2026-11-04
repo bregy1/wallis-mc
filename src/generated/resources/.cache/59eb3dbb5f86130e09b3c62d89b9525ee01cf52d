@@ -1,4 +1,4 @@
-// 1.20.1	2026-11-03T00:03:49.6997201	Loot Tables
+// 1.20.1	2026-11-04T01:07:43.6878244	Loot Tables
 da3e36f04a72a0a2a6b162b219ba9919931f32a0 data/wallis_ultimate/loot_tables/blocks/antlers.json
 a3732e271593d98afe3bc1455c77bf16d1890f0b data/wallis_ultimate/loot_tables/blocks/asphalt.json
 26804538f4c8f04e778c28aec70ac1dde3441adc data/wallis_ultimate/loot_tables/blocks/asphalt_dashed.json
@@ -45,6 +45,7 @@ c8a4978ec0d56900c61c61afb888bb7f242ab3c8 data/wallis_ultimate/loot_tables/blocks
 f8bb5c67063ffc6df38a618b96e5e96afb509ed5 data/wallis_ultimate/loot_tables/blocks/neon_tube_cyan.json
 c19ef487590868c54ab0774c4f8a6fff6f2e3a3e data/wallis_ultimate/loot_tables/blocks/neon_tube_pink.json
 5a5ea865eac24006fcc2834b4b96efd0159cc4fb data/wallis_ultimate/loot_tables/blocks/oil_drum.json
+aa26c2d228b4476b44d2dc05bfea8dd57240146e data/wallis_ultimate/loot_tables/blocks/old_radio.json
 5f97e91d054e3ee6d48d9714c12458a60a1e8804 data/wallis_ultimate/loot_tables/blocks/robot_scrap.json
 282faf9a796d6b899a0cffce2b67fe6ff6ca6b09 data/wallis_ultimate/loot_tables/blocks/rubble_decal.json
 2565a9899e86114024ba50fa209aebb670bb5ca7 data/wallis_ultimate/loot_tables/blocks/rubble_pile.json

@@ -32,6 +32,7 @@ import net.minecraftforge.fml.common.Mod;
 import wallis_ultimate.WallisUltimate;
 import wallis_ultimate.entity.RegularZombie;
 import wallis_ultimate.registry.ModEntities;
+import wallis_ultimate.story.Transmissions;
 import wallis_ultimate.team.Teams;
 import wallis_ultimate.worldgen.SafeSpot;
 
@@ -248,7 +249,7 @@ public final class HordeNights {
         MinecraftServer server = team.get(0).server;
         markHorde(team, server.overworld().getDayTime() / TICKS_PER_DAY);
         for (ServerPlayer player : team) {
-            player.sendSystemMessage(Component.translatable(MESSAGE + "started").withStyle(ChatFormatting.RED));
+            Transmissions.hordeStarting(player);
             player.playNotifySound(SoundEvents.RAID_HORN.value(), SoundSource.HOSTILE, 1.0F, 1.0F);
         }
         HORDES.add(new Horde(team.stream().map(Player::getUUID).toList(), server.getTickCount()));

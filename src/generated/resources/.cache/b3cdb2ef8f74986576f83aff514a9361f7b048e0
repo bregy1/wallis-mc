@@ -1,4 +1,4 @@
-// 1.20.1	2026-11-02T21:54:01.9663336	Tags for minecraft:item mod id wallis_ultimate
+// 1.20.1	2026-11-03T23:10:19.053887	Tags for minecraft:item mod id wallis_ultimate
 6fff6caa451bded865628a660cb5938a698aa130 data/curios/tags/items/belt.json
 a773fcb8be18ab5e7afe6ac8428a936602281dcf data/curios/tags/items/body.json
 296ea991b04555fea855c1bac644f7bcc42890a6 data/curios/tags/items/charm.json
@@ -9,3 +9,4 @@ fabfb1789790409ef8e12b93c683a2a8de74da6f data/minecraft/tags/items/axes.json
 a8473a11638cb96e04b54803db86607e25041f0e data/minecraft/tags/items/hoes.json
 6915175dd6f72a4cf222588f764802107ddbf55b data/minecraft/tags/items/pickaxes.json
 1b592a76a571386c4588fbc65d177151ec30226c data/minecraft/tags/items/shovels.json
+cbc56dbd8284de5476faf705d0d7671629da9486 data/wallis_ultimate/tags/items/cooked_food.json

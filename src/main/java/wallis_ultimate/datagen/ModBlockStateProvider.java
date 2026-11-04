@@ -64,6 +64,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wheel();
         beerCans();
         antlers();
+        oldRadio();
     }
 
     private void cubeWithItem(RegistryObject<Block> block) {
@@ -183,5 +184,25 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .face(Direction.NORTH).texture("#rack").uvs(0.0F, 0.0F, 16.0F, 16.0F).end()
                 .end();
         horizontalBlock(ModBlocks.ANTLERS.get(), model);
+    }
+
+    /** A boxy old radio with a bent aerial. The texture's front is on the north face, like every prop here. */
+    private void oldRadio() {
+        BlockModelBuilder model = models().withExistingParent("old_radio", mcLoc("block/block"))
+                .texture("particle", modLoc("block/old_radio"))
+                .texture("all", modLoc("block/old_radio"))
+                .texture("aerial", mcLoc("block/iron_block"));
+        model.element().from(3.0F, 0.0F, 5.0F).to(13.0F, 7.0F, 11.0F)
+                .allFaces((direction, face) -> {
+                    if (direction == Direction.NORTH || direction == Direction.SOUTH) {
+                        face.texture("#all").uvs(3.0F, 0.0F, 13.0F, 7.0F);
+                    } else {
+                        face.texture("#all").uvs(0.0F, 8.0F, 6.0F, 15.0F);
+                    }
+                })
+                .end();
+        model.element().from(11.0F, 7.0F, 7.5F).to(11.5F, 14.0F, 8.0F).textureAll("#aerial").end();
+        horizontalBlock(ModBlocks.OLD_RADIO.get(), model);
+        simpleBlockItem(ModBlocks.OLD_RADIO.get(), model);
     }
 }

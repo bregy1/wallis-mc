@@ -39,7 +39,7 @@ Fighting is real-time and built on vanilla Minecraft combat. On top of that, pla
 **Notes:** Decided 2026-11-01: "just a roll, going forward. Bound on T in beginning." Built in our own mod (PACK-005), no fork. No roll animation yet (presentation, later). Ground only, confirmed 2026-11-02 (answer to Q-120); a visible roll animation comes later with the presentation work.
 
 ### CMBT-003 — Trinkets add fighting abilities
-**Status:** approved (partly implemented 2026-11-02: the 20 slots and seven Chapter 1 trinkets, verified by GameTests and the client smoke test; six of them are in the chests of the cabin and safe spots; Granny's Rabbit Foot comes with its quest)
+**Status:** approved (partly implemented 2026-11-02: the 20 slots and seven Chapter 1 trinkets, verified by GameTests and the client smoke test; six of them are in the chests of the cabin and safe spots; Granny's Rabbit Foot is the reward of the quest "Sleep It Off", 2026-11-03)
 **Priority:** should
 
 **Description:** Players have many extra equipment slots for trinkets, organised by body part, provided by an existing trinket mod. Trinkets are found throughout the world and give additional fighting abilities or powers.

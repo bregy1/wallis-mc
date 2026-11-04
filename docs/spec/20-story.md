@@ -53,6 +53,47 @@ Everyone believes the Moon is the aliens' magic home. It turns out to be only a 
 **After version 1**
 At some point the aliens follow (STORY-008), spreading the infection to the new worlds. The journey continues open-ended across planets. Somewhere along the way waits the aliens' real, ruined home planet, the only place where magic works (STORY-012). Beating it opens the magic chapter.
 
+## Chapter 1 as built (proposals, 2026-11-03)
+
+*Written and built by Claude under the working agreement. All of the text, the order of the quests, every name that's new here and every number are proposals you can veto. Art is placeholder: Lurleen's and Carl's skins and the radio, painted by Claude. For looks, describe them in words and I'll repaint.*
+
+*Tone (your note, 2026-11-03): "the game should be funny and very rough". Crude, irreverent satire that spares nobody, with lots of swearing, gross-out humor and dark jokes, everyone roasting everyone. South Park is your taste reference for how rough, but the jokes are our own, and never its lines or characters. No real slurs aimed at people for who they are. All the text here follows that, and the clean-language option covers every swear word in it.*
+
+**The opening (STORY-002, STORY-010).** About 27 seconds, the first time a player joins. The camera runs on ImmersiveCinematics (`pack/immersive_cinematics/scripts/wallis_opening.json`), the rest comes from our mod. A narrator: "Day nine of what you dumb sons of bitches still call a quiet weekend." The fire, the porch, a foot in a boot in the still. "Darryl" stumbles up, the player raises a can, he raises an arm, and the arm falls off. BLAM. Lurleen, across the fire: that wasn't Darryl, dipshit, that was his mama. Then her first conversation starts by itself: the world ended a week ago, the TV said it got out of an Army lab (STORY-001), here's a list, here are the Hendersons' beds, with some Henderson still on them.
+
+**Who's new (proposal):** Darryl, who is never seen alive and whose radio the rednecks still have. Old Man Hogg, the neighbor who became Hog Daddy. Dale, Lurleen's brother, who she mentions early and who is the missing brother of Chapter 2. Granny, Lurleen's, dead last week. The Hendersons, dead, previous owners of everyone's beds. Earl of Earl's Salvage, who owes Lurleen for still parts. "Cletus", what Lurleen calls whichever player she's talking to, because she never learned their names.
+
+**Clues, on purpose (STORY-016):** the Army lab as the cover story. Carl: it's aliens, somebody brings a clipboard to the reservoir at night, don't look a chicken in the eye. Joe Rogaine on the radio: why did we stop going to the Moon? Lurleen's Dale. The chapter's last talk: robes at the reservoir, and "a bite don't do that".
+
+**The quests,** in FTB Quests (`pack/config/ftbquests/quests/chapters/scavenger.snbt`, text in the lang file). A quest shows up once what it needs is done. Rewards go to every member unless marked; every stage is unlocked for the whole team.
+
+| # | Quest | Needs | To finish it | Reward |
+|---|---|---|---|---|
+| 1 | Mornin', Sunshine | The opening | Hear Lurleen out | A bed (SURV-005) and 4 bread, each |
+| 2 | Somethin' to Swing | 1 | Make a stone sword | Scavenger Weapons stage |
+| 3 | Create First Home (WORLD-012) | 1 | Place a bed. The first bed anyone in the team places after meeting Lurleen is the home, and she moves in | |
+| 4 | Hot Meal | 3 | Have cooked food on you | Cooking stage (SURV-008, Q-152) |
+| 5 | Darryl's Friends | 2 | Put down 5 zombies | 3 bandages each |
+| 6 | Sleep It Off | 3 | Sleep in a bed | Granny's Rabbit Foot, each (ENEMY-003, CMBT-003) |
+| 7 | The Bunker Experience | 5 | Listen to the radio in the cabin (Joe Rogaine's podcast) | |
+| 8 | Folks With Walls | 7 | Find any safe spot | Iron stage (PROG-002) |
+| 9 | Eight Bars | 8 | Have 8 iron ingots | A frying pan each |
+| 10 | Turn It Down, Carl | 7 | Talk to Conspiracy Carl at Camp Tarp | |
+| 11 | Tracks Big as a Washtub | 4, 6, 9, 10 | Tell Lurleen you're ready, at the old cabin | Runs `/wallis_boss hog_daddy start` once for the team |
+| 12 | Hog Daddy (the tier 1 milestone, PROG-004) | 11 | Kill `wallis_ultimate:hog_daddy` | Settler stage, which is tier 2; a shulker box each (WORLD-007); then Lurleen's last talk |
+
+**Conversations (STORY-002),** my numbers: "present" means online, in the same dimension and within 32 blocks of where the talk started; people who come closer join in. Only one conversation per team at a time. Each time a reply is needed, one present member is picked at random. They get a screen with the replies; everyone else keeps moving and reads along on the HUD, with "Name is choosing...". Whoever is picked has 45 seconds; then the choice passes to someone else who is there, if there is anyone (nobody is ever timed out alone). Lines without a reply run by themselves, at about 10 characters a second and at least 2.5 seconds; whoever started the talk can click Next to go faster. Esc walks you out of a talk. It goes on for the others; alone, it ends, and the NPC starts it over.
+
+**How Lurleen reacts (STORY-003).** What she says depends on the team's quests: the next thing on the list once per quest, then "read the list", then banter that also remembers whether you believed Carl. Over the radio, once per team: when dusk comes and you still have no home, when you find your first safe spot, when you settle down, and after your first death, to remind you of the grave. She stands at the cabin across from the fire. A second Lurleen appears by the team's first bed, unless that bed is within 24 blocks of the cabin (Q-136's "several places"). Her radio line for a horde night is written and ready: horde nights only have to call `Transmissions.hordeStarting(player)` (ENEMY-006).
+
+**The boss's side of it (ENEMY-011).** The last quest waits for a kill of `wallis_ultimate:hog_daddy`, and the quest before it runs `/wallis_boss hog_daddy start` when the team says it's ready at the cabin. If the fight goes badly, Lurleen at the cabin offers another go, which runs the same command again (my call, so a lost fight can't be a dead end). Neither needs the boss to exist: on a branch without it, the command fails quietly and the quest waits.
+
+**Replies with lasting effects:** one so far. Whether you believe Carl changes what Lurleen says about it later. Nothing else depends on it (STORY-005 is still draft).
+
+**Tiers (PROG-001).** Defined in `data/wallis_ultimate/wallis_tiers/*.json`. A team's tier isn't stored: it's the last tier whose stage the team has unlocked, so History Stages' sharing already takes care of joining and leaving. `/wallis_tier` shows it.
+
+**Why not Easy NPC's own dialogs:** they only ever talk to the player who clicked, so they can't show a team conversation or pick a random member. Lurleen and Carl are Easy NPC entities with our skins; their right-click opens our conversation instead. All text is in the lang file. A parody's name is in one entry only, the speaker's, and no line says it, so a name can change in one place (Q-175; a GameTest checks this).
+
 ## Plot idea pool (proposals)
 
 *Extra plots and subplots. On your request I picked seven (2026-11-01) and wove them into the storyline above; veto any. Picked plots still need requirements once you confirm them.*
@@ -121,32 +162,32 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Notes:** Your words: "first we think it is just from earth, but later we find out someone has inflicted the earth." Cover story and reveal timing decided 2026-11-01 (answers to Q-031, Q-032).
 
 ### STORY-002 — Opening: the rednecks who missed the apocalypse
-**Status:** approved
+**Status:** approved (implemented 2026-11-03, verified by GameTests and in a real client by the smoke test, except for two real clients in one conversation; text is my proposal, see "Chapter 1 as built")
 **Priority:** must
 
 **Description:** The story starts with a group of rough rednecks who didn't notice the apocalypse happened at all. They talk a lot, swear a lot, and have funny lines. The opening plays their discovery of the new world for laughs. The players are members of this group and join in the conversations by picking replies.
 
 **Acceptance criteria:**
-- [ ] The story opens with the redneck group discovering that the world has ended.
-- [ ] Redneck characters have humorous, rough dialogue, including swearing.
-- [ ] Swearing is on by default; a client-side option replaces swear words with symbols (e.g. "#@!%").
-- [ ] Player characters are members of the redneck group and look like normal Minecraft characters (their own skin).
-- [ ] In conversations, players pick from short replies: some are just for fun, some make story choices (STORY-005).
-- [ ] In a team, each time a reply is needed, the game randomly picks one present team member to choose it. The others see the conversation but don't choose.
+- [x] The story opens with the redneck group discovering that the world has ended.
+- [x] Redneck characters have humorous, rough dialogue, including swearing.
+- [x] Swearing is on by default; a client-side option replaces swear words with symbols (e.g. "#@!%"). (A corner button in every conversation, and the Config button in the mods list; config/wallis_ultimate-client.toml. It also reaches quest text in FTB Quests' own screen. Symbols are #@!$&*, because "%" would upset the lang file's formatting.)
+- [x] Player characters are members of the redneck group and look like normal Minecraft characters (their own skin).
+- [x] In conversations, players pick from short replies: some are just for fun, some make story choices (STORY-005).
+- [ ] In a team, each time a reply is needed, the game randomly picks one present team member to choose it. The others see the conversation but don't choose. (The rule is verified by GameTests with three members. A real client was only ever alone in it: only one game fits on this machine.)
 
 **Open questions:**
 **Notes:** Decided 2026-11-01 (answers to Q-033, Q-034, Q-045). Before release, check the hosting platforms' content rules on swearing. Start decided 2026-11-02 (answers to Q-137, Q-147): everyone wakes up in front of the rednecks' cabin at world spawn, a run-down hunting cabin in the woods with a porch and a sagging couch, beer cans, a moonshine still out back, a rusty pickup, antlers over the door and a campfire pit. Built 2026-11-02 as a placeholder by Claude, plus an outhouse and a woodpile; players appear north of the fire, looking south at the cabin.
 
 ### STORY-003 — First ally: Lurleen
-**Status:** approved
+**Status:** approved (implemented 2026-11-03 on Easy NPC, seen and played in a real client by the smoke test; her skin is a placeholder painted by Claude from Q-149)
 **Priority:** must
 
 **Description:** The first ally is Lurleen, an attractive, confident redneck woman. Unlike the normal-looking player characters, she has her own distinct look, made in Minecraft's art style. She moves into the team's first home and gives the Chapter 1 quests.
 
 **Acceptance criteria:**
-- [ ] Lurleen is the first named ally the player meets.
-- [ ] She has a unique model or skin that's recognizable at a glance and fits Minecraft's style.
-- [ ] She moves into the team's first home, gives Chapter 1 quests, banters, and reacts to what the team does.
+- [x] Lurleen is the first named ally the player meets.
+- [x] She has a unique model or skin that's recognizable at a glance and fits Minecraft's style. (A skin. The cap's brim and the shotgun are drawn on, not modeled.)
+- [x] She moves into the team's first home, gives Chapter 1 quests, banters, and reacts to what the team does.
 
 **Open questions:**
 **Notes:** Look decided 2026-11-02 (answer to Q-149): farm-tough, with a red flannel shirt knotted at the waist, denim shorts, cowboy boots, a trucker cap over long blond hair, freckles and a shotgun on her back. MMO-style (answer to Q-136): Lurleen can appear in several places (the cabin, the team's first home), and every team gets its own quests from her.
@@ -232,21 +273,21 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 **Notes:** Districts tie into the world spec (WORLD) and Q-029.
 
 ### STORY-010 — Cutscenes that still look like Minecraft
-**Status:** approved
+**Status:** approved (partly implemented 2026-11-03, what Chapter 1 needs: the opening, on ImmersiveCinematics, verified in a real client by the smoke test)
 **Priority:** should
 
 **Description:** Key story moments are shown as cutscenes, made in-game with Minecraft's graphics. Small extra effects in animations are fine, but anyone logging in should feel "this is still Minecraft".
 
 **Acceptance criteria:**
-- [ ] Cutscenes are made in-engine with the game's own graphics and models, not pre-rendered video.
-- [ ] Extra effects stay within vanilla's look (see the overview pillar).
-- [ ] All team members who are present take part in a cutscene together. When a reply is needed, one of them is picked at random to choose (STORY-002).
-- [ ] Some cutscenes only start when every team member is present (marked per cutscene).
-- [ ] A cutscene is skipped when everyone watching votes to skip.
-- [ ] During a cutscene, the players in it can't be hurt and nearby enemies hold still.
+- [x] Cutscenes are made in-engine with the game's own graphics and models, not pre-rendered video.
+- [x] Extra effects stay within vanilla's look (see the overview pillar). (Letterbox bars and a fade in and out.)
+- [ ] All team members who are present take part in a cutscene together. When a reply is needed, one of them is picked at random to choose (STORY-002). (Built, never run with two real clients. Replies can't happen while ImmersiveCinematics holds the mouse, so a cutscene's replies come in the conversation right after its camera.)
+- [ ] Some cutscenes only start when every team member is present (marked per cutscene). (Chapter 1 has none, so this isn't built.)
+- [ ] A cutscene is skipped when everyone watching votes to skip. (ImmersiveCinematics does the vote: hold C. Verified alone, where one vote is everyone's. Someone who has voted gets their own camera back while the others watch on.)
+- [x] During a cutscene, the players in it can't be hurt and nearby enemies hold still. (Enemies within 48 blocks of the cabin. This carries over into the conversation that follows the opening.)
 
 **Open questions:**
-**Notes:** Your words: "we both interact in those clips. Even the whole team might be needed to activate certain cutscenes." Cutscenes are expensive to build, so they should be saved for key moments. Tooling (an existing cutscene/camera mod or our own) to be picked in the modpack spec.
+**Notes:** Your words: "we both interact in those clips. Even the whole team might be needed to activate certain cutscenes." Cutscenes are expensive to build, so they should be saved for key moments. Tooling (an existing cutscene/camera mod or our own) to be picked in the modpack spec. The opening plays once per player, because everyone starts as a team of one. It needs the antlers over the cabin door for its camera; if someone has mined them, it's only the conversation (my call). Rather than teach the mod our lang files, captions are drawn by our mod over its camera (PACK-004).
 
 ### STORY-011 — The aliens
 **Status:** draft
@@ -320,7 +361,7 @@ At some point the aliens follow (STORY-008), spreading the infection to the new 
 - [ ] No major reveal happens in the first district it's relevant to without earlier hints.
 
 **Open questions:**
-**Notes:** Your words: "only give clues over time and keep the story building up slowly."
+**Notes:** Your words: "only give clues over time and keep the story building up slowly." Chapter 1's clues are listed in "Chapter 1 as built"; the criteria can only be ticked once the reveals exist.
 
 ### STORY-017 — The Moon: an alien mini base
 **Status:** draft

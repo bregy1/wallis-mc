@@ -91,7 +91,7 @@ Players start with vanilla Minecraft tools and weapons. On top of that come weap
 **Notes:** Answer to Q-112: "Just all, scale accordingly." Your words: "We should literally add tools for every ore too! So tools get faster and faster after time. But materials also harder!" District 1's order (my starting values, tuned with balancing): wood, stone, copper, iron. Copper sits between stone and iron: 180 uses, mining speed 5, attack bonus 1.5 (stone: 131, 4, 1; iron: 250, 6, 2). Iron ore needs a copper pickaxe; copper ore a stone one. Copper tools unlock with the Iron stage, together with copper itself (Q-125).
 
 ### GEAR-007 — Tier 1 weapons
-**Status:** implemented 2026-11-02 (all seven weapons, verified by GameTests and by really swinging, throwing and shooting in the client smoke test; placeholder icons; quests that unlock them come with the story)
+**Status:** implemented 2026-11-02 (all seven weapons, verified by GameTests and by really swinging, throwing and shooting in the client smoke test; placeholder icons; unlocked by the quests "Somethin' to Swing" and "Folks With Walls", 2026-11-03)
 **Priority:** must
 
 **Description:** Chapter 1 gets seven weapons from the idea pool below, each with its own trait. They unlock through the Chapter 1 story (PROG-003).

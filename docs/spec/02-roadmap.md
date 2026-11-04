@@ -47,6 +47,7 @@ The first thing we build: the Scavenger tier in the first district, from the red
 - 2026-11-03: district 1 is land on any seed (WORLD-001), and horde nights are in (ENEMY-006, WORLD-012): two warnings, three waves, beds that refuse. The one-bed limit now survives death (SURV-005). 99 GameTests and 79 client smoke checks passing.
 - 2026-11-03: safe spot defenders (SURV-011, ENEMY-007): armed guards, dropship reinforcements, repairs, stuck NPCs teleport.
 - 2026-11-03: apocalypse kit, themed safe spots with walls, small random ruins on Earth (WORLD-013, WORLD-014, SURV-011).
+- 2026-11-03: Chapter 1's story and quests (STORY-002, STORY-003, STORY-010, PROG-003, PROG-004): the opening cutscene, Lurleen and Conspiracy Carl, team conversations with a random chooser and a clean-language option, Joe Rogaine's radio, 12 quests from the first bed to the Hog Daddy quest, and tiers in data. Not tried with two real clients yet.
 
 **In Milestone 1**
 - **Progression:** PROG-001–004, PROG-006, PROG-007, PROG-008 (tier 1 only)

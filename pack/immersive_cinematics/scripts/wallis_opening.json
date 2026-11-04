@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "id": "wallis_opening",
+    "name": "Wallis opening",
+    "author": "wallis_ultimate",
+    "version": 3,
+    "description": "STORY-002, STORY-010: the rednecks find out the world ended. Camera only: captions, Darryl and Lurleen come from OpeningCutscene.java. Positions are against the antlers over the cabin's door.",
+    "block_keyboard": true,
+    "block_mouse": true,
+    "block_mob_ai": false,
+    "hide_hud": true,
+    "hide_chat": true,
+    "hide_subtitles": true,
+    "hide_skip_hud": false,
+    "render_player_model": true,
+    "pause_when_game_paused": true,
+    "interruptible": false,
+    "skippable": true,
+    "skip_vote_ratio": 100,
+    "hold_at_end": false
+  },
+  "timeline": {
+    "total_duration": 27.0,
+    "tracks": [
+      {
+        "type": "camera",
+        "clips": [
+          {
+            "start_time": 0.0,
+            "duration": 6.0,
+            "transition": "cut",
+            "interpolation": "smooth",
+            "keyframes": [
+              { "time": 0.0, "position": { "dx": -8.0, "dy": -1.0, "dz": -16.5, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": -28.0, "pitch": 12.0, "fov": 65.0 },
+              { "time": 6.0, "position": { "dx": 7.0, "dy": -1.0, "dz": -16.5, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": 25.0, "pitch": 12.0, "fov": 65.0 }
+            ]
+          },
+          {
+            "start_time": 6.0,
+            "duration": 6.0,
+            "transition": "cut",
+            "interpolation": "smooth",
+            "keyframes": [
+              { "time": 0.0, "position": { "dx": -6.0, "dy": -2.5, "dz": -5.0, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": -40.0, "pitch": 12.0, "fov": 60.0 },
+              { "time": 6.0, "position": { "dx": -1.0, "dy": -2.8, "dz": -6.0, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": 25.0, "pitch": 14.0, "fov": 60.0 }
+            ]
+          },
+          {
+            "start_time": 12.0,
+            "duration": 9.0,
+            "transition": "cut",
+            "interpolation": "smooth",
+            "keyframes": [
+              { "time": 0.0, "position": { "dx": -3.0, "dy": -2.7, "dz": -6.5, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": -80.0, "pitch": 4.0, "fov": 55.0 },
+              { "time": 9.0, "position": { "dx": -1.0, "dy": -2.9, "dz": -7.5, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": -70.0, "pitch": 2.0, "fov": 45.0 }
+            ]
+          },
+          {
+            "start_time": 21.0,
+            "duration": 6.0,
+            "transition": "cut",
+            "interpolation": "smooth",
+            "keyframes": [
+              { "time": 0.0, "position": { "dx": 0.5, "dy": -3.0, "dz": -9.5, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": 0.0, "pitch": 0.0, "fov": 60.0 },
+              { "time": 6.0, "position": { "dx": 0.0, "dy": -3.1, "dz": -8.5, "relative_origin": "block:wallis_ultimate:antlers:32" }, "yaw": 0.0, "pitch": -2.0, "fov": 50.0 }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "letterbox",
+        "clips": [
+          {
+            "start_time": 0.0,
+            "duration": 27.0,
+            "keyframes": [ { "time": 0.0, "aspect_ratio": 2.35 } ]
+          }
+        ]
+      },
+      {
+        "type": "overlay",
+        "clips": [
+          {
+            "start_time": 0.0,
+            "duration": 2.0,
+            "layer_type": "fade",
+            "color": "#000000",
+            "keyframes": [ { "time": 0.0, "opacity": 1.0 }, { "time": 2.0, "opacity": 0.0 } ]
+          },
+          {
+            "start_time": 21.0,
+            "duration": 0.5,
+            "layer_type": "fade",
+            "color": "#FFFFFF",
+            "keyframes": [ { "time": 0.0, "opacity": 0.9 }, { "time": 0.5, "opacity": 0.0 } ]
+          }
+        ]
+      }
+    ]
+  }
+}

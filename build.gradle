@@ -92,6 +92,8 @@ def syncPackConfig = tasks.register('syncPackConfig', Copy) {
     from('pack/config') { into 'config' }
     // Copied by Forge into every new world's serverconfig folder.
     from('pack/defaultconfigs') { into 'defaultconfigs' }
+    // Cutscene scripts (STORY-010): ImmersiveCinematics reads them from the game folder.
+    from('pack/immersive_cinematics') { into 'immersive_cinematics' }
 }
 tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
     dependsOn syncPackConfig
@@ -161,7 +163,7 @@ dependencies {
     runtimeOnly fg.deobf("maven.modrinth:easy-npc-core:${easy_npc_core_version}") // NPCs (STORY-002, STORY-003)
     runtimeOnly fg.deobf("maven.modrinth:easy-npc-config-ui:${easy_npc_config_ui_version}")
     runtimeOnly fg.deobf("maven.modrinth:easy-npc:${easy_npc_version}")
-    runtimeOnly fg.deobf("maven.modrinth:immersivecinematics:${immersive_cinematics_version}") // cutscenes (STORY-010)
+    implementation fg.deobf("maven.modrinth:immersivecinematics:${immersive_cinematics_version}") // cutscenes (STORY-010)
     runtimeOnly fg.deobf("maven.modrinth:xaeros-minimap:${xaeros_minimap_version}") // maps (WORLD-003)
     runtimeOnly fg.deobf("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}")
     runtimeOnly fg.deobf("maven.modrinth:embeddium:${embeddium_version}") // performance (PACK-003)

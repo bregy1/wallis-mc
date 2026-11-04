@@ -14,6 +14,7 @@ import wallis_ultimate.block.BarbedWireBlock;
 import wallis_ultimate.block.FacingPropBlock;
 import wallis_ultimate.block.GraveBlock;
 import wallis_ultimate.block.OilDrumBlock;
+import wallis_ultimate.block.OldRadioBlock;
 import wallis_ultimate.block.PanelBlock;
 import wallis_ultimate.block.TravelSignpostBlock;
 
@@ -70,6 +71,9 @@ public final class ModBlocks {
             () -> new FacingPropBlock(prop(MapColor.METAL, SoundType.CHAIN, 0.1F).noCollission().noOcclusion(), 2.0, 0.0, 2.0, 14.0, 5.0, 14.0));
     public static final RegistryObject<Block> ANTLERS = BLOCKS.register("antlers",
             () -> new FacingPropBlock(prop(MapColor.WOOD, SoundType.BONE_BLOCK, 0.5F).noCollission().noOcclusion(), 0.0, 2.0, 0.0, 16.0, 14.0, 3.0));
+    /** The podcast from the bunker, in the cabin (Chapter 1). */
+    public static final RegistryObject<Block> OLD_RADIO = BLOCKS.register("old_radio",
+            () -> new OldRadioBlock(prop(MapColor.WOOD, SoundType.WOOD, 0.5F).noOcclusion()));
 
     private ModBlocks() {
     }

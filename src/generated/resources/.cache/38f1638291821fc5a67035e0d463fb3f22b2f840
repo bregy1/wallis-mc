@@ -1,4 +1,4 @@
-// 1.20.1	2026-11-03T01:01:02.4447492	Block States: wallis_ultimate
+// 1.20.1	2026-11-04T01:07:43.6833274	Block States: wallis_ultimate
 284692ce9f60ff07ff5f6fd0c20861580b21a1d8 assets/wallis_ultimate/blockstates/alien_alloy.json
 a4343b69ee78a54ebe31bb0fe5480acc24c0dd32 assets/wallis_ultimate/blockstates/antlers.json
 e298e2d8ae87bc25a63b52f7d9c2d76dfd0ef398 assets/wallis_ultimate/blockstates/barbed_wire.json
@@ -9,6 +9,7 @@ e298e2d8ae87bc25a63b52f7d9c2d76dfd0ef398 assets/wallis_ultimate/blockstates/barb
 05d28be328f557984119ab305ce6d6fe744a0881 assets/wallis_ultimate/blockstates/green_tarp.json
 1d028890e0a62e733516bfe7d65e5e44fc8efc03 assets/wallis_ultimate/blockstates/green_tarp_slope.json
 5915007d8360e6f09c8c5ec030ddbb366bee23a4 assets/wallis_ultimate/blockstates/oil_drum.json
+0c5c3ab5600d17e049c24359fdf7f1e9db765cb7 assets/wallis_ultimate/blockstates/old_radio.json
 8d7218637877c1553ac3d0bd1bccca6dc86f0355 assets/wallis_ultimate/blockstates/reinforced_concrete.json
 ebf7579b60d0fa335ff5e969aa5c6a00971081ac assets/wallis_ultimate/blockstates/riveted_steel.json
 096001d8bfbe0b7bb7fced4aa1393a9f016a3b68 assets/wallis_ultimate/blockstates/sandbags.json
@@ -30,6 +31,7 @@ e122e2cb5ad4a39c1c5a4d10295f2f7c5cd05c25 assets/wallis_ultimate/models/block/gra
 581a39f22383aef7a529edbadd7ee2862dcd267e assets/wallis_ultimate/models/block/green_tarp_slope.json
 54471d1927371d1f12e025ee089e5cb2fc0dcd38 assets/wallis_ultimate/models/block/oil_drum.json
 230283e9a7c3163c14bf20c4581b8b9b4b9253b3 assets/wallis_ultimate/models/block/oil_drum_lit.json
+33482e52638e0d2a0817b465bd1293f4b1e8d0c0 assets/wallis_ultimate/models/block/old_radio.json
 2830fa935bfa51ef4d417fdbd78a48135fcf28ab assets/wallis_ultimate/models/block/reinforced_concrete.json
 15e0aa251e5c008a458b71d849a5b5c07d562a6b assets/wallis_ultimate/models/block/riveted_steel.json
 896c6ce3791b5af3a955098229644a81e154325f assets/wallis_ultimate/models/block/sandbags.json
@@ -45,6 +47,7 @@ cc9ad558bcf018a356fca79f906dfacf16a687f1 assets/wallis_ultimate/models/block/wre
 62b0a884b115dd4ac2d662a6cc3b594145721a94 assets/wallis_ultimate/models/item/alien_alloy.json
 8ad9611b1f878e85ee71078282f7d06fc6188d2c assets/wallis_ultimate/models/item/beer_cans.json
 b3e6507c9de3ad86f26fe86210b75932a96ac784 assets/wallis_ultimate/models/item/oil_drum.json
+573ab56d8701173f389a31a8d3b281a53296d09e assets/wallis_ultimate/models/item/old_radio.json
 559a98d411b0f4629d04718dcc5f5be64f7f11fb assets/wallis_ultimate/models/item/reinforced_concrete.json
 88310d72ccec0ec91dc3246e1506d51f33e28437 assets/wallis_ultimate/models/item/riveted_steel.json
 15d40a04b926bb6f2c4b339aa5a3eb901e090f13 assets/wallis_ultimate/models/item/sandbags.json
