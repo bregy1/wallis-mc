@@ -177,6 +177,8 @@ final class SurvivalSmokeSteps {
                     check("a player who dies respawns at their bed", respawned.blockPosition().closerThan(secondBed, RESPAWN_NEAR_BED),
                             "at " + respawned.blockPosition().toShortString() + ", bed at " + secondBed.toShortString());
                     command("effect give @s minecraft:resistance infinite 4 true");
+                    // A bed stays the player's through death, and the story's first home needs them to have none.
+                    command(String.format("setblock %d %d %d minecraft:air", secondBed.getX(), secondBed.getY(), secondBed.getZ()));
                 }));
     }
 

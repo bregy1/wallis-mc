@@ -19,6 +19,7 @@ import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.player.Inventory;
@@ -291,7 +292,9 @@ public final class ClientSmokeTest {
 
     /** Asks on the server's own thread and waits: reading its entity lists from the render thread can crash the game. */
     static <T> T onServerThread(Supplier<T> query) {
-        return Minecraft.getInstance().getSingleplayerServer().submit(query).join();
+        MinecraftServer server = Minecraft.getInstance().getSingleplayerServer();
+        // Already there: waiting for a task this thread itself has to run would wait forever.
+        return server.isSameThread() ? query.get() : server.submit(query).join();
     }
 
     static boolean chatContains(String text) {
