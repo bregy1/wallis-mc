@@ -216,6 +216,8 @@ public final class DefenderGameTests {
         RegularZombie zombie = helper.spawnWithNoFreeWill(ModEntities.ZOMBIE.get(), new Vec3(7.5, 2.0, 7.5));
         zombie.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(1024.0);
         zombie.setHealth(1024.0F);
+        // A shot that knocks it off this small platform leaves no way there, and then a guard rightly stays and keeps shooting.
+        zombie.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0);
         Vec3 start = guard.position();
         guard.setTarget(zombie);
         helper.runAfterDelay(40, () -> {
