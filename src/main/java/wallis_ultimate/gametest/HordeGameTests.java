@@ -168,6 +168,10 @@ public final class HordeGameTests {
         if (HordeNights.waveSize(1) != 6 || HordeNights.waveSize(3) != 14) {
             helper.fail("waves of " + HordeNights.waveSize(1) + " and " + HordeNights.waveSize(3));
         }
+        // SURV-011: at a safe spot, where the guards fight it too, it comes in force.
+        if (HordeNights.safeSpotWaveSize(1) != 15) {
+            helper.fail("a wave at a safe spot for one player should be 15, not " + HordeNights.safeSpotWaveSize(1));
+        }
         helper.succeed();
     }
 

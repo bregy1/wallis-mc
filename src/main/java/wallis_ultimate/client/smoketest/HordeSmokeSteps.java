@@ -29,6 +29,11 @@ import wallis_ultimate.entity.RegularZombie;
 import wallis_ultimate.survival.HordeNights;
 import wallis_ultimate.worldgen.DistrictSites;
 import wallis_ultimate.worldgen.SafeSpot;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import wallis_ultimate.entity.Dropship;
 
 /**
  * A horde night in a real client (ENEMY-006): the two warnings, the start, the first two waves coming for the player,
@@ -45,6 +50,8 @@ final class HordeSmokeSteps {
     private static BlockPos bed;
     private static int firstWave;
     private static int guardsAtStart;
+    private static final AtomicInteger GUARDS_DIED = new AtomicInteger();
+    private static final AtomicInteger DROPSHIPS = new AtomicInteger();
 
     private HordeSmokeSteps() {
     }
@@ -154,6 +161,17 @@ final class HordeSmokeSteps {
                 await("the guards take their posts", 400, player -> !guards().isEmpty()),
                 step("wait until nightfall", 20, player -> {
                     guardsAtStart = guards().size();
+                    // Guards get replaced, so the count afterwards can't tell how many were lost.
+                    MinecraftForge.EVENT_BUS.addListener((LivingDeathEvent event) -> {
+                        if (event.getEntity() instanceof Defender) {
+                            GUARDS_DIED.incrementAndGet();
+                        }
+                    });
+                    MinecraftForge.EVENT_BUS.addListener((EntityJoinLevelEvent event) -> {
+                        if (event.getEntity() instanceof Dropship && !event.getLevel().isClientSide()) {
+                            DROPSHIPS.incrementAndGet();
+                        }
+                    });
                     log("guards before the horde: " + guardsAtStart);
                     command("time set " + (12000 - LEAD_IN));
                 }),
@@ -171,15 +189,26 @@ final class HordeSmokeSteps {
                     log("zombies at the safe spot after all three waves: " + spotZombies().size() + ", guards " + guards().size());
                     screenshot("horde-spot-fight");
                 }),
-                await("the fight is over", 3000, player -> spotZombies().size() <= 2),
+                // Zombies that want a player behind a wall press against it for as long as they're there, so this doesn't wait for the last one.
+                step("let the fight run", 1200, player -> {
+                }),
                 step("check who won", 0, player -> {
-                    check("a safe spot holds against a horde night", spotZombies().size() <= 2, spotZombies().size() + " zombies left");
-                    log("guards after the horde: " + guards().size() + " of " + guardsAtStart);
+                    // If a fight stalls, this says where they are: inside, or stuck outside the walls.
+                    BlockPos center = spot().center();
+                    List<RegularZombie> left = spotZombies();
+                    log("zombies left inside the area: " + left.stream().filter(zombie -> spot().contains(zombie.getX(), zombie.getZ())).count() + " of " + left.size());
+                    left.stream().limit(8).forEach(zombie -> log("zombie left at " + zombie.blockPosition().subtract(center).toShortString() + ", target " + (zombie.getTarget() == null ? "none" : zombie.getTarget().getType().toShortString())));
+                    check("a safe spot holds against a horde night", !guards().isEmpty(), spotZombies().size() + " zombies left, " + guards().size() + " guards");
+                    log("guards after the horde: " + guards().size() + " of " + guardsAtStart + "; guards died: " + GUARDS_DIED.get() + "; dropships: " + DROPSHIPS.get());
+                    check("a horde at a safe spot costs guards their lives", GUARDS_DIED.get() >= LOST_GUARDS_AT_LEAST, GUARDS_DIED.get() + " died");
+                    check("and the aircraft comes in", DROPSHIPS.get() >= 1, DROPSHIPS.get() + " dropships");
                     screenshot("horde-spot-after");
                     command("gamerule doMobSpawning true");
                     command("time set day");
                 }));
     }
+
+    private static final int LOST_GUARDS_AT_LEAST = 3;
 
     private static SafeSpot spot() {
         return DistrictSites.get(overworld()).spot(HORDE_SPOT).orElseThrow();

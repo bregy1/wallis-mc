@@ -49,6 +49,8 @@ public final class HordeNights {
     private static final int WAVE_GAP_TICKS = 60 * 20;
     private static final int WAVE_SIZE = 6;
     private static final int WAVE_SIZE_PER_EXTRA_PLAYER = 4;
+    /** SURV-011: at a safe spot the guards fight it too, so it comes in force, and that fight is what costs them lives. */
+    private static final double SAFE_SPOT_WAVE_FACTOR = 2.5;
     /** How close to the bed still counts as being home. */
     public static final int BASE_RADIUS = 64;
     /** Players this close together away from home share one fight. */
@@ -227,6 +229,10 @@ public final class HordeNights {
         return WAVE_SIZE + WAVE_SIZE_PER_EXTRA_PLAYER * (players - 1);
     }
 
+    public static int safeSpotWaveSize(int players) {
+        return (int) Math.ceil(waveSize(players) * SAFE_SPOT_WAVE_FACTOR);
+    }
+
     /** Waves come from outside a safe spot, never from inside it (SURV-006), so the ring goes around the whole area. */
     public static int ringDistance(@Nullable SafeSpot zone) {
         return zone != null ? zone.radius() + RING_ZONE_MARGIN : RING_DISTANCE;
@@ -287,7 +293,7 @@ public final class HordeNights {
                 level.addFreshEntity(zombie);
             }
         };
-        int wanted = waveSize(fight.players().size());
+        int wanted = zone != null ? safeSpotWaveSize(fight.players().size()) : waveSize(fight.players().size());
         int spawned = 0;
         for (int i = 0; i < wanted; i++) {
             BlockPos spot = findSpot(level, around, distance);
